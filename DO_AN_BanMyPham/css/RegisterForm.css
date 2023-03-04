@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__register {
+    width: 700px;
+    height: 300px;
+    display: flex;
+}
+
+.container__register .RGform {
+    padding: 5px 25px;
+    width: 100%;
+    flex-basis: 50%;
+    border: 1px solid black;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px; 
+}
+
+.container__register .RGform .title_RG {
+    font-size: 30px;
+    text-align: center;
+    margin: 20px 0 10px 0;
+}
+
+.container__register .RGform .form_input {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container__register .RGform .form_input .txt {
+    width: 85%;
+    height: 35px;
+    padding: 0 10px;
+    border-radius: 10px;
+    border: none;
+    background: #D9D9D9;
+    align-self: center;
+}
+
+.container__register .RGform .form_input .btnRegister {
+    width: 180px;
+    height: 35px;
+    border-radius: 20px;
+    color: #F4FDFF;
+    background: #755D58;
+    border: 2px solid black;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.container__register .decor {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 25px;
+    background: #755D58;
+    color: #F4FDFF;
+    border: 1px solid black;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.container__register .decor .welcome {
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.container__register .decor .slogan {
+    font-style: oblique 8deg;
+    height: 110px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container__register .decor .btnLogin {
+    width: 180px;
+    height: 35px;
+    border-radius: 20px;
+    color: #F4FDFF;
+    background: black;
+    border: 2px solid #F4FDFF;
+    cursor: pointer;
+}
