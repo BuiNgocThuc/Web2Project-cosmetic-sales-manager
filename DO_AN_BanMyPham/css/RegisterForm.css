@@ -12,8 +12,8 @@ body {
 }
 
 .container__register {
-    width: 700px;
-    height: 300px;
+    width: 800px;
+    height: 430px;
     display: flex;
 }
 
@@ -24,6 +24,7 @@ body {
     border: 1px solid black;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px; 
+    padding-top: 15px;
 }
 
 .container__register .RGform .title_RG {
@@ -73,6 +74,7 @@ body {
     border: 1px solid black;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    position: relative;
 }
 
 .container__register .decor .welcome {
@@ -83,19 +85,23 @@ body {
 
 .container__register .decor .slogan {
     font-style: oblique 8deg;
-    height: 110px;
+    height: 150px;
     font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /* margin-bottom: 80px; */
 }
 
 .container__register .decor .btnLogin {
     width: 180px;
     height: 35px;
+    /* position: absolute; */
     border-radius: 20px;
     color: #F4FDFF;
     background: black;
     border: 2px solid #F4FDFF;
     cursor: pointer;
+    
+    /* bottom: 12px; */
 }

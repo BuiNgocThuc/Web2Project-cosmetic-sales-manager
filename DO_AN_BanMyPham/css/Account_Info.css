@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #F3F3F3;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    /* background: red; */
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    margin: 20px 50px;
+}
+
+.container .sidebar {
+    /* border: 2px solid red; */
+    max-height: 500px;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.container .sidebar .user__account {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .sidebar .user__account .thumbnail__avatar{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.container .sidebar .user__account .thumbnail__avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.container .sidebar .user__account .name__account {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    font-size: 1.1rem;
+}
+
+.container .sidebar .function__list {
+    max-height: 300px;
+    height: 100%;
+    /* border: 1px solid green; */
+    position: absolute;
+    top: 25%;
+}
+
+.container .sidebar .function__list ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 16px;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.container .sidebar .function__list ul li:first-child {
+    font-weight: 900;
+}
+
+.container .main__content {
+    height: 100%;
+    flex: 3;
+    
+}
+
+.container .main__content h3 {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.container .main__content .information {
+    height: 600px;
+    display: flex;
+    justify-content: left;
+    background: white;
+    font-size: 18px;
+}
+
+.container .main__content .information .avatar__frame {
+    /* border: 2px solid chartreuse; */
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 300px;
+    margin-left: 50px;
+}
+
+.container .main__content .information .avatar__frame .avatar__img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.container .main__content .information .avatar__frame .avatar__img img {
+    width: 100%;
+    height: 100%;
+}
+
+.container .main__content .information .avatar__frame button {
+    width: 80px;
+    height: 40px;
+    background: brown;
+    color: white;
+    border-radius: 10px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.container .main__content .information .fix__info {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    align-items: left;
+    gap: 30px;
+    margin: 30px 0 10px 80px;
+}
+
+.container .main__content .information .fix__info .form-group {
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 19px;
+}
+
+.container .main__content .information .fix__info .form-group .form-label {
+    font-size: 1.2rem;
+}
+
+.container .main__content .information .fix__info .form-group .form-input {
+    flex: 1;
+}
+
+.container .main__content .information .fix__info .form-group .form-input input {
+    width: 100%;
+    height: 30px;
+    padding: 0 15px;
+    margin: 10px 0;
+}
+
+.container .main__content .information .fix__info .radio-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* padding-top: 25px; */
+    height: auto;
+    /* border: 1px solid green; */
+}
+
+.container .main__content .information .fix__info .radio-group .form-radio {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.container .main__content .information .fix__info .radio-group .form-radio .ccs-radio {
+    /* display: flex; */
+    /* align-items: center; */
+    /* margin-left: 10px; */
+}
+
+.container .main__content .information .fix__info .radio-group .form-radio .ccs-radio label {
+    margin-left: 10px;
+}
+
+.container .main__content .information .fix__info .btnUpdate {
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    background: brown;
+    color: white;
+    cursor: pointer;
+}
