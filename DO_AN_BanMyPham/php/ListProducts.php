@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/style_ListProducts.css">
-</head>
-<body>
+
     <div class="app">
         <div class="header__slideshow">
             <div class="header__slideshow-adea">
@@ -536,15 +526,3 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const slideshow = document.querySelector('.header__slideshow-adea');
-        let counter = 0;
-
-        setInterval(() => {
-            slideshow.style.transform = `translateX(${-counter * 100}%)`;
-            counter = (counter + 1) % 4;
-        }, 3000);
-    </script>
-</body>
-</html>
