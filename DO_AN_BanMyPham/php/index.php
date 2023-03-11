@@ -10,7 +10,9 @@
     <?php
         include("header.php");
     
-        include("ListProducts.php");    
+        include("ListProducts.php");  
+    
+        include("Payments.php");
     
         include("footer.php");
 
