@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment - check out</title>
-    <link rel="stylesheet" href="css/style_Payment.css">
-    <link rel="stylesheet" href="icon/themify-icons/themify-icons.css">
-    
-</head>
-<body>
-    <div class="container">
+
+    <div class="container_Payments">
         <div class="infoClient">
             <h2 class="infoClient__text">Thông tin thanh toán</h2>
             <div class="infoClient__inputs">
@@ -106,5 +95,3 @@
             </div>
         </div>
     </div>
-</body>
-</html>
