@@ -9,6 +9,9 @@
 <body>
     <?php
         include("header.php");
+    
+        include("ListProducts.php");    
+    
         include("footer.php");
 
     ?>
