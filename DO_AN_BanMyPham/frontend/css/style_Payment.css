@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Common */
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.margin--bottom {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    margin: 15px 0;
+}
+
+.bold--text {
+    font-weight: bold;
+}
+
+/* Container */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+ /* Info Client */
+.infoClient {
+    flex: 1;
+    margin: 10px 20px;
+}
+
+.infoClient__text {
+    margin-bottom: 10px;
+}
+  
+.infoClient__inputs {
+    display: flex;
+    flex-direction: column;
+}
+  
+.infoClient__btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.btn {
+    padding: 12px 8px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+  
+.btn:hover {
+    background-color: #a8e58c;
+    color: #000;
+    cursor: pointer;
+}
+  
+.infoClient__input-text,
+#infoClient__select-pay {
+    width: 100%;
+    padding: 10px;
+    border: 1.5px solid #000;
+    background-color: #d9d9d9;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.btn--pay {
+    width: 30%;
+    color: #fff;
+    background-color: #000;
+}
+  
+select {
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+}
+  
+select option {
+    color: #333;
+    font-size: 16px;
+}
+
+
+/* List Products */
+.listProducts {
+    flex: 1.2;
+    background-color: #d9d9d9;
+    margin: 0 20px;
+}
+
+.container__products {
+    margin: 10px 20px;
+}
+
+.listProducts__text {
+    margin-bottom: 10px;
+}
+
+.listProducts__product {
+    height: 45vh;
+    overflow-y: auto;
+}
+
+.listProducts__item {
+    display: flex;
+    align-items: center;
+}
+
+.listProducts__item-img {
+    width: 120px;
+}
+
+.listProducts__item-info {
+    flex: 1;
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.listProducts__item-info-title {
+    text-transform: uppercase;
+}
+
+.listProducts__item-info-function {
+    display: block;
+    margin: 3px 0 2px;
+}
+
+.listProducts__item-price {
+    width: 80px;
+}
+
+/* Discount code */
+.listProducts__provisional-total, .listProducts__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.listProducts__discount-code {
+    display: flex;
+}
+
+.listProducts__discount-code__input {
+    padding: 10px;
+    width: 80%;
+    border: 1.5px solid #000;
+}
+
+.listProducts__discount-code__application {
+    width: 20%;
+    background-color: #000;
+    color: #fff;
+}
+
