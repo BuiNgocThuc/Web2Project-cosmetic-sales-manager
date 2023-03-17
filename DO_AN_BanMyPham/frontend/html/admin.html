@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../../assets/icons/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <title>Admin</title>
 </head>
 
@@ -30,42 +32,42 @@
             <div class="list-function">
                 <ul>
                     <li>
-                        <a href="">
+                        <a class="function-menu" href="">
                             <span><i class="fa-thin fa-house"></i> Trang Chủ</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a class="function-menu" href="">
                             <span><i class="fa-thin fa-bag-shopping"></i> Sản phẩm</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a class="function-menu" href="">
                             <span><i class="fa-thin fa-receipt"></i> Đơn hàng</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a class="function-menu" href="">
                             <span><i class="fa-thin fa-users"></i> Tài Khoản</span>
                         </a>
                     </li>
                     <li>
-                        <a href="" class="active">
+                        <a class="function-menu active" href="">
                             <span><i class="fa-thin fa-badge-percent"></i> Khuyến Mại</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a class="function-menu" href="">
                             <span><i class="fa-thin fa-signal-bars"></i> Thống Kê</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a class="function-menu" href="">
                             <span><i class="fa-thin fa-display"></i> Hiện Thị</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a class="function-menu" href="">
                             <span><i class="fa-thin fa-circle-user"></i> Quản Trị Người Dùng</span>
                         </a>
                     </li>
@@ -81,20 +83,20 @@
                 <span class="current-page">Danh sách phiếu giảm giá</span>
             </div>
             <div class="tool-icon">
-                <i class="fa-thin fa-sun-bright"></i>
-                <i class="fa-thin fa-moon-stars"></i>
+                <!-- <i class="fa-thin fa-sun-bright"></i> -->
+                <i onclick="changeIconMode(this)" id="changeMode" class="fa-thin fa-sun-bright"></i>
                 <i class="fa-thin fa-bell"></i>
                 <i class="fa-thin fa-gear"></i>
             </div>
         </header>
         <!-- MAIN  -->
         <main>
-            <div class="wrapper">
-                <div class="form-container">
-                    <div>
-                        <h3 for="">tùy chọn tìm kiếm</h3>
-                        <span><i class="fa-regular fa-angle-up"></i></span>
-                    </div>
+            <div class="form-container">
+                <div class="title-form">
+                    <h3 for="">tùy chọn tìm kiếm</h3>
+                    <span><i onclick="changeIconArrow(this)" class="fa-regular fa-angle-up"></i></span>
+                </div>
+                <div class="fix-info">
                     <div>
                         <label for="">Mã</label>
                         <input class="textfield" type="text">
@@ -121,71 +123,72 @@
                         <button class="btn btn--Undo">Hoàn Tác</button>
                     </div>
                 </div>
-                <div class="list-container">
-                    <div class="title-list">
-                        <h3>danh sách phiếu giảm giá</h3>
-                        <div class="new-code">
-                            <i class="fa-light fa-plus"></i>
-                            <button><a href="">tạo mới</a></button>
-                        </div>
-                    </div>
-                    <div class="list-code">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>mã giảm giá</th>
-                                    <th>mô tả</th>
-                                    <th>kích hoạt từ</th>
-                                    <th>kích hoạt đến</th>
-                                    <th>trạng thái</th>
-                                    <th>hoạt động</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>APP10K</td>
-                                    <td>Giảm 10k ngay lần đầu đăng kí app</td>
-                                    <td>11/11/2022</td>
-                                    <td>Không giới hạn</td>
-                                    <td><span>Hoạt động</span></td>
-                                    <td>
-                                        <button>chỉnh sửa</button>
-                                        <button>xóa</button>
-                                    </td>
-                                </tr>
-                                <<tr>
-                                    <td>1</td>
-                                    <td>APP10K</td>
-                                    <td>Giảm 10k ngay lần đầu đăng kí app</td>
-                                    <td>11/11/2022</td>
-                                    <td>Không giới hạn</td>
-                                    <td><span>Hoạt động</span></td>
-                                    <td>
-                                        <button>chỉnh sửa</button>
-                                        <button>xóa</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>APP10K</td>
-                                    <td>Giảm 10k ngay lần đầu đăng kí app</td>
-                                    <td>11/11/2022</td>
-                                    <td>Không giới hạn</td>
-                                    <td><span>Hoạt động</span></td>
-                                    <td>
-                                        <button>chỉnh sửa</button>
-                                        <button>xóa</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            </div>
+            <div class="list-container">
+                <div class="title-list">
+                    <h3>danh sách phiếu giảm giá</h3>
+                    <button>
+                        <i class="fa-light fa-plus"></i>
+                        <a href="">tạo mới</a>
+                    </button>
+                </div>
+                <div class="list-code">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>mã giảm giá</th>
+                                <th>mô tả</th>
+                                <th>kích hoạt từ</th>
+                                <th>kích hoạt đến</th>
+                                <th>trạng thái</th>
+                                <th>hoạt động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>APP10K</td>
+                                <td>Giảm 10k ngay lần đầu đăng kí app</td>
+                                <td>11/11/2022</td>
+                                <td>Không giới hạn</td>
+                                <td><span>đang Hoạt động</span></td>
+                                <td>
+                                    <button>chỉnh sửa</button>
+                                    <button>xóa</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>APP10K</td>
+                                <td>Giảm 10k ngay lần đầu đăng kí app</td>
+                                <td>11/11/2022</td>
+                                <td>Không giới hạn</td>
+                                <td><span>đang Hoạt động</span></td>
+                                <td>
+                                    <button>chỉnh sửa</button>
+                                    <button>xóa</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>APP10K</td>
+                                <td>Giảm 10k ngay lần đầu đăng kí app</td>
+                                <td>11/11/2022</td>
+                                <td>Không giới hạn</td>
+                                <td><span>đang Hoạt động</span></td>
+                                <td>
+                                    <button>chỉnh sửa</button>
+                                    <button>xóa</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </main>
     </div>
 </body>
 <script src="../js/admin.js"></script>
+
 </html>

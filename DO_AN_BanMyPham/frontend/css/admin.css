@@ -3,7 +3,11 @@
 :root {
     --main: orange;
     --bg: #0B1218;
+    /* #fffff */
     --bg-body: #131D28;
+    /* #E5E5E5 */
+    --font-color: #FFFBF1; 
+    /* #0B1218; */
 }
 
 * {
@@ -17,9 +21,7 @@
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
-    color: white;
+    color: var(--font-color);
 }
 
 .sidebar::-webkit-scrollbar {
@@ -35,40 +37,44 @@ body {
     top: 0;
     left: 0;
     overflow-y: auto;
+    z-index: 1;
     /* padding: 10px 0; */
 }
 
-.sidebar::before {
-    content: '';
-    height: 110%;
-    width: 1px;
-    position: absolute;
-    right: 0;
-    background: white;
-}
-
 .sidebar .brand {
-    margin-top: 1.25rem;
-    height: 4.3rem;
-    width: 100%;
+    height: 7.3rem;
+    width: 18vw;
     display: flex;
-    color: white;
+    color: var(--font-color);
     align-items: center;
-    position: relative;
-    padding: 10px;
+    position: fixed;
+    padding: 1.25rem .6rem;
+    background: var(--bg);
+    
+    /* border: 2px solid red; */
 }
 
-
-.sidebar .brand::after {
+.sidebar .brand::after{
     content: '';
     position: absolute;
-    background: white;
+    background: var(--font-color);
     border-radius: 20px;
+    bottom: 0;
     height: .05rem;
-    width: 100%;
-    bottom: -22px;
+    width: 18vw;
     left: 0;
 }
+
+/* .sidebar .brand::before {
+    content: '';
+    position: absolute;
+    background: var(--font-color);
+    border-radius: 20px;
+    bottom: 0;
+    height: 7.3rem;
+    width:  .05rem;
+    right: 30px;
+} */
 
 .sidebar .brand h2 {
     font-size: 1.2rem;
@@ -92,7 +98,19 @@ body {
 
 }
 
+.sidebar .sidemenu::before {
+    content: '';
+    height: 120%;
+    width: .05rem;
+    position: absolute;
+    right: 0;
+    background: var(--font-color);
+    /* background: red; */
+    top: 0;
+}
+
 .sidebar .sidemenu {
+    margin-top: 7.3rem;
     padding: .5rem;
 }
 
@@ -120,7 +138,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    color: white;
+    color: var(--font-color);
     margin-top: .5rem;
     overflow-y: auto;
 }
@@ -131,17 +149,30 @@ body {
 }
 
 .sidebar .sidemenu .list-function li {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+    /* border-radius: .8rem;
+    height: 2.8rem; */
+    width: 100%;
+}
+
+.sidebar .sidemenu .list-function li a:not(.active):hover {
+    background: var(--main);
+    opacity:0.8;
+    /* border-radius: .5rem;
+    height: 45px; */
 }
 
 .sidebar .sidemenu .list-function li a {
-    color: white;
+    color: var(--font-color);
     font-size: .85rem;
     display: flex;
     align-items: center;
     justify-content: left;
     text-transform: capitalize;
-    /* border: 2px solid white; */
+    border-radius: .8rem;
+    height: 2.8rem;
+    width: 100%;
+    /* border: 2px solid var(--font-color); */
 }
 
 .sidebar .sidemenu .list-function li a span:first-child {
@@ -151,9 +182,9 @@ body {
 
 .sidebar .sidemenu .list-function li a.active {
     background: var(--main);
-    color: white;
-    border-radius: 5px;
-    height: 45px;
+    color: var(--font-color);
+    /* border-radius: 5px;
+    height: 2.8rem; */
     /* width: 100%; */
 }
 
@@ -163,177 +194,28 @@ body {
 
 .main-content {
     min-height: 100vh;
-    width: 82vw;
+    width: calc(82vw);
     float: right;
     background: var(--bg-body);
-    padding-top: 16vh;
     /* border: 2px solid red; */
-}
-
-.main-content main {
-    /* margin-top: 16vh; */
-    width: 100%;
-    /* border: 2px solid blue; */
-    min-height: calc(100vh - 16vh);
-}
-
-.main-content main .wrapper {
-    width: 100%;
-    height: 32rem;
-    /* border: 2px solid green; */
-}
-
-.main-content main .wrapper .form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    /* border: 2px solid violet; */
-    width: 100%;
-    height: 100%;
-    background: var(--bg);
-    padding: .5rem 1.8rem;
-}
-
-.main-content main .wrapper .form-container div {
-    width: 80%;
-    align-items: center;
-    display: flex;
-    font-size: 1.2rem;
-}
-
-.main-content main .wrapper .form-container div:first-child {
-    width: 100%;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-
-.main-content main .wrapper .form-container div:first-child i:hover {
-    color: var(--main);
-    cursor: pointer;
-}
-
-.main-content main .wrapper .form-container div:nth-child(6) {
-    margin: 1em 0;
-}
-
-.main-content main .wrapper .form-container div label {
-    min-width: 18rem;
-}
-
-.main-content main .wrapper .form-container div .textfield {
-    height: .8rem;
-    flex: 1;
-    background: transparent;
-    outline: none;
-    border: 0;
-    border-bottom: 2px solid white;
-    padding: 1rem .8rem;
-    font-size: 1.2rem;
-    color: white;
-    margin-bottom: .6rem;
-    cursor: text;
-}
-
-.main-content main .wrapper .form-container div .textfield::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-    cursor: pointer;
-}
-
-.main-content main .wrapper .form-container div .switch {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 8.2rem;
-    height: 1.2rem;
-    background: #BFBFBF;
-    border-radius: 1.8rem;
-    outline: none;
-    cursor: pointer;
-    border: 1px solid var(--main);
-    position: relative;
-    transition: ease 0.5s;
-}
-
-.main-content main .wrapper .form-container div .switch:checked {
-    background: var(--main);
-    transition: ease 1s;
-}
-
-.main-content main .wrapper .form-container div .switch::before {
-    content: '';
-    width: 1.1rem;
-    height: 1.1rem;
-    background: white;
-    border-radius: 50%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transition: ease 500ms;
-    /* transform: translate(-50%, -20%); */
-}
-
-.main-content main .wrapper .form-container div .switch::after {
-    content: attr(data-content);
-    position: absolute;
-    width: 8rem;
-    height: 0.9rem;
-    top: 40%;
-    left: 66%;
-    transform: translate(-50%, -50%);
-    color: var(--bg);
-}
-
-.main-content main .wrapper .form-container div .switch:checked::before {
-    left:7rem;
-}
-
-.main-content main .wrapper .form-container div .textfield:focus {
-    border-image: linear-gradient(to right top, #d8975c, #dda561, #e1b367, #e4c26e, #e6d077, #e9ce74, #edcd71, #f0cb6e, #f5b862, #faa45c, #fc8f5b, #fb7a5f);
-    border-image-slice: 1;
-}
-
-.main-content main .wrapper .form-container div .btn {
-    display: inline-block;
-    text-decoration: none;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    color: white;
-    border-radius: 10px;
-    /* min-width: 200px; */
-    padding: .6rem 2.7rem;
-}
-
-.main-content main .wrapper .form-container div .btn:hover {
-    opacity: 0.8;
-}
-
-.main-content main .wrapper .form-container div .btn--Search {
-    background-color: var(--main);
-}
-
-.main-content main .wrapper .form-container div .btn--Undo {
-    border: 2px solid var(--main);
-    color: var(--main);
-}
-
-.main-content main .wrapper .form-container div .btn + .btn {
-    margin-left: 3rem;
+    /* overflow-y: auto; */
+    padding: 19vh 3vh 3vh 3vh;
 }
 
 .main-content header {
     background: var(--bg);
     height: 16vh;
-    width: 82vw;
+    width: calc(82vw);
     /* border: 2px solid yellow; */
-    color: white;
+    color: var(--font-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1.4rem;
     position: fixed;
     top: 0;
+    right: 0;
+    padding-left: 2rem;
 }
 
 .main-content header>div {
@@ -346,8 +228,6 @@ body {
     /* height: 100%;   
     width: auto; */
     /* border: 2px solid red; */
-
-
 }
 
 .main-content header .title .menu-icon {
@@ -357,6 +237,12 @@ body {
     border-radius: 10%;
     display: flex;
 }
+
+.main-content header .title .menu-icon:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
 
 .main-content header .title .menu-icon i {
     margin: auto;
@@ -377,8 +263,281 @@ body {
     align-items: center;
 }
 
+.main-content header .tool-icon i:hover {
+    cursor: pointer;
+    color: var(--main);
+    opacity: 0.8;
+}
+
+.main-content main {
+    width: 100%;
+    /* border: 2px solid blue; */
+}
+
+.main-content main .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    /* border: 2px solid violet; */
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    padding: 2.2rem 1.8rem;
+    border-radius: 1.8rem;
+}
+
+.main-content main .form-container .fix-info {
+    width: 80%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+
+.main-content main .form-container .fix-info div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.main-content main .form-container .title-form{
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: var(--font-color);
+    align-items: center;
+    display: flex;
+    font-size: 1.2rem;
+}
+
+.main-content main .form-container .title-form h3 {
+    font-size: 1.5rem;
+}
+
+.main-content main .form-container .title-form span:hover {
+    color: var(--main);
+    cursor: pointer;
+}
+
+.main-content main .form-container .fix-info div:nth-child(5) {
+    margin: 1em 0;
+}
+
+.main-content main .form-container .fix-info div label {
+    min-width: 18rem;
+}
+
+.main-content main .form-container .fix-info div .textfield {
+    height: 100%;
+    flex: 1;
+    background: transparent;
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid var(--font-color);
+    padding: .8rem;
+    font-size: 1.2rem;
+    color: var(--font-color);
+    margin-bottom: .6rem;
+    cursor: text;
+}
+
+.main-content main .form-container .fix-info div .textfield::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.main-content main .form-container .fix-info div .switch {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8.2rem;
+    height: 1.2rem;
+    background: #BFBFBF;
+    border-radius: 1.8rem;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--main);
+    position: relative;
+    transition: ease 0.5s;
+}
+
+.main-content main .form-container .fix-info div .switch:checked {
+    background: var(--main);
+    transition: ease 1s;
+}
+
+.main-content main .form-container .fix-info div .switch::before {
+    content: '';
+    width: 1.1rem;
+    height: 1.1rem;
+    background: var(--font-color);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: ease 500ms;
+    /* transform: translate(-50%, -20%); */
+}
+
+.main-content main .form-container .fix-info div .switch::after {
+    content: attr(data-content);
+    position: absolute;
+    width: 8rem;
+    height: 0.9rem;
+    top: 40%;
+    left: 66%;
+    transform: translate(-50%, -50%);
+    color: var(--bg);
+}
+
+.main-content main .form-container .fix-info div .switch:checked::before {
+    left: 7rem;
+}
+
+.main-content main .form-container .fix-info div .textfield:focus {
+    border-image: linear-gradient(to right top, #d8975c, #dda561, #e1b367, #e4c26e, #e6d077, #e9ce74, #edcd71, #f0cb6e, #f5b862, #faa45c, #fc8f5b, #fb7a5f);
+    border-image-slice: 1;
+}
+
+.main-content main .form-container .fix-info div .btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--font-color);
+    border-radius: 10px;
+    /* min-width: 200px; */
+    padding: .6rem 2.7rem;
+}
+
+.main-content main .form-container .fix-info div .btn:hover {
+    opacity: 0.8;
+}
+
+.main-content main .form-container .fix-info div .btn--Search {
+    background-color: var(--main);
+}
+
+.main-content main .form-container .fix-info div .btn--Undo {
+    border: 2px solid var(--main);
+    color: var(--main);
+}
+
+.main-content main .form-container .fix-info div .btn+.btn {
+    margin-left: 3rem;
+}
+
 .main-content main .list-container {
     width: 100%;
     height: 100%;
     background: var(--bg);
+    margin-top: 1.5rem;
+    padding: 2rem;
+    border-radius: 1.8rem;
+    position: relative;
+}
+
+.main-content main .list-container .title-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid violet; */
+    margin-bottom: 1.8rem;
+}
+
+.main-content main .list-container .title-list h3 {
+    font-size: 1.5rem;
+}
+
+.main-content main .list-container .title-list button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--bg);
+    border: 2px solid var(--font-color);
+    outline: none;
+    color: var(--font-color);
+    padding: .2rem 1rem;
+}
+
+.main-content main .list-container .title-list button a {
+    color: var(--font-color);
+    font-size: 1rem;
+    margin-left: .2rem;
+}
+
+.main-content main .list-container .title-list button:hover {
+    border: 2px solid var(--main);
+    color: var(--main);
+    opacity: 0.8;
+}
+
+.main-content main .list-container .title-list button:hover a {
+    color: var(--main);
+}
+
+.main-content main .list-container::before {
+    content: '';
+    width: 100%;
+    height: .1rem;
+    position: absolute;
+    top: 5.2rem;
+    left: 0;
+    background: gray;
+}
+
+.main-content main .list-container .list-code {
+    margin-top: 3rem;
+}
+
+.main-content main .list-container .list-code {
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid cyan; */
+    overflow-x: auto;
+}
+
+.main-content main .list-container .list-code .content-table {
+    width: 100%;
+    height: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    border-spacing: 0 10px;
+}
+
+
+.main-content main .list-container .list-code .content-table  td, th {
+    text-align: center;
+    padding: 8px;
+    border-bottom: 1px solid gray;
+    padding: 2rem .8rem;
+}
+
+.main-content main .list-container .list-code .content-table  tbody tr:hover {
+    /* background: var(--main); */
+    /* opacity: 0.8; */
+}
+
+.main-content main .list-container .list-code .content-table  tbody tr td button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid var(--font-color);
+    outline: none;
+    cursor: pointer;
+    color: var(--font-color);
+    padding: .3rem .2rem;
+}
+
+.main-content main .list-container .list-code .content-table  tbody tr td button:hover {
+    opacity: 0.8;
+    border: 2px solid var(--main);
+    color: var(--main);
+}
+
+.main-content main .list-container .list-code .content-table  tbody tr td button + button {
+    margin-left: .8rem;
 }
