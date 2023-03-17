@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Chi tiết sản phẩm</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="../css/product_details.css">
+  
+</head>
+<body>
+  <div class="product-details">
+    <div class="product-images">
+      <img src="../image/csrgdtsgt.png" alt="Product Image">
+    </div>
+    <div class="product-info">
+      <h1 class="product-name">Clinical Niacinamide 20% Treatment</h1>
+      <h2 class="product-price">480.000</h2>
+      <p class="product-description">This powerhouse nighttime serum delivers a potent blend of antioxidants and skin-replenishing ingredients that visibly improve the appearance of wrinkles, uneven skin tone, and loss of firmness.</p>
+      <form action="" method="POST">
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" id="quantity" value="1" min="1">
+        <button type="submit" class="add-to-cart-button">Add to Cart</button>
+      </form>
+      <ul class="product-features">
+        <li>Contains a highly concentrated amount of niacinamide (vitamin B3) for maximum results</li>
+        <li>Antioxidants and skin-replenishing ingredients help visibly improve fine lines, wrinkles, and uneven skin tone</li>
+        <li>Lightweight, serum texture absorbs quickly into skin</li>
+        <li>Fragrance-free, colorant-free, and formulated without drying alcohols</li>
+      </ul>
+    </div>
+  </div>
+  <div class="similar-productsv">
+    <h2>Sản phẩm tương tự</h2>
+    <div class="similar-products-list">
+      <div class="similar-product">
+        <a href="#"><img src="../image/AnhSP/akjlvt.png"alt="Product"></a>
+        <a href="#"><p>Tên sản phẩm</p></a>
+        <p>Giá sản phẩm</p>
+      </div>
+      <div class="similar-product">
+        <a href="#"><img src="../image/AnhSP/ècrcf.png" alt="Product"></a>
+        <a href="#"><p>Tên sản phẩm</p></a>
+        <p>Giá sản phẩm</p>
+      </div>
+      <div class="similar-product">
+        <a href="#"><img src="../image/AnhSP/bthw4hbgr.png" alt="Product"></a>
+        <a href="#"><p>Tên sản phẩm</p></a>
+        <p>Giá sản phẩm</p>
+      </div>
+      <div class="similar-product">
+        <a href="#"><img src="../image/AnhSP/ẺGTG.PNG" alt="Product"></a>
+        <a href="#"><p>Tên sản phẩm</p></a>
+        <p>Giá sản phẩm</p>
+      </div>
+      <div class="similar-product">
+        <a href="#"><img src="../image/AnhSP/duihru.png" alt="Product"></a>
+        <a href="#"><p>Tên sản phẩm</p></a>
+        <p>Giá sản phẩm</p>
+      </div>
+      <div class="similar-product">
+        <a href="#"><img src="../image/AnhSP/EGT.PNG" alt="Product"></a>
+        <a href="#"><p>Tên sản phẩm</p></a>
+        <p>Giá sản phẩm</p>
+      </div>
+      <div class="similar-product">
+        <a href="#"><img src="../image/AnhSP/bthw4hbgr.png" alt="Product"></a>
+        <a href="#"><p>Tên sản phẩm</p></a>
+        <p>Giá sản phẩm</p>
+      </div>
+    </div>
+  </div>
+  <button id="previousBtn">Trang trước</button>
+<button id="nextBtn">Trang tiếp</button>
+  
+</body>
+
+</html>
+
+<script>
+  const similarProductsList = document.querySelector('.similar-products-list');
+if (similarProductsList !== null) {
+    const totalProducts = similarProductsList.children.length;
+    // thực hiện các thao tác khác trên similarProductsList
+  } else {
+    console.log('Không tìm thấy phần tử có class "similar-products-list"');
+  }
+const previousBtn = document.querySelector('#previousBtn');
+const nextBtn = document.querySelector('#nextBtn');
+
+let currentPage = 0;
+const productsPerPage = 5;
+const totalProducts = similarProductsList.children.length;
+const totalPages = Math.ceil(totalProducts / productsPerPage);
+function showPage(page) {
+  const startIndex = page * productsPerPage;
+  const endIndex = startIndex + productsPerPage;
+  
+  for (let i = 0; i < totalProducts; i++) {
+    if (i >= startIndex && i < endIndex) {
+      similarProductsList.children[i].style.display = 'block';
+    } else {
+      similarProductsList.children[i].style.display = 'none';
+    }
+  }
+}
+
+showPage(currentPage);
+
+previousBtn.addEventListener('click', () => {
+  currentPage--;
+  nextBtn.disabled = false;
+  
+  if (currentPage === 0) {
+    previousBtn.disabled = true;
+  }
+  
+  showPage(currentPage);
+});
+
+nextBtn.addEventListener('click', () => {
+  currentPage++;
+  previousBtn.disabled = false;
+  
+  if (currentPage === totalPages - 1) {
+    nextBtn.disabled = true;
+  }
+  
+  showPage(currentPage);
+
+});
+
+</script>
