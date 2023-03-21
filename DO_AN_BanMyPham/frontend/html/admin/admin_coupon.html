@@ -5,42 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/order.css">
-    <link rel="stylesheet" href="../../assets/icons/all.css">
+    <link rel="stylesheet" href="../../css/admin/admin_coupon">
+    <link rel="stylesheet" href="../../../assets/icons/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <main>
+    <main id="Admin_Coupon" data-content="lịch sử phiếu nhập">
         <div class="form-container">
             <div class="title-form">
                 <h3 for="">tùy chọn tìm kiếm</h3>
-                <span><i onclick="changeIconArrow(this)" class="fa-regular fa-angle-up"></i></span>
+                <span><i onclick="changeIconArrow(this), hideForm()" class="fa-regular fa-angle-up"></i></span>
             </div>
             <div class="fix-info">
                 <div>
-                    <label for="">Mã đơn hàng</label>
+                    <label for="">Mã phiếu nhập</label>
                     <input class="textfield" type="text">
                 </div>
                 <div>
-                    <label for="">người dùng</label>
+                    <label for="">tên nhà cung cấp</label>
                     <input class="textfield" type="text">
                 </div>
                 <div>
-                    <label for="">Ngày đặt hàng</label>
+                    <label for="">Ngày nhập hàng</label>
                     <input class="textfield" type="date">
-                </div>
-                <div>
-                    <label for="">Trạng Thái</label>
-                    <select name="status" class="textfield">
-                        <option value="đang chờ">đang chờ</option>
-                        <option value="đã hủy">đã hủy</option>
-                        <option value="đang giao">đang giao</option>
-                        <option value="hoàn thành">hoàn thành</option>
-                        <option value="đã trả hàng">đã trả hàng</option>
-                    </select>
                 </div>
                 <div>
                     <label for=""></label>
@@ -51,7 +41,7 @@
         </div>
         <div class="list-container">
             <div class="title-list">
-                <h3>danh sách phiếu giảm giá</h3>
+                <h3>lịch sử đơn hàng</h3>
                 <button>
                     <i class="fa-light fa-plus"></i>
                     <a href="">tạo mới</a>
@@ -62,13 +52,11 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>mã đơn hàng</th>
-                            <th>tên người dùng</th>
-                            <th>họ và tên</th>
-                            <th>ngày đặt hàng</th>
-                            <th>tình trạng</th>
+                            <th>mã phiếu nhập</th>
+                            <th>tên nhà cung cấp</th>
+                            <th>số tiền</th>
+                            <th>ngày nhập hàng</th>
                             <th>hoạt động</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -78,7 +66,6 @@
                             <td>Giảm 10k ngay lần đầu đăng kí app</td>
                             <td>11/11/2022</td>
                             <td>Không giới hạn</td>
-                            <td><span>đang Hoạt động</span></td>
                             <td>
                                 <button>chỉnh sửa</button>
                                 <button>xóa</button>
@@ -90,7 +77,6 @@
                             <td>Giảm 10k ngay lần đầu đăng kí app</td>
                             <td>11/11/2022</td>
                             <td>Không giới hạn</td>
-                            <td><span>đang Hoạt động</span></td>
                             <td>
                                 <button>chỉnh sửa</button>
                                 <button>xóa</button>
@@ -102,7 +88,6 @@
                             <td>Giảm 10k ngay lần đầu đăng kí app</td>
                             <td>11/11/2022</td>
                             <td>Không giới hạn</td>
-                            <td><span>đang Hoạt động</span></td>
                             <td>
                                 <button>chỉnh sửa</button>
                                 <button>xóa</button>
@@ -114,6 +99,6 @@
         </div>
     </main>
 </body>
-<script src="../js/order.js"></script>
+<script src="../../js/order.js"></script>
 
 </html>

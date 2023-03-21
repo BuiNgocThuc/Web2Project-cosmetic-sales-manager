@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Dosis:wght@400;500;600;700&family=Open+Sans:ital,wght@0,500;1,400&display=swap');
+
 :root {
     --main: orange;
     --bg: #0B1218;
@@ -20,14 +22,10 @@
 
 body {
     color: var(--font-color);
+
 }
 
-main {
-    width: 100%;
-    /* border: 2px solid blue; */
-}
-
-main .form-container {
+#Admin_Discount .form-container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -40,7 +38,7 @@ main .form-container {
     border-radius: 1.8rem;
 }
 
-main .form-container .fix-info {
+#Admin_Discount .form-container .fix-info {
     width: 80%;
     align-items: center;
     display: flex;
@@ -48,14 +46,14 @@ main .form-container .fix-info {
     font-size: 1.2rem;
 }
 
-main .form-container .fix-info div {
+#Admin_Discount .form-container .fix-info div {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: left;
 }
 
-main .form-container .title-form{
+#Admin_Discount .form-container .title-form{
     width: 100%;
     justify-content: space-between;
     margin-bottom: 1rem;
@@ -65,47 +63,43 @@ main .form-container .title-form{
     font-size: 1.2rem;
 }
 
-main .form-container .title-form h3 {
+#Admin_Discount .form-container .title-form h3 {
     font-size: 1.5rem;
 }
 
-main .form-container .title-form span:hover {
+#Admin_Discount .form-container .title-form span:hover {
     color: var(--main);
     cursor: pointer;
 }
 
-main .form-container .fix-info div:nth-child(5) {
+#Admin_Discount .form-container .fix-info div:nth-child(5) {
     margin: 1em 0;
 }
 
-main .form-container .fix-info div label {
+#Admin_Discount .form-container .fix-info div label {
     min-width: 18rem;
 }
 
-main .form-container .fix-info div .textfield {
-    height:  100%;
+#Admin_Discount .form-container .fix-info div .textfield {
+    height: 100%;
     flex: 1;
-    color: var(--font-color);
     background: transparent;
     outline: none;
     border: 0;
     border-bottom: 2px solid var(--font-color);
     padding: .8rem;
     font-size: 1.2rem;
+    color: var(--font-color);
     margin-bottom: .6rem;
     cursor: text;
 }
 
-main .form-container .fix-info div .textfield option {
-    background: black;
-}
-
-main .form-container .fix-info div .textfield::-webkit-calendar-picker-indicator {
+#Admin_Discount .form-container .fix-info div .textfield::-webkit-calendar-picker-indicator {
     filter: invert(1);
     cursor: pointer;
 }
 
-main .form-container .fix-info div .switch {
+#Admin_Discount .form-container .fix-info div .switch {
     -webkit-appearance: none;
     appearance: none;
     width: 8.2rem;
@@ -119,12 +113,12 @@ main .form-container .fix-info div .switch {
     transition: ease 0.5s;
 }
 
-main .form-container .fix-info div .switch:checked {
+#Admin_Discount .form-container .fix-info div .switch:checked {
     background: var(--main);
     transition: ease 1s;
 }
 
-main .form-container .fix-info div .switch::before {
+#Admin_Discount .form-container .fix-info div .switch::before {
     content: '';
     width: 1.1rem;
     height: 1.1rem;
@@ -137,7 +131,7 @@ main .form-container .fix-info div .switch::before {
     /* transform: translate(-50%, -20%); */
 }
 
-main .form-container .fix-info div .switch::after {
+#Admin_Discount .form-container .fix-info div .switch::after {
     content: attr(data-content);
     position: absolute;
     width: 8rem;
@@ -148,16 +142,16 @@ main .form-container .fix-info div .switch::after {
     color: var(--bg);
 }
 
-main .form-container .fix-info div .switch:checked::before {
+#Admin_Discount .form-container .fix-info div .switch:checked::before {
     left: 7rem;
 }
 
-main .form-container .fix-info div .textfield:focus {
+#Admin_Discount .form-container .fix-info div .textfield:focus {
     border-image: linear-gradient(to right top, #d8975c, #dda561, #e1b367, #e4c26e, #e6d077, #e9ce74, #edcd71, #f0cb6e, #f5b862, #faa45c, #fc8f5b, #fb7a5f);
     border-image-slice: 1;
 }
 
-main .form-container .fix-info div .btn {
+#Admin_Discount .form-container .fix-info div .btn {
     display: inline-block;
     text-decoration: none;
     background-color: transparent;
@@ -170,24 +164,24 @@ main .form-container .fix-info div .btn {
     padding: .6rem 2.7rem;
 }
 
-main .form-container .fix-info div .btn:hover {
+#Admin_Discount .form-container .fix-info div .btn:hover {
     opacity: 0.8;
 }
 
-main .form-container .fix-info div .btn--Search {
+#Admin_Discount .form-container .fix-info div .btn--Search {
     background-color: var(--main);
 }
 
-main .form-container .fix-info div .btn--Undo {
+#Admin_Discount .form-container .fix-info div .btn--Undo {
     border: 2px solid var(--main);
     color: var(--main);
 }
 
-main .form-container .fix-info div .btn+.btn {
+#Admin_Discount .form-container .fix-info div .btn+.btn {
     margin-left: 3rem;
 }
 
-main .list-container {
+.list-container {
     width: 100%;
     height: 100%;
     background: var(--bg);
@@ -197,7 +191,7 @@ main .list-container {
     position: relative;
 }
 
-main .list-container .title-list {
+.list-container .title-list {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -206,11 +200,11 @@ main .list-container .title-list {
     margin-bottom: 1.8rem;
 }
 
-main .list-container .title-list h3 {
+.list-container .title-list h3 {
     font-size: 1.5rem;
 }
 
-main .list-container .title-list button {
+.list-container .title-list button {
     display: inline-block;
     text-decoration: none;
     background-color: var(--bg);
@@ -220,23 +214,23 @@ main .list-container .title-list button {
     padding: .2rem 1rem;
 }
 
-main .list-container .title-list button a {
+.list-container .title-list button a {
     color: var(--font-color);
     font-size: 1rem;
     margin-left: .2rem;
 }
 
-main .list-container .title-list button:hover {
+.list-container .title-list button:hover {
     border: 2px solid var(--main);
     color: var(--main);
     opacity: 0.8;
 }
 
-main .list-container .title-list button:hover a {
+.list-container .title-list button:hover a {
     color: var(--main);
 }
 
-main .list-container::before {
+.list-container::before {
     content: '';
     width: 100%;
     height: .1rem;
@@ -246,18 +240,18 @@ main .list-container::before {
     background: gray;
 }
 
-main .list-container .list-code {
+.list-container .list-code {
     margin-top: 3rem;
 }
 
-main .list-container .list-code {
+.list-container .list-code {
     width: 100%;
     height: 100%;
     /* border: 2px solid cyan; */
     overflow-x: auto;
 }
 
-main .list-container .list-code .content-table {
+.list-container .list-code .content-table {
     width: 100%;
     height: 100%;
     table-layout: auto;
@@ -266,19 +260,19 @@ main .list-container .list-code .content-table {
 }
 
 
-main .list-container .list-code .content-table  td, th {
+.list-container .list-code .content-table  td, th {
     text-align: center;
     padding: 8px;
     border-bottom: 1px solid gray;
     padding: 2rem .8rem;
 }
 
-main .list-container .list-code .content-table  tbody tr:hover {
+.list-container .list-code .content-table  tbody tr:hover {
     /* background: var(--main); */
-    /* opacity: 0.8; */
+    opacity: 0.8;
 }
 
-main .list-container .list-code .content-table  tbody tr td button {
+.list-container .list-code .content-table  tbody tr td button {
     display: inline-block;
     text-decoration: none;
     background-color: transparent;
@@ -289,12 +283,12 @@ main .list-container .list-code .content-table  tbody tr td button {
     padding: .3rem .2rem;
 }
 
-main .list-container .list-code .content-table  tbody tr td button:hover {
+.list-container .list-code .content-table  tbody tr td button:hover {
     opacity: 0.8;
     border: 2px solid var(--main);
     color: var(--main);
 }
 
-main .list-container .list-code .content-table  tbody tr td button + button {
+.list-container .list-code .content-table  tbody tr td button + button {
     margin-left: .8rem;
 }
