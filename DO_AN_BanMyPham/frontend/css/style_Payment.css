@@ -24,8 +24,7 @@ ul li {
 }
 
 /* Container */
-
-.container {
+.container_Payments {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
