@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Dosis:wght@400;500;600;700&family=Open+Sans:ital,wght@0,500;1,400&display=swap');
+
+:root {
+    --main: orange;
+    --bg: #0B1218;
+    /* #fffff */
+    --bg-body: #131D28;
+    /* #E5E5E5 */
+    --font-color: #FFFBF1; 
+    /* #0B1218; */
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: "Dosis", sans-serif;
+    text-transform: capitalize;
+}
+
+body {
+    color: var(--font-color);
+
+}
+
+#Admin_Category .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    /* border: 2px solid violet; */
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    padding: 2.2rem 1.8rem;
+    border-radius: 1.8rem;
+}
+
+#Admin_Category .form-container .fix-info {
+    width: 80%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+
+#Admin_Category .form-container .fix-info div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+#Admin_Category .form-container .title-form{
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: var(--font-color);
+    align-items: center;
+    display: flex;
+    font-size: 1.2rem;
+}
+
+#Admin_Category .form-container .title-form h3 {
+    font-size: 1.5rem;
+}
+
+#Admin_Category .form-container .title-form span:hover {
+    color: var(--main);
+    cursor: pointer;
+}
+
+#Admin_Category .form-container .fix-info div:nth-child(5) {
+    margin: 1em 0;
+}
+
+#Admin_Category .form-container .fix-info div label {
+    min-width: 18rem;
+}
+
+#Admin_Category .form-container .fix-info div .textfield {
+    height: 100%;
+    flex: 1;
+    background: transparent;
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid var(--font-color);
+    padding: .8rem;
+    font-size: 1.2rem;
+    color: var(--font-color);
+    margin-bottom: .6rem;
+    cursor: text;
+}
+
+#Admin_Category .form-container .fix-info div .textfield::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+#Admin_Category .form-container .fix-info div .switch {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8.2rem;
+    height: 1.2rem;
+    background: #BFBFBF;
+    border-radius: 1.8rem;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--main);
+    position: relative;
+    transition: ease 0.5s;
+    margin: 1.5rem 0;
+}
+
+#Admin_Category .form-container .fix-info div .switch:checked {
+    background: var(--main);
+    transition: ease 1s;
+}
+
+#Admin_Category .form-container .fix-info div .switch::before {
+    content: '';
+    width: 1.1rem;
+    height: 1.1rem;
+    background: var(--font-color);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: ease 500ms;
+    /* transform: translate(-50%, -20%); */
+}
+
+#Admin_Category .form-container .fix-info div .switch::after {
+    content: attr(data-content);
+    position: absolute;
+    width: 8rem;
+    height: 0.9rem;
+    top: 40%;
+    left: 66%;
+    transform: translate(-50%, -50%);
+    color: var(--bg);
+}
+
+#Admin_Category .form-container .fix-info div .switch:checked::before {
+    left: 7rem;
+}
+
+#Admin_Category .form-container .fix-info div .textfield:focus {
+    border-image: linear-gradient(to right top, #d8975c, #dda561, #e1b367, #e4c26e, #e6d077, #e9ce74, #edcd71, #f0cb6e, #f5b862, #faa45c, #fc8f5b, #fb7a5f);
+    border-image-slice: 1;
+}
+
+#Admin_Category .form-container .fix-info div .btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--font-color);
+    border-radius: 10px;
+    /* min-width: 200px; */
+    padding: .6rem 2.7rem;
+}
+
+#Admin_Category .form-container .fix-info div .btn:hover {
+    opacity: 0.8;
+}
+
+#Admin_Category .form-container .fix-info div .btn--Search {
+    background-color: var(--main);
+}
+
+#Admin_Category .form-container .fix-info div .btn--Undo {
+    border: 2px solid var(--main);
+    color: var(--main);
+}
+
+#Admin_Category .form-container .fix-info div .btn+.btn {
+    margin-left: 3rem;
+}
+
+#Admin_Category .list-container {
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    margin-top: 1.5rem;
+    padding: 2rem;
+    border-radius: 1.8rem;
+    position: relative;
+}
+
+#Admin_Category .list-container .title-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid violet; */
+    margin-bottom: 1.8rem;
+}
+
+#Admin_Category .list-container .title-list h3 {
+    font-size: 1.5rem;
+}
+
+#Admin_Category .list-container .title-list button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--bg);
+    border: 2px solid var(--font-color);
+    outline: none;
+    color: var(--font-color);
+    padding: .2rem 1rem;
+}
+
+#Admin_Category .list-container .title-list button a {
+    color: var(--font-color);
+    font-size: 1rem;
+    margin-left: .2rem;
+}
+
+#Admin_Category .list-container .title-list button:hover {
+    border: 2px solid var(--main);
+    color: var(--main);
+    opacity: 0.8;
+}
+
+#Admin_Category .list-container .title-list button:hover a {
+    color: var(--main);
+}
+
+#Admin_Category .list-container::before {
+    content: '';
+    width: 100%;
+    height: .1rem;
+    position: absolute;
+    top: 5.2rem;
+    left: 0;
+    background: gray;
+}
+
+#Admin_Category .list-container .list-code {
+    margin-top: 3rem;
+}
+
+#Admin_Category .list-container .list-code {
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid cyan; */
+    overflow-x: auto;
+}
+
+#Admin_Category .list-container .list-code .content-table {
+    width: 100%;
+    height: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    border-spacing: 0 10px;
+}
+
+
+#Admin_Category .list-container .list-code .content-table  td, th {
+    text-align: center;
+    padding: 8px;
+    border-bottom: 1px solid gray;
+    padding: 2rem .8rem;
+}
+
+#Admin_Category .list-container .list-code .content-table  tbody tr:hover {
+    /* background: var(--main); */
+    opacity: 0.8;
+}
+
+#Admin_Category .list-container .list-code .content-table  tbody tr td button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid var(--font-color);
+    outline: none;
+    cursor: pointer;
+    color: var(--font-color);
+    padding: .3rem .2rem;
+}
+
+#Admin_Category .list-container .list-code .content-table  tbody tr td button:hover {
+    opacity: 0.8;
+    border: 2px solid var(--main);
+    color: var(--main);
+}
+
+#Admin_Category .list-container .list-code .content-table  tbody tr td button + button {
+    margin-left: .8rem;
+}

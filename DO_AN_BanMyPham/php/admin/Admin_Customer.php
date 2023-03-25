@@ -1,23 +1,4 @@
-<?php
-$conn = mysqli_connect("localhost", "root", "", "quanlybanmypham");
-// if ($conn) {
-//     echo 'ket noi thanh cong';
-// } else {
-//     echo 'ket noi that bai';
-// }
-$sql = "Select * from customers";
-
-mysqli_query($conn, "SET NAMES 'utf8'");
-
-$query = mysqli_query($conn, $sql);
-
-while ($row = mysqli_fetch_array($query)) {
-}
-
-mysqli_close($conn);
-?>   
-
-<main id="Admin_Customer" data-content="Danh sách khách hàng">
+<main id="Admin_Customer" data-content="Danh sách người dùng">
     <div class="form-container">
         <div class="title-form">
             <h3 for="">tùy chọn tìm kiếm</h3>
@@ -45,7 +26,7 @@ mysqli_close($conn);
     </div>
     <div class="list-container">
         <div class="title-list">
-            <h3>danh sách khách hàng</h3>
+            <h3>danh sách người dùng</h3>
             <button>
                 <i class="fa-light fa-plus"></i>
                 <a href="">tạo mới</a>
@@ -61,7 +42,6 @@ mysqli_close($conn);
                         <th>số điện thoại</th>
                         <th>địa chỉ</th>
                         <th>email</th>
-                        <th>ngày tạo</th>
                         <th>trạng thái</th>
                         <th>hoạt động</th>
                     </tr>
@@ -74,7 +54,7 @@ mysqli_close($conn);
                     // } else {
                     //     echo 'ket noi that bai';
                     // }
-                    $sql = "Select * from customers";
+                    $sql = "Select * from USERS";
                     
                     mysqli_query($conn, "SET NAMES 'utf8'");
                     
@@ -84,12 +64,11 @@ mysqli_close($conn);
                         $i++;
                     echo "<tr>
                         <td>$i</td>
-                        <td>" . $row['ID'] . "</td>
+                        <td>" . $row['USER_ID'] . "</td>
                         <td>" . $row['NAME'] . "</td>
                         <td>" . $row['PHONE'] . "</td>
                         <td>" . $row['ADDRESS'] . "</td>
                         <td>" . $row['EMAIL'] . "</td>
-                        <td>" . $row['DATE_CREATE'] . "</td>
                         <td><span>" . $row['STATUS'] . "</span></td>
                         <td>
                             <button>chỉnh sửa</button>

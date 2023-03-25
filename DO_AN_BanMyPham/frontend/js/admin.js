@@ -56,33 +56,42 @@ let hideDropdownMenu = () => {
 }
 $('.dropdown-select').on('click', function (evt) {
     // $('.dropdown-list').slideUp();
-    $(this).parent(".menu-wrapper").children(".dropdown-list").slideToggle(500);
+    // $(this).parent(".menu-wrapper").children(".dropdown-list").slideToggle(500);
     
-    // $(this).parent(".menu-wrapper").find(".dropdown-list").slideDown();
-    // var slide_el = $(this).parent(".menu-wrapper").next().find(".dropdown-list");
-    // console.log(slide_el);
-    // if (slide_el.is(':visible')) {
-    //     slide_el.slideUp();
-    // }
-
-    // var slide_el = $(this).parent(".menu-wrapper").next().find('.dropdown-list');
-
-    // // don't slide up if clicking on the already visible element
-    // if (!slide_el.is(':visible')) {
-    //     $('.dropdown-list').slideUp();
-    // }
-    // slide_el.slideToggle(); // only slide clicked element
+    $(this).next(".dropdown-list").slideToggle(500);
+    let vis = $(this).parent('.menu-wrapper').next().children(".dropdown-list");
+    if(vis.is(":visible")){
+        vis.slideUp(500);
+    }
 });
 
-function changIconArrowSidebar() {
-    var icon = document.querySelector('.fa-angle-down');
-    icon.classList.toggle("fa-angle-up");
-    icon.classList.toggle("fa-angle-down");
+function changeIconArrowSidebar(x) {
+    if (x.childNodes[3].style.transform == "") {
+        x.childNodes[3].style.transform = "rotate(180deg)"
+        x.childNodes[3].style.transition = "0.25s linear"
+    }
+    else {
+        const re = /([0-9]*deg)/g;
+        let currentDeg = x.childNodes[3].style.transform.match(re)[0];
+        x.childNodes[3].style.transform = "rotate(calc(" + currentDeg + " + 180deg))"
+    }
+
+
+    // x.childNodes[3].classList.toggle("fa-angle-down");
 }
 
 function changeIconArrow(x) {
-    x.classList.toggle("fa-angle-up");
-    x.classList.toggle("fa-angle-down");
+    if (x.style.transform == "") {
+        x.style.transform = "rotate(1980deg)"
+        x.style.transition = "2s linear"
+    }
+    else {
+        const re = /([0-9]*deg)/g;
+        let currentDeg = x.style.transform.match(re)[0];
+        x.style.transform = "rotate(calc(" + currentDeg + " + 1980deg))"
+    }
+    // x.classList.toggle("fa-angle-up");
+    // x.classList.toggle("fa-angle-down");
 }
 
 

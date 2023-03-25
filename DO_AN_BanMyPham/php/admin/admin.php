@@ -25,7 +25,7 @@
                     </li>
                     <li>
                         <div class="menu-wrapper">
-                            <div class="function-menu dropdown-select" onclick="selectMenu(this), hideDropdownMenu(), changIconArrowSidebar()">
+                            <div class="function-menu dropdown-select" onclick="selectMenu(this), hideDropdownMenu(), changeIconArrowSidebar(this)">
                                 <span><i class="fa-thin fa-shop""></i> Kho Hàng</span>
                                 <i class="fa-regular fa-angle-down"></i>
                             </div>
@@ -47,7 +47,7 @@
                     </li>
                     <li>
                         <div class="menu-wrapper">
-                            <div class="function-menu dropdown-select" onclick="selectMenu(this), hideDropdownMenu(), changIconArrowSidebar(this)">
+                            <div class="function-menu dropdown-select" onclick="selectMenu(this), hideDropdownMenu(), changeIconArrowSidebar(this)">
                                 <span><i class="fa-thin fa-receipt"></i> Đơn hàng</span>
                                 <i class="fa-regular fa-angle-down"></i>
                             </div>
@@ -62,12 +62,12 @@
                         </div>
                     </li>
                     <li>
-                        <div class="function-menu" onclick="loadPageByAjax('Admin_Customer'), selectMenu(this)">
-                            <span><i class="fa-thin fa-users"></i> khách hàng</span>
+                        <div class="function-menu active" onclick="loadPageByAjax('Admin_Customer'), selectMenu(this)">
+                            <span><i class="fa-thin fa-users"></i> Người Dùng</span>
                         </div>
                     </li>
                     <li>
-                        <div class="function-menu active" onclick="loadPageByAjax('Admin_Discount'), selectMenu(this)">
+                        <div class="function-menu" onclick="loadPageByAjax('Admin_Discount'), selectMenu(this)">
                             <span><i class="fa-thin fa-badge-percent"></i> Khuyến Mại</span>
                         </div>
                     </li>
