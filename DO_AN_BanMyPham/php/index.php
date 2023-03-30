@@ -15,17 +15,19 @@
     <link rel="stylesheet" href="../frontend/css/admin/admin_provider.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_brand.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_category.css">
+    <link rel="stylesheet" href="../frontend/css/admin/new-form.css">
     <link rel="stylesheet" href="../assets/icons/all.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <title>MOON COSMETIC</title>
 </head>
 
 <body>
     <?php include 'admin/admin.php' ?>
-</body>
-<script src="../frontend/js/admin.js"></script>
-<script src="../frontend/js/LoadPage.js"></script>
-</html>
 
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="../frontend/js/admin.js"></script>
+    <script src="../frontend/js/LoadPage.js"></script>
+</body>
+
+</html>

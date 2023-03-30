@@ -14,8 +14,24 @@
                 <input class="textfield" type="text">
             </div>
             <div>
-                <label for="">Thương Hiệu</label>
-                <input class="textfield" type="text">
+                <label for="">danh mục</label>
+                <select name="status" class="textfield">
+                    <option value="">danh mục a</option>
+                    <option value="">danh mục a</option>
+                    <option value="">danh mục a</option>
+                    <option value="">danh mục a</option>
+                    <option value="">danh mục a</option>
+                </select>
+            </div>
+            <div>
+                <label for="">thương hiệu</label>
+                <select name="status" class="textfield">
+                    <option value="">thương hiệu a</option>
+                    <option value="">thương hiệu a</option>
+                    <option value="">thương hiệu a</option>
+                    <option value="">thương hiệu a</option>
+                    <option value="">thương hiệu a</option>
+                </select>
             </div>
             <div>
                 <label for="">Trạng Thái</label>

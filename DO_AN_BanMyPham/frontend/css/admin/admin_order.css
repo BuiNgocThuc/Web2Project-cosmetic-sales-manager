@@ -97,7 +97,7 @@ body {
 }
 
 #Admin_Order .form-container .fix-info div .textfield option {
-    background: black;
+    background: var(--bg);
 }
 
 #Admin_Order .form-container .fix-info div .textfield::-webkit-calendar-picker-indicator {

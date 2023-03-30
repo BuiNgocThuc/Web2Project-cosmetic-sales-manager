@@ -6,7 +6,7 @@
     /* #fffff */
     --bg-body: #131D28;
     /* #E5E5E5 */
-    --font-color: #FFFBF1; 
+    --font-color: #FFFBF1;
     /* #0B1218; */
 }
 
@@ -169,7 +169,7 @@ body {
 
 .sidebar .sidemenu .list-function li .function-menu:not(.active):hover {
     background: var(--main);
-    opacity:0.8;
+    opacity: 0.8;
     /* border-radius: .5rem;
     height: 45px; */
 }
@@ -187,11 +187,11 @@ body {
     /* width: 100%; */
 }
 
-.sidebar .sidemenu .list-function li .function-menu  span i {
+.sidebar .sidemenu .list-function li .function-menu span i {
     margin-right: 0.5rem;
 }
 
-.sidebar .sidemenu .list-function li .menu-wrapper .dropdown-select{
+.sidebar .sidemenu .list-function li .menu-wrapper .dropdown-select {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -229,9 +229,11 @@ body {
 .sidebar .sidemenu .list-function li .menu-wrapper .dropdown-list .dropdown-item:hover {
     opacity: 0.8;
     cursor: pointer;
+    background: var(--main);
 }
 
-.sidebar .sidemenu .list-function li .menu-wrapper .dropdown-list .dropdown-item:focus {
+.sidebar .sidemenu .list-function li .menu-wrapper .dropdown-list .dropdown-item.active {
+    opacity: 1 !important;
     background: var(--main);
 }
 
@@ -261,7 +263,7 @@ body {
     top: 0;
     right: 0;
     padding-left: 2rem;
-    z-index:1;
+    z-index: 1;
 }
 
 .main-content header>div {
@@ -304,10 +306,40 @@ body {
     align-items: center;
 }
 
+.main-content header .tool-icon i {
+    position: relative;
+}
+
 .main-content header .tool-icon i:hover {
     cursor: pointer;
     color: var(--main);
-    opacity: 0.8;
+}
+
+.main-content header .tool-icon i .setting {
+    font-size: 1rem;
+    white-space: nowrap;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: var(--font-color);
+    color: var(--bg);
+    visibility: hidden;
+    transition: all 0.2s linear;
+    opacity: 0;
+}
+
+.main-content header .tool-icon i .setting li {
+    padding: .5rem 1rem;
+}
+
+.main-content header .tool-icon i .setting li:hover {
+    background: var(--main);
+}
+
+.main-content header .tool-icon i:hover .setting {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 50%);
 }
 
 .main-content #content {
@@ -315,7 +347,3 @@ body {
     padding-top: 3vh;
     /* border: 10px solid red; */
 }
-
-
-
-

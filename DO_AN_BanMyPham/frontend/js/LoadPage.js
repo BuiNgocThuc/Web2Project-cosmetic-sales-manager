@@ -6,7 +6,6 @@ $(document).ready(() => {
 });
 
 const loadPageByAjax = (pageTarget) => {
-    console.log(pageTarget);
     $.ajax({
         url: "../php/content.php",
         type: "POST",
@@ -18,6 +17,35 @@ const loadPageByAjax = (pageTarget) => {
         },
     });
 };
+
+const Tools = (formTarget) => {
+    $.ajax({
+        url: "../php/content.php",
+        type: "POST",
+        data: { page: formTarget },
+        dataType: "html",
+        success: function (data) {
+            // console.log(data);
+            $('.new-form').html(data);
+            $('.new-form').addClass('active');
+            $('.overlay').css('display', 'block');
+        }
+    });
+}
+
+$(document).on('click', '.btnFix',  function (e) {
+    Tools('Fix_Brand');
+});
+
+$(document).on('click', '.btnDel',  function (e) {
+    Tools('Delete_Brand');
+});
+
+
+function hiddenForm() {
+    $('.new-form').removeClass('active');
+    $('.overlay').hide();
+}
 
 let selectMenu = (selectedTab) => {
     document.querySelector(".list-function .function-menu.active").classList.remove("active");
@@ -32,6 +60,5 @@ let selectDropdownMenu = (selected) => {
         }
     }
     selected.classList.add("active");
-
 }
 

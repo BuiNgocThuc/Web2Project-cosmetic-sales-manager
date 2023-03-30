@@ -101,9 +101,16 @@
                 <!-- <i class="fa-thin fa-sun-bright"></i> -->
                 <i onclick="changeIconMode(this)" id="changeMode" class="fa-thin fa-sun-bright"></i>
                 <i class="fa-thin fa-bell"></i>
-                <i class="fa-thin fa-gear"></i>
+                <i class="fa-thin fa-gear">
+                    <ul class="setting">
+                        <li>thông tin tài khoản</li>
+                        <li>đổi mật khẩu</li>
+                        <li>đăng xuất</li>
+                    </ul>
+                </i>
             </div>
         </header>
+        <div class="overlay"></div>
         <div id="content">
         </div>
     </div>

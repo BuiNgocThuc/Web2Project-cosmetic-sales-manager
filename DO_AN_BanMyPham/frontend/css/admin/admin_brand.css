@@ -6,7 +6,7 @@
     /* #fffff */
     --bg-body: #131D28;
     /* #E5E5E5 */
-    --font-color: #FFFBF1; 
+    --font-color: #FFFBF1;
     /* #0B1218; */
 }
 
@@ -22,7 +22,46 @@
 
 body {
     color: var(--font-color);
+}
 
+
+
+#Admin_Brand {
+    position: relative;
+}
+
+#Admin_Brand .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+#Admin_Brand .new-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(0, -50%);
+    width: 35rem;
+    height: auto;
+    z-index: 5;
+    background: var(--bg);
+    color: var(--font-color);
+    border: 2px solid var(--main);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s linear;
+}
+
+#Admin_Brand .new-form.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, -50%);
 }
 
 #Admin_Brand .form-container {
@@ -53,7 +92,7 @@ body {
     justify-content: left;
 }
 
-#Admin_Brand .form-container .title-form{
+#Admin_Brand .form-container .title-form {
     width: 100%;
     justify-content: space-between;
     margin-bottom: 1rem;
@@ -213,9 +252,10 @@ body {
     outline: none;
     color: var(--font-color);
     padding: .2rem 1rem;
+    cursor: pointer;
 }
 
-#Admin_Brand .list-container .title-list button a {
+#Admin_Brand .list-container .title-list button span {
     color: var(--font-color);
     font-size: 1rem;
     margin-left: .2rem;
@@ -227,7 +267,7 @@ body {
     opacity: 0.8;
 }
 
-#Admin_Brand .list-container .title-list button:hover a {
+#Admin_Brand .list-container .title-list button:hover span {
     color: var(--main);
 }
 
@@ -261,19 +301,20 @@ body {
 }
 
 
-#Admin_Brand .list-container .list-code .content-table  td, th {
+#Admin_Brand .list-container .list-code .content-table td,
+th {
     text-align: center;
     padding: 8px;
     border-bottom: 1px solid gray;
     padding: 2rem .8rem;
 }
 
-#Admin_Brand .list-container .list-code .content-table  tbody tr:hover {
+#Admin_Brand .list-container .list-code .content-table tbody tr:hover {
     /* background: var(--main); */
     opacity: 0.8;
 }
 
-#Admin_Brand .list-container .list-code .content-table  tbody tr td button {
+#Admin_Brand .list-container .list-code .content-table tbody tr td button {
     display: inline-block;
     text-decoration: none;
     background-color: transparent;
@@ -284,12 +325,12 @@ body {
     padding: .3rem .2rem;
 }
 
-#Admin_Brand .list-container .list-code .content-table  tbody tr td button:hover {
+#Admin_Brand .list-container .list-code .content-table tbody tr td button:hover {
     opacity: 0.8;
     border: 2px solid var(--main);
     color: var(--main);
 }
 
-#Admin_Brand .list-container .list-code .content-table  tbody tr td button + button {
+#Admin_Brand .list-container .list-code .content-table tbody tr td button+button {
     margin-left: .8rem;
 }

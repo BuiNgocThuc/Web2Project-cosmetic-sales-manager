@@ -11,40 +11,7 @@ function changeDataContent() {
 
 
 
-// Fix Width ScrollBar
-
-// $(document).ready(function () {
-//     checkScrollBars();
-// });
-
-// function checkScrollBars() {
-//     if (checkHasScrollBar()) {
-//         let a = getScrollBarWidth();
-//         $(".main-content").css("width", "calc(82vw - " + a + "px)");
-//         $("header").css("width", "calc(82vw - " + a + "px)");
-//     }
-// }
-// function getScrollBarWidth() {
-//     let $outer = $("<div>")
-//         .css({ visibility: "hidden", width: 100, overflow: "scroll" })
-//         .appendTo("body"),
-//         widthWithScroll = $("<div>")
-//             .css({ width: "100%" })
-//             .appendTo($outer)
-//             .outerWidth();
-//     $outer.remove();
-//     return 100 - widthWithScroll;
-// }
-
-// function checkHasScrollBar() {
-//     if ($(document).height() > $(window).height()) return true;
-//     return false;
-// }
-
-
-
-//hide form search
-
+//hide form settings
 let hideForm = () => {
     $(".fix-info").slideToggle(500);
 };
@@ -57,10 +24,9 @@ let hideDropdownMenu = () => {
 $('.dropdown-select').on('click', function (evt) {
     // $('.dropdown-list').slideUp();
     // $(this).parent(".menu-wrapper").children(".dropdown-list").slideToggle(500);
-    
     $(this).next(".dropdown-list").slideToggle(500);
     let vis = $(this).parent('.menu-wrapper').next().children(".dropdown-list");
-    if(vis.is(":visible")){
+    if (vis.is(":visible")) {
         vis.slideUp(500);
     }
 });
@@ -82,13 +48,13 @@ function changeIconArrowSidebar(x) {
 
 function changeIconArrow(x) {
     if (x.style.transform == "") {
-        x.style.transform = "rotate(1980deg)"
-        x.style.transition = "2s linear"
+        x.style.transform = "rotate(180deg)"
+        x.style.transition = "0.25s linear"
     }
     else {
         const re = /([0-9]*deg)/g;
         let currentDeg = x.style.transform.match(re)[0];
-        x.style.transform = "rotate(calc(" + currentDeg + " + 1980deg))"
+        x.style.transform = "rotate(calc(" + currentDeg + " + 180deg))"
     }
     // x.classList.toggle("fa-angle-up");
     // x.classList.toggle("fa-angle-down");
@@ -122,6 +88,27 @@ $(document).ready(function () {
     });
 });
 
-// Load Page
+// hidden sidebar
+
+function openNav() {
+    document.getElementById("sideMenu").style.width = "18vw";
+    document.getElementById("main-content").style.marginLeft = "18vw";
+}
+
+function closeNav() {
+    document.querySelector(".sidebar").style.width = "0";
+    document.querySelector(".main-content").style.marginLeft = "0";
+}
+
+
+// add new form
+$(document).ready(function () {
+    $('.image-upload').click(function (e) {
+        // e.preventDefault();
+        $('#file-input').trigger("click");
+        // e.stopPropagation();
+    });
+});
+
 
 

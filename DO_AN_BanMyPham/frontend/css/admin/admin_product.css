@@ -94,6 +94,10 @@ body {
     cursor: text;
 }
 
+#Admin_Product .form-container .fix-info div .textfield option {
+    background: var(--bg);
+}
+
 #Admin_Product .form-container .fix-info div .textfield::-webkit-calendar-picker-indicator {
     filter: invert(1);
     cursor: pointer;

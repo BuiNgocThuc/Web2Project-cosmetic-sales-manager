@@ -37,6 +37,15 @@ if (isset($_POST["page"])) {
         case "Admin_Decentralization":
             include 'admin/Admin_Decentralization.php';
             break;
+        case "New_Brand":
+            include 'admin/add-form/Create_Form.php';
+            break;
+        case "Fix_Brand":
+            include 'admin/add-form/Fix_Form.php';
+            break;
+        case "Delete_Brand":
+            include 'admin/add-form/Delete_Form.php';
+            break;
         default:
             echo `<h1>Page not found 404</h1>`;
     }

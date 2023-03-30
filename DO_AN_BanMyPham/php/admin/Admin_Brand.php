@@ -1,4 +1,10 @@
 <main id="Admin_Brand" data-content="Danh sách Thương hiệu">
+        <div class="overlay">
+            
+        </div>
+        <div class="new-form">
+
+        </div>
         <div class="form-container">
             <div class="title-form">
                 <h3 for="">tùy chọn tìm kiếm</h3>
@@ -27,9 +33,9 @@
         <div class="list-container">
             <div class="title-list">
                 <h3>danh sách sản phẩm</h3>
-                <button>
+                <button class="btnCreate" onclick="Tools('New_Brand')">
                     <i class="fa-light fa-plus"></i>
-                    <a href="">tạo mới</a>
+                    <span>tạo mới</span>
                 </button>
             </div>
             <div class="list-code">
@@ -50,8 +56,8 @@
                             <td>xyz</td>
                             <td><span>đang Hoạt động</span></td>
                             <td>
-                                <button>chỉnh sửa</button>
-                                <button>xóa</button>
+                                <button class="btnFix">chỉnh sửa</button>
+                                <button class="btnDel">xóa</button>
                             </td>
                         </tr>
                         <tr>
@@ -60,8 +66,8 @@
                             <td>xyz</td>
                             <td><span>đang Hoạt động</span></td>
                             <td>
-                                <button>chỉnh sửa</button>
-                                <button>xóa</button>
+                                <button class="btnFix">chỉnh sửa</button>
+                                <button class="btnDel">xóa</button>
                             </td>
                         </tr>
                         <tr>
@@ -70,8 +76,8 @@
                             <td>xyz</td>
                             <td><span>đang Hoạt động</span></td>
                             <td>
-                                <button>chỉnh sửa</button>
-                                <button>xóa</button>
+                                <button class="btnFix">chỉnh sửa</button>
+                                <button class="btnDel">xóa</button>
                             </td>
                         </tr>
                     </tbody>

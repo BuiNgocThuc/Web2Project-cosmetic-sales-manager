@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,7 +37,8 @@
                     </li>
                     <li>
                         <div class="menu-wrapper">
-                            <div class="function-menu dropdown-select" onclick="selectMenu(this), hideDropdownMenu()">
+                            <div class="function-menu dropdown-select"
+                                onclick="selectMenu(this), hideDropdownMenu(), changeIconArrowSidebar(this)">
                                 <span><i class="fa-thin fa-shop"></i> Kho Hàng</span>
                                 <i class="fa-regular fa-angle-down"></i>
                             </div>
@@ -60,7 +60,8 @@
                     </li>
                     <li>
                         <div class="menu-wrapper">
-                            <div class="function-menu dropdown-select" onclick="selectMenu(this), hideDropdownMenu()">
+                            <div class="function-menu dropdown-select"
+                                onclick="selectMenu(this), hideDropdownMenu(), changeIconArrowSidebar(this)">
                                 <span><i class="fa-thin fa-receipt"></i> Đơn hàng</span>
                                 <i class="fa-regular fa-angle-down"></i>
                             </div>
@@ -76,7 +77,7 @@
                     </li>
                     <li>
                         <div class="function-menu active" onclick="loadPageByAjax('Admin_Account'), selectMenu(this)">
-                            <span><i class="fa-thin fa-users"></i> khách hàng</span>
+                            <span><i class="fa-thin fa-users"></i> người dùng</span>
                         </div>
                     </li>
                     <li>
@@ -114,15 +115,21 @@
                 <!-- <i class="fa-thin fa-sun-bright"></i> -->
                 <i onclick="changeIconMode(this)" id="changeMode" class="fa-thin fa-sun-bright"></i>
                 <i class="fa-thin fa-bell"></i>
-                <i class="fa-thin fa-gear"></i>
+                <i class="fa-thin fa-gear">
+                    <ul class="setting">
+                        <li>thông tin tài khoản</li>
+                        <li>đổi mật khẩu</li>
+                        <li>đăng xuất</li>
+                    </ul>
+                </i>
             </div>
         </header>
         <div id="content">
-
         </div>
     </div>
+    <script src="../../js/admin.js"></script>
+    <script src="../../js/LoadPage.js"></script>
 </body>
-<script src="../../js/admin.js"></script>
-<script src="../../js/LoadPage.js"></script>
+
 
 </html>

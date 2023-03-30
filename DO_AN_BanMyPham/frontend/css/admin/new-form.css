@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Dosis:wght@400;500;600;700&family=Open+Sans:ital,wght@0,500;1,400&display=swap');
+
+:root {
+    --main: orange;
+    --bg: #0B1218;
+    /* #fffff */
+    --bg-body: #131D28;
+    /* #E5E5E5 */
+    --font-color: #FFFBF1;
+    /* #0B1218; */
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: "Dosis", sans-serif;
+    text-transform: capitalize;
+}
+
+/* body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+} */
+
+#new-brand {
+    border: 2px solid #ccc;
+    width: 35rem;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+}
+
+#new-brand #close {
+    position: absolute;
+    top: 1rem;
+    right: 1.3rem;
+    font-size: 1.5rem;
+}
+
+#new-brand .title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+#new-brand .content {
+    /* border: 2px solid red; */
+    height: 15rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#new-brand .content div {
+    display: flex;
+    align-items: center;
+}
+
+#new-brand .content div:nth-child(2) {
+    margin-top: .8rem;
+}
+
+#new-brand .content div>label {
+    flex-basis: 40%;
+    font-size: 1.4rem;
+}
+
+#new-brand .content div .textfield {
+    flex: 1;
+    padding: .3rem .5rem;
+    outline: none;
+}
+
+#new-brand .content .image-upload {
+    border: 1px solid #ccc;
+    cursor: pointer;
+    padding: 1.3rem 2rem;
+    display: inline-block;
+    
+}
+
+#new-brand .content .image-upload .icon-upload {
+    display: flex;
+    flex-direction: column;
+    height: 2.5rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    font-size:1rem;
+    cursor: pointer;
+}
+
+#new-brand .content .image-upload:hover {
+    border: 1px dashed var(--main);
+}
+
+#new-brand .content .image-upload input {
+    display: none;
+}
+
+#new-brand .content div .switch {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8.2rem;
+    height: 1.2rem;
+    background: #BFBFBF;
+    border-radius: 1.8rem;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--main);
+    position: relative;
+    transition: ease 0.5s;
+    margin: 1.5rem 0;
+}
+
+#new-brand .content div .switch:checked {
+    background: var(--main);
+    transition: ease 1s;
+}
+
+#new-brand .content div .switch::before {
+    content: '';
+    width: 1.1rem;
+    height: 1.1rem;
+    background: var(--font-color);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: ease 500ms;
+    /* transform: translate(-50%, -20%); */
+}
+
+#new-brand .content div .switch::after {
+    content: attr(data-content);
+    position: absolute;
+    width: 8rem;
+    height: 0.9rem;
+    top: 40%;
+    left: 66%;
+    transform: translate(-50%, -50%);
+    color: var(--bg);
+}
+
+#new-brand .content div .switch:checked::before {
+    left: 7rem;
+}
+
+#new-brand .tool .btn {
+    padding: .3rem 3rem;
+    margin: 0 2rem;
+    margin-top: 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: .6rem;
+}
+
+#fix-brand {
+    border: 2px solid #ccc;
+    width: 35rem;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+}
+
+#fix-brand #close {
+    position: absolute;
+    top: 1rem;
+    right: 1.3rem;
+    font-size: 1.5rem;
+}
+
+#fix-brand .title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+#fix-brand .content {
+    /* border: 2px solid red; */
+    height: 15rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#fix-brand .content div {
+    display: flex;
+    align-items: center;
+}
+
+#fix-brand .content div:nth-child(2) {
+    margin-top: .8rem;
+}
+
+#fix-brand .content div>label {
+    flex-basis: 40%;
+    font-size: 1.4rem;
+}
+
+#fix-brand .content div .textfield {
+    flex: 1;
+    padding: .3rem .5rem;
+    outline: none;
+}
+
+#fix-brand .content .image-upload {
+    border: 1px solid #ccc;
+    cursor: pointer;
+    padding: 1.3rem 2rem;
+    display: inline-block;
+    
+}
+
+#fix-brand .content .image-upload .icon-upload {
+    display: flex;
+    flex-direction: column;
+    height: 2.5rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    font-size:1rem;
+    cursor: pointer;
+}
+
+#fix-brand .content .image-upload:hover {
+    border: 1px dashed var(--main);
+}
+
+#fix-brand .content .image-upload input {
+    display: none;
+}
+
+#fix-brand .content div .switch {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8.2rem;
+    height: 1.2rem;
+    background: #BFBFBF;
+    border-radius: 1.8rem;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--main);
+    position: relative;
+    transition: ease 0.5s;
+    margin: 1.5rem 0;
+}
+
+#fix-brand .content div .switch:checked {
+    background: var(--main);
+    transition: ease 1s;
+}
+
+#fix-brand .content div .switch::before {
+    content: '';
+    width: 1.1rem;
+    height: 1.1rem;
+    background: var(--font-color);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: ease 500ms;
+    /* transform: translate(-50%, -20%); */
+}
+
+#fix-brand .content div .switch::after {
+    content: attr(data-content);
+    position: absolute;
+    width: 8rem;
+    height: 0.9rem;
+    top: 40%;
+    left: 66%;
+    transform: translate(-50%, -50%);
+    color: var(--bg);
+}
+
+#fix-brand .content div .switch:checked::before {
+    left: 7rem;
+}
+
+#fix-brand .tool .btn {
+    padding: .3rem 3rem;
+    margin: 0 2rem;
+    margin-top: 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: .6rem;
+}
+
+#delete-brand {
+    border: 2px solid #ccc;
+    width: 35rem;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+}
+
+#delete-brand #close {
+    position: absolute;
+    top: 1rem;
+    right: 1.3rem;
+    font-size: 1.5rem;
+}
+
+#delete-brand .title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+#delete-brand .warning {
+    font-size: 1.2rem;
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+    line-height: 2rem;
+}
+
+#delete-brand .tool .btn {
+    padding: .3rem 3rem;
+    margin: 0 2rem;
+    margin-top: 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: .6rem;
+}
