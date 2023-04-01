@@ -26,7 +26,7 @@
     height: 100vh;
 } */
 
-#new-brand {
+#create-form {
     border: 2px solid #ccc;
     width: 35rem;
     height: auto;
@@ -38,19 +38,19 @@
     position: relative;
 }
 
-#new-brand #close {
+#create-form #close {
     position: absolute;
     top: 1rem;
     right: 1.3rem;
     font-size: 1.5rem;
 }
 
-#new-brand .title {
+#create-form .title {
     font-size: 1.8rem;
     margin-bottom: 2rem;
 }
 
-#new-brand .content {
+#create-form .content {
     /* border: 2px solid red; */
     height: 15rem;
     width: 30rem;
@@ -59,27 +59,28 @@
     justify-content: space-between;
 }
 
-#new-brand .content div {
+#create-form .content div {
     display: flex;
     align-items: center;
 }
 
-#new-brand .content div:nth-child(2) {
+#create-form .content div:nth-child(2) {
     margin-top: .8rem;
 }
 
-#new-brand .content div>label {
+#create-form .content div>label {
     flex-basis: 40%;
     font-size: 1.4rem;
 }
 
-#new-brand .content div .textfield {
+#create-form .content div .textfield {
     flex: 1;
     padding: .3rem .5rem;
     outline: none;
+    border: 1px solid var(--font-color);
 }
 
-#new-brand .content .image-upload {
+#create-form .content .image-upload {
     border: 1px solid #ccc;
     cursor: pointer;
     padding: 1.3rem 2rem;
@@ -87,7 +88,7 @@
     
 }
 
-#new-brand .content .image-upload .icon-upload {
+#create-form .content .image-upload .icon-upload {
     display: flex;
     flex-direction: column;
     height: 2.5rem;
@@ -98,15 +99,15 @@
     cursor: pointer;
 }
 
-#new-brand .content .image-upload:hover {
+#create-form .content .image-upload:hover {
     border: 1px dashed var(--main);
 }
 
-#new-brand .content .image-upload input {
+#create-form .content .image-upload input {
     display: none;
 }
 
-#new-brand .content div .switch {
+#create-form .content div .switch {
     -webkit-appearance: none;
     appearance: none;
     width: 8.2rem;
@@ -121,12 +122,12 @@
     margin: 1.5rem 0;
 }
 
-#new-brand .content div .switch:checked {
+#create-form .content div .switch:checked {
     background: var(--main);
     transition: ease 1s;
 }
 
-#new-brand .content div .switch::before {
+#create-form .content div .switch::before {
     content: '';
     width: 1.1rem;
     height: 1.1rem;
@@ -139,7 +140,7 @@
     /* transform: translate(-50%, -20%); */
 }
 
-#new-brand .content div .switch::after {
+#create-form .content div .switch::after {
     content: attr(data-content);
     position: absolute;
     width: 8rem;
@@ -150,11 +151,11 @@
     color: var(--bg);
 }
 
-#new-brand .content div .switch:checked::before {
+#create-form .content div .switch:checked::before {
     left: 7rem;
 }
 
-#new-brand .tool .btn {
+#create-form .tool .btn {
     padding: .3rem 3rem;
     margin: 0 2rem;
     margin-top: 1rem;
@@ -162,9 +163,24 @@
     border: none;
     cursor: pointer;
     border-radius: .6rem;
+    background: transparent;
+    color: var(--font-color);
 }
 
-#fix-brand {
+#create-form .tool .btn:hover {
+    opacity: 0.8;
+}
+
+#create-form .tool .btnConfirm {
+    background: var(--main);
+}
+
+#create-form .tool .btnCancel {
+    border: 2px solid var(--main);
+    color: var(--main);
+}
+
+#fix-form {
     border: 2px solid #ccc;
     width: 35rem;
     height: auto;
@@ -176,19 +192,19 @@
     position: relative;
 }
 
-#fix-brand #close {
+#fix-form #close {
     position: absolute;
     top: 1rem;
     right: 1.3rem;
     font-size: 1.5rem;
 }
 
-#fix-brand .title {
+#fix-form .title {
     font-size: 1.8rem;
     margin-bottom: 2rem;
 }
 
-#fix-brand .content {
+#fix-form .content {
     /* border: 2px solid red; */
     height: 15rem;
     width: 30rem;
@@ -197,27 +213,28 @@
     justify-content: space-between;
 }
 
-#fix-brand .content div {
+#fix-form .content div {
     display: flex;
     align-items: center;
 }
 
-#fix-brand .content div:nth-child(2) {
+#fix-form .content div:nth-child(2) {
     margin-top: .8rem;
 }
 
-#fix-brand .content div>label {
+#fix-form .content div>label {
     flex-basis: 40%;
     font-size: 1.4rem;
 }
 
-#fix-brand .content div .textfield {
+#fix-form .content div .textfield {
     flex: 1;
     padding: .3rem .5rem;
     outline: none;
+    border: 1px solid var(--font-color);
 }
 
-#fix-brand .content .image-upload {
+#fix-form .content .image-upload {
     border: 1px solid #ccc;
     cursor: pointer;
     padding: 1.3rem 2rem;
@@ -225,7 +242,7 @@
     
 }
 
-#fix-brand .content .image-upload .icon-upload {
+#fix-form .content .image-upload .icon-upload {
     display: flex;
     flex-direction: column;
     height: 2.5rem;
@@ -236,15 +253,15 @@
     cursor: pointer;
 }
 
-#fix-brand .content .image-upload:hover {
+#fix-form .content .image-upload:hover {
     border: 1px dashed var(--main);
 }
 
-#fix-brand .content .image-upload input {
+#fix-form .content .image-upload input {
     display: none;
 }
 
-#fix-brand .content div .switch {
+#fix-form .content div .switch {
     -webkit-appearance: none;
     appearance: none;
     width: 8.2rem;
@@ -259,12 +276,12 @@
     margin: 1.5rem 0;
 }
 
-#fix-brand .content div .switch:checked {
+#fix-form .content div .switch:checked {
     background: var(--main);
     transition: ease 1s;
 }
 
-#fix-brand .content div .switch::before {
+#fix-form .content div .switch::before {
     content: '';
     width: 1.1rem;
     height: 1.1rem;
@@ -277,7 +294,7 @@
     /* transform: translate(-50%, -20%); */
 }
 
-#fix-brand .content div .switch::after {
+#fix-form .content div .switch::after {
     content: attr(data-content);
     position: absolute;
     width: 8rem;
@@ -288,11 +305,11 @@
     color: var(--bg);
 }
 
-#fix-brand .content div .switch:checked::before {
+#fix-form .content div .switch:checked::before {
     left: 7rem;
 }
 
-#fix-brand .tool .btn {
+#fix-form .tool .btn {
     padding: .3rem 3rem;
     margin: 0 2rem;
     margin-top: 1rem;
@@ -300,9 +317,24 @@
     border: none;
     cursor: pointer;
     border-radius: .6rem;
+    background: transparent;
+    color: var(--font-color);
 }
 
-#delete-brand {
+#fix-form .tool .btn:hover {
+    opacity: 0.8;
+}
+
+#fix-form .tool .btnConfirm {
+    background: var(--main);
+}
+
+#fix-form .tool .btnCancel {
+    border: 2px solid var(--main);
+    color: var(--main);
+}
+
+#delete-form {
     border: 2px solid #ccc;
     width: 35rem;
     height: auto;
@@ -314,26 +346,26 @@
     position: relative;
 }
 
-#delete-brand #close {
+#delete-form #close {
     position: absolute;
     top: 1rem;
     right: 1.3rem;
     font-size: 1.5rem;
 }
 
-#delete-brand .title {
+#delete-form .title {
     font-size: 1.8rem;
     margin-bottom: 2rem;
 }
 
-#delete-brand .warning {
+#delete-form .warning {
     font-size: 1.2rem;
     padding: 0 2rem;
     margin-bottom: 2rem;
     line-height: 2rem;
 }
 
-#delete-brand .tool .btn {
+#delete-form .tool .btn {
     padding: .3rem 3rem;
     margin: 0 2rem;
     margin-top: 1rem;
@@ -341,4 +373,19 @@
     border: none;
     cursor: pointer;
     border-radius: .6rem;
+    background: transparent;
+    color: var(--font-color);
+}
+
+#delete-form .tool .btn:hover {
+    opacity: 0.8;
+}
+
+#delete-form .tool .btnConfirm {
+    background: var(--main);
+}
+
+#delete-form .tool .btnCancel {
+    border: 2px solid var(--main);
+    color: var(--main);
 }

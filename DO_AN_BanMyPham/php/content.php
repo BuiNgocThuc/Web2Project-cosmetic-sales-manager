@@ -22,8 +22,8 @@ if (isset($_POST["page"])) {
         case "Admin_Coupon":
             include 'admin/Admin_Coupon.php';
             break;
-        case "Admin_Customer":
-            include 'admin/Admin_Customer.php';
+        case "Admin_User":
+            include 'admin/Admin_User.php';
             break;
         case "Admin_Discount":
             include 'admin/Admin_Discount.php';
@@ -37,15 +37,15 @@ if (isset($_POST["page"])) {
         case "Admin_Decentralization":
             include 'admin/Admin_Decentralization.php';
             break;
-        case "New_Brand":
-            include 'admin/add-form/Create_Form.php';
-            break;
-        case "Fix_Brand":
-            include 'admin/add-form/Fix_Form.php';
-            break;
-        case "Delete_Brand":
-            include 'admin/add-form/Delete_Form.php';
-            break;
+        // case "create_form":
+        //     include 'admin/add-form/Create_Form.php';
+        //     break;
+        // case "fix_form":
+        //     include 'admin/add-form/Fix_Form.php';
+        //     break;
+        // case "delete_form":
+        //     include 'admin/add-form/Delete_Form.php';
+        //     break;
         default:
             echo `<h1>Page not found 404</h1>`;
     }

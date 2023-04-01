@@ -41,8 +41,16 @@ body {
     top: 0;
     left: 0;
     overflow-y: auto;
-    z-index: 1;
+    z-index: 2;
+    opacity: 1;
+    transition: all 0.2s linear;
+    /* border: 2px solid red; */
     /* padding: 10px 0; */
+}
+
+
+.sidebar.hide {
+    transform: translateX(-100%);
 }
 
 .sidebar .brand {
@@ -52,35 +60,14 @@ body {
     color: var(--font-color);
     align-items: center;
     position: fixed;
-    padding: 1.25rem .6rem;
+    /* padding: 1.25rem .6rem; */
     background: var(--bg);
-    z-index: 1;
     border-right: 2px solid var(--font-color);
     border-bottom: 2px solid var(--font-color);
-    /* border: 2px solid red; */
+    overflow-x: hidden;
 }
 
-/* .sidebar .brand::after{
-    content: '';
-    position: absolute;
-    background: var(--font-color);
-    border-radius: 20px;
-    bottom: 0;
-    height: .05rem;
-    width: 18vw;
-    left: 0;
-} */
 
-/* .sidebar .brand::before {
-    content: '';
-    position: absolute;
-    background: var(--font-color);
-    border-radius: 20px;
-    bottom: 0;
-    height: 7.3rem;
-    width:  .05rem;
-    right: 0;
-} */
 
 .sidebar .brand h2 {
     font-size: 1.2rem;
@@ -92,7 +79,7 @@ body {
 .sidebar .brand span {
     width: 5rem;
     height: 5rem;
-    margin-left: .5rem;
+    margin-left: 1.5rem;
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid var(--main);
@@ -105,9 +92,11 @@ body {
 }
 
 .sidebar .sidemenu {
+    width: 100%;
     margin-top: 7.3rem;
     padding: .5rem;
     border-right: 2px solid var(--font-color);
+    transition: all 0.2s linear;
 }
 
 .sidebar .sidemenu .user {
@@ -242,6 +231,7 @@ body {
     width: calc(82vw);
     float: right;
     background: var(--bg-body);
+    transition: all 0.2s linear;
     /* overflow:hidden; */
 
     /* border: 2px solid red; */
@@ -249,7 +239,16 @@ body {
     padding: 15.3vh 3vh 3vh 3vh;
 }
 
+.main-content.expand {
+    width: 100vw;
+}
+
+.main-content.expand header {
+    width: 100vw;
+}
+
 .main-content header {
+    transition: all 0.2s linear;
     background: var(--bg);
     height: 15.8vh;
     width: calc(82vw);

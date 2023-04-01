@@ -48,10 +48,12 @@
                     <tr>
                         <th>STT</th>
                         <th>mã đơn hàng</th>
-                        <th>tên người dùng</th>
-                        <th>họ và tên</th>
-                        <th>số tiền</th>
+                        <th>mã khách hàng</th>
+                        <th>tên khách hàng</th>
+                        <th>tên nhân viên</th>
                         <th>ngày đặt hàng</th>
+                        <th>số tiền</th>
+                        <th>mã giảm giá</th>
                         <th>tình trạng</th>
                         <th>hoạt động</th>
                     </tr>

@@ -47,10 +47,6 @@
     <div class="list-container">
         <div class="title-list">
             <h3>danh sách sản phẩm</h3>
-            <button>
-                <i class="fa-light fa-plus"></i>
-                <a href="">tạo mới</a>
-            </button>
         </div>
         <div class="list-code">
             <table class="content-table">
@@ -60,8 +56,10 @@
                         <th>mã sản phẩm</th>
                         <th>tên sản phẩm</th>
                         <th>tên thương hiệu</th>
+                        <th>loại danh mục</th>
                         <th>đơn giá</th>
                         <th>số lượng</th>
+                        <th>hình ảnh</th>
                         <th>trạng thái</th>
                         <th>hoạt động</th>
                     </tr>

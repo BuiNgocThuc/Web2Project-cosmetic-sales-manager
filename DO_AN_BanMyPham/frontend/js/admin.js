@@ -21,15 +21,35 @@ let hideDropdownMenu = () => {
     // console.log("click menu");
     // $('.dropdown-select').parent(".menu-wrapper").children(".dropdown-list").slideToggle(500);
 }
-$('.dropdown-select').on('click', function (evt) {
-    // $('.dropdown-list').slideUp();
-    // $(this).parent(".menu-wrapper").children(".dropdown-list").slideToggle(500);
+
+var menu = $('.menu-wrapper > ul');
+var otherMenu = $('.dropdown-select');
+$(document).on('click', '.dropdown-select', function (evt) {
+    menu.not($(this).next(".dropdown-list")).slideUp(500);
+    otherMenu.not($(this)).each(function () {
+        if ($(this).hasClass('show')) {
+            changeIconArrowSidebar(this);
+            $(this).removeClass('show');
+        } 
+    });
     $(this).next(".dropdown-list").slideToggle(500);
-    let vis = $(this).parent('.menu-wrapper').next().children(".dropdown-list");
-    if (vis.is(":visible")) {
-        vis.slideUp(500);
-    }
+    $(this).toggleClass('show');
 });
+
+let selectMenu = (selectedTab) => {
+    document.querySelector(".list-function .function-menu.active").classList.remove("active");
+    selectedTab.classList.add("active");
+};
+
+let selectDropdownMenu = (selected) => {
+    let dropDownItemList = document.querySelectorAll(".dropdown-list .dropdown-item");
+    for (let item of dropDownItemList) {
+        if (item.classList.contains("active")) {
+            item.classList.remove("active");
+        }
+    }
+    selected.classList.add("active");
+}
 
 function changeIconArrowSidebar(x) {
     if (x.childNodes[3].style.transform == "") {
@@ -41,9 +61,6 @@ function changeIconArrowSidebar(x) {
         let currentDeg = x.childNodes[3].style.transform.match(re)[0];
         x.childNodes[3].style.transform = "rotate(calc(" + currentDeg + " + 180deg))"
     }
-
-
-    // x.childNodes[3].classList.toggle("fa-angle-down");
 }
 
 function changeIconArrow(x) {
@@ -76,29 +93,19 @@ $(document).ready(function () {
     $("#changeMode").click(function () {
         if (this.classList.contains("fa-moon-stars")) {
             document.documentElement.style.setProperty('--main', '#0D9494');
-            document.documentElement.style.setProperty('--bg', '#FFFBF1');
+            document.documentElement.style.setProperty('--bg', '#FFFDFA');
             document.documentElement.style.setProperty('--bg-body', '#e5e5e5');
             document.documentElement.style.setProperty('--font-color', '#0b1218');
         } else {
             document.documentElement.style.setProperty('--main', 'orange');
             document.documentElement.style.setProperty('--bg', '#0B1218');
             document.documentElement.style.setProperty('--bg-body', '#131D28');
-            document.documentElement.style.setProperty('--font-color', '#FFFBF1');
+            document.documentElement.style.setProperty('--font-color', '#FFFDFA');
         }
     });
 });
 
 // hidden sidebar
-
-function openNav() {
-    document.getElementById("sideMenu").style.width = "18vw";
-    document.getElementById("main-content").style.marginLeft = "18vw";
-}
-
-function closeNav() {
-    document.querySelector(".sidebar").style.width = "0";
-    document.querySelector(".main-content").style.marginLeft = "0";
-}
 
 
 // add new form
@@ -111,4 +118,9 @@ $(document).ready(function () {
 });
 
 
+$(document).on('click', '.menu-icon', function(evt) {
+    console.log(1223);
+    $('.sidebar').toggleClass('hide');
+    $('.main-content').toggleClass('expand');
+});
 

@@ -2,7 +2,7 @@
 
 // Load Page Admin
 $(document).ready(() => {
-    loadPageByAjax("Admin_Customer");
+    loadPageByAjax("Admin_Home");
 });
 
 const loadPageByAjax = (pageTarget) => {
@@ -18,47 +18,46 @@ const loadPageByAjax = (pageTarget) => {
     });
 };
 
-const Tools = (formTarget) => {
+const Tools = (formTarget, content) => {
     $.ajax({
         url: "../php/content.php",
         type: "POST",
         data: { page: formTarget },
         dataType: "html",
         success: function (data) {
-            // console.log(data);
-            $('.new-form').html(data);
-            $('.new-form').addClass('active');
-            $('.overlay').css('display', 'block');
+            console.log(content);
+            data = data.replace('<div class="title"></div>', '<div class="title">' + content + '</div>');
+            console.log(data);
         }
     });
 }
 
-$(document).on('click', '.btnFix',  function (e) {
-    Tools('Fix_Brand');
+
+
+$(document).on('click', '.btnCreate', function (e) {
+    $('.new-form').addClass('active');
+    $('.overlay').css('display', 'block');
+    $('.new-form #create-form').show();
 });
 
-$(document).on('click', '.btnDel',  function (e) {
-    Tools('Delete_Brand');
+$(document).on('click', '.btnFix', function (e) {
+    $('.new-form').addClass('active');
+    $('.overlay').css('display', 'block');
+    $('.new-form #fix-form').show();
+});
+
+$(document).on('click', '.btnDel', function (e) {
+    $('.new-form').addClass('active');
+    $('.overlay').css('display', 'block');
+    $('.new-form #delete-form').show();
 });
 
 
 function hiddenForm() {
     $('.new-form').removeClass('active');
     $('.overlay').hide();
-}
-
-let selectMenu = (selectedTab) => {
-    document.querySelector(".list-function .function-menu.active").classList.remove("active");
-    selectedTab.classList.add("active");
+    $('.new-form #fix-form').hide();
+    $('.new-form #create-form').hide();
+    $('.new-form #delete-form').hide();
 };
-
-let selectDropdownMenu = (selected) => {
-    let dropDownItemList = document.querySelectorAll(".dropdown-list .dropdown-item");
-    for (let item of dropDownItemList) {
-        if (item.classList.contains("active")) {
-            item.classList.remove("active");
-        }
-    }
-    selected.classList.add("active");
-}
 

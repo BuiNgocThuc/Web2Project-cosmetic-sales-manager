@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../frontend/css/admin/admin.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_coupon.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_order.css">
-    <link rel="stylesheet" href="../frontend/css/admin/admin_customer.css">
+    <link rel="stylesheet" href="../frontend/css/admin/admin_user.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_discount.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_product.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_provider.css">

@@ -1,4 +1,4 @@
-<main id="Admin_Customer" data-content="Danh sách người dùng">
+<main id="Admin_User" data-content="Danh sách người dùng">
     <div class="form-container">
         <div class="title-form">
             <h3 for="">tùy chọn tìm kiếm</h3>
@@ -37,8 +37,9 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>mã khách hàng</th>
-                        <th>tên khách hàng</th>
+                        <th>mã người dùng</th>
+                        <th>loại người dùng</th>
+                        <th>tên người dùng</th>
                         <th>số điện thoại</th>
                         <th>địa chỉ</th>
                         <th>email</th>

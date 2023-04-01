@@ -47,6 +47,8 @@
                         <th>STT</th>
                         <th>mã giảm giá</th>
                         <th>mô tả</th>
+                        <th>điều kiện</th>
+                        <th>phần trăm giảm giá</th>
                         <th>kích hoạt từ</th>
                         <th>kích hoạt đến</th>
                         <th>trạng thái</th>

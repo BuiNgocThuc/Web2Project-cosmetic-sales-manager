@@ -25,6 +25,41 @@ body {
 
 }
 
+#Admin_Product .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+#Admin_Product.new-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(0, -50%);
+    width: 35rem;
+    height: auto;
+    z-index: 5;
+    background: var(--bg);
+    color: var(--font-color);
+    border: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s linear;
+}
+
+#Admin_Product.new-form.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--main);
+}
+
 #Admin_Product .form-container {
     display: flex;
     flex-direction: column;
@@ -217,9 +252,10 @@ body {
     outline: none;
     color: var(--font-color);
     padding: .2rem 1rem;
+    cursor: pointer;
 }
 
-#Admin_Product .list-container .title-list button a {
+#Admin_Product .list-container .title-list button span {
     color: var(--font-color);
     font-size: 1rem;
     margin-left: .2rem;
@@ -247,9 +283,6 @@ body {
 
 #Admin_Product .list-container .list-code {
     margin-top: 3rem;
-}
-
-#Admin_Product .list-container .list-code {
     width: 100%;
     height: 100%;
     /* border: 2px solid cyan; */
@@ -262,6 +295,7 @@ body {
     table-layout: auto;
     border-collapse: collapse;
     border-spacing: 0 10px;
+    white-space: nowrap;
 }
 
 

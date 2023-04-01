@@ -39,8 +39,9 @@
                             <th>STT</th>
                             <th>mã phiếu nhập</th>
                             <th>tên nhà cung cấp</th>
-                            <th>số tiền</th>
+                            <th>nhân viên nhập</th>
                             <th>ngày nhập hàng</th>
+                            <th>số tiền</th>
                             <th>hoạt động</th>
                         </tr>
                     </thead>
