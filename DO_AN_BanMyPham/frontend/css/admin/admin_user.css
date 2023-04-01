@@ -262,7 +262,7 @@ body {
     opacity: 0.8;
 }
 
-#Admin_User .list-container .title-list button:hover a {
+#Admin_User .list-container .title-list button:hover span {
     color: var(--main);
 }
 

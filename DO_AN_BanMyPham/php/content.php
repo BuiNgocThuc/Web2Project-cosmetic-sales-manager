@@ -25,6 +25,9 @@ if (isset($_POST["page"])) {
         case "Admin_User":
             include 'admin/Admin_User.php';
             break;
+        case "Admin_TypeUser":
+            include 'admin/Admin_TypeUser.php';
+            break;
         case "Admin_Discount":
             include 'admin/Admin_Discount.php';
             break;
@@ -37,18 +40,16 @@ if (isset($_POST["page"])) {
         case "Admin_Decentralization":
             include 'admin/Admin_Decentralization.php';
             break;
-        // case "create_form":
-        //     include 'admin/add-form/Create_Form.php';
-        //     break;
-        // case "fix_form":
-        //     include 'admin/add-form/Fix_Form.php';
-        //     break;
-        // case "delete_form":
-        //     include 'admin/add-form/Delete_Form.php';
-        //     break;
+        case "Login":
+            include 'public/login.php';
+            break;
+        case "admin":
+            include 'admin/admin.php';
+            break;
         default:
             echo `<h1>Page not found 404</h1>`;
     }
 } else {
     echo 'error';
 }
+?>

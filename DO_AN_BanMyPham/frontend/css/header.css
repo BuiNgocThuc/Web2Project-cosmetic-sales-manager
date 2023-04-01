@@ -4,28 +4,32 @@
     box-sizing: border-box;
 }
 
-.header__container {
+#header__container {
     width: 100%;
-    height: 200px;
+    height: 18rem;
     display: block;
+    position: fixed;
+    top: 0;
+    transition: top 0.5s linear;
+    z-index: 999999;
 }
 
-.header__container>div {
+#header__container>div {
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
 
-.header__container .top__header {
+#header__container .top__header {
     width: 100%;
-    height: 50px;
+    height: 4rem;
     background: black;
     color: white;
     padding: 5px 0;
     display: flex;
 }
 
-.header__container .top__header .phone_number {
+#header__container .top__header .phone_number {
     height: 100%;
     flex-basis: 10%;
     font-size: 18px;
@@ -34,16 +38,16 @@
     align-items: center;
 }
 
-.header__container .top__header .phone_number label {
+#header__container .top__header .phone_number label {
     margin-left: 10px;
 }
 
-.header__container .top__header span {
+#header__container .top__header span {
     font-size: 16px;
     font-style: italic;
 }
 
-.header__container .top__header .social_media {
+#header__container .top__header .social_media {
     flex-basis: 10%;
     display: flex;
     justify-content: space-evenly;
@@ -53,14 +57,14 @@
     margin-bottom: 2px;
 }
 
-.header__container .middle__header {
-    height: 150px;
+#header__container .middle__header {
+    height: 10rem;
     width: 100%;
-    background: #fae1ce59;
+    background: #EEE0DC;
     padding: 15px 80px;
 }
 
-.header__container .middle__header .logo {
+#header__container .middle__header .logo {
     width: 150px;
     height: 120px;
     border-radius: 50%;
@@ -68,13 +72,13 @@
     margin-bottom: 120px;
 }
 
-.header__container .middle__header .logo img {
+#header__container .middle__header .logo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.header__container .middle__header .center__header .search__bar {
+#header__container .middle__header .center__header .search__bar {
     width: 500px;
     height: 35px;
     display: flex;
@@ -86,7 +90,7 @@
     margin: 20px 0;
 }
 
-.header__container .middle__header .center__header .search__bar input {
+#header__container .middle__header .center__header .search__bar input {
     flex: 1;
     height: 100%;
     padding: 0 20px;
@@ -94,7 +98,7 @@
     border: none;
 }
 
-.header__container .middle__header .center__header .search__bar button {
+#header__container .middle__header .center__header .search__bar button {
     width: 50px;
     height: 100%;
     background: black;
@@ -102,25 +106,25 @@
     cursor: pointer;
 }
 
-.header__container .middle__header .center__header .bonus__info {
+#header__container .middle__header .center__header .bonus__info {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.header__container .middle__header .center__header .bonus__info>div {
+#header__container .middle__header .center__header .bonus__info>div {
     cursor: pointer;
     font-size: 15px;
 }
 
-.header__container .middle__header .icon__commerce {
+#header__container .middle__header .icon__commerce {
     width: 300px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.header__container .middle__header .icon__commerce>div {
+#header__container .middle__header .icon__commerce>div {
     height: 65px;
     display: flex;
     flex-direction: column;
@@ -130,7 +134,7 @@
     cursor: pointer;
 }
 
-.header__container .middle__header .icon__commerce .cart__icon, .user__icon {
+#header__container .middle__header .icon__commerce .cart__icon, .user__icon {
     border-radius: 50%;
     border: 1px solid black;
     width: 40px;
@@ -141,14 +145,14 @@
     background: white;
 }
 
-.header__container .bottom__header {
+#header__container .bottom__header {
     width: 100%;
-    height: 50px;
+    height: 4rem;
     background: black;
     color: white;
 }
 
-.header__container .bottom__header .navbar {
+#header__container .bottom__header .navbar {
     width: 700px;
     display: flex;
     justify-content: space-between;
@@ -158,7 +162,7 @@
     font-style: italic;
 }
 
-.header__container .bottom__header  .order_lookup {
+#header__container .bottom__header  .order_lookup {
     width: 200px;
     margin: 15px 30px;
 }

@@ -18,6 +18,8 @@ const loadPageByAjax = (pageTarget) => {
     });
 };
 
+
+
 const Tools = (formTarget, content) => {
     $.ajax({
         url: "../php/content.php",
@@ -34,7 +36,7 @@ const Tools = (formTarget, content) => {
 
 
 
-$(document).on('click', '.btnCreate', function (e) {
+$(document).on('click', '.btnCreate', function (e) {   
     $('.new-form').addClass('active');
     $('.overlay').css('display', 'block');
     $('.new-form #create-form').show();
@@ -44,6 +46,7 @@ $(document).on('click', '.btnFix', function (e) {
     $('.new-form').addClass('active');
     $('.overlay').css('display', 'block');
     $('.new-form #fix-form').show();
+    console.log($('.new-form').hasClass('active'));
 });
 
 $(document).on('click', '.btnDel', function (e) {

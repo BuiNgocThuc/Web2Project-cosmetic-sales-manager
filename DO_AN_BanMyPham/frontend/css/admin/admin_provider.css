@@ -22,7 +22,6 @@
 
 body {
     color: var(--font-color);
-
 }
 
 #Admin_Provider .overlay {
@@ -263,7 +262,7 @@ body {
     opacity: 0.8;
 }
 
-#Admin_Provider .list-container .title-list button:hover a {
+#Admin_Provider .list-container .title-list button:hover span {
     color: var(--main);
 }
 

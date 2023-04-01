@@ -20,12 +20,6 @@
     text-transform: capitalize;
 }
 
-/* body {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-} */
-
 #create-form {
     border: 2px solid #ccc;
     width: 35rem;

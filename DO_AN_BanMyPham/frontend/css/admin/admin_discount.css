@@ -22,7 +22,6 @@
 
 body {
     color: var(--font-color);
-
 }
 
 #Admin_Discount.overlay {
@@ -262,7 +261,7 @@ body {
     opacity: 0.8;
 }
 
-#Admin_Discount .list-container .title-list button:hover a {
+#Admin_Discount .list-container .title-list button:hover span {
     color: var(--main);
 }
 

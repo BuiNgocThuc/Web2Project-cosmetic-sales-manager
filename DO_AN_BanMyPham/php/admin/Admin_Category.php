@@ -6,13 +6,13 @@
         <!-- -----Create Form ------ -->
         <div id="create-form" style="display: none;">
             <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
-            <div class="title">Thêm Thương Hiệu Mới</div>
+            <div class="title">Thêm Danh Mục Mới</div>
             <form action="" class="content">
                 <div>
-                    <label for="" class="name-brand">tên thương hiệu: </label>
+                    <label for="" class="name-brand">tên danh mục: </label>
                     <input class="textfield" type="text">
                 </div>
-                <div>
+                <!-- <div>
                     <label for="" class="img-brand">hình ảnh: </label>
                     <div class="image-upload">
                         <input id="file-input" type="file" accept="image/png,img/jpg,img/jpeg">
@@ -21,7 +21,7 @@
                             <span>đăng tải</span>
                         </label>
                     </div>
-                </div>
+                </div> -->
                 <div>
                     <label for="">Trạng Thái: </label>
                     <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent()">
@@ -36,13 +36,13 @@
         <!-- -----Update Form ------ -->
         <div id="fix-form" style="display: none;">
             <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
-            <div class="title">Cập nhật thương hiệu</div>
+            <div class="title">Cập nhật Danh mục</div>
             <form action="" class="content">
                 <div>
-                    <label for="" class="name-brand">tên thương hiệu: </label>
+                    <label for="" class="name-brand">tên danh mục: </label>
                     <input class="textfield" type="text">
                 </div>
-                <div>
+                <!-- <div>
                     <label for="" class="img-brand">hình ảnh: </label>
                     <label for="file-input" class="image-upload">
                         <input id="file-input" type="file" accept="image/png,img/jpg,img/jpeg">
@@ -51,7 +51,7 @@
                             <span>đăng tải</span>
                         </label>
                     </label>
-                </div>
+                </div> -->
                 <div>
                     <label for="">Trạng Thái: </label>
                     <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent()">
@@ -65,8 +65,8 @@
         <!-- -----Delete Form ------ -->
         <div id="delete-form" style="display: none;">
             <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
-            <div class="title">Xóa thương hiệu</div>
-            <p class="warning"> Bằng cách xác nhận xóa thương này, bạn không thể tạo hoặc cập nhật sản phẩm với thương hiệu này nữa</p>
+            <div class="title">Xóa danh mục</div>
+            <p class="warning"> Bằng cách xác nhận xóa danh mục này, bạn không thể tạo hoặc cập nhật sản phẩm với danh mục này nữa</p>
             <div class="tool">
                 <button class="btnAdd btn">Xóa</button>
                 <button class="btnRemove btn">Hủy Bỏ</button>

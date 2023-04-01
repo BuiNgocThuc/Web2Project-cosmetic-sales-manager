@@ -1,11 +1,11 @@
 
 
-function changeDataContent() {
-    var stt = document.querySelector('.switch');
-    if (stt.getAttribute('data-content') === "ngừng hoạt động") {
-        stt.setAttribute('data-content', 'đang hoạt động')
+function changeDataContent(x) {
+    console.log(x)
+    if (x.getAttribute('data-content') === "ngừng hoạt động") {
+        x.setAttribute('data-content', 'đang hoạt động')
     } else {
-        stt.setAttribute('data-content', 'ngừng hoạt động')
+        x.setAttribute('data-content', 'ngừng hoạt động')
     }
 }
 
@@ -22,15 +22,16 @@ let hideDropdownMenu = () => {
     // $('.dropdown-select').parent(".menu-wrapper").children(".dropdown-list").slideToggle(500);
 }
 
-var menu = $('.menu-wrapper > ul');
-var otherMenu = $('.dropdown-select');
+
 $(document).on('click', '.dropdown-select', function (evt) {
+    var menu = $('.menu-wrapper > ul');
+    var otherMenu = $('.dropdown-select');
     menu.not($(this).next(".dropdown-list")).slideUp(500);
     otherMenu.not($(this)).each(function () {
         if ($(this).hasClass('show')) {
             changeIconArrowSidebar(this);
             $(this).removeClass('show');
-        } 
+        }
     });
     $(this).next(".dropdown-list").slideToggle(500);
     $(this).toggleClass('show');
@@ -89,21 +90,21 @@ function changeIconMode(x) {
 
 //select function on sidebar 
 
-$(document).ready(function () {
-    $("#changeMode").click(function () {
-        if (this.classList.contains("fa-moon-stars")) {
-            document.documentElement.style.setProperty('--main', '#0D9494');
-            document.documentElement.style.setProperty('--bg', '#FFFDFA');
-            document.documentElement.style.setProperty('--bg-body', '#e5e5e5');
-            document.documentElement.style.setProperty('--font-color', '#0b1218');
-        } else {
-            document.documentElement.style.setProperty('--main', 'orange');
-            document.documentElement.style.setProperty('--bg', '#0B1218');
-            document.documentElement.style.setProperty('--bg-body', '#131D28');
-            document.documentElement.style.setProperty('--font-color', '#FFFDFA');
-        }
-    });
+
+$(document).on('click', '#changeMode', function () {
+    if (this.classList.contains("fa-moon-stars")) {
+        document.documentElement.style.setProperty('--main', '#0D9494');
+        document.documentElement.style.setProperty('--bg', '#FFFDFA');
+        document.documentElement.style.setProperty('--bg-body', '#e5e5e5');
+        document.documentElement.style.setProperty('--font-color', '#0b1218');
+    } else {
+        document.documentElement.style.setProperty('--main', 'orange');
+        document.documentElement.style.setProperty('--bg', '#0B1218');
+        document.documentElement.style.setProperty('--bg-body', '#131D28');
+        document.documentElement.style.setProperty('--font-color', '#FFFDFA');
+    }
 });
+
 
 // hidden sidebar
 
@@ -118,7 +119,7 @@ $(document).ready(function () {
 });
 
 
-$(document).on('click', '.menu-icon', function(evt) {
+$(document).on('click', '.menu-icon', function (evt) {
     console.log(1223);
     $('.sidebar').toggleClass('hide');
     $('.main-content').toggleClass('expand');

@@ -70,7 +70,7 @@
                             <li class="dropdown-item" onclick="loadPageByAjax('Admin_User'), selectDropdownMenu(this)">
                                 <span class="dropdown-text">Danh sách người dùng</span>
                             </li>
-                            <li class="dropdown-item" onclick="loadPageByAjax(''), selectDropdownMenu(this)">
+                            <li class="dropdown-item" onclick="loadPageByAjax('Admin_TypeUser'), selectDropdownMenu(this)">
                                 <span class="dropdown-text">Loại người dùng</span>
                             </li>
                         </ul>

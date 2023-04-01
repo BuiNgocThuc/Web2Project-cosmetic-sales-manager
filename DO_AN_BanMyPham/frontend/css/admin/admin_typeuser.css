@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Dosis:wght@400;500;600;700&family=Open+Sans:ital,wght@0,500;1,400&display=swap');
+
 :root {
     --main: orange;
     --bg: #0B1218;
@@ -22,7 +24,7 @@ body {
     color: var(--font-color);
 }
 
-#Admin_Order .overlay {
+#Admin_TypeUser .overlay {
     display: none;
     position: fixed;
     top: 0;
@@ -34,7 +36,7 @@ body {
     backdrop-filter: blur(8px);
 }
 
-#Admin_Order .new-form {
+#Admin_TypeUser .new-form {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -45,24 +47,19 @@ body {
     background: var(--bg);
     color: var(--font-color);
     border: none;
-    /* visibility: hidden;
-    opacity: 0; */
+    visibility: hidden;
+    opacity: 0;
     transition: all 0.2s linear;
 }
 
-#Admin_Order .new-form.active {
+#Admin_TypeUser .new-form.active {
     visibility: visible;
     opacity: 1;
     transform: translate(-50%, -50%);
     border: 2px solid var(--main);
 }
 
-#Admin_Order {
-    width: 100%;
-    /* border: 2px solid blue; */
-}
-
-#Admin_Order .form-container {
+#Admin_TypeUser .form-container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -75,7 +72,7 @@ body {
     border-radius: 1.8rem;
 }
 
-#Admin_Order .form-container .fix-info {
+#Admin_TypeUser .form-container .fix-info {
     width: 80%;
     align-items: center;
     display: flex;
@@ -83,14 +80,14 @@ body {
     font-size: 1.2rem;
 }
 
-#Admin_Order .form-container .fix-info div {
+#Admin_TypeUser .form-container .fix-info div {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: left;
 }
 
-#Admin_Order .form-container .title-form{
+#Admin_TypeUser .form-container .title-form{
     width: 100%;
     justify-content: space-between;
     margin-bottom: 1rem;
@@ -100,47 +97,43 @@ body {
     font-size: 1.2rem;
 }
 
-#Admin_Order .form-container .title-form h3 {
+#Admin_TypeUser .form-container .title-form h3 {
     font-size: 1.5rem;
 }
 
-#Admin_Order .form-container .title-form span:hover {
+#Admin_TypeUser .form-container .title-form span:hover {
     color: var(--main);
     cursor: pointer;
 }
 
-#Admin_Order .form-container .fix-info div:nth-child(5) {
+#Admin_TypeUser .form-container .fix-info div:nth-child(5) {
     margin: 1em 0;
 }
 
-#Admin_Order .form-container .fix-info div label {
+#Admin_TypeUser .form-container .fix-info div label {
     min-width: 18rem;
 }
 
-#Admin_Order .form-container .fix-info div .textfield {
-    height:  100%;
+#Admin_TypeUser .form-container .fix-info div .textfield {
+    height: 100%;
     flex: 1;
-    color: var(--font-color);
     background: transparent;
     outline: none;
     border: 0;
     border-bottom: 2px solid var(--font-color);
     padding: .8rem;
     font-size: 1.2rem;
+    color: var(--font-color);
     margin-bottom: .6rem;
     cursor: text;
 }
 
-#Admin_Order .form-container .fix-info div .textfield option {
-    background: var(--bg);
-}
-
-#Admin_Order .form-container .fix-info div .textfield::-webkit-calendar-picker-indicator {
+#Admin_TypeUser .form-container .fix-info div .textfield::-webkit-calendar-picker-indicator {
     filter: invert(1);
     cursor: pointer;
 }
 
-#Admin_Order .form-container .fix-info div .switch {
+#Admin_TypeUser .form-container .fix-info div .switch {
     -webkit-appearance: none;
     appearance: none;
     width: 8.2rem;
@@ -152,14 +145,15 @@ body {
     border: 1px solid var(--main);
     position: relative;
     transition: ease 0.5s;
+    margin: 1.5rem 0;
 }
 
-#Admin_Order .form-container .fix-info div .switch:checked {
+#Admin_TypeUser .form-container .fix-info div .switch:checked {
     background: var(--main);
     transition: ease 1s;
 }
 
-#Admin_Order .form-container .fix-info div .switch::before {
+#Admin_TypeUser .form-container .fix-info div .switch::before {
     content: '';
     width: 1.1rem;
     height: 1.1rem;
@@ -172,7 +166,7 @@ body {
     /* transform: translate(-50%, -20%); */
 }
 
-#Admin_Order .form-container .fix-info div .switch::after {
+#Admin_TypeUser .form-container .fix-info div .switch::after {
     content: attr(data-content);
     position: absolute;
     width: 8rem;
@@ -183,16 +177,16 @@ body {
     color: var(--bg);
 }
 
-#Admin_Order .form-container .fix-info div .switch:checked::before {
+#Admin_TypeUser .form-container .fix-info div .switch:checked::before {
     left: 7rem;
 }
 
-#Admin_Order .form-container .fix-info div .textfield:focus {
+#Admin_TypeUser .form-container .fix-info div .textfield:focus {
     border-image: linear-gradient(to right top, #d8975c, #dda561, #e1b367, #e4c26e, #e6d077, #e9ce74, #edcd71, #f0cb6e, #f5b862, #faa45c, #fc8f5b, #fb7a5f);
     border-image-slice: 1;
 }
 
-#Admin_Order .form-container .fix-info div .btn {
+#Admin_TypeUser .form-container .fix-info div .btn {
     display: inline-block;
     text-decoration: none;
     background-color: transparent;
@@ -205,24 +199,24 @@ body {
     padding: .6rem 2.7rem;
 }
 
-#Admin_Order .form-container .fix-info div .btn:hover {
+#Admin_TypeUser .form-container .fix-info div .btn:hover {
     opacity: 0.8;
 }
 
-#Admin_Order .form-container .fix-info div .btn--Search {
+#Admin_TypeUser .form-container .fix-info div .btn--Search {
     background-color: var(--main);
 }
 
-#Admin_Order .form-container .fix-info div .btn--Undo {
+#Admin_TypeUser .form-container .fix-info div .btn--Undo {
     border: 2px solid var(--main);
     color: var(--main);
 }
 
-#Admin_Order .form-container .fix-info div .btn+.btn {
+#Admin_TypeUser .form-container .fix-info div .btn+.btn {
     margin-left: 3rem;
 }
 
-#Admin_Order .list-container {
+#Admin_TypeUser .list-container {
     width: 100%;
     height: 100%;
     background: var(--bg);
@@ -232,7 +226,7 @@ body {
     position: relative;
 }
 
-#Admin_Order .list-container .title-list {
+#Admin_TypeUser .list-container .title-list {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -241,11 +235,11 @@ body {
     margin-bottom: 1.8rem;
 }
 
-#Admin_Order .list-container .title-list h3 {
+#Admin_TypeUser .list-container .title-list h3 {
     font-size: 1.5rem;
 }
 
-#Admin_Order .list-container .title-list button {
+#Admin_TypeUser .list-container .title-list button {
     display: inline-block;
     text-decoration: none;
     background-color: var(--bg);
@@ -256,23 +250,23 @@ body {
     cursor: pointer;
 }
 
-#Admin_Order .list-container .title-list button span {
+#Admin_TypeUser .list-container .title-list button span {
     color: var(--font-color);
     font-size: 1rem;
     margin-left: .2rem;
 }
 
-#Admin_Order .list-container .title-list button:hover {
+#Admin_TypeUser .list-container .title-list button:hover {
     border: 2px solid var(--main);
     color: var(--main);
     opacity: 0.8;
 }
 
-#Admin_Order .list-container .title-list button:hover span {
+#Admin_TypeUser .list-container .title-list button:hover span {
     color: var(--main);
 }
 
-#Admin_Order .list-container::before {
+#Admin_TypeUser .list-container::before {
     content: '';
     width: 100%;
     height: .1rem;
@@ -282,40 +276,40 @@ body {
     background: gray;
 }
 
-#Admin_Order .list-container .list-code {
+#Admin_TypeUser .list-container .list-code {
     margin-top: 3rem;
 }
 
-#Admin_Order .list-container .list-code {
+#Admin_TypeUser .list-container .list-code {
     width: 100%;
     height: 100%;
     /* border: 2px solid cyan; */
     overflow-x: auto;
 }
 
-#Admin_Order .list-container .list-code .content-table {
+#Admin_TypeUser .list-container .list-code .content-table {
     width: 100%;
-    height: 100%;
-    table-layout: auto;
+    height: 100%; 
     border-collapse: collapse;
     border-spacing: 0 10px;
-    white-space: nowrap;
+    table-layout: auto;
 }
 
 
-#Admin_Order .list-container .list-code .content-table  td, th {
+#Admin_TypeUser .list-container .list-code .content-table  td, th {
     text-align: center;
     padding: 8px;
     border-bottom: 1px solid gray;
     padding: 2rem .8rem;
+    white-space: nowrap;
 }
 
-#Admin_Order .list-container .list-code .content-table  tbody tr:hover {
+#Admin_TypeUser .list-container .list-code .content-table  tbody tr:hover {
     /* background: var(--main); */
     opacity: 0.8;
 }
 
-#Admin_Order .list-container .list-code .content-table  tbody tr td button {
+#Admin_TypeUser .list-container .list-code .content-table  tbody tr td button {
     display: inline-block;
     text-decoration: none;
     background-color: transparent;
@@ -326,12 +320,12 @@ body {
     padding: .3rem .2rem;
 }
 
-#Admin_Order .list-container .list-code .content-table  tbody tr td button:hover {
+#Admin_TypeUser .list-container .list-code .content-table  tbody tr td button:hover {
     opacity: 0.8;
     border: 2px solid var(--main);
     color: var(--main);
 }
 
-#Admin_Order .list-container .list-code .content-table  tbody tr td button + button {
+#Admin_TypeUser .list-container .list-code .content-table  tbody tr td button + button {
     margin-left: .8rem;
 }

@@ -117,6 +117,7 @@ body {
 }
 
 #Admin_Brand .form-container .fix-info div label {
+    color: var(--font-color);
     min-width: 18rem;
 }
 
@@ -152,6 +153,7 @@ body {
     position: relative;
     transition: ease 0.5s;
     margin: 1.5rem 0;
+    font-size: .8rem;
 }
 
 #Admin_Brand .form-container .fix-info div .switch:checked {
@@ -230,6 +232,7 @@ body {
     padding: 2rem;
     border-radius: 1.8rem;
     position: relative;
+    color: var(--font-color);
 }
 
 #Admin_Brand .list-container .title-list {

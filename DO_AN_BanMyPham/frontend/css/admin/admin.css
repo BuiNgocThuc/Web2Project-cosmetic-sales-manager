@@ -60,6 +60,7 @@ body {
     color: var(--font-color);
     align-items: center;
     position: fixed;
+    z-index:3;
     /* padding: 1.25rem .6rem; */
     background: var(--bg);
     border-right: 2px solid var(--font-color);
@@ -196,6 +197,7 @@ body {
     /* margin-top: .8rem;
     border-radius: 1rem;
     border: 2px solid var(--main); */
+    color: var(--font-color);
     display: none;
     background: var(--bg-body);
 }
@@ -213,6 +215,7 @@ body {
     font-size: 1.2rem;
     /* border: 2px solid blue; */
     padding: .5rem 0;
+    
 }
 
 .sidebar .sidemenu .list-function li .menu-wrapper .dropdown-list .dropdown-item:hover {
@@ -224,6 +227,10 @@ body {
 .sidebar .sidemenu .list-function li .menu-wrapper .dropdown-list .dropdown-item.active {
     opacity: 1 !important;
     background: var(--main);
+}
+
+.sidebar .sidemenu .list-function li .menu-wrapper .dropdown-list .dropdown-item .dropdown-text {
+    color: var(--font-color);
 }
 
 .main-content {

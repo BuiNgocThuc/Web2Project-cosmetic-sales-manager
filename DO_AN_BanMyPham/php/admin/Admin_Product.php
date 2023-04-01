@@ -75,7 +75,7 @@
                         <td><span>đang Hoạt động</span></td>
                         <td>
                             <button>chỉnh sửa</button>
-                            <button>xóa</button>
+                            <button>xem</button>
                         </td>
                     </tr>
                     <tr>
@@ -88,7 +88,7 @@
                         <td><span>đang Hoạt động</span></td>
                         <td>
                             <button>chỉnh sửa</button>
-                            <button>xóa</button>
+                            <button>xem</button>
                         </td>
                     </tr>
                     <tr>
@@ -101,7 +101,7 @@
                         <td><span>đang Hoạt động</span></td>
                         <td>
                             <button>chỉnh sửa</button>
-                            <button>xóa</button>
+                            <button>xem</button>
                         </td>
                     </tr>
                 </tbody>

@@ -1,4 +1,4 @@
-<main id="Admin_Brand" data-content="Danh sách Thương hiệu">
+<main id="Admin_TypeUser" data-content="Danh sách Loại người dùng">
     <div class="overlay">
 
     </div>
@@ -80,16 +80,16 @@
         </div>
         <div class="fix-info">
             <div>
-                <label for="">Mã nhãn hàng</label>
+                <label for="">Mã loại người dùng</label>
                 <input class="textfield" type="text">
             </div>
             <div>
-                <label for="">Tên nhãn hàng</label>
+                <label for="">Tên loại người dùng</label>
                 <input class="textfield" type="text">
             </div>
             <div>
                 <label for="">Trạng Thái</label>
-                <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent()">
             </div>
             <div>
                 <label for=""></label>
@@ -100,7 +100,7 @@
     </div>
     <div class="list-container">
         <div class="title-list">
-            <h3>danh sách sản phẩm</h3>
+            <h3>danh sách loại người dùng</h3>
             <button class="btnCreate">
                 <i class="fa-light fa-plus"></i>
                 <span>tạo mới</span>
@@ -111,9 +111,8 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>mã nhãn hàng</th>
-                        <th>tên nhãn hàng</th>
-                        <th>hình ảnh</th>
+                        <th>mã loại người dùng</th>
+                        <th>tên người dùng</th>
                         <th>trạng thái</th>
                         <th>hoạt động</th>
                     </tr>
