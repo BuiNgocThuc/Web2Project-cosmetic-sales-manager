@@ -24,8 +24,20 @@ body {
     color: var(--font-color);
 }
 
-::-webkit-scrollbar {
-    width: 0px;
+body::-webkit-scrollbar {
+    width: .5rem;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: var(--main)
+}
+
+.main-content::webkit-scrollbar {
+    width: .5rem;
+}
+
+.main-content::webkit-scrollbar-track{
+    border-radius: 2rem;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -60,7 +72,7 @@ body {
     color: var(--font-color);
     align-items: center;
     position: fixed;
-    z-index:3;
+    z-index: 3;
     /* padding: 1.25rem .6rem; */
     background: var(--bg);
     border-right: 2px solid var(--font-color);
@@ -215,7 +227,7 @@ body {
     font-size: 1.2rem;
     /* border: 2px solid blue; */
     padding: .5rem 0;
-    
+
 }
 
 .sidebar .sidemenu .list-function li .menu-wrapper .dropdown-list .dropdown-item:hover {
@@ -243,7 +255,7 @@ body {
 
     /* border: 2px solid red; */
     /* overflow-y: auto; */
-    padding: 15.3vh 3vh 3vh 3vh;
+    padding: 15.3vh 3vh 3vh 4vh;
 }
 
 .main-content.expand {

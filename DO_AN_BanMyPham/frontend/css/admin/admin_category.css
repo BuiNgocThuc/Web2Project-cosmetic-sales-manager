@@ -111,6 +111,7 @@ body {
 }
 
 #Admin_Category .form-container .fix-info div label {
+    color: var(--font-color);
     min-width: 18rem;
 }
 

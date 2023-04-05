@@ -7,7 +7,7 @@
         <span>Cửa hàng kinh doanh mỹ phẩm chính hãng từ năm 2000 </span>
         <div class="social_media">
             <i class="fa-brands fa-facebook"></i>
-            <i class='bx bxl-instagram-alt'></i>
+            <i class='bx bxl-instagram-alt' style="font-size: 2rem;"></i>
             <i class="fa-brands fa-google"></i>
         </div>
     </div>
@@ -40,11 +40,29 @@
                 </div>
                 <span>Giỏ Hàng</span>
             </div>
-            <div class="user" >
-                <div class="user__icon" onclick="Login('Login')">
+            <div class="user">
+                <!-- <div class="user__icon" onclick="Login('Login')">
                     <i class="fa-duotone fa-user"></i>
                 </div>
-                <span>Đăng Nhập / Đăng Ký</span>
+                <span>Đăng Nhập / Đăng Ký</span> -->
+                <?php
+                if (isset($_SESSION['USERNAME'])) {
+                    echo '<div class="user__icon user__setting">
+                        <i class="fa-duotone fa-user">
+                            <ul class="setting">
+                                <li>thông tin tài khoản</li>
+                                <li onclick="logout()">đăng xuất</li>
+                            </ul>
+                        </i>
+                    </div>
+                    <span>Xin Chào,' . $_SESSION['NAME'] . '</span>';
+                } else {
+                    echo '<div class="user__icon" onclick="Login()">
+                    <i class="fa-duotone fa-user"></i>
+                </div>
+                <span>Đăng Nhập / Đăng Ký</span>';
+                }
+                ?>
             </div>
         </div>
     </div>

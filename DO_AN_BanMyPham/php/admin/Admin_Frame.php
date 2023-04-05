@@ -10,7 +10,6 @@
                 <img src="https://yt3.ggpht.com/yti/AHXOFjWnPpZwPaRrVu9jjJjZwxgIEnM5msXmhxZH_j90=s88-c-k-c0x00ffffff-no-rj-mo">
             </div>
             <div class="user__info">
-
                 <h3>Bùi Ngọc Thức</h3>
                 <small>Admin</small>
             </div>

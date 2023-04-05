@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+}
+
+body {
+    font-family: "Dosis", sans-serif;
 }
 
 #header__container {
@@ -86,7 +91,6 @@
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
-    border: 2px solid black;
     margin: 20px 0;
 }
 
@@ -165,4 +169,38 @@
 #header__container .bottom__header  .order_lookup {
     width: 200px;
     margin: 15px 30px;
+}
+
+#header__container .middle__header .icon__commerce .user .user__setting {
+    position: relative;
+}
+
+#header__container .middle__header .icon__commerce .user .user__setting .setting {
+    font-size: 1rem;
+    white-space: nowrap;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%,100%);
+    background: white;
+    color: black;
+    transition: all 0.2s linear;
+    list-style-type: none;
+    opacity: 0;
+    visibility: hidden;
+    z-index:1
+}
+
+#header__container .middle__header .icon__commerce .user .user__setting .setting li {
+    padding: .5rem 1rem;
+}
+
+#header__container .middle__header .icon__commerce .user .user__setting .setting li:hover {
+    background: #ccc;
+}
+
+#header__container .middle__header .icon__commerce .user .user__setting:hover .setting{
+    visibility: visible;
+    opacity: 1;
+    transform: translate(50%, 45%);
 }

@@ -19,21 +19,16 @@
         <h1 class="title_LG">
             ĐĂNG NHẬP
         </h1>
-        <div class="form_input">
-            <input class="txt TK" type="text" placeholder="Tài Khoản"> <br>
-            <input class="txt MK" type="password" placeholder="Mật Khẩu"> <br>
+        <div class="form_input" >
+            <input class="txt TK" type="text" placeholder="Tài Khoản" name="txtUsername"><br>
+            <input class="txt MK" type="password" placeholder="Mật Khẩu" name="txtPassword"><br>
             <div class="note_login">
                 <span><input type="checkbox">Nhớ mật khẩu</span>
                 <a href="">Quên mật khẩu</a> <br>
             </div>
-            <button class="btnLogin" onclick="loginAccount()">Đăng Nhập</button>
+            <button value="Đăng Nhập" class="btnLogin"  onclick="loginAccount()">Đăng Nhập</button>
         </div>
-        <!-- <div class="footer_login">
-                <label for="">Đăng nhập bằng</label>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-google"></i>
-            </div> -->
-    </div>
+</div>
 </section>
 <section id="container__register">
     <div class="RGform">
@@ -43,10 +38,10 @@
         <div class="form_input">
             <input class="txt name" type="text" placeholder="Họ tên"> <br>
             <input class="txt email" type="text" placeholder="Email"> <br>
-            <input class="txt TK" type="text" placeholder="Tài Khoản"> <br>
-            <input class="txt MK" type="password" placeholder="Mật Khẩu"> <br>
-            <input class="txt cfMK" type="text" placeholder="Xác nhận mật khẩu"> <br>
-            <button class="btnRegister">Đăng Ký</button>
+            <input class="txt username" type="text" placeholder="Tài Khoản"> <br>
+            <input class="txt pass" type="password" placeholder="Mật Khẩu"> <br>
+            <input class="txt cfpass" type="text" placeholder="Xác nhận mật khẩu"> <br>
+            <button class="btnRegister" onclick="regisAccount()">Đăng Ký</button>
         </div>
         <!-- <div class="footer_login">
                 <label for="">Đăng nhập bằng</label>

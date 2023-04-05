@@ -114,6 +114,7 @@ body {
 }
 
 #Admin_Order .form-container .fix-info div label {
+    color: var(--font-color);
     min-width: 18rem;
 }
 

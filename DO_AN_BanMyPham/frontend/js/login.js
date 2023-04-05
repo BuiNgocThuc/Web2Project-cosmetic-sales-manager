@@ -17,18 +17,29 @@ $(document).on('click', '.btnCallReg', function (e) {
     $('#container__register').css('opacity', '1');
 });
 
-const Login = (id) => {
+const Login = () => {
     $.ajax({
         url: "../php/content.php",
         type: "POST",
-        data: { page: id },
+        data: { page: "Login" },
         dataType: "html",
         success: function (data) {
             $("body").html(data);
-            $("body").addClass("login")
+            $("body").addClass("login");
         },
     });
 }
+
+const logout = () => {
+    $.ajax({
+        url: "../php/controlLogin.php",
+        type: "POST",
+        data: { action: "checkLogout" },
+        success: function () {
+            window.location.href = "index.php";
+        },
+    });
+};
 
 const loginAccount = () => {
     let username = document.querySelector(".TK").value;
@@ -37,16 +48,43 @@ const loginAccount = () => {
         url: "../php/controlLogin.php",
         type: "POST",
         data: { user: username, pass: password, action: "checkLogin" },
-        success: function (res) {
-            $.ajax({
-                url: "../php/content.php",
-                type: "POST",
-                data: {page: res},
-                dataType: "html",
-                success: function (data) {
-                    $("body").html(data);
-                },
-            })
+        success: function (response) {
+            if (response == 'admin') {
+                header("Location: admin.php");
+                alert("Vào trang quản trị");
+            }
+            else if (response == 'customer') {
+                alert("Vào trang chủ");
+                window.location.reload();
+            } else {
+                alert(response);
+            }
         },
     });
 };
+
+const regisAccount = () => {
+    let name = document.querySelector("#container__register .name").value;
+    let email = document.querySelector("#container__register  .email").value;
+    let username = document.querySelector("#container__register  .username").value;
+    let password = document.querySelector("#container__register  .pass").value;
+    $.ajax({
+        url: "../php/controlLogin.php",
+        type: "POST",
+        data: {
+            name: name,
+            email: email,
+            user: username,
+            pass: password,
+            action: "checkRegister",
+        },
+        success: function (res) {
+            if (res == "Success") {
+                alert("Tạo tài khoản thành công!");
+                login();
+                document.querySelector("#username-field").value = username;
+                document.querySelector("#password-field").value = password;
+            } else alert("Tạo tài khoản thất bại!");
+        },
+    });
+}

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,17 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel='shortcut icon' href='../image/LOGO.jpg' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../frontend/css/admin/admin.css">
-    <link rel="stylesheet" href="../frontend/css/admin/admin_coupon.css">
-    <link rel="stylesheet" href="../frontend/css/admin/admin_order.css">
-    <link rel="stylesheet" href="../frontend/css/admin/admin_user.css">
-    <link rel="stylesheet" href="../frontend/css/admin/admin_typeuser.css">
-    <link rel="stylesheet" href="../frontend/css/admin/admin_discount.css">
-    <link rel="stylesheet" href="../frontend/css/admin/admin_product.css">
-    <link rel="stylesheet" href="../frontend/css/admin/admin_provider.css">
-    <link rel="stylesheet" href="../frontend/css/admin/admin_brand.css">
-    <link rel="stylesheet" href="../frontend/css/admin/admin_category.css">
-    <link rel="stylesheet" href="../frontend/css/admin/new-form.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../frontend/css/homepage.css">
     <link rel="stylesheet" href="../frontend/css/header.css">
     <link rel="stylesheet" href="../frontend/css/footer.css">
@@ -37,6 +30,8 @@
     <div class="footer">
         <?php include 'public/footer.php' ?>
     </div>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="../frontend/js/admin.js"></script>
     <script src="../frontend/js/LoadPage.js"></script>
@@ -46,4 +41,4 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </body>
 
-</html>
+</html
