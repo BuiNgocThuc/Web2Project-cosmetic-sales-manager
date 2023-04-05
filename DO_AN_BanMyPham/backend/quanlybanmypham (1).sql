@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 05, 2023 lúc 06:18 PM
+-- Thời gian đã tạo: Th4 05, 2023 lúc 06:21 PM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.2.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `data`
+-- Cơ sở dữ liệu: `cosmetics`
 --
 
 -- --------------------------------------------------------
@@ -34,7 +34,7 @@ CREATE TABLE `accounts` (
   `DATE_CREATE` date DEFAULT NULL,
   `ID` varchar(10) DEFAULT NULL,
   `STATUS` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -47,19 +47,7 @@ CREATE TABLE `brands` (
   `BRAND_NAME` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `BRAND_IMG` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `STATUS` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `cart`
---
-
-CREATE TABLE `cart` (
-  `USER_ID` varchar(30) DEFAULT NULL,
-  `PRODUCT_ID` varchar(30) DEFAULT NULL,
-  `QUANTITY` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -71,7 +59,7 @@ CREATE TABLE `category` (
   `CATEGORY_ID` varchar(10) NOT NULL,
   `CATEGORY_NAME` varchar(100) DEFAULT NULL,
   `STATUS` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -82,22 +70,22 @@ CREATE TABLE `category` (
 CREATE TABLE `discounts` (
   `DISCOUNT_ID` varchar(10) NOT NULL,
   `DISCOUNT_NAME` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `CONDITION` varchar(50) DEFAULT NULL,
+  `CONDITION` int(11) DEFAULT NULL,
   `START_DATE` date DEFAULT NULL,
   `END_DATE` date DEFAULT NULL,
   `PERCENT` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `discounts`
 --
 
 INSERT INTO `discounts` (`DISCOUNT_ID`, `DISCOUNT_NAME`, `CONDITION`, `START_DATE`, `END_DATE`, `PERCENT`) VALUES
-('DC1', 'Giảm Giá Test', '1000000', '2023-03-01', '2023-07-07', 10),
-('DC2', 'Giảm Giá Valentine', '500000', '2023-04-01', '2023-12-07', 5),
-('DC3', 'Giảm Giá 8/3', '800000', '2023-01-01', '2023-09-07', 15),
-('DC4', 'Giảm Giá 20/10', '1000000', '2023-02-01', '2024-07-09', 20),
-('DC5', 'Giảm Giá BackToSchool', '1200000', '2022-12-01', '2024-01-07', 30);
+('DC1', 'Giảm Giá Test', 1000000, '2023-03-01', '2023-07-07', 10),
+('DC2', 'Giảm Giá Valentine', 500000, '2023-04-01', '2023-12-07', 5),
+('DC3', 'Giảm Giá 8/3', 800000, '2023-01-01', '2023-09-07', 15),
+('DC4', 'Giảm Giá 20/10', 1000000, '2023-02-01', '2024-07-09', 20),
+('DC5', 'Giảm Giá BackToSchool', 1200000, '2022-12-01', '2024-01-07', 30);
 
 -- --------------------------------------------------------
 
@@ -113,7 +101,7 @@ CREATE TABLE `export` (
   `DATE_CREATE` date DEFAULT NULL,
   `TOTAL` float DEFAULT NULL,
   `STATUS` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -126,7 +114,7 @@ CREATE TABLE `export_deatail` (
   `PRODUCT_ID` varchar(10) NOT NULL,
   `UNIT_PRICE` float DEFAULT NULL,
   `QUANTITY` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -140,7 +128,7 @@ CREATE TABLE `import` (
   `USER_ID` varchar(10) DEFAULT NULL,
   `DATE_CREATE` date DEFAULT NULL,
   `TOTAL` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -153,7 +141,7 @@ CREATE TABLE `import_deatail` (
   `IMPORT_ID` varchar(10) NOT NULL,
   `UNIT_PRICE` float DEFAULT NULL,
   `QUANTITY` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -165,7 +153,7 @@ CREATE TABLE `permission` (
   `PERMISSION_ID` varchar(10) NOT NULL,
   `PERMISSION_NAME` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `STATUS` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -182,8 +170,9 @@ CREATE TABLE `products` (
   `PRICE` float DEFAULT NULL,
   `QUANTITY` int(11) DEFAULT NULL,
   `ORIGIN` varchar(50) NOT NULL,
-  `STATUS` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `STATUS` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `DISPLAY` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -198,7 +187,7 @@ CREATE TABLE `providers` (
   `ADDRESS` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `EMAIL` varchar(100) DEFAULT NULL,
   `STATUS` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `providers`
@@ -224,9 +213,9 @@ INSERT INTO `providers` (`PROVIDER_ID`, `PROVIDER_NAME`, `PHONE`, `ADDRESS`, `EM
 
 CREATE TABLE `roles` (
   `ROLE_ID` varchar(10) NOT NULL,
-  `ROLE_NAME` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `ROLES_NAME` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `DESCRIPTION` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -240,7 +229,7 @@ CREATE TABLE `role_permissions` (
   `URL` varchar(100) DEFAULT NULL,
   `ACTION` varchar(100) DEFAULT NULL,
   `STATUS` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -252,7 +241,7 @@ CREATE TABLE `type_users` (
   `TYPE_USER_ID` varchar(10) NOT NULL,
   `TYPE_USER_NAME` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `STATUS` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `type_users`
@@ -276,7 +265,7 @@ CREATE TABLE `users` (
   `ADDRESS` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `EMAIL` varchar(100) DEFAULT NULL,
   `STATUS` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `users`
@@ -308,21 +297,13 @@ INSERT INTO `users` (`USER_ID`, `TYPE_USER_ID`, `USER_NAME`, `PHONE`, `ADDRESS`,
 -- Chỉ mục cho bảng `accounts`
 --
 ALTER TABLE `accounts`
-  ADD PRIMARY KEY (`USERNAME`),
-  ADD KEY `ROLE_ID` (`ROLE_ID`);
+  ADD PRIMARY KEY (`USERNAME`);
 
 --
 -- Chỉ mục cho bảng `brands`
 --
 ALTER TABLE `brands`
   ADD PRIMARY KEY (`BRAND_ID`);
-
---
--- Chỉ mục cho bảng `cart`
---
-ALTER TABLE `cart`
-  ADD KEY `USER_ID` (`USER_ID`),
-  ADD KEY `PRODUCT_ID` (`PRODUCT_ID`);
 
 --
 -- Chỉ mục cho bảng `category`
@@ -340,32 +321,28 @@ ALTER TABLE `discounts`
 -- Chỉ mục cho bảng `export`
 --
 ALTER TABLE `export`
-  ADD PRIMARY KEY (`EXPORT_ID`),
-  ADD KEY `EMPLOYEE_ID` (`EMPLOYEE_ID`),
-  ADD KEY `CUSTOMER_ID` (`CUSTOMER_ID`),
-  ADD KEY `DISCOUNT_ID` (`DISCOUNT_ID`);
+  ADD PRIMARY KEY (`EXPORT_ID`);
 
 --
 -- Chỉ mục cho bảng `export_deatail`
 --
 ALTER TABLE `export_deatail`
-  ADD PRIMARY KEY (`EXPORT_ID`,`PRODUCT_ID`),
-  ADD KEY `PRODUCT_ID` (`PRODUCT_ID`);
+  ADD PRIMARY KEY (`EXPORT_ID`,`PRODUCT_ID`);
 
 --
 -- Chỉ mục cho bảng `import`
 --
 ALTER TABLE `import`
   ADD PRIMARY KEY (`IMPORT_ID`),
-  ADD KEY `PROVIDER_ID` (`PROVIDER_ID`),
-  ADD KEY `USER_ID` (`USER_ID`);
+  ADD KEY `PROVIDER_ID_FK` (`PROVIDER_ID`),
+  ADD KEY `USER_ID_FK` (`USER_ID`);
 
 --
 -- Chỉ mục cho bảng `import_deatail`
 --
 ALTER TABLE `import_deatail`
   ADD PRIMARY KEY (`IMPORT_ID`,`PRODUCT_ID`),
-  ADD KEY `PRODUCT_ID` (`PRODUCT_ID`);
+  ADD KEY `PRODUCT_ID_FK` (`PRODUCT_ID`);
 
 --
 -- Chỉ mục cho bảng `permission`
@@ -378,8 +355,8 @@ ALTER TABLE `permission`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`PRODUCT_ID`),
-  ADD KEY `CATEGORY_ID` (`CATEGORY_ID`),
-  ADD KEY `BRAND_ID` (`BRAND_ID`);
+  ADD KEY `CATEGORY_ID_FK` (`CATEGORY_ID`),
+  ADD KEY `BRAND_ID_FK` (`BRAND_ID`);
 
 --
 -- Chỉ mục cho bảng `providers`
@@ -398,7 +375,7 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `role_permissions`
   ADD PRIMARY KEY (`ROLE_ID`,`PERMISSION_ID`),
-  ADD KEY `PERMISSION_ID` (`PERMISSION_ID`);
+  ADD KEY `PERMISSION_ID_FK` (`PERMISSION_ID`);
 
 --
 -- Chỉ mục cho bảng `type_users`
@@ -411,74 +388,45 @@ ALTER TABLE `type_users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`USER_ID`),
-  ADD KEY `TYPE_USER_ID` (`TYPE_USER_ID`);
+  ADD KEY `TYPE_USER_ID_FK` (`TYPE_USER_ID`);
 
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Các ràng buộc cho bảng `accounts`
---
-ALTER TABLE `accounts`
-  ADD CONSTRAINT `accounts_ibfk_1` FOREIGN KEY (`USERNAME`) REFERENCES `users` (`USER_ID`),
-  ADD CONSTRAINT `accounts_ibfk_2` FOREIGN KEY (`ROLE_ID`) REFERENCES `roles` (`ROLE_ID`);
-
---
--- Các ràng buộc cho bảng `cart`
---
-ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`),
-  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`);
-
---
--- Các ràng buộc cho bảng `export`
---
-ALTER TABLE `export`
-  ADD CONSTRAINT `export_ibfk_1` FOREIGN KEY (`EMPLOYEE_ID`) REFERENCES `users` (`USER_ID`),
-  ADD CONSTRAINT `export_ibfk_2` FOREIGN KEY (`CUSTOMER_ID`) REFERENCES `users` (`USER_ID`),
-  ADD CONSTRAINT `export_ibfk_3` FOREIGN KEY (`DISCOUNT_ID`) REFERENCES `discounts` (`DISCOUNT_ID`);
-
---
--- Các ràng buộc cho bảng `export_deatail`
---
-ALTER TABLE `export_deatail`
-  ADD CONSTRAINT `export_deatail_ibfk_1` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`),
-  ADD CONSTRAINT `export_deatail_ibfk_2` FOREIGN KEY (`EXPORT_ID`) REFERENCES `export` (`EXPORT_ID`);
-
---
 -- Các ràng buộc cho bảng `import`
 --
 ALTER TABLE `import`
-  ADD CONSTRAINT `import_ibfk_1` FOREIGN KEY (`PROVIDER_ID`) REFERENCES `providers` (`PROVIDER_ID`),
-  ADD CONSTRAINT `import_ibfk_2` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`);
+  ADD CONSTRAINT `PROVIDER_ID_FK` FOREIGN KEY (`PROVIDER_ID`) REFERENCES `providers` (`PROVIDER_ID`),
+  ADD CONSTRAINT `USER_ID_FK` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`);
 
 --
 -- Các ràng buộc cho bảng `import_deatail`
 --
 ALTER TABLE `import_deatail`
-  ADD CONSTRAINT `import_deatail_ibfk_1` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`),
-  ADD CONSTRAINT `import_deatail_ibfk_2` FOREIGN KEY (`IMPORT_ID`) REFERENCES `import` (`IMPORT_ID`);
+  ADD CONSTRAINT `IMPORT_ID_FK` FOREIGN KEY (`IMPORT_ID`) REFERENCES `import` (`IMPORT_ID`),
+  ADD CONSTRAINT `PRODUCT_ID_FK` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`);
 
 --
 -- Các ràng buộc cho bảng `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `category` (`CATEGORY_ID`),
-  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`BRAND_ID`) REFERENCES `brands` (`BRAND_ID`);
+  ADD CONSTRAINT `BRAND_ID_FK` FOREIGN KEY (`BRAND_ID`) REFERENCES `brands` (`BRAND_ID`),
+  ADD CONSTRAINT `CATEGORY_ID_FK` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `category` (`CATEGORY_ID`);
 
 --
 -- Các ràng buộc cho bảng `role_permissions`
 --
 ALTER TABLE `role_permissions`
-  ADD CONSTRAINT `role_permissions_ibfk_1` FOREIGN KEY (`ROLE_ID`) REFERENCES `roles` (`ROLE_ID`),
-  ADD CONSTRAINT `role_permissions_ibfk_2` FOREIGN KEY (`PERMISSION_ID`) REFERENCES `permission` (`PERMISSION_ID`);
+  ADD CONSTRAINT `PERMISSION_ID_FK` FOREIGN KEY (`PERMISSION_ID`) REFERENCES `permission` (`PERMISSION_ID`),
+  ADD CONSTRAINT `ROLE_FK` FOREIGN KEY (`ROLE_ID`) REFERENCES `roles` (`ROLE_ID`);
 
 --
 -- Các ràng buộc cho bảng `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`TYPE_USER_ID`) REFERENCES `type_users` (`TYPE_USER_ID`);
+  ADD CONSTRAINT `TYPE_USER_ID_FK` FOREIGN KEY (`TYPE_USER_ID`) REFERENCES `type_users` (`TYPE_USER_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
