@@ -24,6 +24,10 @@ body {
     color: var(--font-color);
 }
 
+#Admin_Discount {
+    position: relative;
+}
+
 #Admin_Discount.overlay {
     display: none;
     position: fixed;

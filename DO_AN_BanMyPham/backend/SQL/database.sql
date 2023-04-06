@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2023 at 10:20 AM
+-- Generation Time: Apr 07, 2023 at 12:12 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -42,7 +42,7 @@ CREATE TABLE `accounts` (
 INSERT INTO `accounts` (`USERNAME`, `PASSWORD`, `ROLE_ID`, `DATE_CREATE`, `STATUS`) VALUES
 ('admin', '1111', '1', '2023-04-04', 'đang hoạt động'),
 ('KH1', '123', '0', '2023-04-01', 'đang hoạt động'),
-('yuiv', 'uyvyu', '0', '2023-04-05', 'đang hoạt động');
+('yuiv', '123', '0', '2023-04-05', 'đang hoạt động');
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,7 @@ INSERT INTO `brands` (`BRAND_ID`, `NAME_BRAND`, `IMG_BRAND`, `STATUS_BRAND`) VAL
 
 CREATE TABLE `cart` (
   `USER_ID` varchar(30) NOT NULL,
-  `PRODUCT_ID` varchar(30) NOT NULL,
+  `PRODUCT_ID` int(11) NOT NULL,
   `QUANTITY_IN_CART` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -167,12 +167,12 @@ CREATE TABLE `export` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `export_deatail`
+-- Table structure for table `export_detail`
 --
 
-CREATE TABLE `export_deatail` (
+CREATE TABLE `export_detail` (
   `EXPORT_ID` varchar(10) NOT NULL,
-  `PRODUCT_ID` varchar(10) NOT NULL,
+  `PRODUCT_ID` int(11) NOT NULL,
   `UNIT_PRICE_EX` float DEFAULT NULL,
   `QUANTITY_EX` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -195,11 +195,11 @@ CREATE TABLE `import` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `import_deatail`
+-- Table structure for table `import_detail`
 --
 
-CREATE TABLE `import_deatail` (
-  `PRODUCT_ID` varchar(10) NOT NULL,
+CREATE TABLE `import_detail` (
+  `PRODUCT_ID` int(11) NOT NULL,
   `IMPORT_ID` varchar(10) NOT NULL,
   `UNIT_PRICE_IM` float DEFAULT NULL,
   `QUANTITY_IM` int(11) DEFAULT NULL
@@ -224,7 +224,7 @@ CREATE TABLE `permission` (
 --
 
 CREATE TABLE `products` (
-  `PRODUCT_ID` varchar(10) NOT NULL,
+  `PRODUCT_ID` int(11) NOT NULL,
   `BRAND_ID` varchar(10) DEFAULT NULL,
   `CATEGORY_ID` varchar(10) DEFAULT NULL,
   `NAME_PRO` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
@@ -239,46 +239,46 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`PRODUCT_ID`, `BRAND_ID`, `CATEGORY_ID`, `NAME_PRO`, `IMG_PRO`, `PRICE_PRO`, `QUANTITY_PRO`, `STATUS_PRO`) VALUES
-('prd1', 'brd1', 'cat1', 'Sữa Rửa Mặt L\'Oreal Làm Sáng Da, Giảm Thâm Nám 100', 'Aura Perfect Milky Foam.jpg', 102000, 100, 'đang hoạt động'),
-('prd10', 'brd7', 'cat4', 'Kem Chống Nắng La Roche-Posay Không Màu Kiểm Soát ', NULL, 174000, 100, 'đang hoạt động'),
-('prd11', 'brd1', 'cat4', 'Kem Chống Nắng L\'Oreal Mịn Nhẹ Kiềm Dầu Thoáng Mịn', NULL, 223000, 100, 'đang hoạt động'),
-('prd12', 'brd5', 'cat4', 'Gel Chống Nắng Bioré Màng Nước Dưỡng Ẩm SPF50+ PA+', NULL, 172000, 100, 'đang hoạt động'),
-('prd13', 'brd6', 'cat4', 'Kem Chống Nắng Laneige Radian-C Dưỡng Sáng Da 50ml', NULL, 525000, 100, 'đang hoạt động'),
-('prd14', 'brd8', 'cat5', 'Kem Nền Maybelline Mịn Nhẹ Kiềm Dầu Chống Nắng 30m', NULL, 209000, 100, 'đang hoạt động'),
-('prd15', 'brd8', 'cat5', 'Phấn Nền Maybelline Mịn Nhẹ Kiềm Dầu Chống Nắng #1', NULL, 148000, 100, 'đang hoạt động'),
-('prd16', 'brd1', 'cat5', 'Kem Nền L\'Oréal Mịn Nhẹ Dưỡng Da Dạng Lỏng G2 30ml', NULL, 262000, 100, 'đang hoạt động'),
-('prd17', 'brd8', 'cat6', 'Kem Lót Trang Điểm Maybelline Baby Skin 22ml', NULL, 149000, 100, 'đang hoạt động'),
-('prd18', 'brd1', 'cat6', 'Kem Lót L\'Oréal Infallible Kiềm Dầu Bền Màu Lâu Tr', NULL, 157000, 100, 'đang hoạt động'),
-('prd19', 'brd8', 'cat7', 'Phấn Má Hồng Maybelline Màu Đỏ Rượu 50 Wine 4.5g', NULL, 110000, 100, 'đang hoạt động'),
-('prd2', 'brd2', 'cat1', 'Sữa Rửa Mặt Olay Total Effects Tạo Bọt Ngừa Lão Ho', NULL, 134, 100, 'đang hoạt động'),
-('prd20', 'brd9', 'cat8', 'Kẻ Mày Cathy Doll 3 Trong 1 #04 Gray Brown 0.16g +', NULL, 135000, 100, 'đang hoạt động'),
-('prd21', 'brd9', 'cat7', 'Phấn Má Hồng Cathy Doll Mịn Lì 01 Buddy Beige 6g ', NULL, 149000, 100, 'đang hoạt động'),
-('prd22', 'brd1', 'cat8', 'Kẻ Chân Mày L\'Oreal 3 Trong 1 Màu Nâu Tối Dark Bro', NULL, 217, 100, 'đang hoạt động'),
-('prd23', 'brd8', 'cat9', 'Bút Kẻ Mắt Nước Maybelline Sắc Mảnh BK1 Đen Sắc Sả', NULL, 169000, 100, 'đang hoạt động'),
-('prd24', 'brd1', 'cat9', 'Kẻ Mắt Nước Mắt Mèo L\'Oreal Màu Đen 9g', NULL, 213000, 100, 'đang hoạt động'),
-('prd25', 'brd10', 'cat10', 'Son Lì Shu Uemura Matte OR570 Màu Đỏ Cam 3g', NULL, 575000, 100, 'đang hoạt động'),
-('prd26', 'brd8', 'cat10', 'Son Lì Maybelline Mịn Môi Siêu Nhẹ 799 Cam Ngả Đất', NULL, 179000, 100, 'đang hoạt động'),
-('prd27', 'brd9', 'cat10', 'Son Thỏi Cathy Doll Mịn Lì 10 Touch Coral 3.5g', NULL, 177000, 100, 'đang hoạt động'),
-('prd28', 'brd10', 'cat10', 'Son Lì Shu Uemura Có Dưỡng Kinu Satin RD169 3.3g', NULL, 722000, 100, 'đang hoạt động'),
-('prd29', 'brd8', 'cat11', 'Son Bút Chì Maybelline Màu Đỏ Cherry 50 Own You Im', NULL, 119000, 100, 'đang hoạt động'),
-('prd3', 'brd3', 'cat1', 'Bọt Rửa Mặt Clinique Ngừa Mụn 125ml Anti Blemish S', NULL, 850, 100, 'đang hoạt động'),
-('prd30', 'brd11', 'cat12', 'Sáp Dưỡng Môi Vaseline Hồng Xinh 7g', NULL, 64000, 100, 'đang hoạt động'),
-('prd31', 'brd11', 'cat12', 'Sáp Dưỡng Ẩm Vaseline Pure Petroleum Jelly 49g', NULL, 41000, 100, 'đang hoạt động'),
-('prd32', 'brd11', 'cat12', 'Son Dưỡng Môi Vaseline Chiết Xuất Lô Hội 4.8g', NULL, 70000, 100, 'đang hoạt động'),
-('prd33', 'brd8', 'cat12', 'Son Dưỡng Chuyển Màu Maybelline Peach Blossom Màu ', NULL, 58000, 100, 'đang hoạt động'),
-('prd34', 'brd12', 'cat13', 'Dầu Gội Dove Hỗ Trợ Phục Hồi Tóc Hư Tổn 880g', NULL, 179000, 100, 'đang hoạt động'),
-('prd35', 'brd12', 'cat13', 'Dầu Gội Dove Chiết Xuất Hoa Sen Và Dầu Jojoba 500g', NULL, 136000, 100, 'đang hoạt động'),
-('prd36', 'brd1', 'cat13', 'Dầu Gội L\'Oréal Paris Ngăn Gãy Rụng Tóc 620ml', NULL, 138000, 100, 'đang hoạt động'),
-('prd37', 'brd5', 'cat13', 'Sữa Tắm - Gội - Rửa Mặt Men\'s Bioré Hương Nước Hoa', NULL, 186000, 100, 'đang hoạt động'),
-('prd38', 'brd12', 'cat14', 'Kem Xả Dove Phục Hồi Hư Tổn Chiết Xuất Bơ & Dầu Ar', NULL, 136000, 100, 'đang hoạt động'),
-('prd39', 'brd1', 'cat14', 'Dầu Xả L\'Oréal Paris Dưỡng Tóc Giảm Gãy Rụng 280ml', NULL, 106000, 100, 'đang hoạt động'),
-('prd4', 'brd4', 'cat2', 'Mặt Nạ Pond\'s Tinh Chất Sữa Dưỡng Sáng, Nâng Tông ', NULL, 26, 100, 'đang hoạt động'),
-('prd40', 'brd1', 'cat15', 'Kem Nhuộm L\'Oreal Dưỡng Tóc Sâu 6.11 Xám Khói 172m', NULL, 169000, 100, 'đang hoạt động'),
-('prd5', 'brd1', 'cat2', 'Mặt Nạ Giấy Dưỡng Chất Cô Đặc L\'Oreal Dưỡng Sáng D', NULL, 32000, 100, 'đang hoạt động'),
-('prd6', 'brd5', 'cat2', 'Miếng Dán Mũi Lột Mụn Bioré Không Hương (4 Miếng)', NULL, 23000, 100, 'đang hoạt động'),
-('prd7', 'brd6', 'cat2', 'Mặt Nạ Ngủ Laneige Dưỡng Ẩm & Tăng Khả Năng Tự Vệ ', NULL, 599000, 100, 'đang hoạt động'),
-('prd8', 'brd7', 'cat3', 'Bộ Sản Phẩm La Roche-Posay Phục Hồi Và Làm Dịu Da ', NULL, 292000, 100, 'đang hoạt động'),
-('prd9', 'brd7', 'cat3', 'Bộ Đôi La Roche-Posay Chống Nắng Kiểm Soát Dầu & L', NULL, 469000, 100, 'đang hoạt động');
+(1, 'brd1', 'cat1', 'Sữa Rửa Mặt L\'Oreal Làm Sáng Da, Giảm Thâm Nám 100', 'Aura Perfect Milky Foam.jpg', 102000, 100, 'đang hoạt động'),
+(2, 'brd2', 'cat1', 'Sữa Rửa Mặt Olay Total Effects Tạo Bọt Ngừa Lão Ho', NULL, 134, 100, 'đang hoạt động'),
+(3, 'brd3', 'cat1', 'Bọt Rửa Mặt Clinique Ngừa Mụn 125ml Anti Blemish S', NULL, 850, 100, 'đang hoạt động'),
+(4, 'brd4', 'cat2', 'Mặt Nạ Pond\'s Tinh Chất Sữa Dưỡng Sáng, Nâng Tông ', NULL, 26, 100, 'đang hoạt động'),
+(5, 'brd1', 'cat2', 'Mặt Nạ Giấy Dưỡng Chất Cô Đặc L\'Oreal Dưỡng Sáng D', NULL, 32000, 100, 'đang hoạt động'),
+(6, 'brd5', 'cat2', 'Miếng Dán Mũi Lột Mụn Bioré Không Hương (4 Miếng)', NULL, 23000, 100, 'đang hoạt động'),
+(7, 'brd6', 'cat2', 'Mặt Nạ Ngủ Laneige Dưỡng Ẩm & Tăng Khả Năng Tự Vệ ', NULL, 599000, 100, 'đang hoạt động'),
+(8, 'brd7', 'cat3', 'Bộ Sản Phẩm La Roche-Posay Phục Hồi Và Làm Dịu Da ', NULL, 292000, 100, 'đang hoạt động'),
+(9, 'brd7', 'cat3', 'Bộ Đôi La Roche-Posay Chống Nắng Kiểm Soát Dầu & L', NULL, 469000, 100, 'đang hoạt động'),
+(10, 'brd7', 'cat4', 'Kem Chống Nắng La Roche-Posay Không Màu Kiểm Soát ', NULL, 174000, 100, 'đang hoạt động'),
+(11, 'brd1', 'cat4', 'Kem Chống Nắng L\'Oreal Mịn Nhẹ Kiềm Dầu Thoáng Mịn', NULL, 223000, 100, 'đang hoạt động'),
+(12, 'brd5', 'cat4', 'Gel Chống Nắng Bioré Màng Nước Dưỡng Ẩm SPF50+ PA+', NULL, 172000, 100, 'đang hoạt động'),
+(13, 'brd6', 'cat4', 'Kem Chống Nắng Laneige Radian-C Dưỡng Sáng Da 50ml', NULL, 525000, 100, 'đang hoạt động'),
+(14, 'brd8', 'cat5', 'Kem Nền Maybelline Mịn Nhẹ Kiềm Dầu Chống Nắng 30m', NULL, 209000, 100, 'đang hoạt động'),
+(15, 'brd8', 'cat5', 'Phấn Nền Maybelline Mịn Nhẹ Kiềm Dầu Chống Nắng #1', NULL, 148000, 100, 'đang hoạt động'),
+(16, 'brd1', 'cat5', 'Kem Nền L\'Oréal Mịn Nhẹ Dưỡng Da Dạng Lỏng G2 30ml', NULL, 262000, 100, 'đang hoạt động'),
+(17, 'brd8', 'cat6', 'Kem Lót Trang Điểm Maybelline Baby Skin 22ml', NULL, 149000, 100, 'đang hoạt động'),
+(18, 'brd1', 'cat6', 'Kem Lót L\'Oréal Infallible Kiềm Dầu Bền Màu Lâu Tr', NULL, 157000, 100, 'đang hoạt động'),
+(19, 'brd8', 'cat7', 'Phấn Má Hồng Maybelline Màu Đỏ Rượu 50 Wine 4.5g', NULL, 110000, 100, 'đang hoạt động'),
+(20, 'brd9', 'cat8', 'Kẻ Mày Cathy Doll 3 Trong 1 #04 Gray Brown 0.16g +', NULL, 135000, 100, 'đang hoạt động'),
+(21, 'brd9', 'cat7', 'Phấn Má Hồng Cathy Doll Mịn Lì 01 Buddy Beige 6g ', NULL, 149000, 100, 'đang hoạt động'),
+(22, 'brd1', 'cat8', 'Kẻ Chân Mày L\'Oreal 3 Trong 1 Màu Nâu Tối Dark Bro', NULL, 217, 100, 'đang hoạt động'),
+(23, 'brd8', 'cat9', 'Bút Kẻ Mắt Nước Maybelline Sắc Mảnh BK1 Đen Sắc Sả', NULL, 169000, 100, 'đang hoạt động'),
+(24, 'brd1', 'cat9', 'Kẻ Mắt Nước Mắt Mèo L\'Oreal Màu Đen 9g', NULL, 213000, 100, 'đang hoạt động'),
+(25, 'brd10', 'cat10', 'Son Lì Shu Uemura Matte OR570 Màu Đỏ Cam 3g', NULL, 575000, 100, 'đang hoạt động'),
+(26, 'brd8', 'cat10', 'Son Lì Maybelline Mịn Môi Siêu Nhẹ 799 Cam Ngả Đất', NULL, 179000, 100, 'đang hoạt động'),
+(27, 'brd9', 'cat10', 'Son Thỏi Cathy Doll Mịn Lì 10 Touch Coral 3.5g', NULL, 177000, 100, 'đang hoạt động'),
+(28, 'brd10', 'cat10', 'Son Lì Shu Uemura Có Dưỡng Kinu Satin RD169 3.3g', NULL, 722000, 100, 'đang hoạt động'),
+(29, 'brd8', 'cat11', 'Son Bút Chì Maybelline Màu Đỏ Cherry 50 Own You Im', NULL, 119000, 100, 'đang hoạt động'),
+(30, 'brd11', 'cat12', 'Sáp Dưỡng Môi Vaseline Hồng Xinh 7g', NULL, 64000, 100, 'đang hoạt động'),
+(31, 'brd11', 'cat12', 'Sáp Dưỡng Ẩm Vaseline Pure Petroleum Jelly 49g', NULL, 41000, 100, 'đang hoạt động'),
+(32, 'brd11', 'cat12', 'Son Dưỡng Môi Vaseline Chiết Xuất Lô Hội 4.8g', NULL, 70000, 100, 'đang hoạt động'),
+(33, 'brd8', 'cat12', 'Son Dưỡng Chuyển Màu Maybelline Peach Blossom Màu ', NULL, 58000, 100, 'đang hoạt động'),
+(34, 'brd12', 'cat13', 'Dầu Gội Dove Hỗ Trợ Phục Hồi Tóc Hư Tổn 880g', NULL, 179000, 100, 'đang hoạt động'),
+(35, 'brd12', 'cat13', 'Dầu Gội Dove Chiết Xuất Hoa Sen Và Dầu Jojoba 500g', NULL, 136000, 100, 'đang hoạt động'),
+(36, 'brd1', 'cat13', 'Dầu Gội L\'Oréal Paris Ngăn Gãy Rụng Tóc 620ml', NULL, 138000, 100, 'đang hoạt động'),
+(37, 'brd5', 'cat13', 'Sữa Tắm - Gội - Rửa Mặt Men\'s Bioré Hương Nước Hoa', NULL, 186000, 100, 'đang hoạt động'),
+(38, 'brd12', 'cat14', 'Kem Xả Dove Phục Hồi Hư Tổn Chiết Xuất Bơ & Dầu Ar', NULL, 136000, 100, 'đang hoạt động'),
+(39, 'brd1', 'cat14', 'Dầu Xả L\'Oréal Paris Dưỡng Tóc Giảm Gãy Rụng 280ml', NULL, 106000, 100, 'đang hoạt động'),
+(40, 'brd1', 'cat15', 'Kem Nhuộm L\'Oreal Dưỡng Tóc Sâu 6.11 Xám Khói 172m', NULL, 169000, 100, 'đang hoạt động');
 
 -- --------------------------------------------------------
 
@@ -454,9 +454,9 @@ ALTER TABLE `export`
   ADD KEY `DISCOUNT_ID` (`DISCOUNT_ID`);
 
 --
--- Indexes for table `export_deatail`
+-- Indexes for table `export_detail`
 --
-ALTER TABLE `export_deatail`
+ALTER TABLE `export_detail`
   ADD PRIMARY KEY (`EXPORT_ID`,`PRODUCT_ID`),
   ADD KEY `PRODUCT_ID` (`PRODUCT_ID`);
 
@@ -469,9 +469,9 @@ ALTER TABLE `import`
   ADD KEY `USER_ID` (`USER_ID`);
 
 --
--- Indexes for table `import_deatail`
+-- Indexes for table `import_detail`
 --
-ALTER TABLE `import_deatail`
+ALTER TABLE `import_detail`
   ADD PRIMARY KEY (`IMPORT_ID`,`PRODUCT_ID`),
   ADD KEY `PRODUCT_ID` (`PRODUCT_ID`);
 
@@ -548,11 +548,11 @@ ALTER TABLE `export`
   ADD CONSTRAINT `export_ibfk_3` FOREIGN KEY (`DISCOUNT_ID`) REFERENCES `discounts` (`DISCOUNT_ID`);
 
 --
--- Constraints for table `export_deatail`
+-- Constraints for table `export_detail`
 --
-ALTER TABLE `export_deatail`
-  ADD CONSTRAINT `export_deatail_ibfk_1` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`),
-  ADD CONSTRAINT `export_deatail_ibfk_2` FOREIGN KEY (`EXPORT_ID`) REFERENCES `export` (`EXPORT_ID`);
+ALTER TABLE `export_detail`
+  ADD CONSTRAINT `export_detail_ibfk_2` FOREIGN KEY (`EXPORT_ID`) REFERENCES `export` (`EXPORT_ID`),
+  ADD CONSTRAINT `export_detail_ibfk_3` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`);
 
 --
 -- Constraints for table `import`
@@ -562,11 +562,11 @@ ALTER TABLE `import`
   ADD CONSTRAINT `import_ibfk_2` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`);
 
 --
--- Constraints for table `import_deatail`
+-- Constraints for table `import_detail`
 --
-ALTER TABLE `import_deatail`
-  ADD CONSTRAINT `import_deatail_ibfk_1` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`),
-  ADD CONSTRAINT `import_deatail_ibfk_2` FOREIGN KEY (`IMPORT_ID`) REFERENCES `import` (`IMPORT_ID`);
+ALTER TABLE `import_detail`
+  ADD CONSTRAINT `import_detail_ibfk_2` FOREIGN KEY (`IMPORT_ID`) REFERENCES `import` (`IMPORT_ID`),
+  ADD CONSTRAINT `import_detail_ibfk_3` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`);
 
 --
 -- Constraints for table `products`

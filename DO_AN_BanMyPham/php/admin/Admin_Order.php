@@ -24,7 +24,7 @@
                 </div>
                 <div>
                     <label for="">Trạng Thái: </label>
-                    <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent()">
+                    <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
                 </div>
             </form>
             <div class="tool">
@@ -54,7 +54,7 @@
                 </div>
                 <div>
                     <label for="">Trạng Thái: </label>
-                    <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent()">
+                    <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
                 </div>
             </form>
             <div class="tool">
@@ -143,7 +143,7 @@
                         <td><span>đang Hoạt động</span></td>
                         <td>
                             <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
+                            <button class="btnDel">xem</button>
                         </td>
                     </tr>
                     <tr>
@@ -156,7 +156,7 @@
                         <td><span>đang Hoạt động</span></td>
                         <td>
                             <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
+                            <button class="btnDel">xem</button>
                         </td>
                     </tr>
                     <tr>
@@ -169,7 +169,7 @@
                         <td><span>đang Hoạt động</span></td>
                         <td>
                             <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
+                            <button class="btnDel">xem</button>
                         </td>
                     </tr>
                 </tbody>

@@ -41,18 +41,18 @@ $(document).ready(function () {
 
 
 // srcoll hide/show header
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function () {
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-        document.getElementById("header__container").style.top = "0";
-        document.getElementById("home-wrapper").style.paddingTop = "18rem";
-    } else {
-        document.getElementById("header__container").style.top = "-100%";
-        document.getElementById("home-wrapper").style.paddingTop = "0";
-    }
-    prevScrollpos = currentScrollPos;
-}
+// var prevScrollpos = window.pageYOffset;
+// window.onscroll = function () {
+//     var currentScrollPos = window.pageYOffset;
+//     if (prevScrollpos > currentScrollPos) {
+//         document.getElementById("header__container").style.top = "0";
+//         document.getElementById("home-wrapper").style.paddingTop = "18rem";
+//     } else {
+//         document.getElementById("header__container").style.top = "-100%";
+//         document.getElementById("home-wrapper").style.paddingTop = "0";
+//     }
+//     prevScrollpos = currentScrollPos;
+// }
 
 
 //back to top

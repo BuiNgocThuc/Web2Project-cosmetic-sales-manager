@@ -1,7 +1,6 @@
 
 
 function changeDataContent(x) {
-    console.log(x)
     if (x.getAttribute('data-content') === "ngừng hoạt động") {
         x.setAttribute('data-content', 'đang hoạt động')
     } else {

@@ -114,7 +114,7 @@
                 <ul class="setting">
                     <li>thông tin tài khoản</li>
                     <li>đổi mật khẩu</li>
-                    <li>đăng xuất</li>
+                    <li onclick="logout()" >đăng xuất</li>
                 </ul>
             </i>
         </div>

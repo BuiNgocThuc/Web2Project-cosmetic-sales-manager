@@ -50,7 +50,7 @@
                     echo '<div class="user__icon user__setting">
                         <i class="fa-duotone fa-user">
                             <ul class="setting">
-                                <li>thông tin tài khoản</li>
+                                <li onclick="loadPageUser(`\Account_Info`)">thông tin tài khoản</li>
                                 <li onclick="logout()">đăng xuất</li>
                             </ul>
                         </i>

@@ -18,6 +18,18 @@ const loadPageByAjax = (pageTarget) => {
     });
 };
 
+const loadPageUser = (pageTarget) => {
+    $.ajax({
+        url: "../php/content.php",
+        type: "POST",
+        data: { page: pageTarget },
+        dataType: "html",
+        success: function (data) {
+            $('.content').empty().html(data);
+        },
+    });
+};
+
 
 
 const Tools = (formTarget, content) => {
@@ -36,7 +48,7 @@ const Tools = (formTarget, content) => {
 
 
 
-$(document).on('click', '.btnCreate', function (e) {   
+$(document).on('click', '.btnCreate', function (e) {
     $('.new-form').addClass('active');
     $('.overlay').css('display', 'block');
     $('.new-form #create-form').show();

@@ -46,6 +46,9 @@ if (isset($_POST["page"])) {
         case "admin":
             include 'admin/admin.php';
             break;
+        case "Account_Info":
+            include 'public/account_info.php';
+            break;
         default:
             echo `<h1>Page not found 404</h1>`;
     }

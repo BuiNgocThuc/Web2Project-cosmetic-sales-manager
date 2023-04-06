@@ -10,13 +10,14 @@ session_start();
     <link rel='shortcut icon' href='../image/LOGO.jpg' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../frontend/css/style.css">
     <link rel="stylesheet" href="../frontend/css/homepage.css">
     <link rel="stylesheet" href="../frontend/css/header.css">
     <link rel="stylesheet" href="../frontend/css/footer.css">
     <link rel="stylesheet" href="../frontend/css/LoginForm.css">
+    <link rel="stylesheet" href="../frontend/css/Account_Info.css">
     <link rel="stylesheet" href="../assets/icons/all.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>MOON COSMETIC</title>
 </head>
 
@@ -30,8 +31,6 @@ session_start();
     <div class="footer">
         <?php include 'public/footer.php' ?>
     </div>
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="../frontend/js/admin.js"></script>
     <script src="../frontend/js/LoadPage.js"></script>

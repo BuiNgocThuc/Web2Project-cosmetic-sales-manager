@@ -50,7 +50,7 @@ const loginAccount = () => {
         data: { user: username, pass: password, action: "checkLogin" },
         success: function (response) {
             if (response == 'admin') {
-                header("Location: admin.php");
+                window.location.href = 'admin.php';
                 alert("Vào trang quản trị");
             }
             else if (response == 'customer') {

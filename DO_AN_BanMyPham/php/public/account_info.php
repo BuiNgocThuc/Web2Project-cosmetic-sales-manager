@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/icons/all.css">
-    <link rel="stylesheet" href="../css/Account_Info.css">
-    <title>ACCOUNT</title>
-</head>
-
-<body>
-    <div id="Account_Info">
+<div id="Account_Info">
         <div class="sidebar">
             <div class="user__account">
                 <div class="thumbnail__avatar">
@@ -93,6 +80,3 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
