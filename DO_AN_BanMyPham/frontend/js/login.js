@@ -88,3 +88,69 @@ const regisAccount = () => {
         },
     });
 }
+
+const checkInputRegister = async () => {
+    let name = document.querySelector("#container__register .name").value;
+    let email = document.querySelector("#container__register  .email").value;
+    let username = document.querySelector("#container__register  .username").value;
+    let password = document.querySelector("#container__register  .pass").value;
+    let confirmPassword = document.querySelector("#container__register .cfpass").value;
+    if (name.value == "") {
+        alert("Chưa nhập name!");
+        name.focus();
+        return false;
+    }
+    if (email.value == "") {
+        alert("Chưa nhập email!");
+        email.focus();
+        return false;
+    }
+    if (username.value == "") {
+        alert("Chưa nhập username!");
+        username.focus();
+        return false;
+    }
+    if (await isUsernameExist(username.value)) {
+        alert("Username đã tồn tại!");
+        username.focus();
+        return false;
+    }
+    if (password.value == "") {
+        alert("Chưa nhập password!");
+        password.focus();
+        return false;
+    }
+    if (!isPasswordValid(password.value)) {
+        alert(
+            "Một mật khẩu có chứa ít nhất tám ký tự, trong đó có ít nhất một số và bao gồm cả chữ thường và chữ hoa và ký tự đặc biệt, ví dụ #, ?, !."
+        );
+        password.focus();
+        return false;
+    }
+
+    if (confirmPassword.value == "") {
+        alert("Chưa nhập confirm password!");
+        confirmPassword.focus();
+        return false;
+    }
+    if (confirmPassword.value != password.value) {
+        alert("Mật khẩu không khớp!");
+        confirmPassword.focus();
+        return false;
+    }
+    return true;
+};
+
+function isPasswordValid(password) {
+    return /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/.test(
+        password
+    );
+}
+
+const isUsernameExist = (username) => {
+    return $.ajax({
+        url: "../php/controlLogin.php",
+        type: "POST",
+        data: { user: username, action: "checkUsernameExist" },
+    });
+};

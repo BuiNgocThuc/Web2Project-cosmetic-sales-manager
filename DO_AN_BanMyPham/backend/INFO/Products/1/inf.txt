@@ -1,0 +1,6 @@
+prdid: prd1
+brdid: brd1
+catid: cat1
+Name: Sữa Rửa Mặt L'Oreal Làm Sáng Da, Giảm Thâm Nám 100ml Aura Perfect Milky Foam
+price: 102.000
+https://hasaki.vn/san-pham/sua-rua-mat-l-oreal-lam-sang-da-100ml-1311.html

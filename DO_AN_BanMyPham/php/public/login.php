@@ -40,7 +40,7 @@
             <input class="txt email" type="text" placeholder="Email"> <br>
             <input class="txt username" type="text" placeholder="Tài Khoản"> <br>
             <input class="txt pass" type="password" placeholder="Mật Khẩu"> <br>
-            <input class="txt cfpass" type="text" placeholder="Xác nhận mật khẩu"> <br>
+            <input class="txt cfpass" type="password" placeholder="Xác nhận mật khẩu"> <br>
             <button class="btnRegister" onclick="regisAccount()">Đăng Ký</button>
         </div>
         <!-- <div class="footer_login">
