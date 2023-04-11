@@ -14,7 +14,7 @@
             }
             foreach($products as $row) {
                 echo '<div class="grid__column-2-4">
-                        <a class="home-product-item" href="#" pid="' . $row["PRODUCT_ID"] .'">
+                        <div class="home-product-item" pid="' . $row["PRODUCT_ID"] .'">
                             <img class="home-product-item__img" src="../assets/img/'. $row["IMG_PRO"] .'">
                             <h4 class="home-product-item__name"> ' . $row["NAME_PRO"] .'</h4>
                             <div class="home-product-item__price">
@@ -38,7 +38,7 @@
                                 <span class="home-product-item__brand">' . $row["BRAND_ID"] .'</span>
                                 <span class="home-product-item__origin-name">' . $row["ORIGIN_PRO"] .'</span>
                             </div>
-                        </a>
+                        </div>
                     </div>';
             }
         }
