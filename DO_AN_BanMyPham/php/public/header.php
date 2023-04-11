@@ -69,16 +69,16 @@
     <div class="bottom__header">
         <div class="navbar">
             <div class="home">
-                <span>TRANG CHỦ</span>
+                <span onclick="loadPageUser('Homepage')">TRANG CHỦ</span>
             </div>
             <div class="product">
-                <span>SẢN PHẨM</span>
+                <span onclick="loadPageUser('Product')">SẢN PHẨM</span>
             </div>
             <div class="introduce">
-                <span>GIỚI THIỆU</span>
+                <span onclick="loadPageUser('Introduce')">GIỚI THIỆU</span>
             </div>
             <div class="blogs">
-                <span>BLOGS</span>
+                <span onclick="loadPageUser('Blogs')">BLOGS</span>
             </div>
         </div>
         <div class="order_lookup">

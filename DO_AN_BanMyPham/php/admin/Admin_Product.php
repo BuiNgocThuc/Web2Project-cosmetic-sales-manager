@@ -65,46 +65,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>xyz</td>
-                        <td>abcd</td>
-                        <td>20000</td>
-                        <td>200</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button>chỉnh sửa</button>
-                            <button>xem</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>xyz</td>
-                        <td>abcd</td>
-                        <td>20000</td>
-                        <td>200</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button>chỉnh sửa</button>
-                            <button>xem</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>xyz</td>
-                        <td>abcd</td>
-                        <td>20000</td>
-                        <td>200</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button>chỉnh sửa</button>
-                            <button>xem</button>
-                        </td>
-                    </tr>
+                    <?php
+                    include("ConnectDB.php");
+                    $db = new ConnectDB();
+                    $sql = "SELECT *  FROM products
+                        join brands on brands.brand_id = products.brand_id
+                        join category on category.category_id = products.category_id";
+                    $result = $db->connection($sql);
+                    $i = 1;
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<tr>
+                                <td>' . $i++ . '</td>
+                                <td>' . $row['PRODUCT_ID'] . '</td>
+                                <td>' . $row['NAME_PRO'] . '</td>
+                                <td>' . $row['NAME_BRAND'] . '</td>
+                                <td>' . $row['NAME_CAT'] . '</td>
+                                <td>' . $row['PRICE_PRO'] . '</td>
+                                <td>' . $row['QUANTITY_PRO'] . '</td>
+                                <td>' . $row['IMG_PRO'] . '</td>
+                                <td>' . $row['STATUS_PRO'] . '</td>
+                                <td>
+                                    <button class="btnFix">chỉnh sửa</button>
+                                    <button class="btnView">xem</button>
+                                </td>
+                            </tr>';
+                    }
+                    ?>
                 </tbody>
+
             </table>
         </div>
     </div>

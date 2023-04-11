@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../css/introduce.css">
-    <title>Document</title>
-</head>
-
-<body>
-    <section id="introduce">
+<section id="introduce">
         <div class="header">
-            <img src="../../image/introduce_1.jpg" alt="" />
+            <img src="../image/introduce_1.jpg" alt="" />
         </div>
         <div class="container">
             <section class="section__1">
@@ -134,7 +121,7 @@
                 <h1>CƠ SỞ VẬT CHẤT HIỆN ĐẠI</h1>
                 <div class="in-store">
                     <div class="space 1">
-                        <img src="../../image/introduce_3.jpg" alt="">
+                        <img src="../image/introduce_3.jpg" alt="">
                         <div>
                             <i class='bx bx-buildings'></i>
                             <span>
@@ -143,7 +130,7 @@
                         </div>
                     </div>
                     <div class="space 2">
-                        <img src="../../image/introduce_4.jpg" alt="">
+                        <img src="../image/introduce_4.jpg" alt="">
                         <div>
                             <i class='bx bx-buildings'></i>
                             <span>
@@ -152,7 +139,7 @@
                         </div>
                     </div>
                     <div class="space 3">
-                        <img src="../../image/introduce_5.jpg" alt="">
+                        <img src="../image/introduce_5.jpg" alt="">
                         <div>
                             <i class='bx bx-buildings'></i>
                             <span>
@@ -165,6 +152,3 @@
         </div>
         <div class="footer"></div>
     </section>
-</body>
-
-</html>

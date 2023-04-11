@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/admin/admin-display.css">
+    <title>Document</title>
+</head>
+<body>
+    <section id="Admin_Display">
+        <div class="form-container">
+            <div class="title-form">
+                <h3 for="">tùy chọn tìm kiếm</h3>
+                <span><i onclick="changeIconArrow(this), hideForm()" class="fa-regular fa-angle-up"></i></span>
+            </div>
+            <div class="fix-info">
+                <div>
+                    <label for="">mã sản phẩm</label>
+                    <input class="textfield" type="text">
+                </div>
+                <div>
+                    <label for="">tên sản phẩm</label>
+                    <input class="textfield" type="text">
+                </div>
+                <div>
+                    <label for=""></label>
+                    <button class="btn btn--Search">Tìm Kiếm</button>
+                    <button class="btn btn--Undo">Hoàn Tác</button>
+                </div>
+            </div>
+        </div>
+        <div class="list-container">
+            <div class="title-list">
+                <h3>danh sách hiển thị</h3>
+            </div>
+            <div class="list-code">
+                <table class="content-table">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>mã sản phẩm</th>
+                            <th>tên sản phẩm</th>
+                            <th>hình ảnh</th>
+                            <th>slide show</th>
+                            <th>nổi bật</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>Sản phẩm A</td>
+                            <td>Hình ảnh A</td>
+                            <td>
+                                <div class="display-action">
+                                    <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="display-action">
+                                    <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="../../js/admin.js"></script>
+</html>

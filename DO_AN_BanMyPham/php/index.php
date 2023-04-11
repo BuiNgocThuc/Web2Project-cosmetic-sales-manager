@@ -16,9 +16,11 @@ session_start();
     <link rel="stylesheet" href="../frontend/css/footer.css">
     <link rel="stylesheet" href="../frontend/css/LoginForm.css">
     <link rel="stylesheet" href="../frontend/css/Account_Info.css">
+    <link rel="stylesheet" href="../frontend/css/introduce.css">
     <link rel="stylesheet" href="../assets/icons/all.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <title>MOON COSMETIC</title>
+    
 </head>
 
 <body>
@@ -37,7 +39,8 @@ session_start();
     <script src="../frontend/js/slideshow.js"></script>
     <script src="../frontend/js/countdown.js"></script>
     <script src="../frontend/js/login.js"></script>
+    <script src="../frontend/js/display.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </body>
 
-</html
+</html>

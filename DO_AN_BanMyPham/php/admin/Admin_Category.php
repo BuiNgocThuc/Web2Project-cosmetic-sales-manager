@@ -118,39 +118,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>xyz</td>
-                        <td>xyz</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>xyz</td>
-                        <td>xyz</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>xyz</td>
-                        <td>xyz</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
-                        </td>
-                    </tr>
+                <?php
+                    include("ConnectDB.php");
+                    $db = new ConnectDB();
+                    $sql = "SELECT *  FROM category";
+                    $result = $db->connection($sql);
+                    $i = 1;
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<tr>
+                                    <td>' . $i++ . '</td>
+                                    <td>' . $row['CATEGORY_ID'] . '</td>
+                                    <td>' . $row['NAME_CAT'] . '</td>
+                                    <td>' . $row['STATUS_CAT'] . '</td>
+                                    <td>
+                                        <button class="btnFix">chỉnh sửa</button>
+                                        <button class="btnDel">xóa</button>
+                                    </td>
+                                </tr>';
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>

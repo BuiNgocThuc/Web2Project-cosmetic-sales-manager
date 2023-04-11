@@ -36,6 +36,17 @@ $(document).on('click', '.dropdown-select', function (evt) {
     $(this).toggleClass('show');
 });
 
+$(document).on('click', '.not-menu', function (evt) {
+    var menu = $('.dropdown-select');
+    menu.next(".dropdown-list").slideUp(500);
+    menu.each(function () {
+        if ($(this).hasClass('show')) {
+            changeIconArrowSidebar(this);
+            $(this).removeClass('show');
+        }
+    });
+});
+
 let selectMenu = (selectedTab) => {
     document.querySelector(".list-function .function-menu.active").classList.remove("active");
     selectedTab.classList.add("active");

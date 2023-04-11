@@ -24,7 +24,11 @@ body {
     color: var(--font-color);
 }
 
-#Admin_Product .overlay {
+#Admin_Statistic {
+    position: relative;
+}
+
+#Admin_Statistic.overlay {
     display: none;
     position: fixed;
     top: 0;
@@ -36,7 +40,7 @@ body {
     backdrop-filter: blur(8px);
 }
 
-#Admin_Product.new-form {
+#Admin_Statistic.new-form {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -52,14 +56,14 @@ body {
     transition: all 0.2s linear;
 }
 
-#Admin_Product.new-form.active {
+#Admin_Statistic .new-form.active {
     visibility: visible;
     opacity: 1;
     transform: translate(-50%, -50%);
     border: 2px solid var(--main);
 }
 
-#Admin_Product .form-container {
+#Admin_Statistic .form-container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -72,7 +76,7 @@ body {
     border-radius: 1.8rem;
 }
 
-#Admin_Product .form-container .fix-info {
+#Admin_Statistic .form-container .fix-info {
     width: 80%;
     align-items: center;
     display: flex;
@@ -80,14 +84,14 @@ body {
     font-size: 1.2rem;
 }
 
-#Admin_Product .form-container .fix-info div {
+#Admin_Statistic .form-container .fix-info div {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: left;
 }
 
-#Admin_Product .form-container .title-form{
+#Admin_Statistic .form-container .title-form{
     width: 100%;
     justify-content: space-between;
     margin-bottom: 1rem;
@@ -97,25 +101,25 @@ body {
     font-size: 1.2rem;
 }
 
-#Admin_Product .form-container .title-form h3 {
+#Admin_Statistic .form-container .title-form h3 {
     font-size: 1.5rem;
 }
 
-#Admin_Product .form-container .title-form span:hover {
+#Admin_Statistic .form-container .title-form span:hover {
     color: var(--main);
     cursor: pointer;
 }
 
-#Admin_Product .form-container .fix-info div:nth-child(5) {
+#Admin_Statistic .form-container .fix-info div:nth-child(5) {
     margin: 1em 0;
 }
 
-#Admin_Product .form-container .fix-info div label {
+#Admin_Statistic .form-container .fix-info div label {
     color: var(--font-color);
     min-width: 18rem;
 }
 
-#Admin_Product .form-container .fix-info div .textfield {
+#Admin_Statistic .form-container .fix-info div .textfield {
     height: 100%;
     flex: 1;
     background: transparent;
@@ -129,16 +133,16 @@ body {
     cursor: text;
 }
 
-#Admin_Product .form-container .fix-info div .textfield option {
-    background: var(--bg);
-}
-
-#Admin_Product .form-container .fix-info div .textfield::-webkit-calendar-picker-indicator {
+#Admin_Statistic .form-container .fix-info div .textfield::-webkit-calendar-picker-indicator {
     filter: invert(1);
     cursor: pointer;
 }
 
-#Admin_Product .form-container .fix-info div .switch {
+#Admin_Statistic .form-container .fix-info div .textfield option {
+    background: var(--bg);
+}
+
+#Admin_Statistic .form-container .fix-info div .switch {
     -webkit-appearance: none;
     appearance: none;
     width: 8.2rem;
@@ -150,15 +154,14 @@ body {
     border: 1px solid var(--main);
     position: relative;
     transition: ease 0.5s;
-    margin: 1.5rem 0;
 }
 
-#Admin_Product .form-container .fix-info div .switch:checked {
+#Admin_Statistic .form-container .fix-info div .switch:checked {
     background: var(--main);
     transition: ease 1s;
 }
 
-#Admin_Product .form-container .fix-info div .switch::before {
+#Admin_Statistic .form-container .fix-info div .switch::before {
     content: '';
     width: 1.1rem;
     height: 1.1rem;
@@ -171,7 +174,7 @@ body {
     /* transform: translate(-50%, -20%); */
 }
 
-#Admin_Product .form-container .fix-info div .switch::after {
+#Admin_Statistic .form-container .fix-info div .switch::after {
     content: attr(data-content);
     position: absolute;
     width: 8rem;
@@ -182,16 +185,16 @@ body {
     color: var(--bg);
 }
 
-#Admin_Product .form-container .fix-info div .switch:checked::before {
+#Admin_Statistic .form-container .fix-info div .switch:checked::before {
     left: 7rem;
 }
 
-#Admin_Product .form-container .fix-info div .textfield:focus {
+#Admin_Statistic .form-container .fix-info div .textfield:focus {
     border-image: linear-gradient(to right top, #d8975c, #dda561, #e1b367, #e4c26e, #e6d077, #e9ce74, #edcd71, #f0cb6e, #f5b862, #faa45c, #fc8f5b, #fb7a5f);
     border-image-slice: 1;
 }
 
-#Admin_Product .form-container .fix-info div .btn {
+#Admin_Statistic .form-container .fix-info div .btn {
     display: inline-block;
     text-decoration: none;
     background-color: transparent;
@@ -202,26 +205,27 @@ body {
     border-radius: 10px;
     /* min-width: 200px; */
     padding: .6rem 2.7rem;
+    margin-top: 1.5rem;
 }
 
-#Admin_Product .form-container .fix-info div .btn:hover {
+#Admin_Statistic .form-container .fix-info div .btn:hover {
     opacity: 0.8;
 }
 
-#Admin_Product .form-container .fix-info div .btn--Search {
+#Admin_Statistic .form-container .fix-info div .btn--Search {
     background-color: var(--main);
 }
 
-#Admin_Product .form-container .fix-info div .btn--Undo {
+#Admin_Statistic .form-container .fix-info div .btn--Undo {
     border: 2px solid var(--main);
     color: var(--main);
 }
 
-#Admin_Product .form-container .fix-info div .btn+.btn {
+#Admin_Statistic .form-container .fix-info div .btn+.btn {
     margin-left: 3rem;
 }
 
-#Admin_Product .list-container {
+#Admin_Statistic .list-container {
     width: 100%;
     height: 100%;
     background: var(--bg);
@@ -231,11 +235,7 @@ body {
     position: relative;
 }
 
-#Admin_Product .list-container::-webkit-scrollbar {
-    width: 70px;
-}
-
-#Admin_Product .list-container .title-list {
+#Admin_Statistic .list-container .title-list {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -244,11 +244,11 @@ body {
     margin-bottom: 1.8rem;
 }
 
-#Admin_Product .list-container .title-list h3 {
+#Admin_Statistic .list-container .title-list h3 {
     font-size: 1.5rem;
 }
 
-#Admin_Product .list-container .title-list button {
+#Admin_Statistic .list-container .title-list button {
     display: inline-block;
     text-decoration: none;
     background-color: var(--bg);
@@ -259,23 +259,23 @@ body {
     cursor: pointer;
 }
 
-#Admin_Product .list-container .title-list button span {
+#Admin_Statistic .list-container .title-list button span {
     color: var(--font-color);
     font-size: 1rem;
     margin-left: .2rem;
 }
 
-#Admin_Product .list-container .title-list button:hover {
+#Admin_Statistic .list-container .title-list button:hover {
     border: 2px solid var(--main);
     color: var(--main);
     opacity: 0.8;
 }
 
-#Admin_Product .list-container .title-list button:hover a {
+#Admin_Statistic .list-container .title-list button:hover span {
     color: var(--main);
 }
 
-#Admin_Product .list-container::before {
+#Admin_Statistic .list-container::before {
     content: '';
     width: 100%;
     height: .1rem;
@@ -285,15 +285,18 @@ body {
     background: gray;
 }
 
-#Admin_Product .list-container .list-code {
+#Admin_Statistic .list-container .list-code {
     margin-top: 3rem;
+}
+
+#Admin_Statistic .list-container .list-code {
     width: 100%;
     height: 100%;
     /* border: 2px solid cyan; */
     overflow-x: auto;
 }
 
-#Admin_Product .list-container .list-code .content-table {
+#Admin_Statistic .list-container .list-code .content-table {
     width: 100%;
     height: 100%;
     table-layout: auto;
@@ -303,19 +306,19 @@ body {
 }
 
 
-#Admin_Product .list-container .list-code .content-table  td, th {
+#Admin_Statistic .list-container .list-code .content-table  td, th {
     text-align: center;
     padding: 8px;
     border-bottom: 1px solid gray;
     padding: 2rem .8rem;
 }
 
-#Admin_Product .list-container .list-code .content-table  tbody tr:hover {
+#Admin_Statistic .list-container .list-code .content-table  tbody tr:hover {
     /* background: var(--main); */
     opacity: 0.8;
 }
 
-#Admin_Product .list-container .list-code .content-table  tbody tr td button {
+#Admin_Statistic .list-container .list-code .content-table  tbody tr td button {
     display: inline-block;
     text-decoration: none;
     background-color: transparent;
@@ -326,12 +329,12 @@ body {
     padding: .3rem .2rem;
 }
 
-#Admin_Product .list-container .list-code .content-table  tbody tr td button:hover {
+#Admin_Statistic .list-container .list-code .content-table  tbody tr td button:hover {
     opacity: 0.8;
     border: 2px solid var(--main);
     color: var(--main);
 }
 
-#Admin_Product .list-container .list-code .content-table  tbody tr td button + button {
+#Admin_Statistic .list-container .list-code .content-table  tbody tr td button + button {
     margin-left: .8rem;
 }

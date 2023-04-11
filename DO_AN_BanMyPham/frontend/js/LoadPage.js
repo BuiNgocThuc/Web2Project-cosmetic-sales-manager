@@ -25,7 +25,10 @@ const loadPageUser = (pageTarget) => {
         data: { page: pageTarget },
         dataType: "html",
         success: function (data) {
-            $('.content').empty().html(data);
+            console.log(data);
+            $('.content').empty();
+            $('.content').html(data);
+            abc();
         },
     });
 };
@@ -58,13 +61,23 @@ $(document).on('click', '.btnFix', function (e) {
     $('.new-form').addClass('active');
     $('.overlay').css('display', 'block');
     $('.new-form #fix-form').show();
-    console.log($('.new-form').hasClass('active'));
+    let id = $(this).attr('data-content');
+    $('#fix-form .btnConfirm').attr('data-content', id);
+});
+
+$(document).on('click', '.content-table .action', function (e) {
+    $('.new-form').addClass('active');
+    $('.overlay').css('display', 'block');
+    $('.new-form #fix-form .switch').attr('data-content', 'đang hoạt động');
+    $('.new-form #fix-form .switch').attr('checked', 'true');
+    $('.new-form #fix-form').show();
 });
 
 $(document).on('click', '.btnDel', function (e) {
     $('.new-form').addClass('active');
     $('.overlay').css('display', 'block');
     $('.new-form #delete-form').show();
+    $(this).addClass('clicked');
 });
 
 
@@ -72,6 +85,8 @@ function hiddenForm() {
     $('.new-form').removeClass('active');
     $('.overlay').hide();
     $('.new-form #fix-form').hide();
+    $('.new-form #fix-form .switch').attr('data-content', 'ngừng hoạt động');
+    $('.new-form #fix-form .switch').removeAttr("checked");
     $('.new-form #create-form').hide();
     $('.new-form #delete-form').hide();
 };

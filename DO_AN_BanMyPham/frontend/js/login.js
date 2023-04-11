@@ -41,7 +41,8 @@ const logout = () => {
     });
 };
 
-const loginAccount = () => {
+const loginAccount = async () => {
+    if (!(await checkInputLogin())) return;
     let username = document.querySelector(".TK").value;
     let password = document.querySelector(".MK").value;
     $.ajax({
@@ -51,10 +52,10 @@ const loginAccount = () => {
         success: function (response) {
             if (response == 'admin') {
                 window.location.href = 'admin.php';
-                alert("Vào trang quản trị");
+                alert("Tới trang quản trị");
             }
             else if (response == 'customer') {
-                alert("Vào trang chủ");
+                alert("Đăng nhập thành công");
                 window.location.reload();
             } else {
                 alert(response);
@@ -63,7 +64,8 @@ const loginAccount = () => {
     });
 };
 
-const regisAccount = () => {
+const regisAccount = async () => {
+    if (!(await checkInputRegister())) return;
     let name = document.querySelector("#container__register .name").value;
     let email = document.querySelector("#container__register  .email").value;
     let username = document.querySelector("#container__register  .username").value;
@@ -89,38 +91,54 @@ const regisAccount = () => {
     });
 }
 
+const checkInputLogin = async () => {
+    let username = document.querySelector("#container__login .TK").value;
+    let password = document.querySelector("#container__login .MK").value;
+    if (username == "") {
+        alert("Chưa nhập username!");
+        username.focus();
+        return false;
+    }
+    if (password == "") {
+        alert("Chưa nhập password!");
+        password.focus();
+        return false;
+    }
+    return true;
+};
+
 const checkInputRegister = async () => {
     let name = document.querySelector("#container__register .name").value;
     let email = document.querySelector("#container__register  .email").value;
     let username = document.querySelector("#container__register  .username").value;
     let password = document.querySelector("#container__register  .pass").value;
     let confirmPassword = document.querySelector("#container__register .cfpass").value;
-    if (name.value == "") {
+    if (name == "") {
         alert("Chưa nhập name!");
         name.focus();
         return false;
     }
-    if (email.value == "") {
+    if (email == "") {
         alert("Chưa nhập email!");
         email.focus();
         return false;
     }
-    if (username.value == "") {
+    if (username == "") {
         alert("Chưa nhập username!");
         username.focus();
         return false;
     }
-    if (await isUsernameExist(username.value)) {
+    if (await isUsernameExist(username)) {
         alert("Username đã tồn tại!");
         username.focus();
         return false;
     }
-    if (password.value == "") {
+    if (password == "") {
         alert("Chưa nhập password!");
         password.focus();
         return false;
     }
-    if (!isPasswordValid(password.value)) {
+    if (!isPasswordValid(password)) {
         alert(
             "Một mật khẩu có chứa ít nhất tám ký tự, trong đó có ít nhất một số và bao gồm cả chữ thường và chữ hoa và ký tự đặc biệt, ví dụ #, ?, !."
         );
@@ -128,12 +146,12 @@ const checkInputRegister = async () => {
         return false;
     }
 
-    if (confirmPassword.value == "") {
+    if (confirmPassword == "") {
         alert("Chưa nhập confirm password!");
         confirmPassword.focus();
         return false;
     }
-    if (confirmPassword.value != password.value) {
+    if (confirmPassword != password) {
         alert("Mật khẩu không khớp!");
         confirmPassword.focus();
         return false;

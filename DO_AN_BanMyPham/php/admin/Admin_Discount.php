@@ -130,42 +130,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>Giảm 10k ngay lần đầu đăng kí app</td>
-                        <td>11/11/2022</td>
-                        <td>Không giới hạn</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>Giảm 10k ngay lần đầu đăng kí app</td>
-                        <td>11/11/2022</td>
-                        <td>Không giới hạn</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>Giảm 10k ngay lần đầu đăng kí app</td>
-                        <td>11/11/2022</td>
-                        <td>Không giới hạn</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
-                        </td>
-                    </tr>
+                <?php
+                    include("ConnectDB.php");
+                    $db = new ConnectDB();
+                    $sql = "SELECT *  FROM discounts";
+                    $result = $db->connection($sql);
+                    $i = 1;
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<tr>
+                                    <td>' . $i++ . '</td>
+                                    <td>' . $row['DISCOUNT_ID'] . '</td>
+                                    <td>' . $row['NAME_DISCOUNT'] . '</td>
+                                    <td>' . $row['CONDITION'] . '</td>
+                                    <td>' . $row['PERCENT'] . '</td>
+                                    <td>' . $row['START_DATE'] . '</td>
+                                    <td>' . $row['END_DATE'] . '</td>
+                                    <td>' . $row['STATUS_DISCOUNT'] . '</td>
+                                    <td>
+                                        <button class="btnFix">chỉnh sửa</button>
+                                        <button class="btnDel">xóa</button>
+                                    </td>
+                                </tr>';
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>

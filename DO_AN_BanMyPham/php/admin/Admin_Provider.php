@@ -121,45 +121,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>ửvneuofvioe</td>
-                        <td>sfvkjbfiubviebwevrvvefkjbnribribitibribitribnrt</td>
-                        <td>0123456789</td>
-                        <td>11/22/33, quang trung, phường 8, gò vấp, Hồ Chí Minh</td>
-                        <td>haha@gmail.com</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>xyz</td>
-                        <td>0123456789</td>
-                        <td>11/22/33, quang trung, phường 8, gò vấp, Hồ Chí Minh</td>
-                        <td>haha@gmail.com</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>xyz</td>
-                        <td>0123456789</td>
-                        <td>11/22/33, quang trung, phường 8, gò vấp, Hồ Chí Minh</td>
-                        <td>haha@gmail.com</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
-                        </td>
-                    </tr>
+                <?php
+                    include("ConnectDB.php");
+                    $db = new ConnectDB();
+                    $sql = "SELECT *  FROM providers";
+                    $result = $db->connection($sql);
+                    $i = 1;
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<tr>
+                                    <td>' . $i++ . '</td>
+                                    <td>' . $row['PROVIDER_ID'] . '</td>
+                                    <td>' . $row['NAME_PROVIDER'] . '</td>
+                                    <td>' . $row['PHONE_PROVIDER'] . '</td>
+                                    <td>' . $row['ADDRESS_PROVIDER'] . '</td>
+                                    <td>' . $row['EMAIL_PROVIDER'] . '</td>
+                                    <td>' . $row['STATUS_PROVIDER'] . '</td>
+                                    <td>
+                                        <button class="btnFix">chỉnh sửa</button>
+                                        <button class="btnDel">xóa</button>
+                                    </td>
+                                </tr>';
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>

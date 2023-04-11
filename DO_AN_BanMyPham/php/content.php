@@ -49,10 +49,15 @@ if (isset($_POST["page"])) {
         case "Account_Info":
             include 'public/account_info.php';
             break;
+        case "Introduce":
+            include 'public/introduce.php';
+            break;
+        case "Homepage":
+            include 'public/home.php';
+            break;
         default:
             echo `<h1>Page not found 404</h1>`;
     }
 } else {
     echo 'error';
 }
-?>

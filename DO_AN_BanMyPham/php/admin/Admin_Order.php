@@ -124,6 +124,7 @@
                         <th>mã đơn hàng</th>
                         <th>mã khách hàng</th>
                         <th>tên khách hàng</th>
+                        <th>mã nhân viên</th>
                         <th>tên nhân viên</th>
                         <th>ngày đặt hàng</th>
                         <th>số tiền</th>
@@ -133,45 +134,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>Giảm 10k ngay lần đầu đăng kí app</td>
-                        <td>Không giới hạn</td>
-                        <td>200.000</td>
-                        <td>11/11/2022</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xem</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>Giảm 10k ngay lần đầu đăng kí app</td>
-                        <td>Không giới hạn</td>
-                        <td>200.000</td>
-                        <td>11/11/2022</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xem</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>Giảm 10k ngay lần đầu đăng kí app</td>
-                        <td>Không giới hạn</td>
-                        <td>200.000</td>
-                        <td>11/11/2022</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xem</button>
-                        </td>
-                    </tr>
+                <?php
+                    include("ConnectDB.php");
+                    $db = new ConnectDB();
+                    $sql = "SELECT *  FROM export
+                        join discounts on discounts.DISCOUNT_ID  = export.DISCOUNT_ID 
+                        join users on USERS.USER_ID = export.EMPLOYEE_ID and users.USER_ID = export.CUSTOMER_ID";
+                    $result = $db->connection($sql);
+                    $i = 1;
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<tr>
+                                <td>' . $i++ . '</td>
+                                <td>' . $row['EXPORT_ID'] . '</td>
+                                <td>' . $row['NAME_PROVIDER'] . '</td>
+                                <td>' . $row['NAME'] . '</td>
+                                <td>' . $row['DATE_CREATE'] . '</td>
+                                <td>' . $row['TOTAL'] . '</td>
+                                <td>
+                                    <button class="btnFix">chỉnh sửa</button>
+                                    <button class="btnView">xem</button>
+                                </td>
+                            </tr>';
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>

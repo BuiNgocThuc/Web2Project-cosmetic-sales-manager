@@ -2,6 +2,9 @@
 
 //slider featured product 
 $(document).ready(function () {
+    abc();
+});
+function abc() {
     $('.slider').slick({
         infinite: true,
         speed: 500,
@@ -37,7 +40,7 @@ $(document).ready(function () {
         prevArrow: "<button type='button' class='slick-prev pull-left'><i class='fa-light fa-angles-left fa-fade fa-2xl'></i></button>",
         nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa-light fa-angles-right fa-fade fa-2xl'></i></button>",
     });
-});
+}
 
 
 // srcoll hide/show header
@@ -57,7 +60,7 @@ $(document).ready(function () {
 
 //back to top
 $(document).on('click', '#toTop', function () {
-    $("html, body").animate({scrollTop: 0}, 1000);
+    $("html, body").animate({ scrollTop: 0 }, 1000);
 });
 
 

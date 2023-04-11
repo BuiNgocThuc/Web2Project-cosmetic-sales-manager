@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/admin/admin_statistic.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="Admin_Statistic" data-content="Thống Kê Sản Phẩm">
+        <div class="form-container">
+            <div class="title-form">
+                <h3 for="">tùy chọn tìm kiếm</h3>
+                <span><i onclick="changeIconArrow(this), hideForm()" class="fa-regular fa-angle-up"></i></span>
+            </div>
+            <div class="fix-info">
+                <div>
+                    <label for="">Ngày bắt đầu</label>
+                    <input class="textfield" type="date">
+                </div>
+                <div>
+                    <label for="">Ngày kết thúc</label>
+                    <input class="textfield" type="date">
+                </div>
+                <div>
+                    <label for="">danh mục</label>
+                    <select name="" class="textfield">
+                        <option value="">danh mục a</option>
+                        <option value="">danh mục a</option>
+                        <option value="">danh mục a</option>
+                        <option value="">danh mục a</option>
+                        <option value="">danh mục a</option>
+                    </select>
+                </div>
+                <div>
+                    <label for=""></label>
+                    <button class="btn btn--Search">Tìm Kiếm</button>
+                    <button class="btn btn--Undo">Hoàn Tác</button>
+                </div>
+            </div>
+        </div>
+        <div class="list-container">
+            <div class="title-list">
+                <h3>danh sách thống kê sản phẩm</h3>
+            </div>
+            <div class="list-code">
+                <table class="content-table">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>mã sản phẩm</th>
+                            <th>tên sản phẩm</th>
+                            <th>loại danh mục</th>
+                            <th>số lượng bán</th>
+                            <th>tổng doanh thu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>APP10K</td>
+                            <td>xyz</td>
+                            <td>abcd</td>
+                            <td>20000</td>
+                            <td>200</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

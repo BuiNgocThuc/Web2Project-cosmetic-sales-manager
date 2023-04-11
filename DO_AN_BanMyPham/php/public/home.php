@@ -1,21 +1,19 @@
 <main id="home-wrapper">
     <i class="fa-light fa-circle-arrow-up fa-2xl" id="toTop"></i>
     <div class="slideshow-container">
+        <?php
+        include("connectDB.php");
+        $db = new ConnectDB();
+        $sql = "SELECT IMG_PRO FROM products WHERE SLIDESHOW = 1";
+        $result = $db->connection($sql);
+        while ($row = mysqli_fetch_array($result)) {
+            echo '
+            
         <div class="image-item">
-            <img src="https://images.unsplash.com/photo-1533737282231-7b72a5bedcb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-        </div>
-        <div class="image-item">
-            <img src="https://images.unsplash.com/photo-1533737282231-7b72a5bedcb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-        </div>
-        <div class="image-item">
-            <img src="https://images.unsplash.com/photo-1533737282231-7b72a5bedcb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-        </div>
-        <div class="image-item">
-            <img src="https://images.unsplash.com/photo-1533737282231-7b72a5bedcb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-        </div>
-        <div class="image-item">
-            <img src="https://images.unsplash.com/photo-1533737282231-7b72a5bedcb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-        </div>
+            <img src="../image/AnhSP/' . $row['IMG_PRO'] . '" alt="">
+        </div>';
+        }
+        ?>
     </div>
     <div class="featured-products">
         <h2 class="title">Sản phẩm nổi bật</h2>
@@ -254,7 +252,7 @@
         </div>
         <hr>
     </div>
-    <div class="infomation">
+    <div class="information">
         <div class="address">
             <span><i class="fa-solid fa-location-dot fa-xl"></i> Chi nhánh 1: 73 Mạc Đĩnh Chi, P. Đa Kao, Quận 1, TP. Hồ Chí Minh, Việt Nam</span>
             <span><i class="fa-solid fa-location-dot fa-xl"></i> Chi nhánh 2: 116 Yersin, P. Nguyễn Thái Bình, Quận 1, TP. Hồ Chí Minh, Việt Nam</span>

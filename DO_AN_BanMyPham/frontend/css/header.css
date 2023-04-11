@@ -11,7 +11,7 @@ body {
 
 #header__container {
     width: 100%;
-    height: 18rem;
+    /* height: 18rem; */
     display: block;
     /* position: fixed; */
     top: 0;
@@ -151,7 +151,7 @@ body {
 
 #header__container .bottom__header {
     width: 100%;
-    height: 4rem;
+    height: 2.5rem;
     background: black;
     color: white;
 }
@@ -166,9 +166,32 @@ body {
     font-style: italic;
 }
 
-#header__container .bottom__header  .order_lookup {
-    width: 200px;
-    margin: 15px 30px;
+#header__container .bottom__header .navbar div{
+    cursor: pointer;
+    height: 100%;
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#header__container .bottom__header .navbar div:hover {
+    opacity: 0.8;
+}
+
+#header__container .bottom__header .order_lookup {
+    width: 15rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#header__container .bottom__header .order_lookup:hover {
+    background: #999999;
 }
 
 #header__container .middle__header .icon__commerce .user .user__setting {

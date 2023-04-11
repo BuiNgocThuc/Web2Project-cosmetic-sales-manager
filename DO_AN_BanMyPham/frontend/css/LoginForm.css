@@ -66,6 +66,10 @@ body.login {
     margin-top: 2rem;
 }
 
+#container__login .decor .btnRegister:hover {
+    opacity: 0.8;
+}
+
 #container__login .LGform {
     padding: 5px 25px;
     width: 100%;
@@ -119,6 +123,10 @@ body.login {
     border: 2px solid black;
     cursor: pointer;
     margin-top: 5px;
+}
+
+#container__login .LGform .form_input .btnLogin:hover {
+    opacity: 0.8;
 }
 
 #container__register {
@@ -176,6 +184,10 @@ body.login {
     margin-top: 5px;
 }
 
+#container__register .RGform .form_input .btnRegister:hover {
+    opacity: 0.8;
+} 
+
 #container__register .decor {
     flex-basis: 50%;
     display: flex;
@@ -219,4 +231,8 @@ body.login {
     cursor: pointer;
     
     /* bottom: 12px; */
+}
+
+#container__register .decor .btnLogin:hover {
+    opacity: 0.8;
 }

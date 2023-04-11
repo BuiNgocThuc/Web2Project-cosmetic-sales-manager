@@ -100,7 +100,7 @@
     </div>
     <div class="list-container">
         <div class="title-list">
-            <h3>lịch sử đơn hàng</h3>
+            <h3>lịch sử nhập  hàng</h3>
             <button class="btnCreate">
                 <i class="fa-light fa-plus"></i>
                 <span>tạo mới</span>
@@ -120,39 +120,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>Giảm 10k ngay lần đầu đăng kí app</td>
-                        <td>11/11/2022</td>
-                        <td>Không giới hạn</td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xem</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>Giảm 10k ngay lần đầu đăng kí app</td>
-                        <td>11/11/2022</td>
-                        <td>Không giới hạn</td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xem</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>Giảm 10k ngay lần đầu đăng kí app</td>
-                        <td>11/11/2022</td>
-                        <td>Không giới hạn</td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xem</button>
-                        </td>
-                    </tr>
+                <?php
+                    include("ConnectDB.php");
+                    $db = new ConnectDB();
+                    $sql = "SELECT *  FROM import
+                        join providers on providers.PROVIDER_ID = import.PROVIDER_ID
+                        join users on USERS.USER_ID = import.USER_ID";
+                    $result = $db->connection($sql);
+                    $i = 1;
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<tr>
+                                <td>' . $i++ . '</td>
+                                <td>' . $row['IMPORT_ID'] . '</td>
+                                <td>' . $row['NAME_PROVIDER'] . '</td>
+                                <td>' . $row['NAME'] . '</td>
+                                <td>' . $row['DATE_CREATE'] . '</td>
+                                <td>' . $row['TOTAL'] . '</td>
+                                <td>
+                                    <button class="btnFix">chỉnh sửa</button>
+                                    <button class="btnView">xem</button>
+                                </td>
+                            </tr>';
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>

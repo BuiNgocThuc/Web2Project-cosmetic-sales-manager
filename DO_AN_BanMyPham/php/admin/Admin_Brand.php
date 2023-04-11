@@ -10,12 +10,12 @@
             <form action="" class="content">
                 <div>
                     <label for="" class="name-brand">tên thương hiệu: </label>
-                    <input class="textfield" type="text">
+                    <input class="textfield new-name" type="text">
                 </div>
                 <div>
                     <label for="" class="img-brand">hình ảnh: </label>
                     <div class="image-upload">
-                        <input id="file-input" type="file" accept="image/png,img/jpg,img/jpeg">
+                        <input id="file-input" class="new-img" type="file" accept="image/png,img/jpg,img/jpeg">
                         <label for="file-input" class="icon-upload">
                             <i class="fa-duotone fa-plus fa-2xl"></i>
                             <span>đăng tải</span>
@@ -28,7 +28,7 @@
                 </div>
             </form>
             <div class="tool">
-                <button class="btnConfirm btn">Thêm</button>
+                <button class="btnConfirm btn" onclick="AddInfo('Brand')">Thêm</button>
                 <button class="btnCancel btn">Hủy Bỏ</button>
             </div>
         </div>
@@ -40,12 +40,12 @@
             <form action="" class="content">
                 <div>
                     <label for="" class="name-brand">tên thương hiệu: </label>
-                    <input class="textfield" type="text">
+                    <input class="textfield new-name" type="text">
                 </div>
                 <div>
                     <label for="" class="img-brand">hình ảnh: </label>
                     <label for="file-input" class="image-upload">
-                        <input id="file-input" type="file" accept="image/png,img/jpg,img/jpeg">
+                        <input id="file-input" class="new-img" type="file" accept="image/png,img/jpg,img/jpeg">
                         <label for="file-input" class="icon-upload">
                             <i class="fa-duotone fa-plus fa-2xl"></i>
                             <span>đăng tải</span>
@@ -54,11 +54,11 @@
                 </div>
                 <div>
                     <label for="">Trạng Thái: </label>
-                    <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                    <input type="checkbox" class="switch new-status" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
                 </div>
             </form>
             <div class="tool">
-                <button class="btnConfirm btn">Cập nhật</button>
+                <button class="btnConfirm btn" onclick="UpdateInfo('Brand')" data-content="">Cập nhật</button>
                 <button class="btnCancel btn">Hủy Bỏ</button>
             </div>
         </div>
@@ -68,11 +68,13 @@
             <div class="title">Xóa thương hiệu</div>
             <p class="warning"> Bằng cách xác nhận xóa thương hiệu này, bạn không thể tạo hoặc cập nhật sản phẩm với thương hiệu này nữa</p>
             <div class="tool">
-                <button class="btnConfirm btn">Xóa</button>
+                <button class="btnConfirm btn" onclick="DeleteInfo('Brand')">Xóa</button>
                 <button class="btnCancel btn">Hủy Bỏ</button>
             </div>
         </div>
     </div>
+
+    <!-- -----Content ------ -->
     <div class="form-container">
         <div class="title-form">
             <h3 for="">tùy chọn tìm kiếm</h3>
@@ -119,36 +121,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>xyz</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>xyz</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>APP10K</td>
-                        <td>xyz</td>
-                        <td><span>đang Hoạt động</span></td>
-                        <td>
-                            <button class="btnFix">chỉnh sửa</button>
-                            <button class="btnDel">xóa</button>
-                        </td>
-                    </tr>
+                    <?php
+                    include("ConnectDB.php");
+                    $db = new ConnectDB();
+                    $sql = "SELECT *  FROM brands WHERE STATUS_BRAND NOT IN ('đã xóa')";
+                    $result = $db->connection($sql);
+                    $i = 1;
+                    while ($row = mysqli_fetch_array($result)) {
+                        $action = ($row['STATUS_BRAND'] == 'ngừng hoạt động') ? '' : 'action';
+
+                        echo '<tr>
+                                    <td class="STT">' . $i++ . '</td>
+                                    <td class="ID_OBJECT">' . $row['BRAND_ID'] . '</td>
+                                    <td class="NAME_OBJECT">' . $row['NAME_BRAND'] . '</td>
+                                    <td class="IMG_OBJECT">' . $row['IMG_BRAND'] . '</td>
+                                    <td class="STATUS_OBJECT">' . $row['STATUS_BRAND'] . '</td>
+                                    <td>
+                                        <button class="btnFix ' . $action . '" data-content="' . $row['BRAND_ID'] . '">chỉnh sửa</button>
+                                        <button class="btnDel" data-ordinal="' . ($i - 1) . '">xóa</button>
+                                    </td>
+                                </tr>';
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>
