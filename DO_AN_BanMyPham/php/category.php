@@ -15,7 +15,7 @@
         }
         foreach($categories as $row) {
             echo    '<li class="category-item">
-                        <a href="#" cid="'. $row["CATEGORY_ID"] .'" class="category-item__link select-category">'. $row["NAME_CAT"] .'</a>
+                        <div cid="'. $row["CATEGORY_ID"] .'" class="category-item__link select-category">'. $row["NAME_CAT"] .'</div>
                     </li>';
         }
     }
