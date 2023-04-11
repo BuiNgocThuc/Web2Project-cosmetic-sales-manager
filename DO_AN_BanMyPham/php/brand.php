@@ -14,7 +14,7 @@
         }
         foreach($brands as $row) {
             echo    '<li class="category-item">
-                        <a href="#" bid="'. $row["BRAND_ID"] .'" class="category-item__link select-brand">'. $row["NAME_BRAND"] .'</a>
+                        <div bid="'. $row["BRAND_ID"] .'" class="category-item__link select-brand">'. $row["NAME_BRAND"] .'</div>
                     </li>';
         }
     }
