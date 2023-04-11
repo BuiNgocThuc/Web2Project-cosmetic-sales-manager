@@ -11,10 +11,10 @@
         for ($i = 1; $i <= $total_pages; $i++) {
             echo '<li class="pagination-item" id="'. $i .'">';
             if ($i == $page) {
-                echo  '<a href="#" class="pagination-item__link pagination-item__link--active">' . $i . '</a>';
+                echo  '<div class="pagination-item__link pagination-item__link--active">' . $i . '</div>';
             } 
             else {
-                echo '<a href="#" id="' . $i . '" class="pagination-item__link">' . $i . '</a>';
+                echo '<div id="' . $i . '" class="pagination-item__link">' . $i . '</div>';
             }
             echo '</li>';
         }
