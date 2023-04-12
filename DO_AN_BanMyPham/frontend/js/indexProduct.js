@@ -75,9 +75,8 @@ $(document).ready(function () {
     $(document).on('click', '.pagination-item', function (e) {
         // e.preventDefault();
         var page = $(this).attr('pageid');
-        console.log(page);
         $.ajax({
-            url: 'ajax-pagination.php',
+            url: 'fetch_data.php',
             type: 'GET',
             data: {
                 page_no: page
@@ -85,22 +84,31 @@ $(document).ready(function () {
             success: function (data) {
                 $('#home__product').html(data);
                 console.log(data);
+                loadPape(page);
             }
         });
     })
 
-    function loadProduct() {
-        $ajax({
+    function loadPape(page_num) {
+        if (page_num) {
+            var page_no = page_num;
+        }
+        else {
+            page_no = 1;
+        }
+        $.ajax({
             url: 'ajax-pagination.php',
             type: 'GET',
             data: {
-                page_no: page
+                page_no: page_no
             },
             success: function (data) {
-                $('#home__product').html(data);
+                $('#number-page').html(data);
                 console.log(data);
             }
-        })
+        });
     }
-    loadProduct();
+    loadPape();
+
+
 });
