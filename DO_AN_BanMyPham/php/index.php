@@ -10,7 +10,6 @@ session_start();
     <link rel='shortcut icon' href='../image/LOGO.jpg' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../frontend/css/style.css">
     <link rel="stylesheet" href="../frontend/css/homepage.css">
     <link rel="stylesheet" href="../frontend/css/header.css">
     <link rel="stylesheet" href="../frontend/css/footer.css">
@@ -43,7 +42,9 @@ session_start();
     <script src="../frontend/js/login.js"></script>
     <script src="../frontend/js/display.js"></script>
     <script src="../frontend/js/ListProducts.js"></script>
+    <script src="../frontend/js/indexProduct.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    
 </body>
 
 </html>

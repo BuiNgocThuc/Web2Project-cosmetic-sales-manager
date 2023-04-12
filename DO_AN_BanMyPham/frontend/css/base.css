@@ -15,17 +15,17 @@
 
 
         /* Reponsive */
-#ListProduct .grid {
+.grid {
     width: 1200px;
     max-width: 100%;
     margin: 0 auto;
 }
 
-#ListProduct .grid__full-width {
+.grid__full-width {
     width: 100%;
 }
 
-#ListProduct .grid__row {
+.grid__row {
     display: flex;
     flex-wrap: wrap;
     margin-left: -5px;
@@ -33,19 +33,19 @@
 }
 
         /* Test */
-#ListProduct .grid__column-3 {
+.grid__column-3 {
     padding-left: 5px;
     padding-right: 5px;
     width: 25%;
 }
 
-#ListProduct .grid__column-2-4 {
+.grid__column-2-4 {
     padding-left: 5px;
     padding-right: 5px;
     width: 25%;
 }
 
-#ListProduct .grid__column-9 {
+.grid__column-9 {
     padding-left: 5px;
     padding-right: 5px;
     width: 75%;
@@ -70,7 +70,7 @@
     }
 }
 
-#ListProduct .btn {
+.btn {
     min-width: 124px;
     height: var(--navbar-height);
     text-decoration: none;
@@ -87,33 +87,33 @@
     background-color: var(--while-color);
 }
 
-#ListProduct .btn.btn--normal:hover {
+.btn.btn--normal:hover {
     background-color: rgba(0, 0, 0, 0.04);
 }
 
-#ListProduct .btn.btn--primary {
+.btn.btn--primary {
     color: var(--while-color);
     background-color: var(--primary-color);
 }
 
-#ListProduct .btn.btn--size-s {
+.btn.btn--size-s {
     height: 32px;
     font-size: 12px;
     padding: 0 8px;
 }
 
-#ListProduct .btn--margin-app {
+.btn--margin-app {
     margin-right: 8px;
 }
 
-#ListProduct .btn.btn--disabled {
+.btn.btn--disabled {
     color: #949494;
     cursor: default;
     background-color: #c3c3c3;
 }
 
 /* Selection */
-#ListProduct .select-input {
+.select-input {
     position: relative;
     min-width: 200px;
     height: var(--navbar-height);
@@ -125,7 +125,7 @@
     justify-content: space-between;
 }
 
-#ListProduct .select-input::after {
+.select-input::after {
     content: "";
     border-width: 4px 90px;
     border-style: solid;
@@ -135,22 +135,22 @@
 
 }
 
-#ListProduct .select-input__label {
+.select-input__label {
     font-size: 1.4rem;
 }
 
-#ListProduct .select-input__icon {
+.select-input__icon {
     font-size: 1.4rem;
     color: #4a4a4a;
     position: relative;
     top: 1px;
 }
 
-#ListProduct .select-input:hover .select-input__list {
+.select-input:hover .select-input__list {
     display: block;
 }
 
-#ListProduct .select-input__list {
+.select-input__list {
     position: absolute;
     left: 0;
     right: 0;
@@ -164,11 +164,11 @@
     z-index: 1;
 }
 
-#ListProduct .select-input__item {
+.select-input__item {
 
 }
 
-#ListProduct .select-input__link {
+.select-input__link {
     font-size: 1.4rem;
     color: var(--text-color);
     text-decoration: none;
@@ -176,32 +176,32 @@
     padding: 4px 0;
 }
 
-#ListProduct .select-input__link:hover {
+.select-input__link:hover {
     color: var(--primary-color);
 }
 
 /* Pagination */
-#ListProduct .pagination {
+.pagination {
     display: flex;
     align-items: center;
     justify-content: center;
     list-style-type: none;
 }
 
-#ListProduct .pagination-item {
+.pagination-item {
     margin: 0 12px;
 }
 
-#ListProduct .pagination-item__link--active#ListProduct .pagination-item__link {
+.pagination-item__link--active.pagination-item__link {
     color: var(--while-color);
     background-color: var(--primary-color);
 }
 
-#ListProduct .pagination-item__link--active#ListProduct .pagination-item__link:hover {
+.pagination-item__link--active.pagination-item__link:hover {
     background-color: #fb6445;
 }
 
-#ListProduct .pagination-item__link {
+.pagination-item__link {
     --height: 30px;
     display: block;
     text-decoration: none;
@@ -215,6 +215,6 @@
     border-radius: 2px;
 }
 
-#ListProduct .pagination-item__icon {
+.pagination-item__icon {
 
 }

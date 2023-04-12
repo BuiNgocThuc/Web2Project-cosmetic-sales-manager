@@ -25,7 +25,6 @@ const loadPageUser = (pageTarget) => {
         data: { page: pageTarget },
         dataType: "html",
         success: function (data) {
-            console.log(data);
             $('.content').empty();
             $('.content').html(data);
             abc();
