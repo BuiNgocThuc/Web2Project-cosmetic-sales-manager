@@ -138,13 +138,13 @@ const checkInputRegister = async () => {
         password.focus();
         return false;
     }
-    if (!isPasswordValid(password)) {
-        alert(
-            "Một mật khẩu có chứa ít nhất tám ký tự, trong đó có ít nhất một số và bao gồm cả chữ thường và chữ hoa và ký tự đặc biệt, ví dụ #, ?, !."
-        );
-        password.focus();
-        return false;
-    }
+    // if (!isPasswordValid(password)) {
+    //     alert(
+    //         "Một mật khẩu có chứa ít nhất tám ký tự, trong đó có ít nhất một số và bao gồm cả chữ thường và chữ hoa và ký tự đặc biệt, ví dụ #, ?, !."
+    //     );
+    //     password.focus();
+    //     return false;
+    // }
 
     if (confirmPassword == "") {
         alert("Chưa nhập confirm password!");
@@ -160,9 +160,9 @@ const checkInputRegister = async () => {
 };
 
 function isPasswordValid(password) {
-    return /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/.test(
-        password
-    );
+    // return /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/.test(
+    //     password
+    // );
 }
 
 const isUsernameExist = (username) => {

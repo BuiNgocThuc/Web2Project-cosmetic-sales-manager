@@ -3,7 +3,7 @@ class connectDB
 {
     public function connection($sql = '')
     {
-        $conn = mysqli_connect("localhost", "root", "", "quanlybanmypham");
+        $conn = mysqli_connect("localhost", "root", "", "cosmetics");
         mysqli_query($conn, "SET NAMES 'utf8'");
         $query = mysqli_query($conn, $sql);
         mysqli_close($conn);

@@ -89,18 +89,18 @@ $(document).ready(function () {
         });
     })
 
-    function loadProduct() {
-        $ajax({
-            url: 'ajax-pagination.php',
-            type: 'GET',
-            data: {
-                page_no: page
-            },
-            success: function (data) {
-                $('#home__product').html(data);
-                console.log(data);
-            }
-        })
-    }
-    loadProduct();
+    // function loadProduct() {
+    //     $ajax({
+    //         url: 'ajax-pagination.php',
+    //         type: 'GET',
+    //         data: {
+    //             page_no: page
+    //         },
+    //         success: function (data) {
+    //             $('#home__product').html(data);
+    //             console.log(data);
+    //         }
+    //     })
+    // }
+    // loadProduct();
 });

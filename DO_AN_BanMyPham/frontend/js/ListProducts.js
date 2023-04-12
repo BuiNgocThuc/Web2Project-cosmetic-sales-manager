@@ -9,7 +9,7 @@ setInterval(() => {
 
 $(document).ready(function () {
     $.ajax({
-        url: 'Models/fetch_data.php',
+        url: 'php/public/product/fetch_data.php',
         method: 'GET',
         data: {
             id: 1,

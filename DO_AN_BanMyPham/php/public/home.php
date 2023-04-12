@@ -10,7 +10,7 @@
             echo '
             
         <div class="image-item">
-            <img src="../image/AnhSP/' . $row['IMG_PRO'] . '" alt="">
+            <img src="../image/img/' . $row['IMG_PRO'] . '" alt="">
         </div>';
         }
         ?>

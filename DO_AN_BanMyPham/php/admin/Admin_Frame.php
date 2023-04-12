@@ -91,8 +91,19 @@
                     </div>
                 </li>
                 <li>
-                    <div class="function-menu not-menu" onclick="loadPageByAjax('Admin_Decentration'), selectMenu(this)">
-                        <span><i class="fa-thin fa-circle-user"></i> Quản Trị Người Dùng</span>
+                    <div class="menu-wrapper">
+                        <div class="function-menu dropdown-select" onclick="changeIconArrowSidebar(this), selectMenu(this)">
+                            <span><i class="fa-thin fa-circle-user"></i> Quản Trị Người Dùng</span>
+                            <i class="fa-regular fa-angle-down"></i>
+                        </div>
+                        <ul class="dropdown-list">
+                            <li class="dropdown-item" onclick="loadPageByAjax('Admin_Decentralization'), selectDropdownMenu(this)">
+                                <span class="dropdown-text">nhóm quyền</span>
+                            </li>
+                            <li class="dropdown-item" onclick="loadPageByAjax('Admin_Permission'), selectDropdownMenu(this)">
+                                <span class="dropdown-text">chức năng</span>
+                            </li>
+                        </ul>
                     </div>
                 </li>
             </ul>
@@ -114,7 +125,7 @@
                 <ul class="setting">
                     <li>thông tin tài khoản</li>
                     <li>đổi mật khẩu</li>
-                    <li onclick="logout()" >đăng xuất</li>
+                    <li onclick="logout()">đăng xuất</li>
                 </ul>
             </i>
         </div>

@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/base.css">
-    <link rel="stylesheet" href="../assets/css/style_ListProducts.css">
-
-</head>
-<body>
-    <div class="app">
-        <div class="header__slideshow">
+<div class="app">
+        <!-- <div class="header__slideshow">
             <div class="header__slideshow-adea">
                 <div class="header__slideshow-image">
                     <img class="header__slideshow-image-item" src="../assets/img/slide3.jpg" alt="slide 1">
@@ -37,7 +25,7 @@
                     <img class="header__slideshow-image-item" src="../assets/img/slide8.jpg" alt="slide 6">
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="app__container">
             <div class="app__container__name-shop">shop</div>
@@ -109,10 +97,4 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script src="../assets/js/indexProduct123.js"></script>
-
-</body>
-</html>
+</div>
