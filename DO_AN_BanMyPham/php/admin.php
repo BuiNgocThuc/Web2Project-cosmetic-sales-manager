@@ -17,7 +17,10 @@
     <link rel="stylesheet" href="../frontend/css/admin/admin_brand.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_category.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin-display.css">
+    <link rel="stylesheet" href="../frontend/css/admin/admin_decentralization.css">
+    <link rel="stylesheet" href="../frontend/css/admin/admin_permission.css">
     <link rel="stylesheet" href="../frontend/css/admin/new-form.css">
+    <link rel="stylesheet" href="../frontend/css/admin/create_new_role.css">
     <link rel="stylesheet" href="../assets/icons/all.css">
     <title>Admin</title>
 </head>

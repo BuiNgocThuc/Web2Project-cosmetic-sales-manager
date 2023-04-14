@@ -1,0 +1,15 @@
+sản phẩm: 					sửa
+thương hiệu:  thêm 	xóa 		sửa
+danh mục:	  thêm 	xóa 		sửa
+nhà cung cấp: thêm 	xóa 		sửa
+phiếu nhập:   thêm 			sửa 		xem
+phiếu xuất:   						xem
+người dùng:   thêm      xóa         sửa	
+loại N.dùng:  thêm	xóa		sửa		
+khuyến mại:	  thêm	xóa		sửa
+thống kê:								điều khiển
+hiện thị:								điều khiển
+nhóm quyền:	  thêm	xóa		sửa		
+chức năng: 	  thêm      xóa  		sửa				
+				
+

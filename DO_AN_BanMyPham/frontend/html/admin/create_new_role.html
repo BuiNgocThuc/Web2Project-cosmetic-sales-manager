@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/admin/create_new_role.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="create_new_role">
+        <div class="new-name-role">
+            <label for="" class="name-brand">tên nhóm quyền: </label>
+            <input class="textfield" type="text">
+        </div>
+        <table class="list-permission">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>mã chức năng</th>
+                    <th>tên sản phẩm</th>
+                    <th>Thêm</th>
+                    <th>Xóa</th>
+                    <th>Sửa</th>
+                    <th>Tra Cứu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>12</td>
+                    <td>toàn quyền</td>
+                    <td>
+                        <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                    </td>
+                    <td>
+                        <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                    </td>
+                    <td>
+                        <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                    </td>
+                    <td>
+                        <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+<script src="../../js/admin.js"></script>
+</html>

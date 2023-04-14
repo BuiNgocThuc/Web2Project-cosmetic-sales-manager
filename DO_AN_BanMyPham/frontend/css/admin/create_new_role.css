@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Dosis:wght@400;500;600;700&family=Open+Sans:ital,wght@0,500;1,400&display=swap');
+
+:root {
+    --main: orange;
+    --bg: #0B1218;
+    /* #fffff */
+    --bg-body: #131D28;
+    /* #E5E5E5 */
+    --font-color: #FFFBF1;
+    /* #0B1218; */
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: "Dosis", sans-serif;
+    text-transform: capitalize;
+}
+
+body {
+    color: var(--font-color);
+}
+
+#create_new_role {
+    height: 30rem;
+    border: 2px solid #ccc;
+    margin: auto;
+    padding: 0 1rem;
+    background: var(--bg-body);
+    overflow: auto;
+    position: relative;
+}
+
+#create_new_role #close {
+    position: absolute;
+    top: 1rem;
+    right: 1.3rem;
+    font-size: 1.5rem;
+}
+
+#create_new_role .new-name-role, .new-description-role {
+    height: 3rem;
+    width: 50rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 1rem;
+    margin-left: 3rem;
+}
+
+#create_new_role .new-name-role .name-role, .new-description-role .description-role{
+    flex-basis: 30%; 
+}
+
+#create_new_role .new-name-role .textfield, .new-description-role .textfield {
+    height: 2rem;
+    border-radius: .5rem;
+    flex: 1;
+    outline: none;
+    padding: 0 .5rem;
+}
+
+#create_new_role .new-name-role .textfield:focus {
+    border: 1px solid var(--main);
+}
+
+#create_new_role .new-description-role .textfield:focus {
+    border: 1px solid var(--main);
+}
+
+#create_new_role .list-permission {
+    width: 100%;
+    height: auto;
+    table-layout: auto;
+    border-collapse: collapse;
+    border-spacing: 0 10px;
+    white-space: nowrap;
+    background: var(--bg);
+    margin-top: 1.5rem;
+    padding: 2rem;
+    border-radius: 1.8rem;
+    position: relative;
+    overflow: scroll;
+}
+
+#create_new_role .list-permission td, th {
+    text-align: center;
+    padding: 8px;
+    border-bottom: 1px solid gray;
+    padding: 2rem .8rem;
+}
+
+#create_new_role .list-permission tbody {
+    overflow-y: auto;
+}
+
+#create_new_role .list-permission tbody td .switch {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8.2rem;
+    height: 1.2rem;
+    background: #BFBFBF;
+    border-radius: 1.8rem;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--main);
+    position: relative;
+    transition: ease 0.5s;
+}
+
+#create_new_role .list-permission tbody td .switch:checked {
+    background: var(--main);
+    transition: ease 1s;
+}
+
+#create_new_role .list-permission tbody td .switch:checked::before {
+    left: 7rem;
+}
+
+#create_new_role .list-permission tbody td .switch:before {
+    content: '';
+    width: 1.1rem;
+    height: 1.1rem;
+    background: var(--font-color);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: ease 500ms;
+    /* transform: translate(-50%, -20%); */
+}
+
+#create_new_role .list-permission tbody td .switch:after {
+    content: attr(data-content);
+    position: absolute;
+    width: 8rem;
+    height: 0.9rem;
+    top: 40%;
+    left: 66%;
+    transform: translate(-50%, -50%);
+    color: var(--bg);
+}
+
+#create_new_role .tool {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#create_new_role .tool .btn {
+    padding: .3rem 3rem;
+    margin: 1rem 2rem;
+
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: .6rem;
+    background: transparent;
+    color: var(--font-color);
+}
+
+#create_new_role .tool .btn:hover {
+    opacity: 0.8;
+}
+
+#create_new_role .tool .btnConfirm {
+    background: var(--main);
+}
+
+#create_new_role .tool .btnCancel {
+    border: 2px solid var(--main);
+    color: var(--main);
+}

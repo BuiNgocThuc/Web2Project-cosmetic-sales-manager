@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 11, 2023 lúc 08:23 AM
--- Phiên bản máy phục vụ: 10.4.27-MariaDB
--- Phiên bản PHP: 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: Apr 11, 2023 at 11:43 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,16 +18,17 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `cosmetics`
+-- Database: `quanlybanmypham`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `accounts`
+-- Table structure for table `accounts`
 --
 
 CREATE TABLE `accounts` (
+  `ACCOUNT_ID` int(11) NOT NULL,
   `USERNAME` varchar(10) NOT NULL,
   `PASSWORD` varchar(10) DEFAULT NULL,
   `ROLE_ID` varchar(10) DEFAULT NULL,
@@ -36,18 +37,19 @@ CREATE TABLE `accounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `accounts`
+-- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`USERNAME`, `PASSWORD`, `ROLE_ID`, `DATE_CREATE`, `STATUS`) VALUES
-('admin', '1111', '1', '2023-04-04', 'đang hoạt động'),
-('KH1', '123', '0', '2023-04-01', 'đang hoạt động'),
-('yuiv', '123', '0', '2023-04-05', 'đang hoạt động');
+INSERT INTO `accounts` (`ACCOUNT_ID`, `USERNAME`, `PASSWORD`, `ROLE_ID`, `DATE_CREATE`, `STATUS`) VALUES
+(1, 'admin', '1111', '1', '2023-04-04', 'đang hoạt động'),
+(2, 'KH1', '123', '0', '2023-04-01', 'đang hoạt động'),
+(3, 'yuiv', '123', '0', '2023-04-05', 'đang hoạt động'),
+(4, 'abc', 'Abc123456@', '0', '2023-04-08', 'đang hoạt động');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `brands`
+-- Table structure for table `brands`
 --
 
 CREATE TABLE `brands` (
@@ -58,15 +60,16 @@ CREATE TABLE `brands` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `brands`
+-- Dumping data for table `brands`
 --
 
 INSERT INTO `brands` (`BRAND_ID`, `NAME_BRAND`, `IMG_BRAND`, `STATUS_BRAND`) VALUES
-('brd1', 'Loreal', 'Loreal.png', 'đang hoạt động'),
-('brd10', 'Shu Uemura', 'ShuUemura.png', 'đang hoạt động'),
+('brd1', 'mới', 'Loreal.png', 'đã xóa'),
+('brd10', 'mới 2', 'ShuUemura.png', 'đang hoạt động'),
 ('brd11', 'Vaseline', 'Vaseline.png', 'đang hoạt động'),
 ('brd12', 'Dove', 'Dove.png', 'đang hoạt động'),
 ('brd13', 'Clinique', 'Clinique.png', 'đang hoạt động'),
+('brd14', 'tạm', 'csrgdtsgt.png', 'đang hoạt động'),
 ('brd2', 'Olay', 'Olay.png', 'đang hoạt động'),
 ('brd3', 'Clinique', 'Clinique.png', 'đang hoạt động'),
 ('brd4', 'Pond’s', 'Ponds.png', 'đang hoạt động'),
@@ -79,7 +82,7 @@ INSERT INTO `brands` (`BRAND_ID`, `NAME_BRAND`, `IMG_BRAND`, `STATUS_BRAND`) VAL
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cart`
+-- Table structure for table `cart`
 --
 
 CREATE TABLE `cart` (
@@ -91,7 +94,7 @@ CREATE TABLE `cart` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -101,7 +104,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`CATEGORY_ID`, `NAME_CAT`, `STATUS_CAT`) VALUES
@@ -124,7 +127,7 @@ INSERT INTO `category` (`CATEGORY_ID`, `NAME_CAT`, `STATUS_CAT`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `discounts`
+-- Table structure for table `discounts`
 --
 
 CREATE TABLE `discounts` (
@@ -138,7 +141,7 @@ CREATE TABLE `discounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `discounts`
+-- Dumping data for table `discounts`
 --
 
 INSERT INTO `discounts` (`DISCOUNT_ID`, `NAME_DISCOUNT`, `CONDITION`, `START_DATE`, `END_DATE`, `PERCENT`, `STATUS_DISCOUNT`) VALUES
@@ -151,7 +154,7 @@ INSERT INTO `discounts` (`DISCOUNT_ID`, `NAME_DISCOUNT`, `CONDITION`, `START_DAT
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `export`
+-- Table structure for table `export`
 --
 
 CREATE TABLE `export` (
@@ -164,10 +167,23 @@ CREATE TABLE `export` (
   `STATUS_EX` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `export`
+--
+
+INSERT INTO `export` (`EXPORT_ID`, `DISCOUNT_ID`, `EMPLOYEE_ID`, `CUSTOMER_ID`, `DATE_CREATE`, `TOTAL`, `STATUS_EX`) VALUES
+('EX1', 'DC1', 'NV1', 'KH1', '2023-04-05', 0, 'hoàn thành'),
+('EX2', 'DC2', 'NV3', 'KH3', '2019-04-02', 0, 'hoàn thành'),
+('EX3', 'DC2', 'NV4', 'KH6', '2023-02-10', 0, 'hoàn thành'),
+('EX4', 'DC3', 'NV5', 'KH4', '2023-03-10', 0, 'hoàn thành'),
+('EX5', 'DC5', 'NV7', 'KH2', '2023-03-15', 0, 'hoàn thành'),
+('EX6', 'DC1', 'NV6', 'KH5', '2023-03-18', 0, 'hoàn thành'),
+('EX7', 'DC2', 'NV4', 'KH7', '2023-02-10', 0, 'hoàn thành');
+
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `export_detail`
+-- Table structure for table `export_detail`
 --
 
 CREATE TABLE `export_detail` (
@@ -180,7 +196,7 @@ CREATE TABLE `export_detail` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `import`
+-- Table structure for table `import`
 --
 
 CREATE TABLE `import` (
@@ -188,14 +204,26 @@ CREATE TABLE `import` (
   `PROVIDER_ID` varchar(10) DEFAULT NULL,
   `USER_ID` varchar(10) DEFAULT NULL,
   `DATE_CREATE` date DEFAULT NULL,
-  `TOTAL` float DEFAULT NULL,
-  `STATUS_IM` varchar(100) NOT NULL
+  `TOTAL` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `import`
+--
+
+INSERT INTO `import` (`IMPORT_ID`, `PROVIDER_ID`, `USER_ID`, `DATE_CREATE`, `TOTAL`) VALUES
+('IM1', 'PRO1', 'NV3', '2023-03-06', 32500000),
+('IM2', 'PRO2', 'NV4', '2023-03-16', 30000000),
+('IM3', 'PRO3', 'NV5', '2023-02-16', 40000000),
+('IM4', 'PRO4', 'NV6', '2023-03-18', 55000000),
+('IM5', 'PRO5', 'NV7', '2023-03-20', 25000000),
+('IM6', 'PRO6', 'NV8', '2023-02-20', 27500000),
+('IM7', 'PRO1', 'NV1', '2023-01-16', 35000000);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `import_detail`
+-- Table structure for table `import_detail`
 --
 
 CREATE TABLE `import_detail` (
@@ -208,7 +236,7 @@ CREATE TABLE `import_detail` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `permission`
+-- Table structure for table `permission`
 --
 
 CREATE TABLE `permission` (
@@ -217,10 +245,27 @@ CREATE TABLE `permission` (
   `STATUS_PER` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `permission`
+--
+
+INSERT INTO `permission` (`PERMISSION_ID`, `NAME_PER`, `STATUS_PER`) VALUES
+('1', 'PRODUCT', 'đang hoạt động'),
+('10', 'CONTROL SLIDESHOW', 'đang hoạt động'),
+('11', 'DECENTRALIZATION', 'đang hoạt động'),
+('2', 'BRAND', 'đang hoạt động'),
+('3', 'CATEGORY', 'đang hoạt động'),
+('4', 'PROVIDER', 'đang hoạt động'),
+('5', 'EXPORT RECEIPT', 'đang hoạt động'),
+('6', 'USER', 'đang hoạt động'),
+('7', 'TYPE USER', 'đang hoạt động'),
+('8', 'DISCOUNT', 'đang hoạt động'),
+('9', 'STATISTIC', 'đang hoạt động');
+
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -231,60 +276,61 @@ CREATE TABLE `products` (
   `IMG_PRO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `PRICE_PRO` float DEFAULT NULL,
   `QUANTITY_PRO` int(11) DEFAULT NULL,
-  `ORIGIN_PRO` varchar(100) NOT NULL,
+  `ORIGIN_PRO` varchar(50) NOT NULL,
+  `SLIDESHOW` tinyint(1) NOT NULL DEFAULT 0,
   `STATUS_PRO` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `products`
+-- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`PRODUCT_ID`, `BRAND_ID`, `CATEGORY_ID`, `NAME_PRO`, `IMG_PRO`, `PRICE_PRO`, `QUANTITY_PRO`, `ORIGIN_PRO`, `STATUS_PRO`) VALUES
-(1, 'brd1', 'cat1', 'Sữa Rửa Mặt L\'Oreal Làm Sáng Da, Giảm Thâm Nám 100', 'imgproduct_1.jpg', 102000, 100, 'Mỹ', 'đang hoạt động'),
-(2, 'brd2', 'cat1', 'Sữa Rửa Mặt Olay Total Effects Tạo Bọt Ngừa Lão Ho', 'imgproduct_2.jpg', 134000, 100, 'Trung Quốc', 'đang hoạt động'),
-(3, 'brd3', 'cat1', 'Bọt Rửa Mặt Clinique Ngừa Mụn 125ml Anti Blemish S', 'imgproduct_3.jpg', 250000, 100, 'Mỹ', 'đang hoạt động'),
-(4, 'brd4', 'cat2', 'Mặt Nạ Pond\'s Tinh Chất Sữa Dưỡng Sáng, Nâng Tông ', 'imgproduct_4.jpg', 26000, 100, 'Việt Nam', 'đang hoạt động'),
-(5, 'brd1', 'cat2', 'Mặt Nạ Giấy Dưỡng Chất Cô Đặc L\'Oreal Dưỡng Sáng D', 'imgproduct_5.jpg', 32000, 100, 'Mỹ', 'đang hoạt động'),
-(6, 'brd5', 'cat2', 'Miếng Dán Mũi Lột Mụn Bioré Không Hương (4 Miếng)', 'imgproduct_6.jpg', 23000, 100, 'Việt Nam', 'đang hoạt động'),
-(7, 'brd6', 'cat2', 'Mặt Nạ Ngủ Laneige Dưỡng Ẩm & Tăng Khả Năng Tự Vệ ', 'imgproduct_7.jpg', 750000, 100, 'Hàn Quốc', 'đang hoạt động'),
-(8, 'brd7', 'cat3', 'Bộ Sản Phẩm La Roche-Posay Phục Hồi Và Làm Dịu Da ', 'imgproduct_8.jpg', 292000, 100, 'Pháp', 'đang hoạt động'),
-(9, 'brd7', 'cat3', 'Bộ Đôi La Roche-Posay Chống Nắng Kiểm Soát Dầu & L', 'imgproduct_9.jpg', 469000, 100, 'Pháp', 'đang hoạt động'),
-(10, 'brd7', 'cat4', 'Kem Chống Nắng La Roche-Posay Không Màu Kiểm Soát ', 'imgproduct_10.jpg', 174000, 100, 'Pháp', 'đang hoạt động'),
-(11, 'brd1', 'cat4', 'Kem Chống Nắng L\'Oreal Mịn Nhẹ Kiềm Dầu Thoáng Mịn', 'imgproduct_11.jpg', 223000, 100, 'Mỹ', 'đang hoạt động'),
-(12, 'brd5', 'cat4', 'Gel Chống Nắng Bioré Màng Nước Dưỡng Ẩm SPF50+ PA+', 'imgproduct_12.jpg', 172000, 100, 'Việt Nam', 'đang hoạt động'),
-(13, 'brd6', 'cat4', 'Kem Chống Nắng Laneige Radian-C Dưỡng Sáng Da 50ml', 'imgproduct_13.jpg', 525000, 100, 'Hàn Quốc', 'đang hoạt động'),
-(14, 'brd8', 'cat5', 'Kem Nền Maybelline Mịn Nhẹ Kiềm Dầu Chống Nắng 30m', 'imgproduct_14.jpg', 209000, 100, 'Trung Quốc', 'đang hoạt động'),
-(15, 'brd8', 'cat5', 'Phấn Nền Maybelline Mịn Nhẹ Kiềm Dầu Chống Nắng #1', 'imgproduct_15.jpg', 148000, 100, 'Trung Quốc', 'đang hoạt động'),
-(16, 'brd1', 'cat5', 'Kem Nền L\'Oréal Mịn Nhẹ Dưỡng Da Dạng Lỏng G2 30ml', 'imgproduct_16.jpg', 262000, 100, 'Việt Nam', 'đang hoạt động'),
-(17, 'brd8', 'cat6', 'Kem Lót Trang Điểm Maybelline Baby Skin 22ml', 'imgproduct_17.jpg', 149000, 100, 'Trung Quốc', 'đang hoạt động'),
-(18, 'brd1', 'cat6', 'Kem Lót L\'Oréal Infallible Kiềm Dầu Bền Màu Lâu Tr', 'imgproduct_18.jpg', 157000, 100, 'Việt Nam', 'đang hoạt động'),
-(19, 'brd8', 'cat7', 'Phấn Má Hồng Maybelline Màu Đỏ Rượu 50 Wine 4.5g', NULL, 110000, 100, '', 'đang hoạt động'),
-(20, 'brd9', 'cat8', 'Kẻ Mày Cathy Doll 3 Trong 1 #04 Gray Brown 0.16g +', NULL, 135000, 100, '', 'đang hoạt động'),
-(21, 'brd9', 'cat7', 'Phấn Má Hồng Cathy Doll Mịn Lì 01 Buddy Beige 6g ', NULL, 149000, 100, '', 'đang hoạt động'),
-(22, 'brd1', 'cat8', 'Kẻ Chân Mày L\'Oreal 3 Trong 1 Màu Nâu Tối Dark Bro', NULL, 217, 100, '', 'đang hoạt động'),
-(23, 'brd8', 'cat9', 'Bút Kẻ Mắt Nước Maybelline Sắc Mảnh BK1 Đen Sắc Sả', NULL, 169000, 100, '', 'đang hoạt động'),
-(24, 'brd1', 'cat9', 'Kẻ Mắt Nước Mắt Mèo L\'Oreal Màu Đen 9g', NULL, 213000, 100, '', 'đang hoạt động'),
-(25, 'brd10', 'cat10', 'Son Lì Shu Uemura Matte OR570 Màu Đỏ Cam 3g', NULL, 575000, 100, '', 'đang hoạt động'),
-(26, 'brd8', 'cat10', 'Son Lì Maybelline Mịn Môi Siêu Nhẹ 799 Cam Ngả Đất', NULL, 179000, 100, '', 'đang hoạt động'),
-(27, 'brd9', 'cat10', 'Son Thỏi Cathy Doll Mịn Lì 10 Touch Coral 3.5g', NULL, 177000, 100, '', 'đang hoạt động'),
-(28, 'brd10', 'cat10', 'Son Lì Shu Uemura Có Dưỡng Kinu Satin RD169 3.3g', NULL, 722000, 100, '', 'đang hoạt động'),
-(29, 'brd8', 'cat11', 'Son Bút Chì Maybelline Màu Đỏ Cherry 50 Own You Im', NULL, 119000, 100, '', 'đang hoạt động'),
-(30, 'brd11', 'cat12', 'Sáp Dưỡng Môi Vaseline Hồng Xinh 7g', NULL, 64000, 100, '', 'đang hoạt động'),
-(31, 'brd11', 'cat12', 'Sáp Dưỡng Ẩm Vaseline Pure Petroleum Jelly 49g', NULL, 41000, 100, '', 'đang hoạt động'),
-(32, 'brd11', 'cat12', 'Son Dưỡng Môi Vaseline Chiết Xuất Lô Hội 4.8g', NULL, 70000, 100, '', 'đang hoạt động'),
-(33, 'brd8', 'cat12', 'Son Dưỡng Chuyển Màu Maybelline Peach Blossom Màu ', NULL, 58000, 100, '', 'đang hoạt động'),
-(34, 'brd12', 'cat13', 'Dầu Gội Dove Hỗ Trợ Phục Hồi Tóc Hư Tổn 880g', NULL, 179000, 100, '', 'đang hoạt động'),
-(35, 'brd12', 'cat13', 'Dầu Gội Dove Chiết Xuất Hoa Sen Và Dầu Jojoba 500g', NULL, 136000, 100, '', 'đang hoạt động'),
-(36, 'brd1', 'cat13', 'Dầu Gội L\'Oréal Paris Ngăn Gãy Rụng Tóc 620ml', NULL, 138000, 100, '', 'đang hoạt động'),
-(37, 'brd5', 'cat13', 'Sữa Tắm - Gội - Rửa Mặt Men\'s Bioré Hương Nước Hoa', NULL, 186000, 100, '', 'đang hoạt động'),
-(38, 'brd12', 'cat14', 'Kem Xả Dove Phục Hồi Hư Tổn Chiết Xuất Bơ & Dầu Ar', NULL, 136000, 100, '', 'đang hoạt động'),
-(39, 'brd1', 'cat14', 'Dầu Xả L\'Oréal Paris Dưỡng Tóc Giảm Gãy Rụng 280ml', NULL, 106000, 100, '', 'đang hoạt động'),
-(40, 'brd1', 'cat15', 'Kem Nhuộm L\'Oreal Dưỡng Tóc Sâu 6.11 Xám Khói 172m', NULL, 169000, 100, '', 'đang hoạt động');
+INSERT INTO `products` (`PRODUCT_ID`, `BRAND_ID`, `CATEGORY_ID`, `NAME_PRO`, `IMG_PRO`, `PRICE_PRO`, `QUANTITY_PRO`, `ORIGIN_PRO`, `SLIDESHOW`, `STATUS_PRO`) VALUES
+(1, 'brd1', 'cat1', 'Sữa Rửa Mặt L\'Oreal Làm Sáng Da, Giảm Thâm Nám 100', 'imgproduct_1.jpg', 102000, 100, 'Mỹ', 0, 'đang hoạt động'),
+(2, 'brd2', 'cat1', 'Sữa Rửa Mặt Olay Total Effects Tạo Bọt Ngừa Lão Ho', 'imgproduct_2.jpg', 134000, 100, 'Trung Quốc', 0, 'đang hoạt động'),
+(3, 'brd3', 'cat1', 'Bọt Rửa Mặt Clinique Ngừa Mụn 125ml Anti Blemish S', 'imgproduct_3.jpg', 250000, 100, 'Mỹ', 0, 'đang hoạt động'),
+(4, 'brd4', 'cat2', 'Mặt Nạ Pond\'s Tinh Chất Sữa Dưỡng Sáng, Nâng Tông ', 'imgproduct_4.jpg', 26000, 100, 'Việt Nam', 0, 'đang hoạt động'),
+(5, 'brd1', 'cat2', 'Mặt Nạ Giấy Dưỡng Chất Cô Đặc L\'Oreal Dưỡng Sáng D', 'imgproduct_5.jpg', 32000, 100, 'Mỹ', 0, 'đang hoạt động'),
+(6, 'brd5', 'cat2', 'Miếng Dán Mũi Lột Mụn Bioré Không Hương (4 Miếng)', 'imgproduct_6.jpg', 23000, 100, 'Việt Nam', 0, 'đang hoạt động'),
+(7, 'brd6', 'cat2', 'Mặt Nạ Ngủ Laneige Dưỡng Ẩm & Tăng Khả Năng Tự Vệ ', 'imgproduct_7.jpg', 750000, 100, 'Hàn Quốc', 0, 'đang hoạt động'),
+(8, 'brd7', 'cat3', 'Bộ Sản Phẩm La Roche-Posay Phục Hồi Và Làm Dịu Da ', 'imgproduct_8.jpg', 292000, 100, 'Pháp', 0, 'đang hoạt động'),
+(9, 'brd7', 'cat3', 'Bộ Đôi La Roche-Posay Chống Nắng Kiểm Soát Dầu & L', 'imgproduct_9.jpg', 469000, 100, 'Pháp', 0, 'đang hoạt động'),
+(10, 'brd7', 'cat4', 'Kem Chống Nắng La Roche-Posay Không Màu Kiểm Soát ', 'imgproduct_10.jpg', 174000, 100, 'Pháp', 0, 'đang hoạt động'),
+(11, 'brd1', 'cat4', 'Kem Chống Nắng L\'Oreal Mịn Nhẹ Kiềm Dầu Thoáng Mịn', 'imgproduct_11.jpg', 223000, 100, 'Mỹ', 0, 'đang hoạt động'),
+(12, 'brd5', 'cat4', 'Gel Chống Nắng Bioré Màng Nước Dưỡng Ẩm SPF50+ PA+', 'imgproduct_12.jpg', 172000, 100, 'Việt Nam', 0, 'đang hoạt động'),
+(13, 'brd6', 'cat4', 'Kem Chống Nắng Laneige Radian-C Dưỡng Sáng Da 50ml', 'imgproduct_13.jpg', 525000, 100, 'Hàn Quốc', 0, 'đang hoạt động'),
+(14, 'brd8', 'cat5', 'Kem Nền Maybelline Mịn Nhẹ Kiềm Dầu Chống Nắng 30m', 'imgproduct_14.jpg', 209000, 100, 'Trung Quốc', 0, 'đang hoạt động'),
+(15, 'brd8', 'cat5', 'Phấn Nền Maybelline Mịn Nhẹ Kiềm Dầu Chống Nắng #1', 'imgproduct_15.jpg', 148000, 100, 'Trung Quốc', 0, 'đang hoạt động'),
+(16, 'brd1', 'cat5', 'Kem Nền L\'Oréal Mịn Nhẹ Dưỡng Da Dạng Lỏng G2 30ml', 'imgproduct_16.jpg', 262000, 100, 'Việt Nam', 0, 'đang hoạt động'),
+(17, 'brd8', 'cat6', 'Kem Lót Trang Điểm Maybelline Baby Skin 22ml', 'imgproduct_17.jpg', 149000, 100, 'Trung Quốc', 0, 'đang hoạt động'),
+(18, 'brd1', 'cat6', 'Kem Lót L\'Oréal Infallible Kiềm Dầu Bền Màu Lâu Tr', 'imgproduct_18.jpg', 157000, 100, 'Việt Nam', 0, 'đang hoạt động'),
+(19, 'brd8', 'cat7', 'Phấn Má Hồng Maybelline Màu Đỏ Rượu 50 Wine 4.5g', 'imgproduct_19.jpg', 110000, 100, 'Nhật', 0, 'đang hoạt động'),
+(20, 'brd9', 'cat8', 'Kẻ Mày Cathy Doll 3 Trong 1 #04 Gray Brown 0.16g +', 'imgproduct_20.jpg', 135000, 100, 'Thailand', 0, 'đang hoạt động'),
+(21, 'brd9', 'cat7', 'Phấn Má Hồng Cathy Doll Mịn Lì 01 Buddy Beige 6g ', 'imgproduct_21.jpg', 149000, 100, 'Thailand', 0, 'đang hoạt động'),
+(22, 'brd1', 'cat8', 'Kẻ Chân Mày L\'Oreal 3 Trong 1 Màu Nâu Tối Dark Bro', 'imgproduct_22.jpg', 217000, 100, 'Pháp', 0, 'đang hoạt động'),
+(23, 'brd8', 'cat9', 'Bút Kẻ Mắt Nước Maybelline Sắc Mảnh BK1 Đen Sắc Sả', 'imgproduct_23.jpg', 169000, 100, 'Mỹ', 0, 'đang hoạt động'),
+(24, 'brd1', 'cat9', 'Kẻ Mắt Nước Mắt Mèo L\'Oreal Màu Đen 9g', 'imgproduct_24.jpg', 213000, 100, 'Pháp', 0, 'đang hoạt động'),
+(25, 'brd10', 'cat10', 'Son Lì Shu Uemura Matte OR570 Màu Đỏ Cam 3g', 'imgproduct_25.jpg', 575000, 100, 'Nhật', 0, 'đang hoạt động'),
+(26, 'brd8', 'cat10', 'Son Lì Maybelline Mịn Môi Siêu Nhẹ 799 Cam Ngả Đất', 'imgproduct_26.jpg', 179000, 100, 'Mỹ', 0, 'đang hoạt động'),
+(27, 'brd9', 'cat10', 'Son Thỏi Cathy Doll Mịn Lì 10 Touch Coral 3.5g', 'imgproduct_27.jpg', 177000, 100, 'Thailand', 0, 'đang hoạt động'),
+(28, 'brd10', 'cat10', 'Son Lì Shu Uemura Có Dưỡng Kinu Satin RD169 3.3g', 'imgproduct_28.jpg', 722000, 100, 'Nhật', 0, 'đang hoạt động'),
+(29, 'brd8', 'cat11', 'Son Bút Chì Maybelline Màu Đỏ Cherry 50 Own You Im', 'imgproduct_29.jpg', 119000, 100, 'Mỹ', 0, 'đang hoạt động'),
+(30, 'brd11', 'cat12', 'Sáp Dưỡng Môi Vaseline Hồng Xinh 7g', 'imgproduct_30.jpg', 64000, 100, 'Hà Lan', 0, 'đang hoạt động\r\n'),
+(31, 'brd11', 'cat12', 'Sáp Dưỡng Ẩm Vaseline Pure Petroleum Jelly 49g', 'imgproduct_31.jpg', 41000, 100, 'Hà Lan', 0, 'đang hoạt động'),
+(32, 'brd11', 'cat12', 'Son Dưỡng Môi Vaseline Chiết Xuất Lô Hội 4.8g', 'imgproduct_32.jpg', 70000, 100, 'Hà Lan', 0, 'đang hoạt động'),
+(33, 'brd8', 'cat12', 'Son Dưỡng Chuyển Màu Maybelline Peach Blossom Màu ', 'imgproduct_33.jpg', 58000, 100, 'Mỹ', 0, 'đang hoạt động'),
+(34, 'brd12', 'cat13', 'Dầu Gội Dove Hỗ Trợ Phục Hồi Tóc Hư Tổn 880g', 'imgproduct_34.jpg', 179000, 100, 'Mỹ', 0, 'đang hoạt động'),
+(35, 'brd12', 'cat12', 'Dầu Gội Dove Chiết Xuất Hoa Sen Và Dầu Jojoba 500g', 'imgproduct_35.jpg', 136000, 100, 'Mỹ', 0, 'đang hoạt động'),
+(36, 'brd1', 'cat13', 'Dầu Gội L\'Oréal Paris Ngăn Gãy Rụng Tóc 620ml', 'imgproduct_36.jpg', 138, 100, 'Pháp', 0, 'đang hoạt động'),
+(37, 'brd5', 'cat13', 'Sữa Tắm - Gội - Rửa Mặt Men\'s Bioré Hương Nước Hoa', 'imgproduct_37', 186000, 100, 'Nhật', 0, 'đang hoạt động'),
+(38, 'brd12', 'cat14', 'Kem Xả Dove Phục Hồi Hư Tổn Chiết Xuất Bơ', 'imgproduct_38.jpg', 136000, 100, 'Mỹ', 0, 'đang hoạt động'),
+(39, 'brd1', 'cat14', 'Dầu Xả L\'Oréal Paris Dưỡng Tóc Giảm Gãy Rụng 280ml', 'imgproduct_39.jpg', 106000, 100, 'Pháp', 0, 'đang hoạt động'),
+(40, 'brd1', 'cat15', 'Kem Nhuộm L\'Oreal Dưỡng Tóc Sâu 6.11 Xám Khói 172m', 'imgproduct_40.jpg', 169000, 100, 'Pháp', 0, 'đang hoạt động');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `providers`
+-- Table structure for table `providers`
 --
 
 CREATE TABLE `providers` (
@@ -297,7 +343,7 @@ CREATE TABLE `providers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `providers`
+-- Dumping data for table `providers`
 --
 
 INSERT INTO `providers` (`PROVIDER_ID`, `NAME_PROVIDER`, `PHONE_PROVIDER`, `ADDRESS_PROVIDER`, `EMAIL_PROVIDER`, `STATUS_PROVIDER`) VALUES
@@ -315,7 +361,7 @@ INSERT INTO `providers` (`PROVIDER_ID`, `NAME_PROVIDER`, `PHONE_PROVIDER`, `ADDR
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -326,32 +372,52 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`ROLE_ID`, `NAME_ROLE`, `DESCRIPTION_ROLE`, `STATUS_ROLE`) VALUES
 ('0', 'Khách Hàng', 'quyền khách hàng', ''),
-('1', 'admin', 'toàn quyền', ''),
-('2', 'quản lý', 'quản lý hệ thống', '');
+('1', 'admin', 'tạo tài khoản ', ''),
+('2', 'quản lý', 'quản lý hệ thống', ''),
+('3', 'nhân viên', 'nhân viên sử dụng hệ thống', 'đang hoạt động');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `role_permissions`
+-- Table structure for table `role_permissions`
 --
 
 CREATE TABLE `role_permissions` (
+  `RP_ID` int(11) NOT NULL,
   `ROLE_ID` varchar(10) NOT NULL,
   `PERMISSION_ID` varchar(30) NOT NULL,
   `URL` varchar(100) DEFAULT NULL,
-  `ACTION` varchar(100) DEFAULT NULL,
+  `ACTION` varchar(100) NOT NULL,
   `STATUS` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `role_permissions`
+--
+
+INSERT INTO `role_permissions` (`RP_ID`, `ROLE_ID`, `PERMISSION_ID`, `URL`, `ACTION`, `STATUS`) VALUES
+(1, '3', '2', NULL, 'Thêm', 'đang hoạt động'),
+(2, '3', '2', NULL, 'Sửa', 'đang hoạt động'),
+(3, '3', '2', NULL, 'Xóa', 'đang hoạt động'),
+(4, '3', '3', NULL, 'Thêm', 'đang hoạt động'),
+(5, '3', '3', NULL, 'Sửa', 'đang hoạt động'),
+(6, '3', '3', NULL, 'Xóa', 'đang hoạt động'),
+(7, '3', '4', NULL, 'Thêm', 'đang hoạt động'),
+(8, '3', '4', NULL, 'Sửa', 'đang hoạt động'),
+(9, '3', '4', NULL, 'Xóa', 'đang hoạt động'),
+(10, '3', '8', NULL, 'Thêm', 'đang hoạt động'),
+(11, '3', '8', NULL, 'Sửa', 'đang hoạt động'),
+(12, '3', '8', NULL, 'Xóa', 'đang hoạt động');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `type_users`
+-- Table structure for table `type_users`
 --
 
 CREATE TABLE `type_users` (
@@ -361,7 +427,7 @@ CREATE TABLE `type_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `type_users`
+-- Dumping data for table `type_users`
 --
 
 INSERT INTO `type_users` (`TYPE_USER_ID`, `NAME_TYPE_USER`, `STATUS_TYPE_USER`) VALUES
@@ -372,7 +438,7 @@ INSERT INTO `type_users` (`TYPE_USER_ID`, `NAME_TYPE_USER`, `STATUS_TYPE_USER`) 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -386,10 +452,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`USER_ID`, `TYPE_USER_ID`, `NAME`, `PHONE`, `ADDRESS`, `EMAIL`, `STATUS`) VALUES
+('abc', 'KH', 'abc', 'null', 'null', 'abc@gmail.com', 'đang hoạt động'),
 ('admin', 'admin', 'Bùi Ngọc Thức', '0874512369', '11/2/3 quang trung, gò vấp, Hồ Chí Minh', 'thuc111@gmail.com', 'hoạt động'),
 ('KH1', 'KH', 'Liễu Quốc Bảo', '0147852369', '1/7/4 Nguyễn Oanh, Gò Vấp, Hồ Chí Minh', 'Bao@gmail.com', 'Hoạt Động'),
 ('KH2', 'KH', 'Vương Phi Cường', '0125874963', '1/8/4 An Dương Vương, Quận 5, Hồ Chí Minh', 'Cuong@gmail.com', 'Hoạt Động'),
@@ -399,70 +466,74 @@ INSERT INTO `users` (`USER_ID`, `TYPE_USER_ID`, `NAME`, `PHONE`, `ADDRESS`, `EMA
 ('KH6', 'KH', 'Ứng Hữu Chiến', '0874147852', '7/8/9 Cao Thắng, quận 5, Hồ Chí Minh', 'Chien@gmail.com', 'Hoạt Động\r\n'),
 ('KH7', 'KH', 'Tạ Trí Hữu', '0102413501', '7/8/9 Lý Chính Thắng, Phú Nhuận, Hồ Chí Minh', 'huu@gmail.com', 'Hoạt Động\r\n'),
 ('KH8', 'KH', 'Lâm Khôi Nguyên', '0365417820', '7/8/9 Hai Bà Trưng, Tân Bình, Hồ Chí Minh', 'nguyen@gmail.com', 'Hoạt Động\r\n'),
-('NB1', 'NB', 'Bùi Ngọc Thức', '0254781025', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
-('NB2', 'NB', 'Bùi Ngọc Thức', '0147410258', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
-('NB3', 'NB', 'Nguyễn Ánh Hoa', '0989741408', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
-('NB4', 'NB', 'Nguyễn Anh Thảo', '0252014786', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
-('NB5', 'NB', 'Nguyễn Cẩm Yến', '0345123067', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
-('NB6', 'NB', 'Nguyễn Diễm Chi', '0254781025', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
-('NB7', 'NB', 'Huỳnh Hữu Bảo', '0254781025', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
-('NB8', 'NB', 'Huỳnh Huy Lâm', '0254781025', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
-('yuiv', 'KH', 'vbyv', 'null', 'null', 'yuiv', 'đang hoạt động');
+('NV1', 'NB', 'Bùi Ngọc Thức', '0254781025', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
+('NV2', 'NB', 'Bùi Ngọc Thức', '0147410258', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
+('NV3', 'NB', 'Nguyễn Ánh Hoa', '0989741408', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
+('NV4', 'NB', 'Nguyễn Anh Thảo', '0252014786', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
+('NV5', 'NB', 'Nguyễn Cẩm Yến', '0345123067', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
+('NV6', 'NB', 'Nguyễn Diễm Chi', '0254781025', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
+('NV7', 'NB', 'Huỳnh Hữu Bảo', '0254781025', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
+('NV8', 'NB', 'Huỳnh Huy Lâm', '0254781025', '11/74/78 Phạm Văn Chiêu, Gò Vấp, Hồ Chí Minh', 'thucadmin@gmail.com', 'Hoạt Động'),
+('yuiv', 'KH', 'vbyv', 'null', 'null', 'yuiv', 'đang hoạt động'),
+('yuv', 'KH', 'uyuy', 'null', 'null', 'uy', 'đang hoạt động');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `accounts`
+-- Indexes for table `accounts`
 --
 ALTER TABLE `accounts`
-  ADD PRIMARY KEY (`USERNAME`),
+  ADD PRIMARY KEY (`ACCOUNT_ID`),
+  ADD UNIQUE KEY `USERNAME` (`USERNAME`),
+  ADD UNIQUE KEY `USERNAME_2` (`USERNAME`),
+  ADD UNIQUE KEY `USERNAME_3` (`USERNAME`),
   ADD KEY `ROLE_ID` (`ROLE_ID`);
 
 --
--- Chỉ mục cho bảng `brands`
+-- Indexes for table `brands`
 --
 ALTER TABLE `brands`
   ADD PRIMARY KEY (`BRAND_ID`);
 
 --
--- Chỉ mục cho bảng `cart`
+-- Indexes for table `cart`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`USER_ID`,`PRODUCT_ID`),
   ADD KEY `PRODUCT_ID` (`PRODUCT_ID`);
 
 --
--- Chỉ mục cho bảng `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`CATEGORY_ID`);
 
 --
--- Chỉ mục cho bảng `discounts`
+-- Indexes for table `discounts`
 --
 ALTER TABLE `discounts`
   ADD PRIMARY KEY (`DISCOUNT_ID`);
 
 --
--- Chỉ mục cho bảng `export`
+-- Indexes for table `export`
 --
 ALTER TABLE `export`
   ADD PRIMARY KEY (`EXPORT_ID`),
-  ADD KEY `EMPLOYEE_ID` (`EMPLOYEE_ID`),
+  ADD KEY `DISCOUNT_ID` (`DISCOUNT_ID`),
   ADD KEY `CUSTOMER_ID` (`CUSTOMER_ID`),
-  ADD KEY `DISCOUNT_ID` (`DISCOUNT_ID`);
+  ADD KEY `export_ibfk_5` (`EMPLOYEE_ID`);
 
 --
--- Chỉ mục cho bảng `export_detail`
+-- Indexes for table `export_detail`
 --
 ALTER TABLE `export_detail`
   ADD PRIMARY KEY (`EXPORT_ID`,`PRODUCT_ID`),
   ADD KEY `PRODUCT_ID` (`PRODUCT_ID`);
 
 --
--- Chỉ mục cho bảng `import`
+-- Indexes for table `import`
 --
 ALTER TABLE `import`
   ADD PRIMARY KEY (`IMPORT_ID`),
@@ -470,20 +541,20 @@ ALTER TABLE `import`
   ADD KEY `USER_ID` (`USER_ID`);
 
 --
--- Chỉ mục cho bảng `import_detail`
+-- Indexes for table `import_detail`
 --
 ALTER TABLE `import_detail`
   ADD PRIMARY KEY (`IMPORT_ID`,`PRODUCT_ID`),
   ADD KEY `PRODUCT_ID` (`PRODUCT_ID`);
 
 --
--- Chỉ mục cho bảng `permission`
+-- Indexes for table `permission`
 --
 ALTER TABLE `permission`
   ADD PRIMARY KEY (`PERMISSION_ID`);
 
 --
--- Chỉ mục cho bảng `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`PRODUCT_ID`),
@@ -491,100 +562,116 @@ ALTER TABLE `products`
   ADD KEY `BRAND_ID` (`BRAND_ID`);
 
 --
--- Chỉ mục cho bảng `providers`
+-- Indexes for table `providers`
 --
 ALTER TABLE `providers`
   ADD PRIMARY KEY (`PROVIDER_ID`);
 
 --
--- Chỉ mục cho bảng `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`ROLE_ID`);
 
 --
--- Chỉ mục cho bảng `role_permissions`
+-- Indexes for table `role_permissions`
 --
 ALTER TABLE `role_permissions`
-  ADD PRIMARY KEY (`ROLE_ID`,`PERMISSION_ID`),
-  ADD KEY `PERMISSION_ID` (`PERMISSION_ID`);
+  ADD PRIMARY KEY (`RP_ID`),
+  ADD KEY `PERMISSION_ID` (`PERMISSION_ID`),
+  ADD KEY `ROLE_ID` (`ROLE_ID`);
 
 --
--- Chỉ mục cho bảng `type_users`
+-- Indexes for table `type_users`
 --
 ALTER TABLE `type_users`
   ADD PRIMARY KEY (`TYPE_USER_ID`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`USER_ID`),
   ADD KEY `TYPE_USER_ID` (`TYPE_USER_ID`);
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `accounts`
+-- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  ADD CONSTRAINT `accounts_ibfk_1` FOREIGN KEY (`USERNAME`) REFERENCES `users` (`USER_ID`),
-  ADD CONSTRAINT `accounts_ibfk_2` FOREIGN KEY (`ROLE_ID`) REFERENCES `roles` (`ROLE_ID`);
+  MODIFY `ACCOUNT_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Các ràng buộc cho bảng `cart`
+-- AUTO_INCREMENT for table `role_permissions`
+--
+ALTER TABLE `role_permissions`
+  MODIFY `RP_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `accounts`
+--
+ALTER TABLE `accounts`
+  ADD CONSTRAINT `accounts_ibfk_2` FOREIGN KEY (`ROLE_ID`) REFERENCES `roles` (`ROLE_ID`),
+  ADD CONSTRAINT `accounts_ibfk_3` FOREIGN KEY (`USERNAME`) REFERENCES `users` (`USER_ID`);
+
+--
+-- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`),
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`);
 
 --
--- Các ràng buộc cho bảng `export`
+-- Constraints for table `export`
 --
 ALTER TABLE `export`
-  ADD CONSTRAINT `export_ibfk_1` FOREIGN KEY (`EMPLOYEE_ID`) REFERENCES `users` (`USER_ID`),
-  ADD CONSTRAINT `export_ibfk_2` FOREIGN KEY (`CUSTOMER_ID`) REFERENCES `users` (`USER_ID`),
-  ADD CONSTRAINT `export_ibfk_3` FOREIGN KEY (`DISCOUNT_ID`) REFERENCES `discounts` (`DISCOUNT_ID`);
+  ADD CONSTRAINT `export_ibfk_3` FOREIGN KEY (`DISCOUNT_ID`) REFERENCES `discounts` (`DISCOUNT_ID`),
+  ADD CONSTRAINT `export_ibfk_4` FOREIGN KEY (`CUSTOMER_ID`) REFERENCES `users` (`USER_ID`),
+  ADD CONSTRAINT `export_ibfk_5` FOREIGN KEY (`EMPLOYEE_ID`) REFERENCES `users` (`USER_ID`);
 
 --
--- Các ràng buộc cho bảng `export_detail`
+-- Constraints for table `export_detail`
 --
 ALTER TABLE `export_detail`
   ADD CONSTRAINT `export_detail_ibfk_2` FOREIGN KEY (`EXPORT_ID`) REFERENCES `export` (`EXPORT_ID`),
   ADD CONSTRAINT `export_detail_ibfk_3` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`);
 
 --
--- Các ràng buộc cho bảng `import`
+-- Constraints for table `import`
 --
 ALTER TABLE `import`
   ADD CONSTRAINT `import_ibfk_1` FOREIGN KEY (`PROVIDER_ID`) REFERENCES `providers` (`PROVIDER_ID`),
   ADD CONSTRAINT `import_ibfk_2` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`);
 
 --
--- Các ràng buộc cho bảng `import_detail`
+-- Constraints for table `import_detail`
 --
 ALTER TABLE `import_detail`
   ADD CONSTRAINT `import_detail_ibfk_2` FOREIGN KEY (`IMPORT_ID`) REFERENCES `import` (`IMPORT_ID`),
   ADD CONSTRAINT `import_detail_ibfk_3` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`PRODUCT_ID`);
 
 --
--- Các ràng buộc cho bảng `products`
+-- Constraints for table `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `category` (`CATEGORY_ID`),
   ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`BRAND_ID`) REFERENCES `brands` (`BRAND_ID`);
 
 --
--- Các ràng buộc cho bảng `role_permissions`
+-- Constraints for table `role_permissions`
 --
 ALTER TABLE `role_permissions`
-  ADD CONSTRAINT `role_permissions_ibfk_1` FOREIGN KEY (`ROLE_ID`) REFERENCES `roles` (`ROLE_ID`),
-  ADD CONSTRAINT `role_permissions_ibfk_2` FOREIGN KEY (`PERMISSION_ID`) REFERENCES `permission` (`PERMISSION_ID`);
+  ADD CONSTRAINT `role_permissions_ibfk_2` FOREIGN KEY (`PERMISSION_ID`) REFERENCES `permission` (`PERMISSION_ID`),
+  ADD CONSTRAINT `role_permissions_ibfk_3` FOREIGN KEY (`ROLE_ID`) REFERENCES `roles` (`ROLE_ID`);
 
 --
--- Các ràng buộc cho bảng `users`
+-- Constraints for table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`TYPE_USER_ID`) REFERENCES `type_users` (`TYPE_USER_ID`);

@@ -40,6 +40,9 @@ if (isset($_POST["page"])) {
         case "Admin_Decentralization":
             include 'admin/Admin_Decentralization.php';
             break;
+        case "Admin_Permission":
+            include 'admin/Admin_Permission.php';
+            break;
         case "Login":
             include 'public/login.php';
             break;

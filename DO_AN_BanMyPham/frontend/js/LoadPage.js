@@ -52,6 +52,7 @@ const Tools = (formTarget, content) => {
 
 $(document).on('click', '.btnCreate', function (e) {
     $('.new-form').addClass('active');
+    $('#Admin-Decentralization .new-form #create_new_role').show();
     $('.overlay').css('display', 'block');
     $('.new-form #create-form').show();
 });

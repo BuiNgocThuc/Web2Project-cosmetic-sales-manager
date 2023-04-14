@@ -6,29 +6,31 @@
         <!-- -----Create Form ------ -->
         <div id="create-form" style="display: none;">
             <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
-            <div class="title">Thêm Thương Hiệu Mới</div>
+            <div class="title">Thêm Người Dùng Mới</div>
             <form action="" class="content">
                 <div>
-                    <label for="" class="name-brand">tên thương hiệu: </label>
-                    <input class="textfield" type="text">
+                    <label for="" class="name-user">tên người dùng: </label>
+                    <input class="textfield new-name" type="text">
                 </div>
                 <div>
-                    <label for="" class="img-brand">hình ảnh: </label>
-                    <div class="image-upload">
-                        <input id="file-input" type="file" accept="image/png,img/jpg,img/jpeg">
-                        <label for="file-input" class="icon-upload">
-                            <i class="fa-duotone fa-plus fa-2xl"></i>
-                            <span>đăng tải</span>
-                        </label>
-                    </div>
+                    <label for="" class="phone-user">số điện thoại: </label>
+                    <input class="textfield new-phone" type="text">
                 </div>
                 <div>
+                    <label for="" class="address-user">địa chỉ: </label>
+                    <input class="textfield new-address" type="text">
+                </div>
+                <div>
+                    <label for="" class="email-user">email: </label>
+                    <input class="textfield new-email" type="text">
+                </div>
+                <!-- <div>
                     <label for="">Trạng Thái: </label>
                     <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
-                </div>
+                </div> -->
             </form>
             <div class="tool">
-                <button class="btnConfirm btn">Thêm</button>
+                <button class="btnConfirm btn" onclick="AddInfo('User')">Thêm</button>
                 <button class="btnCancel btn">Hủy Bỏ</button>
             </div>
         </div>

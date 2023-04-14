@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/admin/admin_decentralization.css">
-    <title>Document</title>
-</head>
-<body>
-    <section id="Admin_Decentralization">
-        <div class="overlay">
-
-        </div>
+<section id="Admin_Permission" data-content="Chức năng">
         <div class="form-container">
             <div class="title-form">
                 <h3 for="">tùy chọn tìm kiếm</h3>
@@ -19,15 +6,11 @@
             </div>
             <div class="fix-info">
                 <div>
-                    <label for="">mã Quyền</label>
+                    <label for="">mã chức năng</label>
                     <input class="textfield" type="text">
                 </div>
                 <div>
-                    <label for="">tên Quyền</label>
-                    <input class="textfield" type="text">
-                </div>
-                <div>
-                    <label for="">Mô Tả Quyền</label>
+                    <label for="">tên chức năng</label>
                     <input class="textfield" type="text">
                 </div>
                 <div>
@@ -43,8 +26,8 @@
         </div>
         <div class="list-container">
             <div class="title-list">
-                <h3>danh sách nhóm quyền</h3>
-                <button class="btnCreate">
+                <h3>danh sách chức năng</h3>
+                <button>
                     <i class="fa-light fa-plus"></i>
                     <span>tạo mới</span>
                 </button>
@@ -54,24 +37,33 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Mã Qyền</th>
-                            <th>Tên Quyền</th>
-                            <th>Mô Tả</th>
+                            <th>Mã Chức năng</th>
+                            <th>Tên chức năng</th>
                             <th>trạng thái</th>
                             <th>hoạt động</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>admin</td>
-                            <td>toàn quyền hệ thống</td>
-                            <td>đang hoạt động</td>
-                            <td>
-                                <button>chỉnh sửa</button>
-                                <button>xóa</button>
-                            </td>
+                        <?php
+                    include("ConnectDB.php");
+                    $db = new ConnectDB();
+                    $sql = "SELECT *  FROM permission WHERE STATUS_PER NOT IN ('đã xóa')";
+                    $result = $db->connection($sql);
+                    $i = 1;
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<tr>
+                                    <td class="STT">' . $i++ . '</td>
+                                    <td class="ID_OBJECT">' . $row['PERMISSION_ID'] . '</td>
+                                    <td class="NAME_OBJECT">' . $row['NAME_PER'] . '</td>
+                                    <td class="STATUS_OBJECT">' . $row['STATUS_PER'] . '</td>
+                                    <td>
+                                        <button class="btnFix">chỉnh sửa</button>
+                                        <button class="btnDel">xóa</button>
+                                    </td>
+                                </tr>';
+                    }
+                    ?>
                         </tr>
                     </tbody>
                 </table>
@@ -79,7 +71,3 @@
         </div>
         
     </section>
-</body>
-<script src="../../js/admin.js"></script>
-<script src="../../js/LoadPage.js"></script>
-</html>

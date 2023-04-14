@@ -15,12 +15,29 @@ switch ($_POST['action']) {
                 $sql = "INSERT INTO brands (`BRAND_ID`, `NAME_BRAND`, `IMG_BRAND`, `STATUS_BRAND`)
                 VALUES ('" . $id . "', '" . $name . "', '" . $img . "','đang hoạt động');";
                 $result = $db->connection($sql);
-                echo $sql;
+                // echo $sql;
                 if ($result) {
                     echo 'success';
                 } else {
                     echo 'error';
                 }
+                break;
+            case 'Role':
+                $sqlCount = "SELECT COUNT(*) FROM roles";
+                $num = $db->connection($sqlCount);
+                while ($row = mysqli_fetch_array($num)) {
+                    $id = ($row['COUNT(*)']);
+                }
+                $name_role = $_POST['name_role'];
+                $des_role = $_POST['des_role'];
+                $sql = "INSERT INTO roles (`ROLE_ID`, `NAME_ROLE`, `DESCRIPTION_ROLE`, `STATUS_ROLE`)
+                VALUES ('" . $id . "', '" . $name_role . "', '" . $des_role . "','đang hoạt động');";
+                $result = $db->connection($sql);
+                // echo $sql;
+                echo $id;
+                break;
+            case 'User' :
+                
                 break;
         }
         break;
@@ -35,12 +52,7 @@ switch ($_POST['action']) {
                             STATUS_BRAND = '" . $status . "'
                         WHERE BRAND_ID = '" . $idBrand . "';";
                 $result = $db->connection($sql);
-                if ($result) {
-                    echo 'success';
-                } else {
-                    echo 'error';
-                }
-                break;
+                  
         }
         break;
     case 'delete':
