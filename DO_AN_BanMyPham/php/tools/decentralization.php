@@ -12,27 +12,27 @@ $idRole = $_POST['idRole'];
 switch ($_POST['action']) {
     case 'create':
         $sql = "INSERT INTO role_permissions (`ROLE_ID`, `PERMISSION_ID`, `ACTION`, `STATUS`)
-                VALUES ('" . $idRole . "','" . $id . "','Thêm','đang hoạt động')";
+                VALUES ('" . $idRole . "','" . $id . "','Create','đang hoạt động')";
         $result = $db->connection($sql);
         break;
     case 'delete':
         $sql = "INSERT INTO role_permissions (`ROLE_ID`, `PERMISSION_ID`, `ACTION`, `STATUS`)
-                VALUES ('" . $idRole . "','" . $id . "','Xóa','đang hoạt động')";
+                VALUES ('" . $idRole . "','" . $id . "','Delete','đang hoạt động')";
         $result = $db->connection($sql);
         break;
     case 'update':
         $sql = "INSERT INTO role_permissions (`ROLE_ID`, `PERMISSION_ID`, `ACTION`, `STATUS`)
-                VALUES ('" . $idRole . "','" . $id . "','Sửa','đang hoạt động')";
+                VALUES ('" . $idRole . "','" . $id . "','Update','đang hoạt động')";
         $result = $db->connection($sql);
         break;
     case 'access':
         $sql = "INSERT INTO role_permissions (`ROLE_ID`, `PERMISSION_ID`, `ACTION`, `STATUS`)
-                VALUES ('" . $idRole . "','" . $id . "','Xem','đang hoạt động')";
+                VALUES ('" . $idRole . "','" . $id . "','Access','đang hoạt động')";
         $result = $db->connection($sql);
         break;
     case 'control':
         $sql = "INSERT INTO role_permissions (`ROLE_ID`, `PERMISSION_ID`, `ACTION`, `STATUS`)
-                VALUES ('" . $idRole . "','" . $id . "','điều khiển','đang hoạt động')";
+                VALUES ('" . $idRole . "','" . $id . "','Control','đang hoạt động')";
         $result = $db->connection($sql);
         break;
 }

@@ -1,3 +1,4 @@
+
 <main id="Admin_TypeUser" data-content="Danh sách Loại người dùng">
     <div class="overlay">
 
@@ -136,6 +137,22 @@
                                     </td>
                                 </tr>';
                     }
+                    echo '<script>
+                    if($(".sidebar .type_user_per").hasClass("Create")) {
+                        $(".btnCreate").addClass("enable");
+                    }
+                    if($(".sidebar .type_user_per").hasClass("Delete")) {
+                        $(".btnDel").addClass("enable");
+                    }
+                    if($(".sidebar .type_user_per").hasClass("Update")) {
+                        $(".btnFix").addClass("enable");
+                    }
+                    if($(".sidebar .type_user_per").hasClass("Control")) {
+                        $(".btnFix").addClass("enable");
+                        $(".btnDel").addClass("enable");
+                        $(".btnCreate").addClass("enable");
+                    }
+                </script>';
                     ?>
                 </tbody>
             </table>

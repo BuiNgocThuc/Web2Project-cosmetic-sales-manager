@@ -85,8 +85,7 @@
                                 <td>' . $row['IMG_PRO'] . '</td>
                                 <td>' . $row['STATUS_PRO'] . '</td>
                                 <td>
-                                    <button class="btnFix">chỉnh sửa</button>
-                                    <button class="btnView">xem</button>
+                                    <button class="btnFix enable">chỉnh sửa</button>
                                 </td>
                             </tr>';
                     }

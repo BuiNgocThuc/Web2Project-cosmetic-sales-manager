@@ -1,3 +1,4 @@
+
 <section id="Admin_Permission" data-content="Chức năng">
         <div class="form-container">
             <div class="title-form">
@@ -27,7 +28,7 @@
         <div class="list-container">
             <div class="title-list">
                 <h3>danh sách chức năng</h3>
-                <button>
+                <button class="btnCreate">
                     <i class="fa-light fa-plus"></i>
                     <span>tạo mới</span>
                 </button>
@@ -63,6 +64,22 @@
                                     </td>
                                 </tr>';
                     }
+                    echo '<script>
+                    if($(".sidebar .permission_per").hasClass("Create")) {
+                        $(".btnCreate").addClass("enable");
+                    }
+                    if($(".sidebar .permission_per").hasClass("Delete")) {
+                        $(".btnDel").addClass("enable");
+                    }
+                    if($(".sidebar .permission_per").hasClass("Update")) {
+                        $(".btnFix").addClass("enable");
+                    }
+                    if($(".sidebar .permission_per").hasClass("Control")) {
+                        $(".btnFix").addClass("enable");
+                        $(".btnDel").addClass("enable");
+                        $(".btnCreate").addClass("enable");
+                    }
+                </script>';
                     ?>
                         </tr>
                     </tbody>

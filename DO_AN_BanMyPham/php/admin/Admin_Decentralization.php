@@ -1,3 +1,4 @@
+
 <section id="Admin_Decentralization" data-content="nhóm quyền">
     <div class="overlay">
 
@@ -171,6 +172,22 @@
                                     </td>
                                 </tr>';
                         }
+                        echo '<script>
+                    if($(".sidebar .decentralization_per").hasClass("Create")) {
+                        $(".btnCreate").addClass("enable");
+                    }
+                    if($(".sidebar .decentralization_per").hasClass("Delete")) {
+                        $(".btnDel").addClass("enable");
+                    }
+                    if($(".sidebar .decentralization_per").hasClass("Update")) {
+                        $(".btnFix").addClass("enable");
+                    }
+                    if($(".sidebar .decentralization_per").hasClass("Control")) {
+                        $(".btnFix").addClass("enable");
+                        $(".btnDel").addClass("enable");
+                        $(".btnCreate").addClass("enable");
+                    }
+                </script>';
                         ?>
                     </tr>
                 </tbody>

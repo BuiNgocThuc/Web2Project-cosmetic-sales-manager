@@ -17,6 +17,13 @@ $(document).on('click', '.btnCallReg', function (e) {
     $('#container__register').css('opacity', '1');
 });
 
+//keypress enter to loginAccount
+$(document).on('keypress', '#container__login .LGform .MK', function (e) {
+    if (e.which == 13) {
+        loginAccount();
+    }
+});
+
 const Login = () => {
     $.ajax({
         url: "../php/content.php",
@@ -32,7 +39,7 @@ const Login = () => {
 
 const logout = () => {
     $.ajax({
-        url: "../php/controlLogin.php",
+        url: "../php/tools/controlLogin.php",
         type: "POST",
         data: { action: "checkLogout" },
         success: function () {
@@ -46,11 +53,11 @@ const loginAccount = async () => {
     let username = document.querySelector(".TK").value;
     let password = document.querySelector(".MK").value;
     $.ajax({
-        url: "../php/controlLogin.php",
+        url: "../php/tools/controlLogin.php",
         type: "POST",
         data: { user: username, pass: password, action: "checkLogin" },
         success: function (response) {
-            if (response == 'admin') {
+            if (response == 'employee') {
                 window.location.href = 'admin.php';
                 alert("Tới trang quản trị");
             }
@@ -71,7 +78,7 @@ const regisAccount = async () => {
     let username = document.querySelector("#container__register  .username").value;
     let password = document.querySelector("#container__register  .pass").value;
     $.ajax({
-        url: "../php/controlLogin.php",
+        url: "../php/tools/controlLogin.php",
         type: "POST",
         data: {
             name: name,
@@ -167,7 +174,7 @@ function isPasswordValid(password) {
 
 const isUsernameExist = (username) => {
     return $.ajax({
-        url: "../php/controlLogin.php",
+        url: "../php/tools/controlLogin.php",
         type: "POST",
         data: { user: username, action: "checkUsernameExist" },
     });

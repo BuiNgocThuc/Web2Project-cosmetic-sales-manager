@@ -1,3 +1,4 @@
+
 <main id="Admin_Category" data-content="Danh mục sản phẩm">
     <div class="overlay">
 
@@ -118,7 +119,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php
+                    <?php
                     include("ConnectDB.php");
                     $db = new ConnectDB();
                     $sql = "SELECT *  FROM category";
@@ -136,6 +137,23 @@
                                     </td>
                                 </tr>';
                     }
+                    echo '<script>
+                    if($(".sidebar .category_per").hasClass("Create")) {
+                        $(".btnCreate").addClass("enable");
+                    }
+                    if($(".sidebar .category_per").hasClass("Delete")) {
+                        $(".btnDel").addClass("enable");
+                    }
+                    if($(".sidebar .category_per").hasClass("Update")) {
+                        $(".btnFix").addClass("enable");
+                    }
+                    if($(".sidebar .category_per").hasClass("Control")) {
+                        $(".btnFix").addClass("enable");
+                        $(".btnDel").addClass("enable");
+                        $(".btnCreate").addClass("enable");
+                    }
+                </script>';
+                ?>
                     ?>
                 </tbody>
             </table>

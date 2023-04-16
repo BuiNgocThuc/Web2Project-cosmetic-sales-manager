@@ -1,3 +1,4 @@
+
 <main id="Admin_Provider" data-content="Danh sách nhà cung cấp">
     <div class="overlay">
 
@@ -142,6 +143,22 @@
                                     </td>
                                 </tr>';
                     }
+                    echo '<script>
+                    if($(".sidebar .provider_per").hasClass("Create")) {
+                        $(".btnCreate").addClass("enable");
+                    }
+                    if($(".sidebar .provider_per").hasClass("Delete")) {
+                        $(".btnDel").addClass("enable");
+                    }
+                    if($(".sidebar .provider_per").hasClass("Update")) {
+                        $(".btnFix").addClass("enable");
+                    }
+                    if($(".sidebar .provider_per").hasClass("Control")) {
+                        $(".btnFix").addClass("enable");
+                        $(".btnDel").addClass("enable");
+                        $(".btnCreate").addClass("enable");
+                    }
+                </script>';
                     ?>
                 </tbody>
             </table>

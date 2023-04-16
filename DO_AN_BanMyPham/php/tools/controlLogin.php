@@ -1,5 +1,5 @@
 <?php
-include("ConnectDB.php");
+require("../connectDB.php");
 $db = new ConnectDB();
 session_start();
 switch ($_POST['action']) {
@@ -21,20 +21,21 @@ switch ($_POST['action']) {
         // while ($row = mysqli_fetch_array($result) ){
         //     echo $row['PASSWORD'] . "<br>";
         // }
-
+        
         $_SESSION['USERNAME'] = $username;
         $_SESSION['NAME'] = $name;
         if (mysqli_num_rows($result) == 0) {
             echo "Tài khoản không tồn tại";
         } else {
-            while ($user = mysqli_fetch_array($result)) {
-                if ($user['PASSWORD'] != $password) {
+            while ($row = mysqli_fetch_array($result)) {
+                $_SESSION['ROLE_ID'] = $row['ROLE_ID'];
+                if ($row['PASSWORD'] != $password) {
                     echo 'Sai mật khẩu';
                 } else {
-                    if ($user['ROLE_ID'] == 1) {
-                        echo "admin";
-                    } else {
+                    if ($row['ROLE_ID'] == 0) {
                         echo "customer";
+                    } else {
+                        echo "employee";
                     }
                 }
             }

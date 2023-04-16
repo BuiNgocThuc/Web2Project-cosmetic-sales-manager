@@ -322,17 +322,27 @@ body {
     background-color: transparent;
     border: 2px solid var(--font-color);
     outline: none;
-    cursor: pointer;
     color: var(--font-color);
     padding: .3rem .2rem;
 }
 
-#Admin_Order .list-container .list-code .content-table  tbody tr td button:hover {
+#Admin_Order .list-container .list-code .content-table  tbody tr td button + button {
+    margin-left: .8rem;
+}
+
+#Admin_Order .list-container .list-code .content-table .btnView {
+    opacity: 0.5;
+    cursor: default;
+}
+
+
+#Admin_Order .list-container .list-code .content-table .enable {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#Admin_Order .list-container .list-code .content-table .enable:hover  {
     opacity: 0.8;
     border: 2px solid var(--main);
     color: var(--main);
-}
-
-#Admin_Order .list-container .list-code .content-table  tbody tr td button + button {
-    margin-left: .8rem;
 }

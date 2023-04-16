@@ -256,7 +256,6 @@ body {
     outline: none;
     color: var(--font-color);
     padding: .2rem 1rem;
-    cursor: pointer;
 }
 
 #Admin_Brand .list-container .title-list button span {
@@ -265,13 +264,13 @@ body {
     margin-left: .2rem;
 }
 
-#Admin_Brand .list-container .title-list button:hover {
+#Admin_Brand .list-container .title-list .enable:hover {
+    opacity: 0.8;
     border: 2px solid var(--main);
     color: var(--main);
-    opacity: 0.8;
 }
 
-#Admin_Brand .list-container .title-list button:hover span {
+#Admin_Brand .list-container .title-list .enable:hover span {
     color: var(--main);
 }
 
@@ -287,9 +286,6 @@ body {
 
 #Admin_Brand .list-container .list-code {
     margin-top: 3rem;
-}
-
-#Admin_Brand .list-container .list-code {
     width: 100%;
     height: 100%;
     /* border: 2px solid cyan; */
@@ -325,17 +321,32 @@ th {
     background-color: transparent;
     border: 2px solid var(--font-color);
     outline: none;
-    cursor: pointer;
     color: var(--font-color);
     padding: .3rem .2rem;
-}
-
-#Admin_Brand .list-container .list-code .content-table tbody tr td button:hover {
-    opacity: 0.8;
-    border: 2px solid var(--main);
-    color: var(--main);
 }
 
 #Admin_Brand .list-container .list-code .content-table tbody tr td button+button {
     margin-left: .8rem;
 }
+
+#Admin_Brand .list-container .list-code .content-table .btnFix, .btnDel, .btnCreate {
+    opacity: 0.5;
+    cursor: default;
+}
+
+#Admin_Brand .list-container .title-list .enable {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#Admin_Brand .list-container .list-code .content-table .enable {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#Admin_Brand .list-container .list-code .content-table .enable:hover  {
+    opacity: 0.8;
+    border: 2px solid var(--main);
+    color: var(--main);
+}
+

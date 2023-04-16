@@ -1,24 +1,34 @@
 const AddInfo = async (id) => {
+  let userID = document.querySelector('#create-form .new-userId').value;
+  console.log(userID);
   let name = document.querySelector("#create-form .new-name").value;
-  let img = document.querySelector("#create-form .new-img").files[0].name;
+  let type = document.querySelector("#create-form .new-type").value;
+  // let img = document.querySelector("#Admin_Product #create-form .new-img").files[0].name;
   let phone = document.querySelector("#create-form .new-phone").value;
-  let address = document.querySelector("#create-form .new-phone").value;
-  let email = document.querySelector("#create-form .new-phone").value;
+  let address = document.querySelector("#create-form .new-address").value;
+  let email = document.querySelector("#create-form .new-email").value;
+  let roleID = document.querySelector("#create-form .new-role").value;
   $.ajax({
     url: "../php/tools/action.php",
     type: "POST",
     data: {
       id: id,
+      userID: userID,
       name: name,
-      img: img,
+      type: type,
+      // img: img,
       phone: phone,
       address: address,
       email: email,
+      roleID: roleID,
       action: "create",
     },
     success: function (res) {
       if (res != "success") {
         alert(res);
+      }
+      else {
+        alert("Tạo tài khoản người dùng thành công!!");
       }
     },
   });

@@ -6,7 +6,7 @@
     /* #fffff */
     --bg-body: #131D28;
     /* #E5E5E5 */
-    --font-color: #FFFBF1; 
+    --font-color: #FFFBF1;
     /* #0B1218; */
 }
 
@@ -87,7 +87,7 @@ body {
     justify-content: left;
 }
 
-#Admin_User .form-container .title-form{
+#Admin_User .form-container .title-form {
     width: 100%;
     justify-content: space-between;
     margin-bottom: 1rem;
@@ -248,7 +248,6 @@ body {
     outline: none;
     color: var(--font-color);
     padding: .2rem 1rem;
-    cursor: pointer;
 }
 
 #Admin_User .list-container .title-list button span {
@@ -257,13 +256,13 @@ body {
     margin-left: .2rem;
 }
 
-#Admin_User .list-container .title-list button:hover {
+#Admin_User .list-container .title-list .enable:hover {
     border: 2px solid var(--main);
     color: var(--main);
     opacity: 0.8;
 }
 
-#Admin_User .list-container .title-list button:hover span {
+#Admin_User .list-container .title-list .enable:hover span {
     color: var(--main);
 }
 
@@ -290,14 +289,15 @@ body {
 
 #Admin_User .list-container .list-code .content-table {
     width: 100%;
-    height: 100%; 
+    height: 100%;
     border-collapse: collapse;
     border-spacing: 0 10px;
     table-layout: auto;
 }
 
 
-#Admin_User .list-container .list-code .content-table  td, th {
+#Admin_User .list-container .list-code .content-table td,
+th {
     text-align: center;
     padding: 8px;
     border-bottom: 1px solid gray;
@@ -305,28 +305,42 @@ body {
     white-space: nowrap;
 }
 
-#Admin_User .list-container .list-code .content-table  tbody tr:hover {
+#Admin_User .list-container .list-code .content-table tbody tr:hover {
     /* background: var(--main); */
     opacity: 0.8;
 }
 
-#Admin_User .list-container .list-code .content-table  tbody tr td button {
+#Admin_User .list-container .list-code .content-table tbody tr td button {
     display: inline-block;
     text-decoration: none;
     background-color: transparent;
     border: 2px solid var(--font-color);
     outline: none;
-    cursor: pointer;
     color: var(--font-color);
     padding: .3rem .2rem;
 }
 
-#Admin_User .list-container .list-code .content-table  tbody tr td button:hover {
+#Admin_User .list-container .list-code .content-table tbody tr td button+button {
+    margin-left: .8rem;
+}
+
+#Admin_User .list-container .list-code .content-table .btnFix, .btnDel, .btnCreate {
+    opacity: 0.5;
+    cursor: default;
+}
+
+#Admin_User .list-container .title-list .enable {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#Admin_User .list-container .list-code .content-table .enable {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#Admin_User .list-container .list-code .content-table .enable:hover  {
     opacity: 0.8;
     border: 2px solid var(--main);
     color: var(--main);
-}
-
-#Admin_User .list-container .list-code .content-table  tbody tr td button + button {
-    margin-left: .8rem;
 }

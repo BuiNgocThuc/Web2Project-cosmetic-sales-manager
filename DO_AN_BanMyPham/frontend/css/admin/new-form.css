@@ -51,6 +51,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: .8rem;
+    margin-bottom: 1.5rem;
 }
 
 #create-form .content div {
@@ -58,9 +60,9 @@
     align-items: center;
 }
 
-#create-form .content div:nth-child(2) {
+/* #create-form .content div:nth-child(2) {
     margin-top: .8rem;
-}
+} */
 
 #create-form .content div>label {
     flex-basis: 40%;
@@ -72,6 +74,16 @@
     padding: .3rem .5rem;
     outline: none;
     border: 1px solid var(--font-color);
+    border-radius: 1rem;
+    
+}
+
+#create-form .content div .textfield:not(select) {
+    text-transform: none;
+}
+
+#create-form .content div .textfield:focus {
+    border: 1px solid var(--main);
 }
 
 #create-form .content .image-upload {
@@ -94,7 +106,7 @@
 }
 
 #create-form .content .image-upload:hover {
-    border: 1px dashed var(--main);
+    border: 1px solid var(--main);
 }
 
 #create-form .content .image-upload input {
@@ -152,8 +164,8 @@
     left: 7rem;
 }
 
-#create-form .tool {
-    margin: 1rem 0;
+#Admin_User #create-form .tool {
+    margin-top: 2rem;
 }
 
 #create-form .tool .btn {

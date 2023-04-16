@@ -1,3 +1,4 @@
+
 <main id="Admin_Discount" data-content="Danh sách phiếu giảm giá">
     <div class="overlay">
 
@@ -152,6 +153,22 @@
                                     </td>
                                 </tr>';
                     }
+                    echo '<script>
+                    if($(".sidebar .discount_per").hasClass("Create")) {
+                        $(".btnCreate").addClass("enable");
+                    }
+                    if($(".sidebar .discount_per").hasClass("Delete")) {
+                        $(".btnDel").addClass("enable");
+                    }
+                    if($(".sidebar .discount_per").hasClass("Update")) {
+                        $(".btnFix").addClass("enable");
+                    }
+                    if($(".sidebar .discount_per").hasClass("Control")) {
+                        $(".btnFix").addClass("enable");
+                        $(".btnDel").addClass("enable");
+                        $(".btnCreate").addClass("enable");
+                    }
+                </script>';
                     ?>
                 </tbody>
             </table>

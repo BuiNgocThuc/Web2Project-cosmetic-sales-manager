@@ -326,12 +326,22 @@ body {
     padding: .3rem .2rem;
 }
 
-#Admin_Product .list-container .list-code .content-table  tbody tr td button:hover {
+#Admin_Product .list-container .list-code .content-table  tbody tr td button + button {
+    margin-left: .8rem;
+}
+
+#Admin_Product .list-container .list-code .content-table .btnFix {
+    opacity: 0.5;
+    cursor: default;
+}
+
+#Admin_Product .list-container .list-code .content-table .btnFix.enable {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#Admin_Product .list-container .list-code .content-table .btnFix.enable:hover {
     opacity: 0.8;
     border: 2px solid var(--main);
     color: var(--main);
-}
-
-#Admin_Product .list-container .list-code .content-table  tbody tr td button + button {
-    margin-left: .8rem;
 }

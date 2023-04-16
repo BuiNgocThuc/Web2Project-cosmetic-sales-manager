@@ -9,8 +9,26 @@
             <div class="title">Thêm Người Dùng Mới</div>
             <form action="" class="content">
                 <div>
+                    <label for="" class="id-user">mã nhân viên: </label>
+                    <input class="textfield new-userId" type="text">
+                </div>
+                <div>
                     <label for="" class="name-user">tên người dùng: </label>
                     <input class="textfield new-name" type="text">
+                </div>
+                <div>
+                    <label for="" class="type-user">loại người dùng: </label>
+                    <select class="textfield new-type">
+                        <?php
+                        include("connectDB.php");
+                        $db = new ConnectDB();
+                        $sql = "SELECT * FROM type_users WHERE TYPE_USER_ID NOT IN ('KH')";
+                        $result = $db->connection($sql);
+                        while ($row = mysqli_fetch_array($result)) {
+                            echo '<option value="' . $row['TYPE_USER_ID'] . '">' . $row['NAME_TYPE_USER'] . '</option>';
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div>
                     <label for="" class="phone-user">số điện thoại: </label>
@@ -23,6 +41,20 @@
                 <div>
                     <label for="" class="email-user">email: </label>
                     <input class="textfield new-email" type="text">
+                </div>
+                <div>
+                    <label for="" class="role-user">nhóm quyền: </label>
+                    <select class="textfield new-role">
+                        <?php
+                        include_once("connectDB.php");
+                        $db = new ConnectDB();
+                        $sql = "SELECT * FROM roles WHERE ROLE_ID NOT IN ('0')";
+                        $result = $db->connection($sql);
+                        while ($row = mysqli_fetch_array($result)) {
+                            echo '<option value="' . $row['ROLE_ID'] . '">' . $row['NAME_ROLE'] . '</option>';
+                        }
+                        ?>
+                    </select>
                 </div>
                 <!-- <div>
                     <label for="">Trạng Thái: </label>
@@ -103,7 +135,7 @@
     <div class="list-container">
         <div class="title-list">
             <h3>danh sách người dùng</h3>
-            <button class="btnCreate">
+            <button class="btnCreate enable">
                 <i class="fa-light fa-plus"></i>
                 <span>tạo mới</span>
             </button>
@@ -126,7 +158,7 @@
                 <tbody>
                     <?php
                     $i = 1;
-                    include("ConnectDB.php");
+                    include_once("ConnectDB.php");
                     $sql = "SELECT *  FROM users
                             join type_users on users.type_user_id = type_users.type_user_id";
                     $db = new ConnectDB();
@@ -147,6 +179,22 @@
                         </td>
                     </tr>';
                     }
+                    echo '<script>
+                    if($(".sidebar .user_per").hasClass("Create")) {
+                        $(".btnCreate").addClass("enable");
+                    }
+                    if($(".sidebar .user_per").hasClass("Delete")) {
+                        $(".btnDel").addClass("enable");
+                    }
+                    if($(".sidebar .user_per").hasClass("Update")) {
+                        $(".btnFix").addClass("enable");
+                    }
+                    if($(".sidebar .user_per").hasClass("Control")) {
+                        $(".btnFix").addClass("enable");
+                        $(".btnDel").addClass("enable");
+                        $(".btnCreate").addClass("enable");
+                    }
+                </script>';
                     ?>
                 </tbody>
             </table>

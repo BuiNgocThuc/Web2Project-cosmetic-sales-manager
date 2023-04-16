@@ -1,3 +1,4 @@
+
 <main id="Admin_Coupon" data-content="lịch sử phiếu nhập">
     <div class="overlay">
 
@@ -142,6 +143,22 @@
                                 </td>
                             </tr>';
                     }
+                    echo '<script>
+                    if($(".sidebar .import_receipt_per").hasClass("Create")) {
+                        $(".btnCreate").addClass("enable");
+                    }
+                    if($(".sidebar .import_receipt_per").hasClass("Access")) {
+                        $(".btnView").addClass("enable");
+                    }
+                    if($(".sidebar .import_receipt_per").hasClass("Update")) {
+                        $(".btnFix").addClass("enable");
+                    }
+                    if($(".sidebar .import_receipt_per").hasClass("Control")) {
+                        $(".btnView").addClass("enable");
+                        $(".btnFix").addClass("enable");
+                        $(".btnCreate").addClass("enable");
+                    }
+                </script>';
                     ?>
                 </tbody>
             </table>

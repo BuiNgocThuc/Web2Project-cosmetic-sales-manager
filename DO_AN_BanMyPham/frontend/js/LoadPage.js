@@ -50,14 +50,14 @@ const Tools = (formTarget, content) => {
 
 
 
-$(document).on('click', '.btnCreate', function (e) {
+$(document).on('click', '.btnCreate.enable', function (e) {
     $('.new-form').addClass('active');
     $('#Admin-Decentralization .new-form #create_new_role').show();
     $('.overlay').css('display', 'block');
     $('.new-form #create-form').show();
 });
 
-$(document).on('click', '.btnFix', function (e) {
+$(document).on('click', '.btnFix.enable', function (e) {
     $('.new-form').addClass('active');
     $('.overlay').css('display', 'block');
     $('.new-form #fix-form').show();
@@ -65,7 +65,8 @@ $(document).on('click', '.btnFix', function (e) {
     $('#fix-form .btnConfirm').attr('data-content', id);
 });
 
-$(document).on('click', '.content-table .action', function (e) {
+//các đối tượng đang hoạt động
+$(document).on('click', '.content-table .action.enable', function (e) {
     $('.new-form').addClass('active');
     $('.overlay').css('display', 'block');
     $('.new-form #fix-form .switch').attr('data-content', 'đang hoạt động');
@@ -73,7 +74,7 @@ $(document).on('click', '.content-table .action', function (e) {
     $('.new-form #fix-form').show();
 });
 
-$(document).on('click', '.btnDel', function (e) {
+$(document).on('click', '.btnDel.enable', function (e) {
     $('.new-form').addClass('active');
     $('.overlay').css('display', 'block');
     $('.new-form #delete-form').show();

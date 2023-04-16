@@ -36,8 +36,31 @@ switch ($_POST['action']) {
                 // echo $sql;
                 echo $id;
                 break;
-            case 'User' :
-                
+            case 'User':
+                $userID = $_POST['userID'];
+                $name = $_POST['name'];
+                $type = $_POST['type'];
+                $phone = $_POST['phone'];
+                $address = $_POST['address'];
+                $email = $_POST['email'];
+                $roleID = $_POST['roleID'];
+                $date = date('Y-m-d');
+                $sql = "INSERT INTO users (`USER_ID`, `TYPE_USER_ID` , `NAME`, `PHONE`, `ADDRESS`, `EMAIL`, `STATUS`) 
+                        VALUES ('" . $userID . "', '" . $type . "', '" . $name . "','" . $phone . "', '" . $address . "', '" . $email . "', 'đang hoạt động')";
+                $result = $db->connection($sql);
+                if ($result) {
+                    // echo 'success';
+                    $sql2 = "INSERT INTO accounts (`USERNAME`, `PASSWORD`, `ROLE_ID`, `DATE_CREATE`,  `STATUS`)
+                            VALUES ('" . $userID . "', '" . $phone . "', '" . $roleID . "','" . $date . "', 'đang hoạt động')";
+                    $result2 = $db->connection($sql2);
+                    if ($result2) {
+                        echo 'success';
+                    } else {
+                        echo 'error';
+                    }
+                } else {
+                    echo $sql;
+                }
                 break;
         }
         break;
@@ -52,7 +75,6 @@ switch ($_POST['action']) {
                             STATUS_BRAND = '" . $status . "'
                         WHERE BRAND_ID = '" . $idBrand . "';";
                 $result = $db->connection($sql);
-                  
         }
         break;
     case 'delete':

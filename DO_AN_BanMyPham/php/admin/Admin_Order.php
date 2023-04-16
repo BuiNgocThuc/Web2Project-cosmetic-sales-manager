@@ -111,10 +111,10 @@
     <div class="list-container">
         <div class="title-list">
             <h3>lịch sử đơn hàng</h3>
-            <button class="btnCreate">
+            <!-- <button class="btnCreate">
                 <i class="fa-light fa-plus"></i>
                 <span>tạo mới</span>
-            </button>
+            </button> -->
         </div>
         <div class="list-code">
             <table class="content-table">
@@ -129,32 +129,39 @@
                         <th>ngày đặt hàng</th>
                         <th>số tiền</th>
                         <th>mã giảm giá</th>
+                        <th>chương trình giảm giá</th>
                         <th>tình trạng</th>
                         <th>hoạt động</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php
+                    <?php
                     include("ConnectDB.php");
                     $db = new ConnectDB();
-                    $sql = "SELECT *  FROM export
-                        join discounts on discounts.DISCOUNT_ID  = export.DISCOUNT_ID 
-                        join users on USERS.USER_ID = export.EMPLOYEE_ID and users.USER_ID = export.CUSTOMER_ID";
+                    $sql = "SELECT * FROM export
+                    JOIN discounts ON discounts.DISCOUNT_ID = export.DISCOUNT_ID
+                    JOIN users AS employee ON employee.USER_ID = export.EMPLOYEE_ID
+                    JOIN users AS customer ON customer.USER_ID = export.CUSTOMER_ID";
                     $result = $db->connection($sql);
-                    $i = 1;
+                    $i = 0;
                     while ($row = mysqli_fetch_array($result)) {
-                        echo '<tr>
-                                <td>' . $i++ . '</td>
-                                <td>' . $row['EXPORT_ID'] . '</td>
-                                <td>' . $row['NAME_PROVIDER'] . '</td>
-                                <td>' . $row['NAME'] . '</td>
-                                <td>' . $row['DATE_CREATE'] . '</td>
-                                <td>' . $row['TOTAL'] . '</td>
-                                <td>
-                                    <button class="btnFix">chỉnh sửa</button>
-                                    <button class="btnView">xem</button>
-                                </td>
-                            </tr>';
+                        echo '
+                        <tr>
+                        <td>' . $i++ . '</td>
+                        <td>' . $row['EXPORT_ID'] . '</td>
+                        <td>' . $row['CUSTOMER_ID'] . '</td>
+                        <td>' . $row[23] . '</td>
+                        <td>' . $row['EMPLOYEE_ID'] . '</td>
+                        <td>' . $row[16] . '</td>
+                        <td>' . $row['DATE_CREATE'] . '</td>
+                        <td>' . $row['TOTAL'] . '</td>
+                        <td>' . $row['DISCOUNT_ID'] . '</td>
+                        <td>' . $row['NAME_DISCOUNT'] . '</td>
+                        <td>' . $row['STATUS_EX'] . '</td>
+                        <td>
+                            <button class="btnView enable">xem</button>
+                        </td>
+                        </tr>';
                     }
                     ?>
                 </tbody>
