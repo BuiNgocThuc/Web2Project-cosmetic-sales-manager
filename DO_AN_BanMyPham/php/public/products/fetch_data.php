@@ -1,21 +1,26 @@
 <?php
     include 'connect_Database.php';
-    
+    $valueselect = isset($_GET['page_val']) ? $_GET['page_val'] : '';
     $limit_per_page = 8;
+    
     $page = isset($_GET['page_no']) ? $_GET['page_no'] : 1;
     $offset = ($page - 1) * $limit_per_page;
 
-    $sqlP = "SELECT * FROM products LIMIT $offset, $limit_per_page";
-    $resultP = mysqli_query($conn, $sqlP);
-    if(mysqli_num_rows($resultP) > 0) {
+    $query = "SELECT PRODUCT_ID, IMG_PRO, NAME_PRO, PRICE_PRO, QUANTITY_PRO, BRAND_ID, ORIGIN_PRO FROM products LIMIT $offset, $limit_per_page";
+    if ($valueselect == 1) {
+        $query = "SELECT PRODUCT_ID, IMG_PRO, NAME_PRO, PRICE_PRO, QUANTITY_PRO, BRAND_ID, ORIGIN_PRO FROM products ORDER BY PRICE_PRO ASC LIMIT $offset, $limit_per_page";
+    } 
+    else if ($valueselect == 2) {
+        $query = "SELECT PRODUCT_ID, IMG_PRO, NAME_PRO, PRICE_PRO, QUANTITY_PRO, BRAND_ID, ORIGIN_PRO FROM products ORDER BY PRICE_PRO DESC LIMIT $offset, $limit_per_page";
+    }
+
+    $result = mysqli_query($conn, $query);
+    if(mysqli_num_rows($result) > 0) {
         $products = array();
-        while ($row = mysqli_fetch_assoc($resultP)) {
-            $products[] = $row;
-        }
-        foreach($products as $row) {
+        while ($row = mysqli_fetch_assoc($result)) {
             echo    '<div class="grid__column-2-4">
                         <div class="home-product-item" pid="' . $row["PRODUCT_ID"] .'">
-                            <img class="home-product-item__img" src="../image/img/'. $row["IMG_PRO"] .'">
+                            <img class="home-product-item__img" src="../assets/img/'. $row["IMG_PRO"] .'">
                             <h4 class="home-product-item__name"> ' . $row["NAME_PRO"] .'</h4>
                             <div class="home-product-item__price">
                                 <span class="home-product-item__price-current">' . number_format($row["PRICE_PRO"]) .'đ</span>
@@ -41,7 +46,8 @@
                         </div>
                     </div>
                     </div>';
-        } 
+        }
+        
     }
 
     // Đóng kết nối  
