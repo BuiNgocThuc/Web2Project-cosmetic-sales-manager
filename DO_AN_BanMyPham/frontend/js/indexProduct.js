@@ -1,10 +1,10 @@
-// const slideShow = document.querySelector('.header__slideshow-adea');
-// let count = 0;
+const slideShow = document.querySelector('.header__slideshow-adea');
+let count = 0;
 
-// setInterval(() => {
-//     slideShow.style.transform = `translateX(${-count * 100}%)`;
-//     count = (count + 1) % 4;
-// }, 3000);
+setInterval(() => {
+    slideShow.style.transform = `translateX(${-count * 100}%)`;
+    count = (count + 1) % 4;
+}, 3000);
 
 // AJAX
 $(document).ready(function () {
@@ -72,11 +72,14 @@ $(document).ready(function () {
     // Pagination
     $(document).on('click', '.pagination-item', function (e) {
         var page = $(this).attr('pageid');
+        var valueSelected = $('#sortPrices').val();
+        console.log(valueSelected);
         $.ajax({
             url: 'fetch_data.php',
             type: 'GET',
             data: {
-                page_no: page
+                page_no: page,
+                page_val: valueSelected
             },
             success: function (data) {
                 $('#home__product').html(data);
@@ -120,7 +123,6 @@ $(document).ready(function () {
             }
         });
     })
-
-
-
 });
+
+
