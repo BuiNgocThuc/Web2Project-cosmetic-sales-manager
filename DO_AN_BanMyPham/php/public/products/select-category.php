@@ -10,9 +10,6 @@
         if(mysqli_num_rows($result) > 0) {
             $products = array();
             while ($row = mysqli_fetch_assoc($result)) {
-                $products[] = $row;
-            }
-            foreach($products as $row) {
                 echo '<div class="grid__column-2-4">
                         <div class="home-product-item" pid="' . $row["PRODUCT_ID"] .'">
                             <img class="home-product-item__img" src="../assets/img/'. $row["IMG_PRO"] .'">
