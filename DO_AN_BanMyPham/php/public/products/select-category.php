@@ -8,7 +8,6 @@
         $result=mysqli_query($conn,$sql);
 
         if(mysqli_num_rows($result) > 0) {
-            $products = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<div class="grid__column-2-4">
                         <div class="home-product-item" pid="' . $row["PRODUCT_ID"] .'">
