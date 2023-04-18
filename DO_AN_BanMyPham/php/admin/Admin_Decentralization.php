@@ -1,25 +1,24 @@
-
 <section id="Admin_Decentralization" data-content="nhóm quyền">
     <div class="overlay">
 
     </div>
     <div class="new-form">
-        <section id="create_new_role">
+        <section id="create_new_role" style="display: none">
             <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
             <div class="new-name-role">
                 <label for="" class="name-role">tên nhóm quyền: </label>
-                <input class="textfield" type="text">
+                <input class="textfield new-name" type="text">
             </div>
             <div class="new-description-role">
                 <label for="" class="description-role">mô tả quyền: </label>
-                <input class="textfield" type="text">
+                <input class="textfield new-description" type="text">
             </div>
             <table class="list-permission">
                 <thead>
                     <tr>
                         <th>STT</th>
                         <th>mã chức năng</th>
-                        <th>tên sản phẩm</th>
+                        <th>tên chức năng</th>
                         <th>Thêm</th>
                         <th>Xóa</th>
                         <th>Sửa</th>
@@ -99,6 +98,17 @@
                 <button class="btnCancel btn" onclick="hiddenForm()">Hủy Bỏ</button>
             </div>
         </section>
+
+        <!-- -----Delete Form ------ -->
+        <div id="delete-form" style="display: none;">
+            <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
+            <div class="title">Xóa thương hiệu</div>
+            <p class="warning"> Bằng cách xác nhận xóa thương hiệu này, bạn không thể tạo hoặc cập nhật sản phẩm với thương hiệu này nữa</p>
+            <div class="tool">
+                <button class="btnConfirm btn" onclick="DeleteInfo('Role')">Xóa</button>
+                <button class="btnCancel btn" onclick="hiddenForm()">Hủy Bỏ</button>
+            </div>
+        </div>
     </div>
 
     <div class="form-container">

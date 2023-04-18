@@ -7,21 +7,15 @@
         <!-- -----Create Form ------ -->
         <div id="create-form" style="display: none;">
             <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
-            <div class="title">Thêm Thương Hiệu Mới</div>
+            <div class="title">Thêm Phiếu Nhập Mới</div>
             <form action="" class="content">
                 <div>
-                    <label for="" class="name-brand">tên thương hiệu: </label>
-                    <input class="textfield" type="text">
+                    <label for="" class="name-provider">tên nhà cung cấp: </label>
+                    <input class="textfield new-name" type="text">
                 </div>
                 <div>
-                    <label for="" class="img-brand">hình ảnh: </label>
-                    <div class="image-upload">
-                        <input id="file-input" type="file" accept="image/png,img/jpg,img/jpeg">
-                        <label for="file-input" class="icon-upload">
-                            <i class="fa-duotone fa-plus fa-2xl"></i>
-                            <span>đăng tải</span>
-                        </label>
-                    </div>
+                    <label for="" class="name-provider">tên nhân viên nhập: </label>
+                    <input class="textfield" type="text">
                 </div>
                 <div>
                     <label for="">Trạng Thái: </label>

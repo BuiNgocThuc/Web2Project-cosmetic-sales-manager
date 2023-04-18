@@ -292,7 +292,7 @@ th {
     margin-left: .8rem;
 }
 
-#Admin_Display .list-container .list-code .content-table tbody tr td .display-action .switch {
+#Admin_Display .list-container .list-code .content-table tbody tr td .display_action .switch {
     -webkit-appearance: none;
     appearance: none;
     width: 8.2rem;
@@ -308,12 +308,12 @@ th {
     font-size: .8rem;
 }
 
-#Admin_Display .list-container .list-code .content-table tbody tr td .display-action .switch:checked {
+#Admin_Display .list-container .list-code .content-table tbody tr td .display_action .switch:checked {
     background: var(--main);
     transition: ease 1s;
 }
 
-#Admin_Display .list-container .list-code .content-table tbody tr td .display-action .switch::before {
+#Admin_Display .list-container .list-code .content-table tbody tr td .display_action .switch::before {
     content: '';
     width: 1.1rem;
     height: 1.1rem;
@@ -326,7 +326,7 @@ th {
     /* transform: translate(-50%, -20%); */
 }
 
-#Admin_Display .list-container .list-code .content-table tbody tr td .display-action .switch::after {
+#Admin_Display .list-container .list-code .content-table tbody tr td .display_action .switch::after {
     content: attr(data-content);
     position: absolute;
     width: 8rem;
@@ -337,6 +337,6 @@ th {
     color: var(--bg);
 }
 
-#Admin_Display .list-container .list-code .content-table tbody tr td .display-action .switch:checked::before {
+#Admin_Display .list-container .list-code .content-table tbody tr td .display_action .switch:checked::before {
     left: 7rem;
 }

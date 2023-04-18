@@ -41,7 +41,7 @@
             <form action="" class="content">
                 <div>
                     <label for="" class="name-brand">tên thương hiệu: </label>
-                    <input class="textfield new-name" type="text">
+                    <input class="textfield NAME_OBJECT" type="text">
                 </div>
                 <div>
                     <label for="" class="img-brand">hình ảnh: </label>
@@ -103,7 +103,7 @@
     </div>
     <div class="list-container">
         <div class="title-list">
-            <h3>danh sách sản phẩm</h3>
+            <h3>danh sách thương hiệu</h3>
             <button class="btnCreate">
                 <i class="fa-light fa-plus"></i>
                 <span>tạo mới</span>
@@ -138,7 +138,7 @@
                                     <td class="IMG_OBJECT">' . $row['IMG_BRAND'] . '</td>
                                     <td class="STATUS_OBJECT">' . $row['STATUS_BRAND'] . '</td>
                                     <td>
-                                        <button class="btnFix ' . $action . '" data-content="' . $row['BRAND_ID'] . '">chỉnh sửa</button>
+                                        <button class="btnFix ' . $action . '">chỉnh sửa</button>
                                         <button class="btnDel" data-ordinal="' . ($i - 1) . '">xóa</button>
                                     </td>
                                 </tr>';

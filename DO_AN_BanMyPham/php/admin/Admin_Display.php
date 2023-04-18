@@ -1,4 +1,3 @@
-
 <section id="Admin_Display" data-content="Hiện Thị Nổi Bật">
     <div class="form-container">
         <div class="title-form">
@@ -33,8 +32,8 @@
                         <th>mã sản phẩm</th>
                         <th>tên sản phẩm</th>
                         <th>hình ảnh</th>
-                        <th>slide show</th>
                         <th>nổi bật</th>
+                        <th>sản phẩm mới</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,8 +44,10 @@
                     $result = $db->connection($sql);
                     $i = 1;
                     while ($row = mysqli_fetch_array($result)) {
-                        $abc = ($row['SLIDESHOW'] == 0) ? 'ngừng hoạt động' : 'đang hoạt động';
-                        $isCheck = ($row['SLIDESHOW'] == 0) ? '' : 'checked';
+                        $trend = ($row['SLIDESHOW'] == 0) ? 'ngừng hoạt động' : 'đang hoạt động';
+                        $isCheckTrend = ($row['SLIDESHOW'] == 0) ? '' : 'checked';
+                        $new = ($row['NEW_ARRIVALS'] == 0) ? 'ngừng hoạt động' : 'đang hoạt động';
+                        $isCheckNew = ($row['NEW_ARRIVALS'] == 0) ? '' : 'checked';
 
                         echo ' <tr>
                                 <td>' . $i++ . '</td>
@@ -54,10 +55,15 @@
                                 <td>' . $row['NAME_PRO'] . '</td>
                                 <td>' . $row['IMG_PRO'] . '</td>
                                 <td>
-                                <div class="display-action">
-                                    <input type="checkbox" class="switch" data-content="' . $abc . '" ' . $isCheck . ' onclick="changeDataContent(this), display(' . $row['PRODUCT_ID'] . ', this)">
+                                <div class="display_action trending">
+                                    <input type="checkbox" class="switch" data-content="' . $trend . '" ' . $isCheckTrend . ' onclick="changeDataContent(this), display(' . $row['PRODUCT_ID'] . ', this)">
                                 </div>
-                            </td>
+                                </td>
+                                <td>
+                                <div class="display_action new_arrivals">
+                                <input type="checkbox" class="switch" data-content="' . $new . '" ' . $isCheckNew . ' onclick="changeDataContent(this), display(' . $row['PRODUCT_ID'] . ', this)">
+                            </div>
+                                </td>
                             </tr>';
                     }
                     ?>

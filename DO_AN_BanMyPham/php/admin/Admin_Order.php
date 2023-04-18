@@ -98,7 +98,6 @@
                     <option value="đã hủy">đã hủy</option>
                     <option value="đang giao">đang giao</option>
                     <option value="hoàn thành">hoàn thành</option>
-                    <option value="đã trả hàng">đã trả hàng</option>
                 </select>
             </div>
             <div>

@@ -70,21 +70,21 @@
         <!-- -----Update Form ------ -->
         <div id="fix-form" style="display: none;">
             <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
-            <div class="title">Cập nhật thương hiệu</div>
+            <div class="title">Cập nhật tài khoản</div>
             <form action="" class="content">
-                <div>
-                    <label for="" class="name-brand">tên thương hiệu: </label>
-                    <input class="textfield" type="text">
-                </div>
-                <div>
-                    <label for="" class="img-brand">hình ảnh: </label>
-                    <label for="file-input" class="image-upload">
-                        <input id="file-input" type="file" accept="image/png,img/jpg,img/jpeg">
-                        <label for="file-input" class="icon-upload">
-                            <i class="fa-duotone fa-plus fa-2xl"></i>
-                            <span>đăng tải</span>
-                        </label>
-                    </label>
+                <div class="update-role">
+                    <label for="" class="role-user">nhóm quyền: </label>
+                    <select class="textfield new-role">
+                        <?php
+                        include_once("connectDB.php");
+                        $db = new ConnectDB();
+                        $sql = "SELECT * FROM roles WHERE ROLE_ID NOT IN ('0')";
+                        $result = $db->connection($sql);
+                        while ($row = mysqli_fetch_array($result)) {
+                            echo '<option value="' . $row['ROLE_ID'] . '">' . $row['NAME_ROLE'] . '</option>';
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div>
                     <label for="">Trạng Thái: </label>
@@ -102,8 +102,8 @@
             <div class="title">Xóa thương hiệu</div>
             <p class="warning"> Bằng cách xác nhận xóa thương hiệu này, bạn không thể tạo hoặc cập nhật sản phẩm với thương hiệu này nữa</p>
             <div class="tool">
-                <button class="btnConfirm btn">Xóa</button>
-                <button class="btnCancel btn">Hủy Bỏ</button>
+                <button class="btnConfirm btn" onclick="DeleteInfo('User')">Xóa</button>
+                <button class="btnCancel btn" onclick="hiddenForm()">Hủy Bỏ</button>
             </div>
         </div>
     </div>
@@ -159,22 +159,23 @@
                     <?php
                     $i = 1;
                     include_once("ConnectDB.php");
-                    $sql = "SELECT *  FROM users
-                            join type_users on users.type_user_id = type_users.type_user_id";
+                    $sql = "SELECT *  FROM users 
+                            join type_users on users.type_user_id = type_users.type_user_id
+                            WHERE STATUS NOT IN ('đã xóa')";
                     $db = new ConnectDB();
                     $result = $db->connection($sql);
                     while ($row = mysqli_fetch_array($result)) {
                         echo '<tr>
                         <td>' . $i++ . '</td>
-                        <td>' . $row['USER_ID'] . '</td>
-                        <td>' . $row[8] . '</td>
-                        <td>' . $row[2] . '</td>
-                        <td>' . $row['PHONE'] . '</td>
-                        <td>' . $row['ADDRESS'] . '</td>
-                        <td>' . $row['EMAIL'] . '</td>
-                        <td>' . $row['STATUS'] . '</td>
+                        <td class="ID_OBJECT">' . $row['USER_ID'] . '</td>
+                        <td class="TYPE_OBJECT">' . $row['NAME_TYPE_USER'] . '</td>
+                        <td class="NAME_OBJECT">' . $row['NAME'] . '</td>
+                        <td class="PHONE_OBJECT">' . $row['PHONE'] . '</td>
+                        <td class="ADDRESS_OBJECT">' . $row['ADDRESS'] . '</td>
+                        <td class="EMAIL_OBJECT">' . $row['EMAIL'] . '</td>
+                        <td class="STATUS_OBJECT">' . $row['STATUS'] . '</td>
                         <td>
-                            <button class="btnFix">chỉnh sửa</button>
+                            <button class="btnFixUser">chỉnh sửa</button>
                             <button class="btnDel">xóa</button>
                         </td>
                     </tr>';
@@ -187,10 +188,10 @@
                         $(".btnDel").addClass("enable");
                     }
                     if($(".sidebar .user_per").hasClass("Update")) {
-                        $(".btnFix").addClass("enable");
+                        $(".btnFixUser").addClass("enable");
                     }
                     if($(".sidebar .user_per").hasClass("Control")) {
-                        $(".btnFix").addClass("enable");
+                        $(".btnFixUser").addClass("enable");
                         $(".btnDel").addClass("enable");
                         $(".btnCreate").addClass("enable");
                     }

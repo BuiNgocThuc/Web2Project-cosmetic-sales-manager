@@ -9,19 +9,13 @@
             <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
             <div class="title">Thêm Thương Hiệu Mới</div>
             <form action="" class="content">
-                <div>
-                    <label for="" class="name-brand">tên thương hiệu: </label>
-                    <input class="textfield" type="text">
+            <div>
+                    <label for="" class="id-type-user">mã loại người dùng mới: </label>
+                    <input class="textfield new-id" type="text">
                 </div>
                 <div>
-                    <label for="" class="img-brand">hình ảnh: </label>
-                    <div class="image-upload">
-                        <input id="file-input" type="file" accept="image/png,img/jpg,img/jpeg">
-                        <label for="file-input" class="icon-upload">
-                            <i class="fa-duotone fa-plus fa-2xl"></i>
-                            <span>đăng tải</span>
-                        </label>
-                    </div>
+                    <label for="" class="name-type-user">tên loại người dùng mới: </label>
+                    <input class="textfield new-name" type="text">
                 </div>
                 <div>
                     <label for="">Trạng Thái: </label>
@@ -29,7 +23,7 @@
                 </div>
             </form>
             <div class="tool">
-                <button class="btnConfirm btn">Thêm</button>
+                <button class="btnConfirm btn"  onclick="AddInfo('Type_User')">Thêm</button>
                 <button class="btnCancel btn">Hủy Bỏ</button>
             </div>
         </div>
@@ -40,18 +34,8 @@
             <div class="title">Cập nhật thương hiệu</div>
             <form action="" class="content">
                 <div>
-                    <label for="" class="name-brand">tên thương hiệu: </label>
-                    <input class="textfield" type="text">
-                </div>
-                <div>
-                    <label for="" class="img-brand">hình ảnh: </label>
-                    <label for="file-input" class="image-upload">
-                        <input id="file-input" type="file" accept="image/png,img/jpg,img/jpeg">
-                        <label for="file-input" class="icon-upload">
-                            <i class="fa-duotone fa-plus fa-2xl"></i>
-                            <span>đăng tải</span>
-                        </label>
-                    </label>
+                    <label for="" class="name-type-user">tên loại người dùng: </label>
+                    <input class="textfield NAME_OBJECT" type="text">
                 </div>
                 <div>
                     <label for="">Trạng Thái: </label>
@@ -69,8 +53,8 @@
             <div class="title">Xóa thương hiệu</div>
             <p class="warning"> Bằng cách xác nhận xóa thương hiệu này, bạn không thể tạo hoặc cập nhật sản phẩm với thương hiệu này nữa</p>
             <div class="tool">
-                <button class="btnConfirm btn">Xóa</button>
-                <button class="btnCancel btn">Hủy Bỏ</button>
+                <button class="btnConfirm btn" onclick="DeleteInfo('Type_User')">Xóa</button>
+                <button class="btnCancel btn" onclick="hiddenForm()">Hủy Bỏ</button>
             </div>
         </div>
     </div>
@@ -122,15 +106,15 @@
                     <?php
                     include("ConnectDB.php");
                     $db = new ConnectDB();
-                    $sql = "SELECT *  FROM type_users";
+                    $sql = "SELECT *  FROM type_users WHERE STATUS_TYPE_USER NOT IN ('đã xóa')";
                     $result = $db->connection($sql);
                     $i = 1;
                     while ($row = mysqli_fetch_array($result)) {
                         echo '<tr>
                                     <td>' . $i++ . '</td>
-                                    <td>' . $row['TYPE_USER_ID'] . '</td>
-                                    <td>' . $row['NAME_TYPE_USER'] . '</td>
-                                    <td>' . $row['STATUS_TYPE_USER'] . '</td>
+                                    <td class="ID_OBJECT">' . $row['TYPE_USER_ID'] . '</td>
+                                    <td class="NAME_OBJECT">' . $row['NAME_TYPE_USER'] . '</td>
+                                    <td class="STATUS_OBJECT">' . $row['STATUS_TYPE_USER'] . '</td>
                                     <td>
                                         <button class="btnFix">chỉnh sửa</button>
                                         <button class="btnDel">xóa</button>

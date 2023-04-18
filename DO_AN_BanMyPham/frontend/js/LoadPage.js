@@ -61,8 +61,34 @@ $(document).on('click', '.btnFix.enable', function (e) {
     $('.new-form').addClass('active');
     $('.overlay').css('display', 'block');
     $('.new-form #fix-form').show();
-    let id = $(this).attr('data-content');
+    //query id object need update
+    var tr = $(this).closest("tr");
+    var idObject = $(tr).find(".ID_OBJECT");
+    let id = $(idObject).html();
     $('#fix-form .btnConfirm').attr('data-content', id);
+    var tempVar = $(idObject).next();
+    while($(tempVar).attr('class') != 'STATUS_OBJECT') {
+        let className = $(tempVar).attr('class');
+        let updateOb = $('#fix-form').find('.textfield').filter(function() {
+            return $(this).hasClass(className);
+        });
+        updateOb.val($(tempVar).html());
+        tempVar = $(tempVar).next();
+    }
+});
+
+$(document).on('click', '.btnFixUser.enable', function (e) {
+    $('.new-form').addClass('active');
+    $('.overlay').css('display', 'block');
+    $('.new-form #fix-form').show();
+    var tr = $(this).closest("tr");
+    var typeObject = $(tr).find(".TYPE_OBJECT");
+    let type = $(typeObject).html();
+    if(type == 'Khách Hàng') {
+        $("#fix-form .update-role").attr('style', 'display: none');
+    }else {
+        $("#fix-form .update-role").attr('style', 'display: flex');
+    }
 });
 
 //các đối tượng đang hoạt động

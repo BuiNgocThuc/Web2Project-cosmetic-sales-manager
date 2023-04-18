@@ -28,7 +28,7 @@ body {
     position: relative;
 }
 
-#Admin_Permission.overlay {
+#Admin_Permission .overlay {
     display: none;
     position: fixed;
     top: 0;
@@ -40,7 +40,7 @@ body {
     backdrop-filter: blur(8px);
 }
 
-#Admin_Permission.new-form {
+#Admin_Permission .new-form {
     position: fixed;
     top: 50%;
     left: 50%;

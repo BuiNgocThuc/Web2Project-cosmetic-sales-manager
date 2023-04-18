@@ -46,7 +46,6 @@
 
 #create-form .content {
     /* border: 2px solid red; */
-    height: 15rem;
     width: 30rem;
     display: flex;
     flex-direction: column;
@@ -219,11 +218,11 @@
 
 #fix-form .content {
     /* border: 2px solid red; */
-    height: 15rem;
     width: 30rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 1rem
 }
 
 #fix-form .content div {
@@ -231,7 +230,7 @@
     align-items: center;
 }
 
-#fix-form .content div:nth-child(2) {
+#Admin_Brand #fix-form .content div:nth-child(2) {
     margin-top: .8rem;
 }
 
@@ -245,6 +244,7 @@
     padding: .3rem .5rem;
     outline: none;
     border: 1px solid var(--font-color);
+    border-radius: 2rem;
 }
 
 #fix-form .content .image-upload {

@@ -16,7 +16,7 @@ function abc() {
         autoplay: true,
         autoplaySpeed: 1000,
     });
-
+    
     $('.slideshow-container').slick({
         infinite: true,
         speed: 1000,

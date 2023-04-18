@@ -324,7 +324,7 @@ th {
     margin-left: .8rem;
 }
 
-#Admin_User .list-container .list-code .content-table .btnFix, .btnDel, .btnCreate {
+#Admin_User .list-container .list-code .content-table .btnFixUser, .btnDel, .btnCreate {
     opacity: 0.5;
     cursor: default;
 }

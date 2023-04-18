@@ -1,4 +1,3 @@
-
 <main id="Admin_Category" data-content="Danh mục sản phẩm">
     <div class="overlay">
 
@@ -11,26 +10,16 @@
             <form action="" class="content">
                 <div>
                     <label for="" class="name-brand">tên danh mục: </label>
-                    <input class="textfield" type="text">
+                    <input class="textfield new-name" type="text">
                 </div>
-                <!-- <div>
-                    <label for="" class="img-brand">hình ảnh: </label>
-                    <div class="image-upload">
-                        <input id="file-input" type="file" accept="image/png,img/jpg,img/jpeg">
-                        <label for="file-input" class="icon-upload">
-                            <i class="fa-duotone fa-plus fa-2xl"></i>
-                            <span>đăng tải</span>
-                        </label>
-                    </div>
-                </div> -->
                 <div>
                     <label for="">Trạng Thái: </label>
                     <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
                 </div>
             </form>
             <div class="tool">
-                <button class="btnAdd btn">Thêm</button>
-                <button class="btnRemove btn">Hủy Bỏ</button>
+                <button class="btnConfirm btn"  onclick="AddInfo('Category')">Thêm</button>
+                <button class="btnCancel btn">Hủy Bỏ</button>
             </div>
         </div>
 
@@ -41,26 +30,16 @@
             <form action="" class="content">
                 <div>
                     <label for="" class="name-brand">tên danh mục: </label>
-                    <input class="textfield" type="text">
+                    <input class="textfield NAME_OBJECT" type="text">
                 </div>
-                <!-- <div>
-                    <label for="" class="img-brand">hình ảnh: </label>
-                    <label for="file-input" class="image-upload">
-                        <input id="file-input" type="file" accept="image/png,img/jpg,img/jpeg">
-                        <label for="file-input" class="icon-upload">
-                            <i class="fa-duotone fa-plus fa-2xl"></i>
-                            <span>đăng tải</span>
-                        </label>
-                    </label>
-                </div> -->
                 <div>
                     <label for="">Trạng Thái: </label>
                     <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
                 </div>
             </form>
             <div class="tool">
-                <button class="btnAdd btn">Cập nhật</button>
-                <button class="btnRemove btn">Hủy Bỏ</button>
+                <button class="btnConfirm btn">Cập nhật</button>
+                <button class="btnCancel btn">Hủy Bỏ</button>
             </div>
         </div>
         <!-- -----Delete Form ------ -->
@@ -69,8 +48,8 @@
             <div class="title">Xóa danh mục</div>
             <p class="warning"> Bằng cách xác nhận xóa danh mục này, bạn không thể tạo hoặc cập nhật sản phẩm với danh mục này nữa</p>
             <div class="tool">
-                <button class="btnAdd btn">Xóa</button>
-                <button class="btnRemove btn">Hủy Bỏ</button>
+                <button class="btnConfirm btn" onclick="DeleteInfo('Category')">Xóa</button>
+                <button class="btnCancel btn" onclick="hiddenForm()">Hủy Bỏ</button>
             </div>
         </div>
     </div>
@@ -122,17 +101,18 @@
                     <?php
                     include("ConnectDB.php");
                     $db = new ConnectDB();
-                    $sql = "SELECT *  FROM category";
+                    $sql = "SELECT *  FROM category WHERE STATUS_CAT NOT IN ('đã xóa')";
                     $result = $db->connection($sql);
                     $i = 1;
                     while ($row = mysqli_fetch_array($result)) {
+                        $action = ($row['STATUS_CAT'] == 'ngừng hoạt động') ? '' : 'action';
                         echo '<tr>
-                                    <td>' . $i++ . '</td>
-                                    <td>' . $row['CATEGORY_ID'] . '</td>
-                                    <td>' . $row['NAME_CAT'] . '</td>
-                                    <td>' . $row['STATUS_CAT'] . '</td>
+                                    <td class="STT">' . $i++ . '</td>
+                                    <td class="ID_OBJECT">' . $row['CATEGORY_ID'] . '</td>
+                                    <td class="NAME_OBJECT">' . $row['NAME_CAT'] . '</td>
+                                    <td class="STATUS_OBJECT">' . $row['STATUS_CAT'] . '</td>
                                     <td>
-                                        <button class="btnFix">chỉnh sửa</button>
+                                        <button class="btnFix ' . $action . '">chỉnh sửa</button>
                                         <button class="btnDel">xóa</button>
                                     </td>
                                 </tr>';
@@ -153,7 +133,6 @@
                         $(".btnCreate").addClass("enable");
                     }
                 </script>';
-                ?>
                     ?>
                 </tbody>
             </table>
