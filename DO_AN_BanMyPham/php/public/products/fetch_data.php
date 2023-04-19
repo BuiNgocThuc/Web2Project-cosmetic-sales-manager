@@ -6,12 +6,12 @@
     $page = isset($_GET['page_no']) ? $_GET['page_no'] : 1;
     $offset = ($page - 1) * $limit_per_page;
 
-    $query = "SELECT PRODUCT_ID, IMG_PRO, NAME_PRO, PRICE_PRO, QUANTITY_PRO, BRAND_ID, ORIGIN_PRO FROM products LIMIT $offset, $limit_per_page";
+    $query = "SELECT products.PRODUCT_ID, products.IMG_PRO, products.NAME_PRO, products.PRICE_PRO, products.QUANTITY_PRO, brands.NAME_BRAND, products.ORIGIN_PRO FROM products INNER JOIN brands ON products.BRAND_ID = brands.BRAND_ID LIMIT $offset, $limit_per_page";
     if ($valueselect == 1) {
-        $query = "SELECT PRODUCT_ID, IMG_PRO, NAME_PRO, PRICE_PRO, QUANTITY_PRO, BRAND_ID, ORIGIN_PRO FROM products ORDER BY PRICE_PRO ASC LIMIT $offset, $limit_per_page";
+        $query = "SELECT products.PRODUCT_ID, products.IMG_PRO, products.NAME_PRO, products.PRICE_PRO, products.QUANTITY_PRO, brands.NAME_BRAND, products.ORIGIN_PRO FROM products JOIN brands ON products.BRAND_ID = brands.BRAND_ID ORDER BY products.PRICE_PRO ASC LIMIT $offset, $limit_per_page";
     } 
     else if ($valueselect == 2) {
-        $query = "SELECT PRODUCT_ID, IMG_PRO, NAME_PRO, PRICE_PRO, QUANTITY_PRO, BRAND_ID, ORIGIN_PRO FROM products ORDER BY PRICE_PRO DESC LIMIT $offset, $limit_per_page";
+        $query = "SELECT products.PRODUCT_ID, products.IMG_PRO, products.NAME_PRO, products.PRICE_PRO, products.QUANTITY_PRO, brands.NAME_BRAND, products.ORIGIN_PRO FROM products JOIN brands ON products.BRAND_ID = brands.BRAND_ID ORDER BY products.PRICE_PRO DESC LIMIT $offset, $limit_per_page";
     }
 
     $result = mysqli_query($conn, $query);
@@ -39,7 +39,7 @@
                                 <span class="home-product-item__sold">' . $row["QUANTITY_PRO"] .' đã bán</span>
                             </div>
                             <div class="home-product-item__origin">
-                                <span class="home-product-item__brand">' . $row["BRAND_ID"] .'</span>
+                                <span class="home-product-item__brand">' . $row["NAME_BRAND"] .'</span>
                                 <span class="home-product-item__origin-name">' . $row["ORIGIN_PRO"] .'</span>
                             </div>
                         </div>
