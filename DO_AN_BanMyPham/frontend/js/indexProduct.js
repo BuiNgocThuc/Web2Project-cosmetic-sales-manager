@@ -1,10 +1,10 @@
-const slideShow = document.querySelector('.header__slideshow-adea');
-let count = 0;
+// const slideShow = document.querySelector('.header__slideshow-adea');
+// let count = 0;
 
-setInterval(() => {
-    slideShow.style.transform = `translateX(${-count * 100}%)`;
-    count = (count + 1) % 4;
-}, 3000);
+// setInterval(() => {
+//     slideShow.style.transform = `translateX(${-count * 100}%)`;
+//     count = (count + 1) % 4;
+// }, 3000);
 
 // AJAX
 $(document).ready(function () {
@@ -122,6 +122,52 @@ $(document).ready(function () {
                 $('#home__product').html(data);
             }
         });
+    })
+
+    // Payment
+    $.ajax({
+        url: 'Pay_fetch_data.php',
+        method: 'GET',
+        data: {
+            producted: 1
+        },
+        success: function (data) {
+            $('#product__pay').html(data);
+        }
+    })
+
+    // Button continue buy
+    $(document).on('click', '#infoClient__btn--buy', function (e) {
+        $.ajax({
+            url: 'indexListProducts.php',
+            method: 'GET',
+            success: function () {
+                window.location = 'indexListProducts.php';
+            }
+        })
+    })
+
+    // Order history
+    $(document).on('click', '.btn--pay', function (e) {
+        $.ajax({
+            url: 'Order-History.php',
+            method: 'GET',
+            success: function () {
+                window.location = 'Order-History.php';
+            }
+        })
+    })
+
+    // 
+    $.ajax({
+        url: 'Order-History.php',
+        method: 'GET',
+        data: {
+            order_no: 1
+        },
+        success: function (data) {
+            $('.show--order').html(data);
+        }
     })
 });
 
