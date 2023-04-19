@@ -5,18 +5,13 @@
     if(isset($_GET['category'])) {
         $sqlc = "SELECT * FROM category";
         $resultc = mysqli_query($conn,$sqlc);
-        
-        $categories = array();
-        
+                
         if(mysqli_num_rows($resultc) > 0){
             while ($row = mysqli_fetch_assoc($resultc)) {
-                $categories[] = $row;
+                echo    '<li class="category-item">
+                            <div cid="'. $row["CATEGORY_ID"] .'" class="category-item__link select-category">'. $row["NAME_CAT"] .'</div>
+                        </li>';
             }
-        }
-        foreach($categories as $row) {
-            echo    '<li class="category-item">
-                        <div cid="'. $row["CATEGORY_ID"] .'" class="category-item__link select-category">'. $row["NAME_CAT"] .'</div>
-                    </li>';
         }
     }
     
