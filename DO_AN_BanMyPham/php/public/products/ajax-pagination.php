@@ -9,7 +9,7 @@
     
     $page = $_GET['page_no'];
     $total_pages = ceil($total_record/$limit_per_page);
-    if ($total_pages > 1) {
+    if ($total_pages > 1) { 
         for ($i = 1; $i <= $total_pages; $i++) {
             echo '<li class="pagination-item" pageid="'. $i .'">';
             if ($i == $page) {
@@ -21,7 +21,6 @@
             echo '</li>';
         }
     }
-    
 
     // mysqli_close($conn);
 ?>
