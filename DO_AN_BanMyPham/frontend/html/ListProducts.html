@@ -5,42 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/style_ListProducts.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/style_ListProducts.css">
 
 </head>
 <body>
-    <div class="app">
+    <div class="app" id="main-listProduct">
         <div class="header__slideshow">
             <div class="header__slideshow-adea">
                 <div class="header__slideshow-image">
-                    <img class="header__slideshow-image-item" src="assets/img/slide3.jpg" alt="slide 1">
+                    <img class="header__slideshow-image-item" src="../assets/img/slide3.jpg" alt="slide 1">
                 </div>
     
                 <div class="header__slideshow-image">
-                    <img class="header__slideshow-image-item" src="assets/img/slide4.jpg" alt="slide 2">
+                    <img class="header__slideshow-image-item" src="../assets/img/slide4.jpg" alt="slide 2">
                 </div>
     
                 <div class="header__slideshow-image">
-                    <img class="header__slideshow-image-item" src="assets/img/slide5.jpg" alt="slide 3">
+                    <img class="header__slideshow-image-item" src="../assets/img/slide5.jpg" alt="slide 3">
                 </div>
     
                 <div class="header__slideshow-image">
-                    <img class="header__slideshow-image-item" src="assets/img/slide6.jpg" alt="slide 4">
+                    <img class="header__slideshow-image-item" src="../assets/img/slide6.jpg" alt="slide 4">
                 </div>
 
                 <div class="header__slideshow-image">
-                    <img class="header__slideshow-image-item" src="assets/img/slide7.jpg" alt="slide 5">
+                    <img class="header__slideshow-image-item" src="../assets/img/slide7.jpg" alt="slide 5">
                 </div>
 
                 <div class="header__slideshow-image">
-                    <img class="header__slideshow-image-item" src="assets/img/slide8.jpg" alt="slide 6">
+                    <img class="header__slideshow-image-item" src="../assets/img/slide8.jpg" alt="slide 6">
                 </div>
             </div>
         </div>
 
         <div class="app__container">
-
             <div class="app__container__name-shop">shop</div>
 
             <div class="grid">
@@ -52,95 +51,15 @@
                                 <a href="#" class="shop__page">Shop</a>
                             </h3>
 
-
-            
                             <div class="classification">
                                 <span class="category-list-title">Danh mục</span>
-                                
-                                <ul class="category-list">
-                                    <li class="category-item category-item--active">
-                                        <a href="#" class="category-item__link">Trang điểm</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">Son môi</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">Chăm sóc da</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">Chăm sóc tóc</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">Dụng cụ trang điểm</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">Nước hoa</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">Mỹ phẩm High-End</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">Thực phẩm chức năng</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">Gift set</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">Sản phẩm khác</a>
-                                    </li>
+                                <ul class="category-list" id="list__category">
+                                    
                                 </ul>
 
                                 <span class="category-list-title">Thương hiệu</span>
-                                
-                                <ul class="category-list">
-                                    <li class="category-item category-item--active">
-                                        <a href="#" class="category-item__link">INNISFREE</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">BLACK ROUGE</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">LA ROCHE-POSAY</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">L'ORÉAL</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">MAYBELLINE</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">MAC</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">3CE</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">OLAY</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">GENTACIN</a>
-                                    </li>
-
-                                    <li class="category-item">
-                                        <a href="#" class="category-item__link">SILKYGIRL</a>
-                                    </li>
+                                <ul class="category-list" id="list__brand">
+                                    
                                 </ul>
                             </div>
                         </nav>
@@ -148,13 +67,13 @@
     
                     <div class="grid__column-9">
                         <div class="select__search">
-                            <select name="" id="sortPrices" onchange="onSort();">
-                                <option>Sắp xếp giá</option>
+                            <select name="" id="sortPrices">
+                                <option value="0">Sắp xếp giá</option>
                                 <option value="1">Từ thấp đến cao</option>
                                 <option value="2">Từ cao đến thấp</option>
                             </select>
                         </div>
-
+                        <!-- Show Products -->
                         <div class="home-product">
                             <div class="grid__row" id="home__product">
                                 
@@ -162,38 +81,8 @@
                         </div>
 
                         <!-- pagination -->
-                        <ul class="pagination home-product__pagination">
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">
-                                    <i class="pagination-item__icon fas fa-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link pagination-item__link--active">1</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">2</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">3</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">4</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">5</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">...</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">14</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">
-                                    <i class="pagination-item__icon fas fa-angle-right"></i>
-                                </a>
-                            </li>
+                        <ul class="pagination home-product__pagination" id="number-page">
+                        
                         </ul>
                     </div>
                 </div>
@@ -202,7 +91,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script src="assets/js/indexProduct.js"></script>
+    <script src="../assets/js/indexProduct.js"></script>
 
 </body>
 </html>
