@@ -1,8 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 /* Common */
 a {
@@ -26,11 +22,10 @@ ul li {
 /* Container */
 .container_Payments {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
 }
 
- /* Info Client */
+/* Info Client */
 .infoClient {
     flex: 1;
     margin: 10px 20px;
@@ -39,19 +34,19 @@ ul li {
 .infoClient__text {
     margin-bottom: 10px;
 }
-  
+
 .infoClient__inputs {
     display: flex;
     flex-direction: column;
 }
-  
+
 .infoClient__btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-  
-.btn {
+
+.infoClient__btnBuy {
     padding: 12px 8px;
     background-color: #f8f8f8;
     border: 1px solid #ccc;
@@ -60,13 +55,13 @@ ul li {
     color: #333;
     font-weight: bold;
 }
-  
-.btn:hover {
-    background-color: #a8e58c;
+
+.infoClient__btnBuy:hover {
+    background-color: #eee0dc;
     color: #000;
     cursor: pointer;
 }
-  
+
 .infoClient__input-text,
 #infoClient__select-pay {
     width: 100%;
@@ -74,7 +69,7 @@ ul li {
     border: 1.5px solid #000;
     background-color: #d9d9d9;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1rem;
     margin-bottom: 20px;
 }
 
@@ -83,13 +78,13 @@ ul li {
     color: #fff;
     background-color: #000;
 }
-  
+
 select {
     background-color: #fff;
     color: #333;
     font-size: 16px;
 }
-  
+
 select option {
     color: #333;
     font-size: 16px;
@@ -132,6 +127,7 @@ select option {
 }
 
 .listProducts__item-info-title {
+    font-size: 1.2rem;
     text-transform: uppercase;
 }
 
@@ -145,7 +141,8 @@ select option {
 }
 
 /* Discount code */
-.listProducts__provisional-total, .listProducts__total {
+.listProducts__provisional-total,
+.listProducts__total {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -167,4 +164,3 @@ select option {
     background-color: #000;
     color: #fff;
 }
-
