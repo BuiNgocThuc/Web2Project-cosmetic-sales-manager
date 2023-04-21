@@ -9,16 +9,37 @@
     
     $page = $_GET['page_no'];
     $total_pages = ceil($total_record/$limit_per_page);
+    
     if ($total_pages > 1) { 
+        if ($page > 1) {
+            echo    '<li class="pagination-item pagination-item--prev" pageid="' . ($page - 1) . '">
+                        <div class="pagination-item__link pagination-item__fontsize--text">Prev</div>
+                    </li>';
+        } else {
+            echo    '<li class="pagination-item pagination-item--prev pagination-item--disabled">
+                        <div class="pagination-item__link pagination-item__fontsize--text">Prev</div>
+                    </li>';
+        }
+
         for ($i = 1; $i <= $total_pages; $i++) {
             echo '<li class="pagination-item" pageid="'. $i .'">';
             if ($i == $page) {
-                echo  '<div class="pagination-item__link pagination-item__link--active">' . $i . '</div>';
+                echo  '<div class="pagination-item__link pagination-item__link--active" pageid="'.$i.'">' . $i . '</div>';
             } 
             else {
                 echo '<div pageid="' . $i . '" class="pagination-item__link">' . $i . '</div>';
             }
             echo '</li>';
+        }
+
+        if ($page < $total_pages) {
+            echo    '<li class="pagination-item pagination-item--next" pageid="' . ($page + 1) . '">
+                        <div class="pagination-item__link pagination-item__fontsize--text">Next</div>
+                    </li>';
+        } else {
+            echo    '<li class="pagination-item pagination-item--next pagination-item--disabled">
+                        <div class="pagination-item__link pagination-item__fontsize--text">Next</div>
+                    </li>';
         }
     }
 
