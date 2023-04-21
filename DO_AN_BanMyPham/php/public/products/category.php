@@ -1,16 +1,22 @@
 <?php
     include 'connect_Database.php';
 
-    // Kiểm tra nếu có CATEGORY trong cơ sở dữ liệu & Hiển thị dữ liệu
     if(isset($_GET['category'])) {
-        $sqlc = "SELECT * FROM category";
+        $sqlc = "SELECT CATEGORY_ID, NAME_CAT FROM category";
         $resultc = mysqli_query($conn,$sqlc);
-                
+        $id_category = isset($_GET['id_category']) ? $_GET['id_category'] : 0;               
         if(mysqli_num_rows($resultc) > 0){
+            $stt = 1;
             while ($row = mysqli_fetch_assoc($resultc)) {
-                echo    '<li class="category-item">
-                            <div cid="'. $row["CATEGORY_ID"] .'" class="category-item__link select-category">'. $row["NAME_CAT"] .'</div>
-                        </li>';
+                echo    '<li class="category-item" categoryid="'. $stt .'">';
+                if($id_category != $stt) {
+                    echo   '<div cid="'. $row["CATEGORY_ID"] .'" class="category-item__link" categoryid='. $stt .'>'. $row["NAME_CAT"] .'</div>';
+                }
+                else {
+                    echo   '<div cid="'. $row["CATEGORY_ID"] .'" class="category-item__link select-category">'. $row["NAME_CAT"] .'</div>';
+                }
+                echo    '</li>';
+                $stt++;
             }
         }
     }
