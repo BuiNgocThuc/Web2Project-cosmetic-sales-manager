@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/admin/admin_coupon_detail.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main id="Admin_coupon_detail" data-content="Nhập Hàng">
+        <div class="info_provider">
+            <label for="" class="name_provider">Tên nhà cung cấp</label>
+            <select name="" id="" class="textfield">
+                <option value="">nhà cung cấp 1</option>
+                <option value="">nhà cung cấp 2</option>
+                <option value="">nhà cung cấp 3</option>
+                <option value="">nhà cung cấp 4</option>
+                <option value="">nhà cung cấp 5</option>
+            </select>
+        </div>
+        <div class="info_products">
+            <div>
+                <label for="" class="name_product">Tên sản phẩm</label>
+                <select name="" id="" class="textfield NAME_OBJECT">
+                    <option value="sản phẩm 1">sản phẩm 1</option>
+                    <option value="sản phẩm 2">sản phẩm 2</option>
+                    <option value="sản phẩm 3">sản phẩm 3</option>
+                    <option value="sản phẩm 4">sản phẩm 4</option>
+                    <option value="sản phẩm 5">sản phẩm 5</option>
+                </select>
+            </div>
+            <div>
+                <label for="" class="quantity_product">Số lượng</label>
+                <input type="number" name="" id="" class="textfield QUANTITY_OBJECT">
+            </div>
+            <div>
+                <label for="" class="price_product">Giá nhập</label>
+                <input type="number" name="" id="" class="textfield PRICE_OBJECT">
+            </div>
+            <div>
+                <label for=""></label>
+                <button class="btn btn--Save" onclick="saveProduct()">Lưu</button>
+                <button class="btn btn--Undo" onclick="undoProduct()">Hoàn Tác</button>
+            </div>
+        </div>
+        <div class="list-product">
+            <!-- table list product selected -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá nhập</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr class="total">
+                        <td colspan="3">Tổng Tiền: </td>
+                        <td class="priceTotal">0</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="tools">
+            <button class="btn btnConfirm">Nhập Hàng</button>
+            <button class="btn btnCancel">Hủy</button>
+        </div>
+    </main>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="../../js/action.js"></script>
+
+</html>

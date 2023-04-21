@@ -24,6 +24,10 @@ body {
     color: var(--font-color);
 }
 
+#Admin_Product {
+    position: relative;
+}
+
 #Admin_Product .overlay {
     display: none;
     position: fixed;
@@ -36,14 +40,14 @@ body {
     backdrop-filter: blur(8px);
 }
 
-#Admin_Product.new-form {
+#Admin_Product .new-form {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(0, -50%);
     width: 35rem;
     height: auto;
-    z-index: 5;
+    z-index: 10;
     background: var(--bg);
     color: var(--font-color);
     border: none;
@@ -52,7 +56,7 @@ body {
     transition: all 0.2s linear;
 }
 
-#Admin_Product.new-form.active {
+#Admin_Product .new-form.active {
     visibility: visible;
     opacity: 1;
     transform: translate(-50%, -50%);
@@ -256,7 +260,6 @@ body {
     outline: none;
     color: var(--font-color);
     padding: .2rem 1rem;
-    cursor: pointer;
 }
 
 #Admin_Product .list-container .title-list button span {
@@ -265,13 +268,13 @@ body {
     margin-left: .2rem;
 }
 
-#Admin_Product .list-container .title-list button:hover {
+#Admin_Product .list-container .title-list .enable:hover {
     border: 2px solid var(--main);
     color: var(--main);
     opacity: 0.8;
 }
 
-#Admin_Product .list-container .title-list button:hover a {
+#Admin_Product .list-container .title-list .enable:hover span {
     color: var(--main);
 }
 
@@ -330,9 +333,14 @@ body {
     margin-left: .8rem;
 }
 
-#Admin_Product .list-container .list-code .content-table .btnFix {
+#Admin_Product .list-container .list-code .content-table .btnFix, .btnCreate {
     opacity: 0.5;
     cursor: default;
+}
+
+#Admin_Product .list-container .title-list .enable {
+    opacity: 1;
+    cursor: pointer;
 }
 
 #Admin_Product .list-container .list-code .content-table .btnFix.enable {

@@ -28,9 +28,9 @@
                 </thead>
                 <tbody>
                     <?php
-                    include("ConnectDB.php");
+                    require_once("ConnectDB.php");
                     $db = new ConnectDB();
-                    $sql = "SELECT *  FROM permission WHERE STATUS_PER NOT IN ('đã xóa')";
+                    $sql = "SELECT *  FROM permission ";
                     $result = $db->connection($sql);
                     $i = 1;
                     while ($row = mysqli_fetch_array($result)) {
@@ -99,6 +99,109 @@
             </div>
         </section>
 
+        <!-- -----Update Form ------ -->
+        <section id="update_role" style="display: none">
+            <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
+            <div class="new-name-role">
+                <label for="" class="name-role">tên nhóm quyền: </label>
+                <input class="textfield NAME_OBJECT" type="text">
+            </div>
+            <div class="new-description-role">
+                <label for="" class="description-role">mô tả quyền: </label>
+                <input class="textfield DESCRIPTION_OBJECT" type="text">
+            </div>
+            <div class="new-status-role">
+                <label for="" class="status-role">Trạng Thái: </label>
+                <input type="checkbox" class="switch STATUS_ROLE" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+            </div>
+            <table class="list-permission">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>mã chức năng</th>
+                        <th>tên chức năng</th>
+                        <th>Thêm</th>
+                        <th>Xóa</th>
+                        <th>Sửa</th>
+                        <th>Tra Cứu</th>
+                        <th>Điều Khiển</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    require_once("ConnectDB.php");
+                    $db = new ConnectDB();
+                    // $idRole = $_GET['idRole'];
+                    $sql = "SELECT *  FROM permission";
+                    $result = $db->connection($sql);
+                    $i = 1;
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<tr>
+                                    <td class="STT">' . $i++ . '</td>
+                                    <td class="ID_OBJECT">' . $row['PERMISSION_ID'] . '</td>
+                                    <td class="NAME_OBJECT">' . $row['NAME_PER'] . '</td>';
+                        if ($row['CREATE_PER'] == 1) {
+                            echo '<td>
+                            <input type="checkbox" class="switch" data-action="create" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)" >
+                        </td>';
+                        }
+                        if ($row['CREATE_PER'] == 0) {
+                            echo '<td>
+                            
+                        </td>';
+                        }
+                        if ($row['DELETE_PER'] == 1) {
+                            echo '<td>
+                            <input type="checkbox" class="switch" data-action="delete" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)" >
+                        </td>';
+                        }
+                        if ($row['DELETE_PER'] == 0) {
+                            echo '<td>
+                            
+                        </td>';
+                        }
+                        if ($row['UPDATE_PER'] == 1) {
+                            echo '<td>
+                            <input type="checkbox" class="switch" data-action="update" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)" >
+                        </td>';
+                        }
+                        if ($row['UPDATE_PER'] == 0) {
+                            echo '<td>
+                        
+                        </td>';
+                        }
+                        if ($row['ACCESS_PER'] == 1) {
+                            echo '<td>
+                            <input type="checkbox" class="switch" data-action="access" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)" >
+                        </td>';
+                        }
+                        if ($row['ACCESS_PER'] == 0) {
+                            echo '<td>
+                            
+                        </td>';
+                        }
+                        if ($row['CONTROL_PER'] == 1) {
+                            echo '<td>
+                            <input type="checkbox" class="switch " data-action="control" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                        </td>';
+                        }
+                        if ($row['CONTROL_PER'] == 0) {
+                            echo '<td>
+                            
+                        </td>';
+                        }
+                        echo   '</tr>';
+                    }
+
+                    ?>
+                </tbody>
+            </table>
+            <div class="tool">
+                <button class="btnConfirm btn" onclick="updateR_P()">Thêm</button>
+                <button class="btnCancel btn" onclick="hiddenForm()">Hủy Bỏ</button>
+            </div>
+        </section>
+
         <!-- -----Delete Form ------ -->
         <div id="delete-form" style="display: none;">
             <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
@@ -163,13 +266,13 @@
                 <tbody>
                     <tr>
                         <?php
-                        include_once("ConnectDB.php");
+                        require_once("ConnectDB.php");
                         $db = new ConnectDB();
                         $sql = "SELECT *  FROM roles WHERE STATUS_ROLE NOT IN ('đã xóa') AND ROLE_ID NOT IN ('0')";
                         $result = $db->connection($sql);
                         $i = 1;
                         while ($row = mysqli_fetch_array($result)) {
-
+                            $action = ($row['STATUS_ROLE'] == 'ngừng hoạt động') ? '' : 'action';
                             echo '<tr>
                                     <td class="STT">' . $i++ . '</td>
                                     <td class="ID_OBJECT">' . $row['ROLE_ID'] . '</td>
@@ -177,7 +280,7 @@
                                     <td class="DESCRIPTION_OBJECT">' . $row['DESCRIPTION_ROLE'] . '</td>
                                     <td class="STATUS_OBJECT">' . $row['STATUS_ROLE'] . '</td>
                                     <td>
-                                        <button class="btnFix">chỉnh sửa</button>
+                                        <button class="' . $action . ' btnUpdateRole">chỉnh sửa</button>
                                         <button class="btnDel">xóa</button>
                                     </td>
                                 </tr>';
@@ -190,10 +293,10 @@
                         $(".btnDel").addClass("enable");
                     }
                     if($(".sidebar .decentralization_per").hasClass("Update")) {
-                        $(".btnFix").addClass("enable");
+                        $(".btnUpdateRole").addClass("enable");
                     }
                     if($(".sidebar .decentralization_per").hasClass("Control")) {
-                        $(".btnFix").addClass("enable");
+                        $(".btnUpdateRole").addClass("enable");
                         $(".btnDel").addClass("enable");
                         $(".btnCreate").addClass("enable");
                     }

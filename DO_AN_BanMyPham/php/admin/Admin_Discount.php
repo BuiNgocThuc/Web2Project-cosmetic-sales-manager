@@ -1,4 +1,3 @@
-
 <main id="Admin_Discount" data-content="Danh sách phiếu giảm giá">
     <div class="overlay">
 
@@ -35,7 +34,7 @@
                 </div>
             </form>
             <div class="tool">
-                <button class="btnConfirm btn"  onclick="AddInfo('Discount')">Thêm</button>
+                <button class="btnConfirm btn" onclick="AddInfo('Discount')">Thêm</button>
                 <button class="btnCancel btn">Hủy Bỏ</button>
             </div>
         </div>
@@ -47,17 +46,23 @@
             <form action="" class="content">
                 <div>
                     <label for="" class="name-discount">tên thương hiệu: </label>
-                    <input class="textfield" type="text">
+                    <input class="textfield NAME_OBJECT" type="text">
                 </div>
                 <div>
-                    <label for="" class="img-discount">hình ảnh: </label>
-                    <label for="file-input" class="image-upload">
-                        <input id="file-input" type="file" accept="image/png,img/jpg,img/jpeg">
-                        <label for="file-input" class="icon-upload">
-                            <i class="fa-duotone fa-plus fa-2xl"></i>
-                            <span>đăng tải</span>
-                        </label>
-                    </label>
+                    <label for="" class="condition-discount">điều kiện khuyến mãi: </label>
+                    <input class="textfield CONDITION" type="number">
+                </div>
+                <div>
+                    <label for="" class="percent-discount">Phần trăm giảm giá: </label>
+                    <input class="textfield PERCENT" type="text">
+                </div>
+                <div>
+                    <label for="" class="date-start-discount">ngày bắt đầu: </label>
+                    <input class="textfield START_DATE" type="date">
+                </div>
+                <div>
+                    <label for="" class="date-end-discount">ngày kết thúc: </label>
+                    <input class="textfield END_DATE" type="date">
                 </div>
                 <div>
                     <label for="">Trạng Thái: </label>
@@ -65,8 +70,8 @@
                 </div>
             </form>
             <div class="tool">
-                <button class="btnConfirm btn">Cập nhật</button>
-                <button class="btnCancel btn">Hủy Bỏ</button>
+                <button class="btnConfirm btn"  onclick="UpdateInfo('Discount')">Cập nhật</button>
+                <button class="btnCancel btn" onclick="hiddenForm()">Hủy Bỏ</button>
             </div>
         </div>
         <!-- -----Delete Form ------ -->
@@ -137,24 +142,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php
+                    <?php
                     include("ConnectDB.php");
                     $db = new ConnectDB();
                     $sql = "SELECT *  FROM discounts WHERE STATUS_DISCOUNT NOT IN ('đã xóa')";
                     $result = $db->connection($sql);
                     $i = 1;
                     while ($row = mysqli_fetch_array($result)) {
+                        $action = ($row['STATUS_DISCOUNT'] == 'ngừng hoạt động') ? '' : 'action';
                         echo '<tr>
                                     <td>' . $i++ . '</td>
-                                    <td>' . $row['DISCOUNT_ID'] . '</td>
-                                    <td>' . $row['NAME_DISCOUNT'] . '</td>
-                                    <td>' . $row['CONDITION'] . '</td>
-                                    <td>' . $row['PERCENT'] . '</td>
-                                    <td>' . $row['START_DATE'] . '</td>
-                                    <td>' . $row['END_DATE'] . '</td>
-                                    <td>' . $row['STATUS_DISCOUNT'] . '</td>
+                                    <td class="ID_OBJECT">' . $row['DISCOUNT_ID'] . '</td>
+                                    <td class="NAME_OBJECT">' . $row['NAME_DISCOUNT'] . '</td>
+                                    <td class="CONDITION">' . $row['CONDITION'] . '</td>
+                                    <td class="PERCENT">' . $row['PERCENT'] . '</td>
+                                    <td class="START_DATE">' . $row['START_DATE'] . '</td>
+                                    <td class="END_DATE">' . $row['END_DATE'] . '</td>
+                                    <td class="STATUS_OBJECT">' . $row['STATUS_DISCOUNT'] . '</td>
                                     <td>
-                                        <button class="btnFix">chỉnh sửa</button>
+                                        <button class="btnFix ' . $action . '">chỉnh sửa</button>
                                         <button class="btnDel">xóa</button>
                                     </td>
                                 </tr>';

@@ -62,8 +62,8 @@
                 </div>
             </form>
             <div class="tool">
-                <button class="btnConfirm btn">Cập nhật</button>
-                <button class="btnCancel btn">Hủy Bỏ</button>
+                <button class="btnConfirm btn" onclick="UpdateInfo('Provider')">Cập nhật</button>
+                <button class="btnCancel btn" onclick="hiddenForm()">Hủy Bỏ</button>
             </div>
         </div>
         <!-- -----Delete Form ------ -->

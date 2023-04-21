@@ -15,15 +15,15 @@ switch ($_POST['action']) {
                 break;
             }
         }
-        $sql = "Select * from accounts where username = '$username'";
+        $sql = "SELECT * FROM accounts WHERE username = '" . $username . "' AND STATUS NOT IN ('ngừng hoạt động', 'đã xóa')";
         $result = $db->connection($sql);
         // $i = 1;
         // while ($row = mysqli_fetch_array($result) ){
         //     echo $row['PASSWORD'] . "<br>";
         // }
-        
+
         $_SESSION['USERNAME'] = $username;
-        $_SESSION['NAME'] = $name;
+        $_SESSION['NAME'] = $name;     
         if (mysqli_num_rows($result) == 0) {
             echo "Tài khoản không tồn tại";
         } else {

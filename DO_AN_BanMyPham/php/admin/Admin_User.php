@@ -22,7 +22,7 @@
                         <?php
                         include("connectDB.php");
                         $db = new ConnectDB();
-                        $sql = "SELECT * FROM type_users WHERE TYPE_USER_ID NOT IN ('KH')";
+                        $sql = "SELECT * FROM type_users WHERE STATUS_TYPE_USER NOT IN ('ngừng hoạt động', 'đã xóa') AND TYPE_USER_ID NOT IN ('0')";
                         $result = $db->connection($sql);
                         while ($row = mysqli_fetch_array($result)) {
                             echo '<option value="' . $row['TYPE_USER_ID'] . '">' . $row['NAME_TYPE_USER'] . '</option>';
@@ -48,7 +48,7 @@
                         <?php
                         include_once("connectDB.php");
                         $db = new ConnectDB();
-                        $sql = "SELECT * FROM roles WHERE ROLE_ID NOT IN ('0')";
+                        $sql = "SELECT * FROM roles WHERE  ROLE_ID NOT IN ('0')";
                         $result = $db->connection($sql);
                         while ($row = mysqli_fetch_array($result)) {
                             echo '<option value="' . $row['ROLE_ID'] . '">' . $row['NAME_ROLE'] . '</option>';
@@ -78,7 +78,7 @@
                         <?php
                         include_once("connectDB.php");
                         $db = new ConnectDB();
-                        $sql = "SELECT * FROM roles WHERE ROLE_ID NOT IN ('0')";
+                        $sql = "SELECT * FROM roles WHERE  STATUS_ROLE NOT IN ('ngừng hoạt động', 'đã xóa')";
                         $result = $db->connection($sql);
                         while ($row = mysqli_fetch_array($result)) {
                             echo '<option value="' . $row['ROLE_ID'] . '">' . $row['NAME_ROLE'] . '</option>';
@@ -92,8 +92,8 @@
                 </div>
             </form>
             <div class="tool">
-                <button class="btnConfirm btn">Cập nhật</button>
-                <button class="btnCancel btn">Hủy Bỏ</button>
+                <button class="btnConfirm btn" onclick="UpdateInfo('User')">Cập nhật</button>
+                <button class="btnCancel btn" onclick="hiddenForm()">Hủy Bỏ</button>
             </div>
         </div>
         <!-- -----Delete Form ------ -->
@@ -161,10 +161,13 @@
                     include_once("ConnectDB.php");
                     $sql = "SELECT *  FROM users 
                             join type_users on users.type_user_id = type_users.type_user_id
+                            join accounts on users.user_id = accounts.username
                             WHERE STATUS NOT IN ('đã xóa')";
                     $db = new ConnectDB();
                     $result = $db->connection($sql);
                     while ($row = mysqli_fetch_array($result)) {
+                        $action = ($row['STATUS'] == 'ngừng hoạt động') ? '' : 'action';
+
                         echo '<tr>
                         <td>' . $i++ . '</td>
                         <td class="ID_OBJECT">' . $row['USER_ID'] . '</td>
@@ -175,7 +178,7 @@
                         <td class="EMAIL_OBJECT">' . $row['EMAIL'] . '</td>
                         <td class="STATUS_OBJECT">' . $row['STATUS'] . '</td>
                         <td>
-                            <button class="btnFixUser">chỉnh sửa</button>
+                            <button class="btnFixUser ' . $action . '" data-content="' . $row['ROLE_ID'] . '">chỉnh sửa</button>
                             <button class="btnDel">xóa</button>
                         </td>
                     </tr>';

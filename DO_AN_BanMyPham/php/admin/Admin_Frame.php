@@ -41,6 +41,7 @@
                                     $(document).ready(function() {
                                             $(".sidebar .product_per").addClass("enable");
                                             $(".sidebar .product_per").attr("onclick","loadPageByAjax(\'Admin_Product\'); selectDropdownMenu(this)");
+                                            $(".sidebar .product_per").addClass("' . $action . '");
                                     });
                                             </script>';
                                     break;

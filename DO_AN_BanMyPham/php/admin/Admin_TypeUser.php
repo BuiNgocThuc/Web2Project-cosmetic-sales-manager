@@ -1,4 +1,3 @@
-
 <main id="Admin_TypeUser" data-content="Danh sách Loại người dùng">
     <div class="overlay">
 
@@ -9,7 +8,7 @@
             <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
             <div class="title">Thêm Thương Hiệu Mới</div>
             <form action="" class="content">
-            <div>
+                <div>
                     <label for="" class="id-type-user">mã loại người dùng mới: </label>
                     <input class="textfield new-id" type="text">
                 </div>
@@ -23,7 +22,7 @@
                 </div>
             </form>
             <div class="tool">
-                <button class="btnConfirm btn"  onclick="AddInfo('Type_User')">Thêm</button>
+                <button class="btnConfirm btn" onclick="AddInfo('Type_User')">Thêm</button>
                 <button class="btnCancel btn">Hủy Bỏ</button>
             </div>
         </div>
@@ -43,8 +42,8 @@
                 </div>
             </form>
             <div class="tool">
-                <button class="btnConfirm btn">Cập nhật</button>
-                <button class="btnCancel btn">Hủy Bỏ</button>
+                <button class="btnConfirm btn"  onclick="UpdateInfo('Type_User')">Cập nhật</button>
+                <button class="btnCancel btn" onclick="hiddenForm()">Hủy Bỏ</button>
             </div>
         </div>
         <!-- -----Delete Form ------ -->
@@ -110,13 +109,14 @@
                     $result = $db->connection($sql);
                     $i = 1;
                     while ($row = mysqli_fetch_array($result)) {
+                        $action = ($row['STATUS_TYPE_USER'] == 'ngừng hoạt động') ? '' : 'action';
                         echo '<tr>
                                     <td>' . $i++ . '</td>
                                     <td class="ID_OBJECT">' . $row['TYPE_USER_ID'] . '</td>
                                     <td class="NAME_OBJECT">' . $row['NAME_TYPE_USER'] . '</td>
                                     <td class="STATUS_OBJECT">' . $row['STATUS_TYPE_USER'] . '</td>
                                     <td>
-                                        <button class="btnFix">chỉnh sửa</button>
+                                        <button class="btnFix ' . $action . '">chỉnh sửa</button>
                                         <button class="btnDel">xóa</button>
                                     </td>
                                 </tr>';

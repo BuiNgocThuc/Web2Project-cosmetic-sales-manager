@@ -1,9 +1,26 @@
 <?php
+session_start();
 include("../connectDB.php");
 $db = new ConnectDB();
 switch ($_POST['action']) {
     case 'create':
         switch ($_POST['id']) {
+            case 'Product':
+                $name = $_POST['nameProd'];
+                $price = $_POST['priceProd'];
+                $brand = $_POST['brandProd'];
+                $category = $_POST['categoryProd'];
+                $original = $_POST['originalProd'];
+                $imgProd = $_POST['imgProd'];
+                $sql = "INSERT INTO products (`BRAND_ID`, `CATEGORY_ID`, `NAME_PRO`,`IMG_PRO`, `PRICE_PRO`, `QUANTITY_PRO`, `ORIGIN_PRO`, `STATUS_PRO`)
+                VALUES ('$brand', '$category', '$name', '$imgProd', '$price', '0', '$original', 'đang hoạt động');";
+                $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                } else {
+                    echo 'error';
+                }
+                break;
             case 'Brand':
                 $sqlCount = "SELECT COUNT(*) FROM brands";
                 $num = $db->connection($sqlCount);
@@ -87,13 +104,13 @@ switch ($_POST['action']) {
                     echo 'success';
                 } else {
                     echo 'error';
-                }    
+                }
                 break;
             case 'Role':
                 $sqlCount = "SELECT COUNT(*) FROM roles";
                 $num = $db->connection($sqlCount);
                 while ($row = mysqli_fetch_array($num)) {
-                    $id = ($row['COUNT(*)']);
+                    $id = ($row['COUNT(*)'] + 1);
                 }
                 $name_role = $_POST['name_role'];
                 $des_role = $_POST['des_role'];
@@ -129,23 +146,68 @@ switch ($_POST['action']) {
                     echo $sql;
                 }
                 break;
-            case 'Permission':
-                $idCount = "SELECT COUNT(*) FROM permission";
-                $num = $db->connection($idCount);
+                // case 'Permission':
+                //     $idCount = "SELECT COUNT(*) FROM permission";
+                //     $num = $db->connection($idCount);
+                //     while ($row = mysqli_fetch_array($num)) {
+                //         $id = ($row['COUNT(*)'] + 1);
+                //     }
+                //     $name = $_POST['namePer'];
+                //     $create = $_POST['createPer'];
+                //     $update = $_POST['updatePer'];
+                //     $delete = $_POST['deletePer'];
+                //     $access = $_POST['accessPer'];
+                //     $control = $_POST['controlPer'];
+                //     $sql = "INSERT INTO permission (`PERMISSION_ID`, `NAME_PER`, `CREATE_PER`, `UPDATE_PER`, `DELETE_PER`, `ACCESS_PER`, `CONTROL_PER`, `STATUS_PER`)
+                //     VALUES ('" . $id . "', '" . $name . "', '" . $create . "', '" . $update . "', '" . $delete . "', '" . $access . "', '" . $control . "', 'đang hoạt động');";
+                //     $result = $db->connection($sql);
+                //     if ($result) {
+                //         echo 'success';
+                //     } else {
+                //         echo 'error';
+                //     }
+                //     break;
+            case 'Import_Receipt':
+                $idProvider = $_POST['idProvider']; // id nhà cung cấp
+                $sqlCount = "SELECT COUNT(*) FROM import";
+                $num = $db->connection($sqlCount);
                 while ($row = mysqli_fetch_array($num)) {
-                    $id = ($row['COUNT(*)'] + 1);
+                    $id = 'IM' . ($row['COUNT(*)'] + 1); // id hóa đơn nhập
                 }
-                $name = $_POST['namePer'];
-                $create = $_POST['createPer'];
-                $update = $_POST['updatePer'];
-                $delete = $_POST['deletePer'];
-                $access = $_POST['accessPer'];
-                $control = $_POST['controlPer'];
-                $sql = "INSERT INTO permission (`PERMISSION_ID`, `NAME_PER`, `CREATE_PER`, `UPDATE_PER`, `DELETE_PER`, `ACCESS_PER`, `CONTROL_PER`, `STATUS_PER`)
-                VALUES ('" . $id . "', '" . $name . "', '" . $create . "', '" . $update . "', '" . $delete . "', '" . $access . "', '" . $control . "', 'đang hoạt động');";
+                $date = date('Y-m-d'); // ngày nhập
+                $userID =  $_SESSION['USERNAME']; // user nhập
+                $total = $_POST['totalPrice']; // tổng tiền
+                $sql = "INSERT INTO import (`IMPORT_ID`, `PROVIDER_ID`, `USER_ID`, `DATE_CREATE`, `TOTAL`)
+                        VALUES ('" . $id . "', '" . $idProvider . "', '" . $userID . "', '" . $date . "', '" . $total . "');";
+                $result = $db->connection($sql);
+                echo $id;
+                break;
+            case 'Import_Detail':
+                $idImport = $_POST['idImport']; // id hóa đơn nhập
+                $idProduct = $_POST['idProduct']; // id sản phẩm
+                $quantity = $_POST['quantity']; // số lượng
+                $price = $_POST['price']; // đơn giá nhập
+                $sql = "INSERT INTO import_detail (`IMPORT_ID`, `PRODUCT_ID`, `QUANTITY_IM`, `UNIT_PRICE_IM`)
+                        VALUES ('" . $idImport . "', '" . $idProduct . "', '" . $quantity . "', '" . $price . "');";
                 $result = $db->connection($sql);
                 if ($result) {
-                    echo 'success';
+                    $sql1 = "SELECT * FROM products WHERE PRODUCT_ID = '" . $idProduct . "'";
+                    $result1 = $db->connection($sql1);
+                    while ($row = mysqli_fetch_array($result1)) {
+                        $quantityOld = $row['QUANTITY_PRO'];
+                    }
+                    $quantityNew = $quantityOld + $quantity;
+                    $priceNew = $price * 120 / 100;
+                    $sql2 = "UPDATE products
+                            SET QUANTITY_PRO = '" . $quantityNew . "', 
+                                PRICE_PRO = '" . $priceNew . "' 
+                            WHERE PRODUCT_ID = '" . $idProduct . "';";
+                    $result2 = $db->connection($sql2);
+                    if ($result2) {
+                        echo 'success';
+                    } else {
+                        echo 'error';
+                    }
                 } else {
                     echo 'error';
                 }
@@ -154,6 +216,9 @@ switch ($_POST['action']) {
         break;
     case 'update':
         switch ($_POST['id']) {
+            case 'Product':
+
+                break;
             case 'Brand':
                 $status = $_POST['status'];
                 $name = $_POST['name'];
@@ -163,6 +228,186 @@ switch ($_POST['action']) {
                             STATUS_BRAND = '" . $status . "'
                         WHERE BRAND_ID = '" . $idBrand . "';";
                 $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                } else {
+                    echo 'error';
+                }
+                break;
+            case 'Category':
+                $status = $_POST['status'];
+                $name = $_POST['name'];
+                $idCat = $_POST['identity'];
+                $sql = "UPDATE category 
+                        SET NAME_CAT = '" . $name . "',
+                            STATUS_CAT = '" . $status . "'
+                        WHERE CATEGORY_ID = '" . $idCat . "';";
+                $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                } else {
+                    echo 'error';
+                }
+                break;
+            case 'Provider':
+                $status = $_POST['status'];
+                $name = $_POST['name'];
+                $idPro = $_POST['identity'];
+                $phone = $_POST['phone'];
+                $address = $_POST['address'];
+                $email = $_POST['email'];
+                $sql = "UPDATE providers 
+                        SET NAME_PROVIDER = '" . $name . "',
+                            PHONE_PROVIDER = '" . $phone . "',
+                            ADDRESS_PROVIDER = '" . $address . "',
+                            EMAIL_PROVIDER = '" . $email . "',
+                            STATUS_PROVIDER = '" . $status . "'
+                        WHERE PROVIDER_ID = '" . $idPro . "';";
+                $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                } else {
+                    echo 'error';
+                }
+                break;
+            case 'Import_Receipt':
+                $provider = $_POST['provider'];
+                $total = $_POST['total'];
+                $idImport = $_SESSION['IMPORT_ID'];
+                $date = date('Y-m-d'); // ngày nhập
+                $userID =  $_SESSION['USERNAME']; // user nhập
+                $sql = 'UPDATE import
+                        SET PROVIDER_ID = "' . $provider . '",
+                            USER_ID = "' . $userID . '",
+                            DATE_CREATE = "' . $date . '",
+                            TOTAL = "' . $total . '"
+                        WHERE IMPORT_ID = "' . $idImport . '";';
+                $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                } else {
+                    echo 'error';
+                }
+                break;
+            case 'Import_Detail':
+                $idImport = $_SESSION['IMPORT_ID'];
+                $idProduct = $_POST['idProduct'];
+                $quantity = $_POST['quantity'];
+                $price = $_POST['price']; //giá nhập
+                $priceNew = $price * 120 / 100; // giá bán
+                $sqlGetQuantity = "SELECT QUANTITY_IM FROM import_detail WHERE IMPORT_ID = '" . $idImport . "' AND PRODUCT_ID = '" . $idProduct . "';";
+                $resultGetQuantity = $db->connection($sqlGetQuantity);
+                while ($row = mysqli_fetch_array($resultGetQuantity)) {
+                    $quantityImportOld = $row['QUANTITY_IM'];
+                };
+                $sql = "UPDATE import_detail
+                        SET QUANTITY_IM = '" . $quantity . "',
+                            UNIT_PRICE_IM = '" . $price . "'
+                        WHERE IMPORT_ID = '" . $idImport . "' AND PRODUCT_ID = '" . $idProduct . "';";
+                $result = $db->connection($sql);
+                if ($result) {
+                    $sql1 = "SELECT * FROM products WHERE PRODUCT_ID = '" . $idProduct . "'";
+                    $result1 = $db->connection($sql1);
+                    while ($row = mysqli_fetch_array($result1)) {
+                        $quantityOld = $row['QUANTITY_PRO'];
+                    }
+                    $quantityProductNew = $quantityOld - $quantityImportOld + $quantity; // số lượng SP mới = số cũ - số nhập cũ + số nhập mới
+                    $sql2 = "UPDATE products
+                            SET QUANTITY_PRO = '" . $quantityProductNew . "', 
+                                PRICE_PRO = '" . $priceNew . "' 
+                            WHERE PRODUCT_ID = '" . $idProduct . "';";
+                    $result2 = $db->connection($sql2);
+                    if ($result2) {
+                        echo 'success';
+                    } else {
+                        echo 'error';
+                    }
+                    echo 'success';
+                } else {
+                    echo 'error';
+                }
+                break;
+            case 'User':
+                $status = $_POST['status'];
+                $role = $_POST['role'];
+                $location = $_POST['location'];
+                $sql = "UPDATE accounts
+                        SET ROLE_ID = '" . $role . "',
+                            STATUS = '" . $status . "'
+                        WHERE USERNAME = '" . $location . "';";
+                $result = $db->connection($sql);
+                if ($result) {
+                    if ($roleID != '0') {
+                        $sql2 = "UPDATE users
+                                SET TYPE_USER_ID = 'NB'
+                                WHERE USER_ID = '" . $location . "';";
+                        $result2 = $db->connection($sql2);
+                        if ($result2) {
+                            echo 'success';
+                        } else {
+                            echo 'error';
+                        }
+                    } else {
+                        echo 'success';
+                    }
+                } else {
+                    echo 'error';
+                }
+                break;
+            case 'Type_User':
+                $name = $_POST['name'];
+                $status = $_POST['status'];
+                $idType = $_POST['identity'];
+                $sql = "UPDATE type_users
+                        SET NAME_TYPE_USER = '" . $name . "',
+                            STATUS_TYPE_USER = '" . $status . "'
+                        WHERE TYPE_USER_ID = '" . $idType . "';";
+                $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                } else {
+                    echo 'error';
+                }
+                break;
+            case 'Discount':
+                $status = $_POST['status'];
+                $name = $_POST['name'];
+                $idDis = $_POST['identity'];
+                $condition = $_POST['condition'];
+                $percent = $_POST['percent'];
+                $start_date = $_POST['dateStart'];
+                $end_date = $_POST['dateEnd'];
+                $sql = "UPDATE discounts
+                        SET NAME_DISCOUNT = '" . $name . "',
+                            `CONDITION` = '" . $condition . "',
+                            `PERCENT`= '" . $percent . "',
+                            START_DATE = '" . $start_date . "',
+                            END_DATE = '" . $end_date . "',
+                            STATUS_DISCOUNT = '" . $status . "'
+                        WHERE DISCOUNT_ID = '" . $idDis . "';";
+                $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                } else {
+                    echo $sql;
+                }
+                break;
+            case 'Role':
+                $nameRole = $_POST['name_role'];
+                $des = $_POST['des_role'];
+                $status = $_POST['status_role'];
+                $idRole = $_POST['identity'];
+                $sql = "UPDATE roles
+                        SET NAME_ROLE = '" . $nameRole . "',
+                            DESCRIPTION_ROLE = '" . $des . "',
+                            STATUS_ROLE = '" . $status . "'
+                        WHERE ROLE_ID = '" . $idRole . "';";
+                $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                } else {
+                    echo 'error';
+                }
                 break;
         }
         break;
@@ -220,7 +465,7 @@ switch ($_POST['action']) {
                 break;
             case 'User':
                 $idObject = $_POST['ob'];
-                $sql = "UPDATE users SET STATUS = 'đã xóa' WHERE USER_ID = '" . $idObject . "'";
+                $sql = "UPDATE accounts SET STATUS = 'đã xóa' WHERE USERNAME = '" . $idObject . "'";
                 $result = $db->connection($sql);
                 if ($result) {
                     echo 'success';
@@ -228,16 +473,16 @@ switch ($_POST['action']) {
                     echo 'error';
                 }
                 break;
-            case 'Permission':
-                $idObject = $_POST['ob'];
-                $sql = "UPDATE permission SET STATUS_PER = 'đã xóa' WHERE PERMISSION_ID = '" . $idObject . "'";
-                $result = $db->connection($sql);
-                if ($result) {
-                    echo 'success';
-                } else {
-                    echo 'error';
-                }
-                break;
+                // case 'Permission':
+                //     $idObject = $_POST['ob'];
+                //     $sql = "UPDATE permission SET STATUS_PER = 'đã xóa' WHERE PERMISSION_ID = '" . $idObject . "'";
+                //     $result = $db->connection($sql);
+                //     if ($result) {
+                //         echo 'success';
+                //     } else {
+                //         echo 'error';
+                //     }
+                //     break;
             case 'Role':
                 $idObject = $_POST['ob'];
                 $sql = "UPDATE roles SET STATUS_ROLE = 'đã xóa' WHERE USERNAME = '" . $idObject . "'";
@@ -248,6 +493,6 @@ switch ($_POST['action']) {
                     echo 'error';
                 }
                 break;
-            }
-            break;
+        }
+        break;
 }

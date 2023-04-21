@@ -24,6 +24,10 @@ body {
     color: var(--font-color);
 }
 
+#Admin_Category {
+    position: relative;
+}
+
 #Admin_Category .overlay {
     display: none;
     position: fixed;

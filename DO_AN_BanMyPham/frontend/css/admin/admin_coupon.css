@@ -330,7 +330,7 @@ body {
     margin-left: .8rem;
 }
 
-#Admin_Coupon .list-container .list-code .content-table .btnFix, .btnView, .btnCreate {
+#Admin_Coupon .list-container .list-code .content-table .btnFixCoupon, .btnView, .btnCreate {
     opacity: 0.5;
     cursor: default;
 }

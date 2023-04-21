@@ -42,25 +42,15 @@
         <!-- -----Update Form ------ -->
         <div id="fix-form" style="display: none;">
             <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
-            <div class="title">Cập nhật thương hiệu</div>
+            <div class="title">Cập nhật chức năng</div>
             <form action="" class="content">
-                <div>
-                    <label for="" class="name-brand">tên thương hiệu: </label>
+            <div>
+                    <label for="" class="name-permission">tên chức năng: </label>
                     <input class="textfield NAME_OBJECT" type="text">
                 </div>
                 <div>
-                    <label for="" class="img-brand">hình ảnh: </label>
-                    <label for="file-input" class="image-upload">
-                        <input id="file-input" class="new-img" type="file" accept="image/png,img/jpg,img/jpeg">
-                        <label for="file-input" class="icon-upload">
-                            <i class="fa-duotone fa-plus fa-2xl"></i>
-                            <span>đăng tải</span>
-                        </label>
-                    </label>
-                </div>
-                <div>
                     <label for="">Trạng Thái: </label>
-                    <input type="checkbox" class="switch new-status" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                    <input type="checkbox" class="switch STATUS_OBJECT" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
                 </div>
             </form>
             <div class="tool">
@@ -108,10 +98,10 @@
     <div class="list-container">
         <div class="title-list">
             <h3>danh sách chức năng</h3>
-            <button class="btnCreate">
+            <!-- <button class="btnCreate">
                 <i class="fa-light fa-plus"></i>
                 <span>tạo mới</span>
-            </button>
+            </button> -->
         </div>
         <div class="list-code">
             <table class="content-table">
@@ -120,8 +110,6 @@
                         <th>STT</th>
                         <th>Mã Chức năng</th>
                         <th>Tên chức năng</th>
-                        <th>trạng thái</th>
-                        <th>hoạt động</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -129,37 +117,33 @@
                         <?php
                         include("ConnectDB.php");
                         $db = new ConnectDB();
-                        $sql = "SELECT *  FROM permission WHERE STATUS_PER NOT IN ('đã xóa')";
+                        $sql = "SELECT *  FROM permission";
                         $result = $db->connection($sql);
                         $i = 1;
                         while ($row = mysqli_fetch_array($result)) {
+                            
                             echo '<tr>
                                     <td class="STT">' . $i++ . '</td>
                                     <td class="ID_OBJECT">' . $row['PERMISSION_ID'] . '</td>
                                     <td class="NAME_OBJECT">' . $row['NAME_PER'] . '</td>
-                                    <td class="STATUS_OBJECT">' . $row['STATUS_PER'] . '</td>
-                                    <td>
-                                        <button class="btnFix">chỉnh sửa</button>
-                                        <button class="btnDel">xóa</button>
-                                    </td>
                                 </tr>';
                         }
-                        echo '<script>
-                    if($(".sidebar .permission_per").hasClass("Create")) {
-                        $(".btnCreate").addClass("enable");
-                    }
-                    if($(".sidebar .permission_per").hasClass("Delete")) {
-                        $(".btnDel").addClass("enable");
-                    }
-                    if($(".sidebar .permission_per").hasClass("Update")) {
-                        $(".btnFix").addClass("enable");
-                    }
-                    if($(".sidebar .permission_per").hasClass("Control")) {
-                        $(".btnFix").addClass("enable");
-                        $(".btnDel").addClass("enable");
-                        $(".btnCreate").addClass("enable");
-                    }
-                </script>';
+                //         echo '<script>
+                //     if($(".sidebar .permission_per").hasClass("Create")) {
+                //         $(".btnCreate").addClass("enable");
+                //     }
+                //     if($(".sidebar .permission_per").hasClass("Delete")) {
+                //         $(".btnDel").addClass("enable");
+                //     }
+                //     if($(".sidebar .permission_per").hasClass("Update")) {
+                //         $(".btnFix").addClass("enable");
+                //     }
+                //     if($(".sidebar .permission_per").hasClass("Control")) {
+                //         $(".btnFix").addClass("enable");
+                //         $(".btnDel").addClass("enable");
+                //         $(".btnCreate").addClass("enable");
+                //     }
+                // </script>';
                         ?>
                     </tr>
                 </tbody>

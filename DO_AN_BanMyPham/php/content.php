@@ -22,6 +22,12 @@ if (isset($_POST["page"])) {
         case "Admin_Coupon":
             include 'admin/Admin_Coupon.php';
             break;
+        case "Coupon_Detail": //Thêm phiếu nhập
+            include 'admin/Admin_Coupon_Details.php';
+            break;
+        case "Coupon_Products": //Sửa phiếu nhập
+            include 'admin/Admin_Coupon_Products.php';
+            break;
         case "Admin_User":
             include 'admin/Admin_User.php';
             break;

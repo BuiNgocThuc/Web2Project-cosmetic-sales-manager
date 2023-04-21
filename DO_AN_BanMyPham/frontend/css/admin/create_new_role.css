@@ -24,6 +24,157 @@ body {
     color: var(--font-color);
 }
 
+#update_role {
+    height: 30rem;
+    border: 2px solid #ccc;
+    margin: auto;
+    padding: 0 1rem;
+    background: var(--bg-body);
+    overflow: auto;
+    position: relative;
+}
+
+#update_role #close {
+    position: absolute;
+    top: 1rem;
+    right: 1.3rem;
+    font-size: 1.5rem;
+}
+
+#update_role .new-name-role, .new-description-role, .new-status-role {
+    height: 3rem;
+    width: 50rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 1rem;
+    margin-left: 3rem;
+}
+
+#update_role div>label{
+    flex-basis: 30%; 
+}
+
+#update_role div>input:not([type="checkbox"]){
+    height: 2rem;
+    border-radius: .5rem;
+    flex: 1;
+    outline: none;
+    padding: 0 .5rem;
+}
+
+#update_role .new-name-role .textfield:focus {
+    border: 1px solid var(--main);
+}
+
+#update_role .new-description-role .textfield:focus {
+    border: 1px solid var(--main);
+}
+
+#update_role .list-permission {
+    width: 100%;
+    height: auto;
+    table-layout: auto;
+    border-collapse: collapse;
+    border-spacing: 0 10px;
+    white-space: nowrap;
+    background: var(--bg);
+    margin-top: 1.5rem;
+    padding: 2rem;
+    border-radius: 1.8rem;
+    position: relative;
+    overflow: scroll;
+}
+
+#update_role .list-permission td, th {
+    text-align: center;
+    padding: 8px;
+    border-bottom: 1px solid gray;
+    padding: 2rem .8rem;
+}
+
+#update_role .list-permission tbody {
+    overflow-y: auto;
+}
+
+#update_role .switch {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8.2rem;
+    height: 1.2rem;
+    background: #BFBFBF;
+    border-radius: 1.8rem;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--main);
+    position: relative;
+    transition: ease 0.5s;
+}
+
+#update_role .switch:checked {
+    background: var(--main);
+    transition: ease 1s;
+}
+
+#update_role .switch:checked::before {
+    left: 7rem;
+}
+
+#update_role .switch:before {
+    content: '';
+    width: 1.1rem;
+    height: 1.1rem;
+    background: var(--font-color);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: ease 500ms;
+    /* transform: translate(-50%, -20%); */
+}
+
+#update_role .switch:after {
+    content: attr(data-content);
+    position: absolute;
+    width: 8rem;
+    height: 0.9rem;
+    top: 40%;
+    left: 66%;
+    transform: translate(-50%, -50%);
+    color: var(--bg);
+}
+
+#update_role .tool {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#update_role .tool .btn {
+    padding: .3rem 3rem;
+    margin: 1rem 2rem;
+
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: .6rem;
+    background: transparent;
+    color: var(--font-color);
+}
+
+#update_role .tool .btn:hover {
+    opacity: 0.8;
+}
+
+#update_role .tool .btnConfirm {
+    background: var(--main);
+}
+
+#update_role .tool .btnCancel {
+    border: 2px solid var(--main);
+    color: var(--main);
+}
+
 #create_new_role {
     height: 30rem;
     border: 2px solid #ccc;

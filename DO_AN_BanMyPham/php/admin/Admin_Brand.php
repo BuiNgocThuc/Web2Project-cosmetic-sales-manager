@@ -55,7 +55,7 @@
                 </div>
                 <div>
                     <label for="">Trạng Thái: </label>
-                    <input type="checkbox" class="switch new-status" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                    <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
                 </div>
             </form>
             <div class="tool">
@@ -67,7 +67,7 @@
         <div id="delete-form" style="display: none;">
             <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
             <div class="title">Xóa thương hiệu</div>
-            <p class="warning"> Bằng cách xác nhận xóa thương hiệu này, bạn không thể tạo hoặc cập nhật sản phẩm với thương hiệu này nữa</p>
+            <p class="warning"> Bằng cách xác nhận xóa thương hiệu này, bạn không thể tạo hoặc c0p nhật sản phẩm với thương hiệu này nữa</p>
             <div class="tool">
                 <button class="btnConfirm btn" onclick="DeleteInfo('Brand')">Xóa</button>
                 <button class="btnCancel btn">Hủy Bỏ</button>
@@ -165,3 +165,4 @@
         </div>
     </div>
 </main>
+
