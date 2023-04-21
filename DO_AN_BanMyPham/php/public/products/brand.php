@@ -2,7 +2,7 @@
     include 'connect_Database.php';
 
     if(isset($_GET['brand'])) {
-        $sqlth = "SELECT NAME_BRAND FROM brands";
+        $sqlth = "SELECT BRAND_ID, NAME_BRAND FROM brands";
         $resultth =mysqli_query($conn,$sqlth);
         $id_brand = isset($_GET['id_brand']) ? $_GET['id_brand']: 0;
         if(mysqli_num_rows($resultth) > 0){
