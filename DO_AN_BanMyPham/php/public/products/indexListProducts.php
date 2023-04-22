@@ -14,7 +14,7 @@
                         <div class="classification">
                             <span class="category-list-title">Danh mục</span>
                             <ul class="category-list" id="list__category">
-
+                                
                             </ul>
 
                             <span class="category-list-title">Thương hiệu</span>

@@ -6,7 +6,7 @@ const AddInfo = async (id) => {
       let categoryProd = document.querySelector(
         "#create-form .new-category"
       ).value;
-      let priceProd = document.querySelector("#create-form .new-price").value;
+      let priceProd = 0;
       let originalProd = document.querySelector(
         "#create-form .new-original"
       ).value;
@@ -513,7 +513,6 @@ const UpdateInfo = (id) => {
 const DeleteInfo = (id) => {
   var tr = $(".btnDel.clicked").closest("tr");
   var idObject = $(tr).find(".ID_OBJECT").html();
-  console.log(idObject);
   $.ajax({
     url: "../php/tools/action.php",
     type: "POST",
@@ -555,13 +554,14 @@ const createR_P = () => {
         let id = $(value).attr("data-id");
         let action = $(value).attr("data-action");
         $.ajax({
-          url: "../php/tools/decentralization.php",
+          url: "../php/tools/action.php",
           type: "POST",
           data: {
             idRole: res,
-            id: id,
-            action: action,
-            actionRole: "createRole",
+            idPer: id,
+            id: "Role_Permission",
+            actionPer: action,
+            action: "create",
           },
           success: function (data) {
             if (data != "success") {
@@ -575,7 +575,7 @@ const createR_P = () => {
       });
       if (success) {
         alert("Thêm nhóm quyền thành công!!");
-        hiddenForm();
+        loadPageByAjax('Admin_Decentralization');
       }
     },
   });
@@ -601,56 +601,35 @@ const updateR_P = () => {
       const perArrayUpdate = $(
         "#update_role .list-permission .switch[data-content='đang hoạt động']"
       );
-
+      let successfully = true;
       $.each(perArrayUpdate, function (index, value) {
-        // console.log(perArrayUpdate[index]);
         let id = $(value).attr("data-id"); //id của permission
         let action = $(value).attr("data-action"); //action của permission
         console.log(id);
         $.ajax({
-          url: "../php/tools/decentralization.php",
+          url: "../php/tools/action.php",
           type: "POST",
           data: {
             idRole: res,
-            id: id,
-            action: action,
-            actionRole: "createRole",
+            idPer: id,
+            actionPer: action,
+            id: "Role_Permission",
+            action: "update",
           },
           success: function (data) {
             if (data != "success") {
               alert(data);
+              successfully = false;
             } else {
+              successfully = true;
             }
           },
         });
       });
-
-      // const perArray2 = $(
-      //   "#update_role .list-permission .switch[data-content='ngừng hoạt động']"
-      // );
-      // $.each(perArray2, function (index, value) {
-      //   let id = $(value).attr("data-id"); //id của permission
-      //   let action = $(value).attr("data-action"); //action của permission
-      //   $.ajax({
-      //     url: "../php/tools/decentralization.php",
-      //     type: "POST",
-      //     data: {
-      //       idRole: res,
-      //       id: id,
-      //       action: action,
-      //       actionRole: "updateRole",
-      //     },
-      //     success: function (data) {
-      //       if (data != "success") {
-      //         alert(data);
-      //       } else {
-      //         // console.log("success update");
-      //       }
-      //     },
-      //   });
-      // });
-      // alert("Sửa nhóm quyền thành công!!");
-      // hiddenForm();
+      if (successfully) {
+        alert("Sửa nhóm quyền thành công!!");
+        loadPageByAjax('Admin_Decentralization');
+      }
     },
   });
 };
@@ -776,7 +755,6 @@ const SearchInfo = (id) => {
       let statusCategory = $(".STATUS_CATEGORY_SEARCH")
         .attr("data-content")
         .toLowerCase();
-      console.log(idCategory + " " + nameCategory + " " + statusCategory);
       $("tbody tr")
         .filter(function () {
           if (nameCategory == "" && idCategory != "") {
@@ -797,6 +775,145 @@ const SearchInfo = (id) => {
           return (
             $(this).find("td:eq(1)").text().toLowerCase() == idCategory &&
             $(this).find("td:eq(2)").text().toLowerCase() == nameCategory
+          );
+        })
+        .show()
+        .addClass("show");
+      $("tbody tr").not(".show").hide();
+      break;
+      case 'Provider':
+        let idProvider = $(".ID_PROVIDER_SEARCH").val().toLowerCase();
+        let nameProvider = $(".NAME_PROVIDER_SEARCH").val().toLowerCase();
+        let statusProvider = $(".STATUS_PROVIDER_SEARCH").attr("data-content").toLowerCase();
+        $("tbody tr")
+        .filter(function () {
+          if (nameProvider == "" && idProvider != "") {
+            return (
+              $(this).find("td:eq(1)").text().toLowerCase() == idProvider &&
+              $(this).find("td:eq(6)").text().toLowerCase() == statusProvider
+            );
+          } else if (nameProvider != "" && idProvider == "") {
+            return (
+              $(this).find("td:eq(2)").text().toLowerCase() == nameProvider &&
+              $(this).find("td:eq(6)").text().toLowerCase() == statusProvider
+            );
+          } else if (nameProvider == "" && idProvider == "") {
+            return (
+              $(this).find("td:eq(6)").text().toLowerCase() == statusProvider
+            );
+          }
+          return (
+            $(this).find("td:eq(1)").text().toLowerCase() == idProvider &&
+            $(this).find("td:eq(2)").text().toLowerCase() == nameProvider
+          );
+        })
+        .show()
+        .addClass("show");
+      $("tbody tr").not(".show").hide();
+      break;
+      case 'User':
+        let idUser = $(".ID_USER_SEARCH").val().toLowerCase();
+        let nameUser = $(".NAME_USER_SEARCH").val().toLowerCase();
+        let statusUser = $(".STATUS_USER_SEARCH").attr("data-content").toLowerCase();
+        $("tbody tr")
+        .filter(function () {
+          if (nameUser == "" && idUser != "") {
+            return (
+              $(this).find("td:eq(1)").text().toLowerCase() == idUser &&
+              $(this).find("td:eq(7)").text().toLowerCase() == statusUser
+            );
+          } else if (nameUser != "" && idUser == "") {
+            return (
+              $(this).find("td:eq(3)").text().toLowerCase() == nameUser &&
+              $(this).find("td:eq(7)").text().toLowerCase() == statusUser
+            );
+          } else if (nameUser == "" && idUser == "") {
+            return (
+              $(this).find("td:eq(7)").text().toLowerCase() == statusUser
+            );
+          }
+          return (
+            $(this).find("td:eq(1)").text().toLowerCase() == idUser &&
+            $(this).find("td:eq(3)").text().toLowerCase() == nameUser
+          );
+        })
+        .show()
+        .addClass("show");
+      $("tbody tr").not(".show").hide();
+      break;
+      case 'Type_User':
+        let idTypeUser = $(".ID_TYPE_USER_SEARCH").val().toLowerCase();
+        let nameTypeUser = $(".NAME_TYPE_USER_SEARCH").val().toLowerCase();
+        let statusTypeUser = $(".STATUS_TYPE_USER_SEARCH").attr("data-content").toLowerCase();
+        $("tbody tr")
+        .filter(function () {
+          if (nameTypeUser == "" && idTypeUser != "") {
+            return (
+              $(this).find("td:eq(1)").text().toLowerCase() == idTypeUser &&
+              $(this).find("td:eq(3)").text().toLowerCase() == statusTypeUser
+            );
+          } else if (nameTypeUser != "" && idTypeUser == "") {
+            return (
+              $(this).find("td:eq(2)").text().toLowerCase() == nameTypeUser &&
+              $(this).find("td:eq(3)").text().toLowerCase() == statusTypeUser
+            );
+          } else if (nameTypeUser == "" && idTypeUser == "") {
+            return (
+              $(this).find("td:eq(3)").text().toLowerCase() == statusTypeUser
+            );
+          }
+          return (
+            $(this).find("td:eq(1)").text().toLowerCase() == idTypeUser &&
+            $(this).find("td:eq(2)").text().toLowerCase() == nameTypeUser
+          );
+        })
+        .show()
+        .addClass("show");
+      $("tbody tr").not(".show").hide();
+      break;
+      case 'Role':
+        let idRole = $(".ID_ROLE_SEARCH").val().toLowerCase();
+        let nameRole = $(".NAME_ROLE_SEARCH").val().toLowerCase();
+        let statusRole = $(".STATUS_ROLE_SEARCH").attr("data-content").toLowerCase();
+        $("tbody tr")
+        .filter(function () {
+          if (nameRole == "" && idRole != "") {
+            return (
+              $(this).find("td:eq(1)").text().toLowerCase() == idRole &&
+              $(this).find("td:eq(4)").text().toLowerCase() == statusRole
+            );
+          } else if (nameRole != "" && idRole == "") {
+            return (
+              $(this).find("td:eq(2)").text().toLowerCase() == nameRole &&
+              $(this).find("td:eq(4)").text().toLowerCase() == statusRole
+            );
+          } else if (nameRole == "" && idRole == "") {
+            return (
+              $(this).find("td:eq(4)").text().toLowerCase() == statusRole
+            );
+          }
+          return (
+            $(this).find("td:eq(1)").text().toLowerCase() == idRole &&
+            $(this).find("td:eq(2)").text().toLowerCase() == nameRole
+          );
+        })
+        .show()
+        .addClass("show");
+      $("tbody tr").not(".show").hide();
+      break;
+      case 'Permission':
+        let idPermission = $(".ID_PERMISSION_SEARCH").val().toLowerCase();
+        let namePermission = $(".NAME_PERMISSION_SEARCH").val().toLowerCase();
+        $("tbody tr")
+        .filter(function () {
+          if (namePermission == "" && idPermission != "") {
+            return $(this).find("td:eq(1)").text().toLowerCase() == idPermission;
+          } else if (namePermission != "" && idPermission == "") {
+            return $(this).find("td:eq(2)").text().toLowerCase() == namePermission;
+          }
+          return (
+            $(this).find("td:eq(1)").text().toLowerCase() == idPermission &&
+            $(this).find("td:eq(2)").text().toLowerCase() == namePermission
           );
         })
         .show()

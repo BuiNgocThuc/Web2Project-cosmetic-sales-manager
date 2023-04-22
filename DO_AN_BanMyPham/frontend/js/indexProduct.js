@@ -1,6 +1,6 @@
 
 // AJAX
-$(document).ready(function () {
+$(document).on("click", function () {
     // List product
     function loadProduct(valuePrice, page_active, brandid, category_id) {
         $.ajax({
@@ -192,5 +192,4 @@ $(document).ready(function () {
     })
     
 });
-
 

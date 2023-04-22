@@ -96,7 +96,6 @@ $(document).on("click", ".btnUpdateRole.enable", function (e) {
     updateRole.val($(tempVar).html());
     tempVar = $(tempVar).next();
   }
-  console.log(idRole);
 
   // fill info to table permission
   $.ajax({
@@ -109,27 +108,26 @@ $(document).on("click", ".btnUpdateRole.enable", function (e) {
         let idPermission = $(value).find(".ID_OBJECT").text();
         $.each(dataJson, function (index, valueData) {
           if (valueData.PERMISSION_ID == idPermission) {
-            console.log(valueData);
-            switch (valueData.ACTION) {
-              case "Create":
+            switch (valueData.ACTION.toLowerCase()) {
+              case "create":
                 $(value)
                   .find(".create-action")
                   .attr("data-content", "đang hoạt động");
                 $(value).find(".create-action").attr("checked", "checked");
                 break;
-              case "Update":
+              case "update":
                 $(value)
                   .find(".update-action")
                   .attr("data-content", "đang hoạt động");
                 $(value).find(".update-action").attr("checked", "checked");
                 break;
-              case "Delete":
+              case "delete":
                 $(value)
                   .find(".delete-action")
                   .attr("data-content", "đang hoạt động");
                 $(value).find(".delete-action").attr("checked", "checked");
                 break;
-              case "View":
+              case "view":
                 $(value)
                   .find(".access-action")
                   .attr("data-content", "đang hoạt động");
@@ -229,9 +227,14 @@ function hiddenForm() {
   $(".new-form #delete-form").hide();
   $(".new-form #create_new_role").hide();
   $(".new-form #update_role").hide();
+  $(".btnDel.clicked").removeClass("clicked");
 }
 
 const viewDetails = () => {
   $(".Product_Details .textfield").attr("disabled", "disabled");
   $(".btnConfirm").attr("disabled", "disabled");
 };
+
+$(document).on("click", ".btnCancel", function (e) {
+  hiddenForm();
+});

@@ -110,7 +110,7 @@ switch ($_POST['action']) {
                 $sqlCount = "SELECT COUNT(*) FROM roles";
                 $num = $db->connection($sqlCount);
                 while ($row = mysqli_fetch_array($num)) {
-                    $id = ($row['COUNT(*)'] + 1);
+                    $id = ($row['COUNT(*)']);
                 }
                 $name_role = $_POST['name_role'];
                 $des_role = $_POST['des_role'];
@@ -119,6 +119,20 @@ switch ($_POST['action']) {
                 $result = $db->connection($sql);
                 // echo $sql;
                 echo $id;
+                break;
+            case 'Role_Permission':
+                $idPer = $_POST['idPer']; // id của permission
+                $idRole = $_POST['idRole']; // id của role
+                $action = $_POST['action']; // action của permission
+                echo $idPer . ' ' . $idRole . ' ' . $action;
+                $sql = "INSERT INTO role_permissions (`ROLE_ID`, `PERMISSION_ID`, `ACTION`)
+                VALUES ('" . $idRole . "', '" . $idPer . "', '" . $action . "');";
+                $result = $db->connection($sql);
+                if($result){
+                    echo 'success';
+                }else{
+                    echo 'error';
+                }
                 break;
             case 'User':
                 $userID = $_POST['userID'];
@@ -403,6 +417,18 @@ switch ($_POST['action']) {
                             STATUS_ROLE = '" . $status . "'
                         WHERE ROLE_ID = '" . $idRole . "';";
                 $result = $db->connection($sql);
+                $sql1 = "DELETE FROM role_permissions WHERE ROLE_ID = '" . $idRole . "';";
+                $result1 = $db->connection($sql1);
+                echo $idRole;
+                break;
+            case 'Role_Permission':
+                $idRole = $_POST['idRole'];
+                $idPermission = $_POST['idPer'];
+                $action = $_POST['actionPer'];
+                $sql = "INSERT INTO role_permissions (ROLE_ID, PERMISSION_ID, ACTION) 
+                        VALUES ('" . $idRole . "', '" . $idPermission . "', '" . $action . "');";
+                $result = $db->connection($sql);
+                echo $sql;
                 if ($result) {
                     echo 'success';
                 } else {
@@ -485,7 +511,7 @@ switch ($_POST['action']) {
                 //     break;
             case 'Role':
                 $idObject = $_POST['ob'];
-                $sql = "UPDATE roles SET STATUS_ROLE = 'đã xóa' WHERE USERNAME = '" . $idObject . "'";
+                $sql = "UPDATE roles SET STATUS_ROLE = 'đã xóa' WHERE ROLE_ID = '" . $idObject . "'";
                 $result = $db->connection($sql);
                 if ($result) {
                     echo 'success';

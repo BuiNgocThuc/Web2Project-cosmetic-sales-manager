@@ -222,24 +222,24 @@
         <div class="fix-info">
             <div>
                 <label for="">mã Quyền</label>
-                <input class="textfield" type="text">
+                <input class="textfield ID_ROLE_SEARCH" type="text">
             </div>
             <div>
                 <label for="">tên Quyền</label>
-                <input class="textfield" type="text">
+                <input class="textfield NAME_ROLE_SEARCH" type="text">
             </div>
-            <div>
+            <!-- <div>
                 <label for="">Mô Tả Quyền</label>
                 <input class="textfield" type="text">
-            </div>
+            </div> -->
             <div>
                 <label for="">Trạng Thái</label>
-                <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                <input type="checkbox" class="switch STATUS_ROLE_SEARCH" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
             </div>
             <div>
                 <label for=""></label>
-                <button class="btn btn--Search">Tìm Kiếm</button>
-                <button class="btn btn--Undo">Hoàn Tác</button>
+                <button class="btn btn--Search" onclick="SearchInfo('Role')">Tìm Kiếm</button>
+                <button class="btn btn--Undo" onclick="loadPageByAjax('Admin_Decentralization')">Hoàn Tác</button>
             </div>
         </div>
     </div>

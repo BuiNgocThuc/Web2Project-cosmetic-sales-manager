@@ -41,10 +41,6 @@
                     </select>
                 </div>
                 <div>
-                    <label for="" class="price-product">đơn giá: </label>
-                    <input class="textfield new-price" type="number">
-                </div>
-                <div>
                     <label for="" class="origin-product">xuất xứ: </label>
                     <input class="textfield new-original" type="text">
                 </div>
@@ -127,7 +123,18 @@
             </form>
             <div class="tool">
                 <button class="btnConfirm btn" onclick="UpdateInfo('Brand')" data-content="">Cập nhật</button>
-                <button class="btnCancel btn">Hủy Bỏ</button>
+                <button class="btnCancel btn" onclick="hiddenForm()">Hủy Bỏ</button>
+            </div>
+        </div>
+
+        <!-- -----Delete Form ------ -->
+        <div id="delete-form" style="display: none;">
+            <i onclick="hiddenForm()" style="cursor: pointer;" class="fa-sharp fa-light fa-xmark" id="close"></i>
+            <div class="title">Xóa thương hiệu</div>
+            <p class="warning"> Bằng cách xác nhận xóa sản phẩm này, bạn không thể nhập hoặc bán sản phẩm này nữa</p>
+            <div class="tool">
+                <button class="btnConfirm btn" onclick="DeleteInfo('Product')">Xóa</button>
+                <button class="btnCancel btn" onclick="hiddenForm()">Hủy Bỏ</button>
             </div>
         </div>
     </div>
@@ -225,6 +232,7 @@
                                 <td class="STATUS_OBJECT">' . $row['STATUS_PRO'] . '</td>
                                 <td>
                                     <button class="btnFix ' . $action . '">chỉnh sửa</button>
+                                    <button class="btnDel">xóa</button>
                                 </td>
                             </tr>';
                     }
@@ -235,9 +243,13 @@
                         if($(".sidebar .product_per").hasClass("Update")) {
                             $(".btnFix").addClass("enable");
                         }
+                        if($(".sidebar .product_per").hasClass("Delete")) {
+                            $(".btnDel").addClass("enable");
+                        }
                         if($(".sidebar .product_per").hasClass("Control")) {
                             $(".btnFix").addClass("enable");
                             $(".btnCreate").addClass("enable");
+                            $(".btnDel").addClass("enable");
                         }
                     </script>'
                     ?>

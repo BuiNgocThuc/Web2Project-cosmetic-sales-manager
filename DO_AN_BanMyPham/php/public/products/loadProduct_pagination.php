@@ -8,7 +8,7 @@
     
     if($valuePrice == 0){
         if($bid == ''){
-             $query = "SELECT products.PRODUCT_ID, products.IMG_PRO, products.NAME_PRO, products.PRICE_PRO, products.QUANTITY_PRO, brands.NAME_BRAND, products.ORIGIN_PRO 
+            $query = "SELECT products.PRODUCT_ID, products.IMG_PRO, products.NAME_PRO, products.PRICE_PRO, products.QUANTITY_PRO, brands.NAME_BRAND, products.ORIGIN_PRO 
                         FROM products INNER JOIN brands ON products.BRAND_ID = brands.BRAND_ID LIMIT $offset, $limit_per_page";
         }else {
             $query = "SELECT *
