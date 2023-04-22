@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../frontend/css/admin/new-form.css">
     <link rel="stylesheet" href="../frontend/css/admin/create_new_role.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_coupon_detail.css">
+    <link rel="stylesheet" href="../frontend/css/admin/admin_statistic.css">
     <link rel="stylesheet" href="../assets/icons/all.css">
     <title>Admin</title>
 </head>

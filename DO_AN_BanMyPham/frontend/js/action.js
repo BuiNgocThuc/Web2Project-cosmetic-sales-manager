@@ -229,8 +229,10 @@ const AddInfo = async (id) => {
       break;
     case "Import_Receipt":
       let idProvider = $(".info_provider .PROVIDER_PRODUCT").val();
-      let totalPrice = parseFloat($(".list-product table tfoot .priceTotal").text());
-      if(totalPrice == 0) {
+      let totalPrice = parseFloat(
+        $(".list-product table tfoot .priceTotal").text()
+      );
+      if (totalPrice == 0) {
         alert("Hóa đơn nhập không có sản phẩm nào");
         return;
       }
@@ -411,7 +413,7 @@ const UpdateInfo = (id) => {
       $.ajax({
         url: "../php/tools/action.php",
         type: "POST",
-        data: { 
+        data: {
           id: id,
           name: nameTypeUser,
           status: statusTypeUser,
@@ -460,50 +462,50 @@ const UpdateInfo = (id) => {
         },
       });
       break;
-      case 'Import_Receipt':
-        let newProvider = $(".info_provider select").val();
-        let totalNew = $(".list-product .priceTotal").text();
-        $.ajax({
-          url: "../php/tools/action.php",
-          type: "POST",
-          data: {
-            id: id,
-            provider: newProvider,
-            total: totalNew,
-            action: "update",
-          },
-          success: function (res) {
-            if (res != "success") {
-              console.log(res);
-            } else {
-              const importDetailArray = $(".list-product table tbody tr");
-              $.each(importDetailArray, function (index, value){
-                let idProduct = $(value).find(".ID_OBJECT").text();
-                let quantity = $(value).find(".QUANTITY_OBJECT").text();
-                let price = $(value).find(".PRICE_OBJECT").text();
-                $.ajax({
-                  url: "../php/tools/action.php",
-                  type: "POST",
-                  data: {
-                    id: 'Import_Detail',
-                    idProduct: idProduct,
-                    quantity: quantity,
-                    price: price,
-                    action: "update",
-                  },
-                  success: function (res) {
-                    if (res != "success") {
-                      console.log(res);
-                    } else {
-                    }
-                  },
-                });
+    case "Import_Receipt":
+      let newProvider = $(".info_provider select").val();
+      let totalNew = $(".list-product .priceTotal").text();
+      $.ajax({
+        url: "../php/tools/action.php",
+        type: "POST",
+        data: {
+          id: id,
+          provider: newProvider,
+          total: totalNew,
+          action: "update",
+        },
+        success: function (res) {
+          if (res != "success") {
+            console.log(res);
+          } else {
+            const importDetailArray = $(".list-product table tbody tr");
+            $.each(importDetailArray, function (index, value) {
+              let idProduct = $(value).find(".ID_OBJECT").text();
+              let quantity = $(value).find(".QUANTITY_OBJECT").text();
+              let price = $(value).find(".PRICE_OBJECT").text();
+              $.ajax({
+                url: "../php/tools/action.php",
+                type: "POST",
+                data: {
+                  id: "Import_Detail",
+                  idProduct: idProduct,
+                  quantity: quantity,
+                  price: price,
+                  action: "update",
+                },
+                success: function (res) {
+                  if (res != "success") {
+                    console.log(res);
+                  } else {
+                  }
+                },
               });
-              alert("Sửa phiếu nhập thành công");
-              loadPageByAjax("Admin_Coupon");
-            }
-          },
-        });
+            });
+            alert("Sửa phiếu nhập thành công");
+            loadPageByAjax("Admin_Coupon");
+          }
+        },
+      });
       break;
   }
 };
@@ -704,4 +706,102 @@ const undoProduct = () => {
   $(".info_products .NAME_OBJECT").val("");
   $(".info_products .PRICE_OBJECT").val("");
   $(".info_products .QUANTITY_OBJECT").val("");
+};
+
+const SearchInfo = (id) => {
+  $("tbody tr")
+    .filter(function () {
+      return $(this).hasClass("show");
+    })
+    .removeClass("show");
+  $("tbody tr").show();
+  switch (id) {
+    case "Brand":
+      let idBrand = $(".ID_BRAND_SEARCH").val().toLowerCase();
+      let nameBrand = $(".NAME_BRAND_SEARCH").val().toLowerCase();
+      let statusBrand = $(".STATUS_BRAND_SEARCH")
+        .attr("data-content")
+        .toLowerCase();
+      $("tbody tr")
+        .filter(function () {
+          if (nameBrand == "" && idBrand != "") {
+            return (
+              $(this).find("td:eq(1)").text().toLowerCase() == idBrand &&
+              $(this).find("td:eq(4)").text().toLowerCase() == statusBrand
+            );
+          } else if (nameBrand != "" && idBrand == "") {
+            return (
+              $(this).find("td:eq(2)").text().toLowerCase() == nameBrand &&
+              $(this).find("td:eq(4)").text().toLowerCase() == statusBrand
+            );
+          } else if (nameBrand == "" && idBrand == "") {
+            return $(this).find("td:eq(4)").text().toLowerCase() == statusBrand;
+          }
+          return (
+            $(this).find("td:eq(1)").text().toLowerCase() == idBrand &&
+            $(this).find("td:eq(2)").text().toLowerCase() == nameBrand
+          );
+        })
+        .show()
+        .addClass("show");
+      $("tbody tr").not(".show").hide();
+
+      // let data = {
+      //   idBrand: idBrand,
+      //   nameBrand: nameBrand,
+      //   statusBrand: statusBrand,
+      // };
+      // $.ajax({
+      //   url: "content.php",
+      //   type: "POST",
+      //   data: {
+      //     idBrand: idBrand,
+      //     page: "Admin_Brand",
+      //   },
+      //   success: function (res) {
+      //     $("#content").html(res);
+          // console.log(res);
+          // if(res == "successfully"){
+          //   loadPageByAjax("Admin_Brand");
+          // }
+          // else{
+          //   alert(res);
+          // }
+      //   },
+      // });
+      break;
+    case "Category":
+      let idCategory = $(".ID_CATEGORY_SEARCH").val().toLowerCase();
+      let nameCategory = $(".NAME_CATEGORY_SEARCH").val().toLowerCase();
+      let statusCategory = $(".STATUS_CATEGORY_SEARCH")
+        .attr("data-content")
+        .toLowerCase();
+      console.log(idCategory + " " + nameCategory + " " + statusCategory);
+      $("tbody tr")
+        .filter(function () {
+          if (nameCategory == "" && idCategory != "") {
+            return (
+              $(this).find("td:eq(1)").text().toLowerCase() == idCategory &&
+              $(this).find("td:eq(3)").text().toLowerCase() == statusCategory
+            );
+          } else if (nameCategory != "" && idCategory == "") {
+            return (
+              $(this).find("td:eq(2)").text().toLowerCase() == nameCategory &&
+              $(this).find("td:eq(3)").text().toLowerCase() == statusCategory
+            );
+          } else if (nameCategory == "" && idCategory == "") {
+            return (
+              $(this).find("td:eq(3)").text().toLowerCase() == statusCategory
+            );
+          }
+          return (
+            $(this).find("td:eq(1)").text().toLowerCase() == idCategory &&
+            $(this).find("td:eq(2)").text().toLowerCase() == nameCategory
+          );
+        })
+        .show()
+        .addClass("show");
+      $("tbody tr").not(".show").hide();
+      break;
+  }
 };

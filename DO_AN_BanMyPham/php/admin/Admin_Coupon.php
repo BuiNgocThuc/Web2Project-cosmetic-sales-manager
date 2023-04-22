@@ -64,7 +64,6 @@
                                 <td>' . $row['TOTAL'] . '</td>
                                 <td>
                                     <button class="btnFixCoupon">chỉnh sửa</button>
-                                    <button class="btnView" onclick="loadPageByAjax(\'Coupon_Products\')">xem</button>
                                 </td>
                             </tr>';
                     }
@@ -72,14 +71,10 @@
                     if($(".sidebar .import_receipt_per").hasClass("Create")) {
                         $(".btnCreate").addClass("enable");
                     }
-                    if($(".sidebar .import_receipt_per").hasClass("Access")) {
-                        $(".btnView").addClass("enable");
-                    }
                     if($(".sidebar .import_receipt_per").hasClass("Update")) {
                         $(".btnFixCoupon").addClass("enable");
                     }
                     if($(".sidebar .import_receipt_per").hasClass("Control")) {
-                        $(".btnView").addClass("enable");
                         $(".btnFixCoupon").addClass("enable");
                         $(".btnCreate").addClass("enable");
                     }

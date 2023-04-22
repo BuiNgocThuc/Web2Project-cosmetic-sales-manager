@@ -1,8 +1,14 @@
-
 <main id="Admin_Brand" data-content="Danh sách Thương hiệu">
     <div class="overlay">
 
     </div>
+    <?php
+    if(isset($_POST['idBrand'])){
+        echo $_POST['idBrand'];
+    }else {
+        echo 'null';
+    }
+    ?>
     <div class="new-form">
         <!-- -----Create Form ------ -->
         <div id="create-form" style="display: none;">
@@ -84,20 +90,20 @@
         <div class="fix-info">
             <div>
                 <label for="">Mã nhãn hàng</label>
-                <input class="textfield" type="text">
+                <input class="textfield ID_BRAND_SEARCH" type="text">
             </div>
             <div>
                 <label for="">Tên nhãn hàng</label>
-                <input class="textfield" type="text">
+                <input class="textfield NAME_BRAND_SEARCH" type="text">
             </div>
             <div>
                 <label for="">Trạng Thái</label>
-                <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                <input type="checkbox" class="switch STATUS_BRAND_SEARCH" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
             </div>
             <div>
                 <label for=""></label>
-                <button class="btn btn--Search">Tìm Kiếm</button>
-                <button class="btn btn--Undo">Hoàn Tác</button>
+                <button class="btn btn--Search" onclick="SearchInfo('Brand')">Tìm Kiếm</button>
+                <button class="btn btn--Undo" onclick="loadPageByAjax('Admin_Brand')">Hoàn Tác</button>
             </div>
         </div>
     </div>
@@ -125,7 +131,38 @@
                     <?php
                     include("ConnectDB.php");
                     $db = new ConnectDB();
+                    $nameBrand = "";
+                    $statusBrand = "";
+                    $idBrand = "";
+                    if(isset($_SESSION['data'])) {
+                        echo 'exist';
+                        $nameBrand = $_SESSION['data']['nameBrand'];
+                        $statusBrand = $_SESSION['data']['statusBrand'];
+                        $idBrand = $_SESSION['data']['idBrand'];
+                    }
                     $sql = "SELECT *  FROM brands WHERE STATUS_BRAND NOT IN ('đã xóa')";
+                    $check = false;
+                    if($nameBrand != "" || $statusBrand != "" || $idBrand != "") {
+                        $sql .= "AND ";
+                        if($nameBrand != "") {
+                            $sql .= "NAME_BRAND LIKE '%$nameBrand%' ";
+                            $check = true;
+                        }
+                        if($idBrand != "") {
+                            if($check) {
+                                $sql .= "AND ";
+                            }
+                            $sql .= "BRAND_ID LIKE '%$idBrand%' ";
+                            $check = true;
+                        }
+                        if($statusBrand != "") {
+                            if($check) {
+                                $sql .= "AND ";
+                            }
+                            $sql .= "STATUS_BRAND LIKE '%$statusBrand%' ";
+                            $check = true;
+                        }
+                    }
                     $result = $db->connection($sql);
                     $i = 1;
                     while ($row = mysqli_fetch_array($result)) {
@@ -143,6 +180,8 @@
                                     </td>
                                 </tr>';
                     }
+
+
                     echo '<script>
                         if($(".sidebar .brand_per").hasClass("Create")) {
                             $(".btnCreate").addClass("enable");
@@ -165,4 +204,3 @@
         </div>
     </div>
 </main>
-

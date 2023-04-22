@@ -61,20 +61,20 @@
         <div class="fix-info">
             <div>
                 <label for="">Mã danh mục</label>
-                <input class="textfield" type="text">
+                <input class="textfield ID_CATEGORY_SEARCH" type="text">
             </div>
             <div>
                 <label for="">Tên loại hàng</label>
-                <input class="textfield" type="text">
+                <input class="textfield NAME_CATEGORY_SEARCH" type="text">
             </div>
             <div>
                 <label for="">Trạng Thái</label>
-                <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                <input type="checkbox" class="switch STATUS_CATEGORY_SEARCH" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
             </div>
             <div>
                 <label for=""></label>
-                <button class="btn btn--Search">Tìm Kiếm</button>
-                <button class="btn btn--Undo">Hoàn Tác</button>
+                <button class="btn btn--Search" onclick="SearchInfo('Category')">Tìm Kiếm</button>
+                <button class="btn btn--Undo" onclick="loadPageByAjax('Admin_Category')">Hoàn Tác</button>
             </div>
         </div>
     </div>

@@ -10,6 +10,7 @@ const loadPageByAjax = (pageTarget) => {
     data: { page: pageTarget },
     dataType: "html",
     success: function (data) {
+      if (pageTarget == "Admin_Brand") console.log("ýse");
       $("#content").html(data);
       $(".current-page").html($(data).attr("data-content"));
     },
@@ -84,6 +85,7 @@ $(document).on("click", ".btnUpdateRole.enable", function (e) {
   let idRole = $(idObject).html();
   $("#update_role .btnConfirm").attr("data-content", idRole);
   var tempVar = $(idObject).next();
+  //fill info to input form
   while ($(tempVar).attr("class") != "STATUS_OBJECT") {
     let className = $(tempVar).attr("class");
     let updateRole = $("#update_role")
@@ -94,6 +96,57 @@ $(document).on("click", ".btnUpdateRole.enable", function (e) {
     updateRole.val($(tempVar).html());
     tempVar = $(tempVar).next();
   }
+  console.log(idRole);
+
+  // fill info to table permission
+  $.ajax({
+    url: "../php/tools/receiveData.php",
+    type: "POST",
+    data: { idRole: idRole },
+    success: function (data) {
+      let dataJson = JSON.parse(data);
+      $.each($("#update_role .list-permission tr"), function (index, value) {
+        let idPermission = $(value).find(".ID_OBJECT").text();
+        $.each(dataJson, function (index, valueData) {
+          if (valueData.PERMISSION_ID == idPermission) {
+            console.log(valueData);
+            switch (valueData.ACTION) {
+              case "Create":
+                $(value)
+                  .find(".create-action")
+                  .attr("data-content", "đang hoạt động");
+                $(value).find(".create-action").attr("checked", "checked");
+                break;
+              case "Update":
+                $(value)
+                  .find(".update-action")
+                  .attr("data-content", "đang hoạt động");
+                $(value).find(".update-action").attr("checked", "checked");
+                break;
+              case "Delete":
+                $(value)
+                  .find(".delete-action")
+                  .attr("data-content", "đang hoạt động");
+                $(value).find(".delete-action").attr("checked", "checked");
+                break;
+              case "View":
+                $(value)
+                  .find(".access-action")
+                  .attr("data-content", "đang hoạt động");
+                $(value).find(".access-action").attr("checked", "checked");
+                break;
+              case "Control":
+                $(value)
+                  .find(".control-action")
+                  .attr("data-content", "đang hoạt động");
+                $(value).find(".control-action").attr("checked", "checked");
+                break;
+            }
+          }
+        });
+      });
+    },
+  });
 });
 
 $(document).on("click", ".btnFixUser.enable", function (e) {
@@ -137,10 +190,9 @@ $(document).on("click", ".btnFixCoupon", function (e) {
     data: { idImport: id },
     success: function (data) {
       console.log(data);
-      loadPageByAjax('Coupon_Products')
+      loadPageByAjax("Coupon_Products");
     },
   });
-
 });
 
 //các đối tượng đang hoạt động
@@ -171,14 +223,15 @@ function hiddenForm() {
   $(".new-form #fix-form").hide();
   $(".new-form #fix-form .switch").attr("data-content", "ngừng hoạt động");
   $(".new-form #fix-form .switch").removeAttr("checked");
+  $(".new-form #update_role .switch").attr("data-content", "ngừng hoạt động");
+  $(".new-form #update_role .switch").removeAttr("checked");
   $(".new-form #create-form").hide();
   $(".new-form #delete-form").hide();
   $(".new-form #create_new_role").hide();
   $(".new-form #update_role").hide();
 }
 
-
 const viewDetails = () => {
-  $(".Product_Details .textfield").attr("disabled","disabled" );
+  $(".Product_Details .textfield").attr("disabled", "disabled");
   $(".btnConfirm").attr("disabled", "disabled");
-}
+};

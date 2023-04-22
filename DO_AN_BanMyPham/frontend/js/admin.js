@@ -130,7 +130,6 @@ $(document).ready(function () {
 
 
 $(document).on('click', '.menu-icon', function (evt) {
-    console.log(1223);
     $('.sidebar').toggleClass('hide');
     $('.main-content').toggleClass('expand');
 });

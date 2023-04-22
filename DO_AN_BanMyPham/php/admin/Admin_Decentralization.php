@@ -142,7 +142,7 @@
                                     <td class="NAME_OBJECT">' . $row['NAME_PER'] . '</td>';
                         if ($row['CREATE_PER'] == 1) {
                             echo '<td>
-                            <input type="checkbox" class="switch" data-action="create" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)" >
+                            <input type="checkbox" class="switch create-action" data-action="create" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)" >
                         </td>';
                         }
                         if ($row['CREATE_PER'] == 0) {
@@ -152,7 +152,7 @@
                         }
                         if ($row['DELETE_PER'] == 1) {
                             echo '<td>
-                            <input type="checkbox" class="switch" data-action="delete" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)" >
+                            <input type="checkbox" class="switch delete-action" data-action="delete" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
                         </td>';
                         }
                         if ($row['DELETE_PER'] == 0) {
@@ -162,7 +162,7 @@
                         }
                         if ($row['UPDATE_PER'] == 1) {
                             echo '<td>
-                            <input type="checkbox" class="switch" data-action="update" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)" >
+                            <input type="checkbox" class="switch update-action" data-action="update" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)" >
                         </td>';
                         }
                         if ($row['UPDATE_PER'] == 0) {
@@ -172,7 +172,7 @@
                         }
                         if ($row['ACCESS_PER'] == 1) {
                             echo '<td>
-                            <input type="checkbox" class="switch" data-action="access" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)" >
+                            <input type="checkbox" class="switch access-action" data-action="access" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)" >
                         </td>';
                         }
                         if ($row['ACCESS_PER'] == 0) {
@@ -182,7 +182,7 @@
                         }
                         if ($row['CONTROL_PER'] == 1) {
                             echo '<td>
-                            <input type="checkbox" class="switch " data-action="control" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                            <input type="checkbox" class="switch control-action" data-action="control" data-id="' . $row['PERMISSION_ID'] . '" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
                         </td>';
                         }
                         if ($row['CONTROL_PER'] == 0) {
