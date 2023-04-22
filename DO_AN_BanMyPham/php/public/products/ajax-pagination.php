@@ -2,7 +2,7 @@
     include 'connect_Database.php';
 
     $limit_per_page = 8;
-    $sql_total = "SELECT COUNT(*) as total FROM products";
+    $sql_total = "SELECT COUNT(*) as total FROM products WHERE STATUS_PRO NOT IN ('đã xóa')";
     $result_total = mysqli_query($conn,$sql_total);
     $row_total = mysqli_fetch_assoc($result_total);
     $total_record = $row_total['total'];

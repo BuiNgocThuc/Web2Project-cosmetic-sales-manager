@@ -256,6 +256,10 @@ i.home-product-item__like-icon-fill {
   padding: 0;
 }
 
+.pagination-item {
+  cursor: pointer;
+}
+
 .pagination-item__fontsize--text {
   font-size: 2rem;
 }

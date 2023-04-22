@@ -214,7 +214,8 @@
                     $db = new ConnectDB();
                     $sql = "SELECT *  FROM products
                         join brands on brands.brand_id = products.brand_id
-                        join category on category.category_id = products.category_id";
+                        join category on category.category_id = products.category_id
+                        WHERE STATUS_PRO NOT IN ('đã xóa')";
                     $result = $db->connection($sql);
                     $i = 1;
                     while ($row = mysqli_fetch_array($result)) {

@@ -1,10 +1,9 @@
-
 // AJAX
-$(document).on("click", function () {
+$(document).on("click", ".navbar .product", function () {
     // List product
     function loadProduct(valuePrice, page_active, brandid, category_id) {
         $.ajax({
-            url: 'loadProduct_pagination.php',
+            url: 'public/products/loadProduct_pagination.php',
             method: 'GET',
             data: {
                 valuePrice: valuePrice,
@@ -18,28 +17,6 @@ $(document).on("click", function () {
         })
     }
     loadProduct(0, 1);
-    // Category
-    $.ajax({
-        url: 'category.php?category=1',
-        method: 'GET',
-        dataC: {
-            category: 1,
-        },
-        success: function (dataC) {
-            $("#list__category").html(dataC);
-        }
-    });
-    // Brand
-    $.ajax({
-        url: 'brand.php?brand=1',
-        method: 'GET',
-        dataB: {
-            brand: 1,
-        },
-        success: function (dataB) {
-            $("#list__brand").html(dataB);
-        }
-    });
     // Select Category
     $(document).on('click', '#list__category .category-item__link', function (e) {
         var id_category = $(this).attr("categoryid");
@@ -51,19 +28,22 @@ $(document).on("click", function () {
         loadProduct(valuePrice, page_active, cid);
     })
     // Load Category Active
-    function loadCategoryActive(id_category) {
+    function loadCategoryActive(id_category, page) {
         $.ajax({
-            url: 'category.php',
+            url: 'public/products/category.php',
             method: 'GET',
             data: {
                 category: 1,
                 id_category: id_category,
+                page: page
             },
             success: function (data) {
                 $("#list__category").html(data);
             }
         })
     }
+    loadCategoryActive();
+
     //Select Brand
     $(document).on('click', '#list__brand .category-item__link', function (e) {
         var id_brand = $(this).attr("brandid");
@@ -77,19 +57,21 @@ $(document).on("click", function () {
     // Load Brand Active
     function loadBrandActive(id_brand) {
         $.ajax({
-            url: 'brand.php',
+            url: 'public/products/brand.php',
             method: 'GET',
             data: {
                 brand: 1,
-                id_brand: id_brand,
+                id_brand: id_brand
             },
             success: function (data) {
                 $("#list__brand").html(data);
             }
         })
     }
+    loadBrandActive();
+
     // Pagination
-    function loadPape(page_num) {
+    function loadPage(page_num) {
         if (page_num) {
             var page_no = page_num;
         }
@@ -97,7 +79,7 @@ $(document).on("click", function () {
             page_no = 1;
         }
         $.ajax({
-            url: 'ajax-pagination.php',
+            url: 'public/products/ajax-pagination.php',
             type: 'GET',
             data: {
                 page_no: page_no
@@ -107,12 +89,12 @@ $(document).on("click", function () {
             }
         });
     }
-    loadPape();
+    loadPage();
     // Click vao nut pagination
     $(document).on('click', '.pagination-item', function () {
         var page = $(this).attr("pageid");
         var valuePrice = $("#sortPrices").val();
-        loadPape(page);
+        loadPage(page);
         loadProduct(valuePrice, page);
     })
     // Price
@@ -124,7 +106,7 @@ $(document).on("click", function () {
 
     // Payment
     $.ajax({
-        url: 'Pay_fetch_data.php',
+        url: 'public/payment/Pay_fetch_data.php',
         method: 'GET',
         data: {
             producted: 1
@@ -138,13 +120,13 @@ $(document).on("click", function () {
     $(document).on('click', '#infoClient__btn--buy', function (e) {
         var btn_continue = $(this).val();
         $.ajax({
-            url: 'indexListProducts.php',
+            url: 'public/products/indexListProducts.php',
             method: 'GET',
             data: {
                 btn_continue: btn_continue
             },
             success: function (data) {
-                window.location = 'indexListProducts.php';
+                window.location = 'public/products/indexListProducts.php';
             }
         })
     })
@@ -154,10 +136,10 @@ $(document).on("click", function () {
         var order_no = $(this).val();
         showTablePayment(order_no);
         $.ajax({
-            url: 'Order-History.php',
+            url: 'public/payment/Order-History.php',
             method: 'GET',
             success: function () {
-                window.location = 'Order-History.php';
+                window.location = 'public/payment/Order-History.php';
             }
         })
     })
@@ -165,7 +147,7 @@ $(document).on("click", function () {
     // show table payment
     function showTablePayment(order_no) {
         $.ajax({
-            url: 'Order-History.php',
+            url: 'public/payment/Order-History.php',
             method: 'GET',
             data: {
                 order_no: order_no
@@ -180,7 +162,7 @@ $(document).on("click", function () {
     $(document).on('click', '.btn-danger', function (e) {
         var btnDanger = $(this).val();
         $.ajax({
-            url: 'Order-History.php',
+            url: 'public/payment/Order-History.php',
             method: 'GET',
             data: {
                 btn_danger: btnDanger
@@ -190,6 +172,4 @@ $(document).on("click", function () {
             }
         })
     })
-    
 });
-

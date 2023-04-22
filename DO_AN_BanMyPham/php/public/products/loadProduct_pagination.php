@@ -8,29 +8,29 @@
     
     if($valuePrice == 0){
         if($bid == ''){
-            $query = "SELECT products.PRODUCT_ID, products.IMG_PRO, products.NAME_PRO, products.PRICE_PRO, products.QUANTITY_PRO, brands.NAME_BRAND, products.ORIGIN_PRO 
-                        FROM products INNER JOIN brands ON products.BRAND_ID = brands.BRAND_ID LIMIT $offset, $limit_per_page";
+            $query = "SELECT * 
+                        FROM products INNER JOIN brands ON products.BRAND_ID = brands.BRAND_ID WHERE STATUS_PRO NOT IN ('đã xóa') LIMIT $offset, $limit_per_page";
         }else {
             $query = "SELECT *
                         from products,brands
-                        where products.BRAND_ID = '$bid' and products.BRAND_ID = brands.BRAND_ID LIMIT $offset, $limit_per_page";
+                        where products.BRAND_ID = '$bid' and products.BRAND_ID = brands.BRAND_ID AND STATUS_PRO NOT IN ('đã xóa') LIMIT $offset, $limit_per_page";
         }
     }else {
         if($valuePrice== 1){
             if($bid==''){
-                $query = "SELECT products.PRODUCT_ID, products.IMG_PRO, products.NAME_PRO, products.PRICE_PRO, products.QUANTITY_PRO, brands.NAME_BRAND, products.ORIGIN_PRO 
-                        FROM products JOIN brands ON products.BRAND_ID = brands.BRAND_ID ORDER BY products.PRICE_PRO ASC LIMIT $offset, $limit_per_page";
+                $query = "SELECT * 
+                        FROM products JOIN brands ON products.BRAND_ID = brands.BRAND_ID WHERE STATUS_PRO NOT IN ('đã xóa') ORDER BY products.PRICE_PRO ASC LIMIT $offset, $limit_per_page";
             }else {
-                $query = "SELECT products.PRODUCT_ID, products.IMG_PRO, products.NAME_PRO, products.PRICE_PRO, products.QUANTITY_PRO, brands.NAME_BRAND, products.ORIGIN_PRO 
-                    FROM products JOIN brands ON products.BRAND_ID = brands.BRAND_ID and products.BRAND_ID = '$bid' ORDER BY products.PRICE_PRO ASC LIMIT $offset, $limit_per_page";
+                $query = "SELECT * 
+                    FROM products JOIN brands ON products.BRAND_ID = brands.BRAND_ID and products.BRAND_ID = '$bid' WHERE STATUS_PRO NOT IN ('đã xóa') ORDER BY products.PRICE_PRO ASC LIMIT $offset, $limit_per_page";
             }
         }else {
             if($bid == ''){
-                $query = "SELECT products.PRODUCT_ID, products.IMG_PRO, products.NAME_PRO, products.PRICE_PRO, products.QUANTITY_PRO, brands.NAME_BRAND, products.ORIGIN_PRO 
-                        FROM products JOIN brands ON products.BRAND_ID = brands.BRAND_ID ORDER BY products.PRICE_PRO DESC LIMIT $offset, $limit_per_page";
+                $query = "SELECT * 
+                        FROM products JOIN brands ON products.BRAND_ID = brands.BRAND_ID WHERE STATUS_PRO NOT IN ('đã xóa') ORDER BY products.PRICE_PRO DESC LIMIT $offset, $limit_per_page";
             }else {
-                $query = "SELECT products.PRODUCT_ID, products.IMG_PRO, products.NAME_PRO, products.PRICE_PRO, products.QUANTITY_PRO, brands.NAME_BRAND, products.ORIGIN_PRO 
-                        FROM products JOIN brands ON products.BRAND_ID = brands.BRAND_ID and products.BRAND_ID='$bid' ORDER BY products.PRICE_PRO DESC LIMIT $offset, $limit_per_page";
+                $query = "SELECT * 
+                        FROM products JOIN brands ON products.BRAND_ID = brands.BRAND_ID and products.BRAND_ID='$bid' WHERE STATUS_PRO NOT IN ('đã xóa') ORDER BY products.PRICE_PRO DESC LIMIT $offset, $limit_per_page";
             }
         }
     }
@@ -39,7 +39,7 @@
         while ($row = mysqli_fetch_assoc($result)) {
             echo    '<div class="grid__column-2-4">
                         <div class="home-product-item" pid="' . $row["PRODUCT_ID"] .'">
-                            <img class="home-product-item__img" src="../assets/img/'. $row["IMG_PRO"] .'">
+                            <img class="home-product-item__img" src="../image/img/'. $row["IMG_PRO"] .'">
                             <h4 class="home-product-item__name"> ' . $row["NAME_PRO"] .'</h4>
                             <div class="home-product-item__price">
                                 <span class="home-product-item__price-current">' . number_format($row["PRICE_PRO"]) .'đ</span>
@@ -71,4 +71,3 @@
 
     // Đóng kết nối  
     mysqli_close($conn);
-?>
