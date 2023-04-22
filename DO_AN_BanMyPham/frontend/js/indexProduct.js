@@ -1,5 +1,3 @@
-
-// AJAX
 $(document).ready(function () {
     // List product
     function loadProduct(valuePrice, page_active, brandid, category_id) {
@@ -18,28 +16,6 @@ $(document).ready(function () {
         })
     }
     loadProduct(0, 1);
-    // Category
-    $.ajax({
-        url: 'category.php?category=1',
-        method: 'GET',
-        dataC: {
-            category: 1,
-        },
-        success: function (dataC) {
-            $("#list__category").html(dataC);
-        }
-    });
-    // Brand
-    $.ajax({
-        url: 'brand.php?brand=1',
-        method: 'GET',
-        dataB: {
-            brand: 1,
-        },
-        success: function (dataB) {
-            $("#list__brand").html(dataB);
-        }
-    });
     // Select Category
     $(document).on('click', '#list__category .category-item__link', function (e) {
         var id_category = $(this).attr("categoryid");
@@ -51,19 +27,22 @@ $(document).ready(function () {
         loadProduct(valuePrice, page_active, cid);
     })
     // Load Category Active
-    function loadCategoryActive(id_category) {
+    function loadCategoryActive(id_category, page) {
         $.ajax({
             url: 'category.php',
             method: 'GET',
             data: {
                 category: 1,
                 id_category: id_category,
+                page: page
             },
             success: function (data) {
                 $("#list__category").html(data);
             }
         })
     }
+    loadCategoryActive();
+
     //Select Brand
     $(document).on('click', '#list__brand .category-item__link', function (e) {
         var id_brand = $(this).attr("brandid");
@@ -81,15 +60,17 @@ $(document).ready(function () {
             method: 'GET',
             data: {
                 brand: 1,
-                id_brand: id_brand,
+                id_brand: id_brand
             },
             success: function (data) {
                 $("#list__brand").html(data);
             }
         })
     }
+    loadBrandActive();
+
     // Pagination
-    function loadPape(page_num) {
+    function loadPage(page_num) {
         if (page_num) {
             var page_no = page_num;
         }
@@ -107,12 +88,12 @@ $(document).ready(function () {
             }
         });
     }
-    loadPape();
+    loadPage();
     // Click vao nut pagination
     $(document).on('click', '.pagination-item', function () {
         var page = $(this).attr("pageid");
         var valuePrice = $("#sortPrices").val();
-        loadPape(page);
+        loadPage(page);
         loadProduct(valuePrice, page);
     })
     // Price
@@ -190,7 +171,4 @@ $(document).ready(function () {
             }
         })
     })
-    
 });
-
-
