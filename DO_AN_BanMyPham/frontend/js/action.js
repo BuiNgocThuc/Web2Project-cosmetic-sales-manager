@@ -1054,3 +1054,46 @@ $(document).on("change", "#create-form #file-input", function () {
   // Thay đổi thuộc tính "accept" của thẻ "input"
   $(this).siblings("label").hide();
 });
+
+$(document).on("change", ".sort-function", function() {
+  let value = $(this).val();
+  let rows = $("tbody tr").get();
+
+  rows.sort(function(a, b) {
+    let nameA = $(a).children(".NAME_OBJECT").eq(0).text().toUpperCase();
+    let nameB = $(b).children(".NAME_OBJECT").eq(0).text().toUpperCase();
+    if (value === "increase") {
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    } else if (value === "decrease") {
+      if (nameA < nameB) return 1;
+      if (nameA > nameB) return -1;
+      return 0;
+    } else {
+      return 0;
+    }
+  });
+  $.each(rows, function(index, row) {
+    $("table tbody").append(row);
+  });
+});
+
+$(document).on("click", ".btnConfirmExport", function() {
+  let id = $(this).attr("data-id");
+  $.ajax({
+    url: "tools/verifyReceipt.php",
+    type: "POST",
+    data: {
+      idReceipt: id
+    },
+    success: function(data) {
+      if (data == "success") {
+        location.reload();
+        loadPageByAjax('Admin_Order');
+      }else {
+        console.log("error: " + data);
+      }
+    }
+  });
+});

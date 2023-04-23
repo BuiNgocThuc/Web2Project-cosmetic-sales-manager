@@ -8,7 +8,7 @@
     <div class="sidemenu">
         <div class="user">
             <div class="user__avatar">
-                <img src="https://yt3.ggpht.com/yti/AHXOFjWnPpZwPaRrVu9jjJjZwxgIEnM5msXmhxZH_j90=s88-c-k-c0x00ffffff-no-rj-mo">
+                <img src="../image/avatar.png">
             </div>
             <div class="user__info">
                 <h3>Bùi Ngọc Thức</h3>
@@ -35,18 +35,18 @@
                         $perID = $row['PERMISSION_ID'];
                         $_SESSION['ACTION'] = $row['ACTION'];
                         $action = $row['ACTION'];
-                            switch ($perID) {
-                                case '1':
-                                    echo '<script>
+                        switch ($perID) {
+                            case '1':
+                                echo '<script>
                                     $(document).ready(function() {
                                             $(".sidebar .product_per").addClass("enable");
                                             $(".sidebar .product_per").attr("onclick","loadPageByAjax(\'Admin_Product\'); selectDropdownMenu(this)");
                                             $(".sidebar .product_per").addClass("' . $action . '");
                                     });
                                             </script>';
-                                    break;
-                                case '2':
-                                    echo '<script>
+                                break;
+                            case '2':
+                                echo '<script>
                                     $(document).ready(function() {
                                             $(".sidebar .brand_per").addClass("enable");
                                             $(".sidebar .brand_per").attr("onclick","loadPageByAjax(\'Admin_Brand\'); selectDropdownMenu(this)");
@@ -55,9 +55,9 @@
                                             </script>';
 
 
-                                    break;
-                                case '3':
-                                    echo '<script>
+                                break;
+                            case '3':
+                                echo '<script>
                                     $(document).ready(function() {
                                             $(".sidebar .category_per").addClass("enable");
                                             $(".sidebar .category_per").attr("onclick","loadPageByAjax(\'Admin_Category\'); selectDropdownMenu(this)");
@@ -65,9 +65,9 @@
                                         });
                                             </script>';
 
-                                    break;
-                                case '4':
-                                    echo '<script>
+                                break;
+                            case '4':
+                                echo '<script>
                                     $(document).ready(function() {
                                             $(".sidebar .provider_per").addClass("enable");
                                             $(".sidebar .provider_per").attr("onclick","loadPageByAjax(\'Admin_Provider\'); selectDropdownMenu(this)");
@@ -75,18 +75,18 @@
                                         });
                                             </script>';
 
-                                    break;
-                                case '5':
-                                    echo '<script>
+                                break;
+                            case '5':
+                                echo '<script>
                                     $(document).ready(function() {
                                             $(".sidebar .export_receipt_per").addClass("enable");
                                             $(".sidebar .export_receipt_per").attr("onclick","loadPageByAjax(\'Admin_Order\'); selectDropdownMenu(this)");
                                         });
                                             </script>';
 
-                                    break;
-                                case '6':
-                                    echo '<script>
+                                break;
+                            case '6':
+                                echo '<script>
                                     $(document).ready(function() {
                                             $(".sidebar .user_per").addClass("enable");
                                             $(".sidebar .user_per").attr("onclick","loadPageByAjax(\'Admin_User\'); selectDropdownMenu(this)");
@@ -94,9 +94,9 @@
                                         });
                                             </script>';
 
-                                    break;
-                                case '7':
-                                    echo '<script>
+                                break;
+                            case '7':
+                                echo '<script>
                                     $(document).ready(function() {
                                             $(".sidebar .type_user_per").addClass("enable");
                                             $(".sidebar .type_user_per").attr("onclick","loadPageByAjax(\'Admin_TypeUser\'); selectDropdownMenu(this)");
@@ -104,9 +104,9 @@
                                         });
                                             </script>';
 
-                                    break;
-                                case '8':
-                                    echo '<script>
+                                break;
+                            case '8':
+                                echo '<script>
                                     $(document).ready(function() {
                                             $(".sidebar .discount_per").addClass("enable");
                                             $(".sidebar .discount_per").attr("onclick","loadPageByAjax(\'Admin_Discount\'); selectMenu(this)");
@@ -114,9 +114,9 @@
                                         });
                                             </script>';
 
-                                    break;
-                                case '9':
-                                    echo '<script>
+                                break;
+                            case '9':
+                                echo '<script>
                                     $(document).ready(function() {
                                             $(".sidebar .statistic_per").addClass("enable");
                                             $(".sidebar .statistic_per").attr("onclick","loadPageByAjax(\'Admin_Statistic\'); selectMenu(this)");
@@ -124,18 +124,18 @@
                                         });
                                             </script>';
 
-                                    break;
-                                case '10':
-                                    echo '<script>
+                                break;
+                            case '10':
+                                echo '<script>
                                     $(document).ready(function() {
                                             $(".sidebar .display_per").addClass("enable");
                                             $(".sidebar .display_per").attr("onclick","loadPageByAjax(\'Admin_Display\'); selectMenu(this)");
                                         });
                                             </script>';
 
-                                    break;
-                                case '11':
-                                    echo '<script>
+                                break;
+                            case '11':
+                                echo '<script>
                                     $(document).ready(function() {
                                             $(".sidebar .decentralization_per").addClass("enable");
                                             $(".sidebar .decentralization_per").attr("onclick","loadPageByAjax(\'Admin_Decentralization\'); selectDropdownMenu(this)");
@@ -143,9 +143,9 @@
                                         });
                                             </script>';
 
-                                    break;
-                                case '12':
-                                    echo '<script>
+                                break;
+                            case '12':
+                                echo '<script>
                                     $(document).ready(function() {
                                             $(".sidebar .import_receipt_per").addClass("enable");
                                             $(".sidebar .import_receipt_per").attr("onclick","loadPageByAjax(\'Admin_Coupon\'); selectDropdownMenu(this)");
@@ -153,19 +153,19 @@
                                         });
                                             </script>';
 
-                                    break;
-                                case '13':
-                                    echo '<script>
+                                break;
+                            case '13':
+                                echo '<script>
                                     $(document).ready(function() {
                                             $(".sidebar .permission_per").addClass("enable");
                                             $(".sidebar .permission_per").attr("onclick","loadPageByAjax(\'Admin_Permission\'); selectDropdownMenu(this)");
                                             $(".sidebar .permission_per").addClass("' . $action . '");
                                         });
                                             </script>';
-                                    
-                                    break;
-                                case '14':
-                                    echo '<script>
+
+                                break;
+                            case '14':
+                                echo '<script>
                                     $(document).ready(function() {
                                         $(".sidebar .product_per").addClass("enable");
                                         $(".sidebar .product_per").attr("onclick","loadPageByAjax(\'Admin_Product\'); selectDropdownMenu(this)");
@@ -210,8 +210,8 @@
                                     });
                                             </script>';
 
-                                    break;
-                            };
+                                break;
+                        };
                     }
                 }
                 ?>
@@ -310,12 +310,37 @@
     <header>
         <div class="title">
             <div class="menu-icon"><i class="fa-light fa-bars-sort"></i></div>
-            <span class="current-page">Danh sách phiếu giảm giá</span>
+            <span class="current-page">Trang Chủ</span>
         </div>
         <div class="tool-icon">
             <!-- <i class="fa-thin fa-sun-bright"></i> -->
             <i onclick="changeIconMode(this)" id="changeMode" class="fa-thin fa-sun-bright"></i>
-            <i class="fa-thin fa-bell"></i>
+            <i class="fa-thin fa-bell" id="notify">
+                <span class="count-notify">
+                    <?php
+                    require_once 'connectDB.php';
+                    $db = new ConnectDB();
+                    $sql = "SELECT * FROM export WHERE STATUS_EX = 'đang chờ'";
+                    $result = $db->connection($sql);
+                    $count = mysqli_num_rows($result);
+                    echo $count;
+                    ?>
+                </span>
+                <ul class="notification">
+                    <?php
+                    require_once 'connectDB.php';
+                    $db = new ConnectDB();
+                    $sql = "SELECT EXPORT_ID FROM export WHERE STATUS_EX = 'đang chờ'";
+                    $result = $db->connection($sql);
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<li>
+                                    <span>Đơn hàng ' . $row['EXPORT_ID'] . ' đang chờ xác nhận</span>
+                                    <button class="btnConfirmExport" data-id="' . $row['EXPORT_ID'] . '">Xác nhận</button>
+                                </li>';
+                    }
+                    ?>
+                </ul>
+            </i>
             <i class="fa-thin fa-gear">
                 <ul class="setting">
                     <li>thông tin tài khoản</li>

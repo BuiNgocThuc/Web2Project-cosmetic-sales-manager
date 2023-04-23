@@ -114,8 +114,9 @@
                             <i class="fa-duotone fa-plus fa-2xl"></i>
                             <span>đăng tải</span>
                         </label> -->
-                        <img id="image-preview" src="#" alt="" />
+                        <img id="image-preview" src="#" alt="No Image" />
                         <input id="file-input" class="IMG_OBJECT" type="file" accept="image/*">
+                        <button></button>
                     </div>
                 </div>
                 <div>
@@ -198,6 +199,11 @@
     <div class="list-container">
         <div class="title-list">
             <h3>danh sách sản phẩm</h3>
+            <select class="sort-function">
+                <option value="">Sắp xếp theo tiêu đề</option>
+                <option value="increase">Sắp xếp tăng dần</option>
+                <option value="decrease">Sắp xếp giảm dần</option>
+            </select>
             <button class="btnCreate enable">
                 <i class="fa-light fa-plus"></i>
                 <span>tạo mới</span>

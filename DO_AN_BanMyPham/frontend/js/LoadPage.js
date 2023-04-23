@@ -241,3 +241,13 @@ const viewDetails = () => {
 $(document).on("click", ".btnCancel", function (e) {
   hiddenForm();
 });
+
+$(document).on("click", "#notify", function (e) {
+  if(e.target.id !== "notify") return;
+  if($(this).find(".notification").hasClass("show")){
+    $(this).find(".notification").removeClass("show");
+    return;
+  }else {
+    $(this).find(".notification").addClass("show");
+  }
+});

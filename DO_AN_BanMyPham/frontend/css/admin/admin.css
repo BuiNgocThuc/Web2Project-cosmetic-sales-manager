@@ -366,6 +366,7 @@ body::-webkit-scrollbar-thumb{
     padding: .5rem 1rem;
 }
 
+
 .main-content header .tool-icon i .setting li:hover {
     background: var(--main);
 }
@@ -374,6 +375,68 @@ body::-webkit-scrollbar-thumb{
     opacity: 1;
     visibility: visible;
     transform: translate(0, 50%);
+}
+
+.main-content header .tool-icon i .notification {
+    font-size: 1rem;
+    white-space: nowrap;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: var(--font-color);
+    color: var(--bg);
+    visibility: hidden;
+    transition: all 0.2s linear;
+    opacity: 0;
+    overflow: auto;
+}
+
+.main-content header .tool-icon i .notification.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0, 19%);
+}
+
+.main-content header .tool-icon i .notification li {
+    padding: .5rem 1rem;
+    width: 23rem;
+    letter-spacing: 0.5px;
+    max-height: 5rem;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default;
+}
+
+.main-content header .tool-icon i .notification li:hover {
+    background: #eeeeee;
+}
+
+.main-content header .tool-icon i .notification li button {
+    padding: .3rem 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: .6rem;
+    background-color: var(--main);
+    color: var(--font-color);
+}
+
+.main-content header .tool-icon i .notification li button:hover {
+    opacity: 0.8;
+}
+
+.main-content header .tool-icon i .count-notify {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--main);
+    color: var(--font-color);
+    font-size: 1rem;
+    padding: .1rem .3rem;
+    border-radius: 50%;
+    transform: translate(50%, -50%);
 }
 
 .main-content #content {
