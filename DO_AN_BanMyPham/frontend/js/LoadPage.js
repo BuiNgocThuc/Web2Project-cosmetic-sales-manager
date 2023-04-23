@@ -10,7 +10,6 @@ const loadPageByAjax = (pageTarget) => {
     data: { page: pageTarget },
     dataType: "html",
     success: function (data) {
-      if (pageTarget == "Admin_Brand") console.log("ýse");
       $("#content").html(data);
       $(".current-page").html($(data).attr("data-content"));
     },
@@ -74,6 +73,10 @@ $(document).on("click", ".btnFix.enable", function (e) {
         return $(this).hasClass(className);
       });
     updateOb.val($(tempVar).html());
+    if($(tempVar).hasClass("IMG_OBJECT")){
+      console.log($(tempVar).find("img").attr("src"));
+      $("#fix-form #image-preview").attr("src", $(tempVar).find("img").attr("src"));
+    }
     tempVar = $(tempVar).next();
   }
 });
@@ -237,4 +240,14 @@ const viewDetails = () => {
 
 $(document).on("click", ".btnCancel", function (e) {
   hiddenForm();
+});
+
+$(document).on("click", "#notify", function (e) {
+  if(e.target.id !== "notify") return;
+  if($(this).find(".notification").hasClass("show")){
+    $(this).find(".notification").removeClass("show");
+    return;
+  }else {
+    $(this).find(".notification").addClass("show");
+  }
 });

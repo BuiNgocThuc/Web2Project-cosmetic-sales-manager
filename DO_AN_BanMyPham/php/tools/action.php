@@ -231,7 +231,29 @@ switch ($_POST['action']) {
     case 'update':
         switch ($_POST['id']) {
             case 'Product':
-
+                $status = $_POST['status'];
+                $name = $_POST['name'];
+                $brand = $_POST['brand'];
+                $category = $_POST['category'];
+                $price = $_POST['price'];
+                $original = $_POST['original'];
+                $img = $_POST['img'];
+                $idProduct = $_POST['identity'];
+                $sql = "UPDATE products 
+                        SET NAME_PRO = '" . $name . "',
+                            BRAND_ID = '" . $brand . "',
+                            CATEGORY_ID = '" . $category . "',
+                            PRICE_PRO = '" . $price . "',
+                            ORIGIN_PRO = '" . $original . "',
+                            IMG_PRO = '" . $img . "',
+                            STATUS_PRO = '" . $status . "'
+                        WHERE PRODUCT_ID = '" . $idProduct . "';";
+                $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                } else {
+                    echo 'error';
+                }
                 break;
             case 'Brand':
                 $status = $_POST['status'];
@@ -439,6 +461,16 @@ switch ($_POST['action']) {
         break;
     case 'delete':
         switch ($_POST['id']) {
+            case 'Product': 
+                $idObject = $_POST['ob'];
+                $sql = "UPDATE products SET STATUS_PRO = 'đã xóa' WHERE PRODUCT_ID = '" . $idObject . "'";
+                $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                } else {
+                    echo 'error';
+                }
+                break;
             case 'Brand':
                 $idObject = $_POST['ob'];
                 $sql = "UPDATE brands SET STATUS_BRAND = 'đã xóa' WHERE BRAND_ID = '" . $idObject . "'";

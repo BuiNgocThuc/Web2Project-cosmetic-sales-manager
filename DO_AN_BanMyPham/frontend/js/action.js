@@ -29,6 +29,19 @@ const AddInfo = async (id) => {
           if (res != "success") {
             alert(res);
           } else {
+            var formData = new FormData();
+            var fileData = $("#create-form .new-img").prop("files")[0];
+            formData.append("file", fileData);
+            $.ajax({
+              url: "tools/upload.php",
+              type: "post",
+              data: formData,
+              contentType: false,
+              processData: false,
+              success: function (response) {
+                alert(response);
+              },
+            });
             alert("Tạo sản phẩm mới thành công!!");
             hiddenForm();
           }
@@ -300,7 +313,73 @@ $(document).on("change", "#Admin_Permission .switch", function () {
 
 const UpdateInfo = (id) => {
   switch (id) {
-    case "Project":
+    case "Product":
+      let nameProduct = $("#fix-form .NAME_OBJECT").val();
+      let brandProduct = $("#fix-form .BRAND_OBJECT option")
+        .filter(function () {
+          return (
+            $(this).val().toLowerCase() ==
+            $(this).closest(".BRAND_OBJECT").val().toLowerCase()
+          );
+        })
+        .attr("data-content");
+      let categoryProduct = $("#fix-form .CATEGORY_OBJECT option")
+        .filter(function () {
+          return (
+            $(this).val().toLowerCase() ==
+            $(this).closest(".CATEGORY_OBJECT").val().toLowerCase()
+          );
+        })
+        .attr("data-content");
+      let priceProduct = document.querySelector(
+        "#fix-form .PRICE_OBJECT"
+      ).value;
+      let originalProduct = document.querySelector(
+        "#fix-form .ORIGINAL_OBJECT"
+      ).value;
+      let imgProduct = document.querySelector("#fix-form .IMG_OBJECT").files[0]
+        .name;
+      let statusProduct = $("#fix-form .switch").attr("data-content");
+      let locationProduct = $("#fix-form .btnConfirm").attr("data-content");
+      console.log(brandProduct + "" + categoryProduct);
+      $.ajax({
+        url: "../php/tools/action.php",
+        type: "POST",
+        data: {
+          id: id,
+          name: nameProduct,
+          brand: brandProduct,
+          category: categoryProduct,
+          price: priceProduct,
+          original: originalProduct,
+          img: imgProduct,
+          status: statusProduct,
+          identity: locationProduct,
+          action: "update",
+        },
+        success: function (res) {
+          if (res != "success") {
+            console.log(res);
+          } else {
+            var formData = new FormData();
+            var fileData = $("#fix-form .IMG_OBJECT").prop("files")[0];
+            formData.append("file", fileData);
+            $.ajax({
+              url: "tools/upload.php",
+              type: "post",
+              data: formData,
+              contentType: false,
+              processData: false,
+              success: function (response) {
+                alert(response);
+              },
+            });
+            alert("Sửa sản phẩm thành công");
+            hiddenForm();
+            loadPageByAjax("Admin_Product");
+          }
+        },
+      });
       break;
     case "Brand":
       let nameBrd = document.querySelector("#fix-form .NAME_OBJECT").value;
@@ -523,7 +602,7 @@ const DeleteInfo = (id) => {
     },
     success: function (res) {
       if (res != "success") {
-        alert(res);
+        console.log(res);
       } else {
         alert("Xóa thành công");
         hiddenForm();
@@ -575,7 +654,7 @@ const createR_P = () => {
       });
       if (success) {
         alert("Thêm nhóm quyền thành công!!");
-        loadPageByAjax('Admin_Decentralization');
+        loadPageByAjax("Admin_Decentralization");
       }
     },
   });
@@ -628,7 +707,7 @@ const updateR_P = () => {
       });
       if (successfully) {
         alert("Sửa nhóm quyền thành công!!");
-        loadPageByAjax('Admin_Decentralization');
+        loadPageByAjax("Admin_Decentralization");
       }
     },
   });
@@ -695,6 +774,28 @@ const SearchInfo = (id) => {
     .removeClass("show");
   $("tbody tr").show();
   switch (id) {
+    case "Product":
+      let idProduct = $(".ID_PRODUCT_SEARCH").val()?.toLowerCase();
+      let nameProduct = $(".NAME_PRODUCT_SEARCH").val()?.toLowerCase();
+      let statusProduct = $(".STATUS_PRODUCT_SEARCH").attr("data-content")?.toLowerCase();
+      let brandProduct = $(".BRAND_PRODUCT_SEARCH").val()?.toLowerCase();
+      let categoryProduct = $(".CATEGORY_PRODUCT_SEARCH").val()?.toLowerCase();
+      
+      $("tbody tr").filter(function () {
+        let idMatch = !idProduct || $(this).find("td:eq(1)").text().toLowerCase() === idProduct;
+        let nameMatch = !nameProduct || $(this).find("td:eq(2)").text().toLowerCase() === nameProduct;
+        let statusMatch = !statusProduct || $(this).find("td:eq(9)").text().toLowerCase() === statusProduct;
+        let brandMatch = !brandProduct || $(this).find("td:eq(3)").text().toLowerCase() === brandProduct;
+        let categoryMatch = !categoryProduct || $(this).find("td:eq(4)").text().toLowerCase() === categoryProduct;
+        
+        return idMatch && nameMatch && statusMatch && brandMatch && categoryMatch;
+      }).addClass("show");
+      $("tbody tr")
+        .filter(function () {
+          return !$(this).hasClass("show");
+        })
+        .hide();
+      break;
     case "Brand":
       let idBrand = $(".ID_BRAND_SEARCH").val().toLowerCase();
       let nameBrand = $(".NAME_BRAND_SEARCH").val().toLowerCase();
@@ -739,13 +840,13 @@ const SearchInfo = (id) => {
       //   },
       //   success: function (res) {
       //     $("#content").html(res);
-          // console.log(res);
-          // if(res == "successfully"){
-          //   loadPageByAjax("Admin_Brand");
-          // }
-          // else{
-          //   alert(res);
-          // }
+      // console.log(res);
+      // if(res == "successfully"){
+      //   loadPageByAjax("Admin_Brand");
+      // }
+      // else{
+      //   alert(res);
+      // }
       //   },
       // });
       break;
@@ -781,11 +882,13 @@ const SearchInfo = (id) => {
         .addClass("show");
       $("tbody tr").not(".show").hide();
       break;
-      case 'Provider':
-        let idProvider = $(".ID_PROVIDER_SEARCH").val().toLowerCase();
-        let nameProvider = $(".NAME_PROVIDER_SEARCH").val().toLowerCase();
-        let statusProvider = $(".STATUS_PROVIDER_SEARCH").attr("data-content").toLowerCase();
-        $("tbody tr")
+    case "Provider":
+      let idProvider = $(".ID_PROVIDER_SEARCH").val().toLowerCase();
+      let nameProvider = $(".NAME_PROVIDER_SEARCH").val().toLowerCase();
+      let statusProvider = $(".STATUS_PROVIDER_SEARCH")
+        .attr("data-content")
+        .toLowerCase();
+      $("tbody tr")
         .filter(function () {
           if (nameProvider == "" && idProvider != "") {
             return (
@@ -811,11 +914,13 @@ const SearchInfo = (id) => {
         .addClass("show");
       $("tbody tr").not(".show").hide();
       break;
-      case 'User':
-        let idUser = $(".ID_USER_SEARCH").val().toLowerCase();
-        let nameUser = $(".NAME_USER_SEARCH").val().toLowerCase();
-        let statusUser = $(".STATUS_USER_SEARCH").attr("data-content").toLowerCase();
-        $("tbody tr")
+    case "User":
+      let idUser = $(".ID_USER_SEARCH").val().toLowerCase();
+      let nameUser = $(".NAME_USER_SEARCH").val().toLowerCase();
+      let statusUser = $(".STATUS_USER_SEARCH")
+        .attr("data-content")
+        .toLowerCase();
+      $("tbody tr")
         .filter(function () {
           if (nameUser == "" && idUser != "") {
             return (
@@ -828,9 +933,7 @@ const SearchInfo = (id) => {
               $(this).find("td:eq(7)").text().toLowerCase() == statusUser
             );
           } else if (nameUser == "" && idUser == "") {
-            return (
-              $(this).find("td:eq(7)").text().toLowerCase() == statusUser
-            );
+            return $(this).find("td:eq(7)").text().toLowerCase() == statusUser;
           }
           return (
             $(this).find("td:eq(1)").text().toLowerCase() == idUser &&
@@ -841,11 +944,13 @@ const SearchInfo = (id) => {
         .addClass("show");
       $("tbody tr").not(".show").hide();
       break;
-      case 'Type_User':
-        let idTypeUser = $(".ID_TYPE_USER_SEARCH").val().toLowerCase();
-        let nameTypeUser = $(".NAME_TYPE_USER_SEARCH").val().toLowerCase();
-        let statusTypeUser = $(".STATUS_TYPE_USER_SEARCH").attr("data-content").toLowerCase();
-        $("tbody tr")
+    case "Type_User":
+      let idTypeUser = $(".ID_TYPE_USER_SEARCH").val().toLowerCase();
+      let nameTypeUser = $(".NAME_TYPE_USER_SEARCH").val().toLowerCase();
+      let statusTypeUser = $(".STATUS_TYPE_USER_SEARCH")
+        .attr("data-content")
+        .toLowerCase();
+      $("tbody tr")
         .filter(function () {
           if (nameTypeUser == "" && idTypeUser != "") {
             return (
@@ -871,11 +976,13 @@ const SearchInfo = (id) => {
         .addClass("show");
       $("tbody tr").not(".show").hide();
       break;
-      case 'Role':
-        let idRole = $(".ID_ROLE_SEARCH").val().toLowerCase();
-        let nameRole = $(".NAME_ROLE_SEARCH").val().toLowerCase();
-        let statusRole = $(".STATUS_ROLE_SEARCH").attr("data-content").toLowerCase();
-        $("tbody tr")
+    case "Role":
+      let idRole = $(".ID_ROLE_SEARCH").val().toLowerCase();
+      let nameRole = $(".NAME_ROLE_SEARCH").val().toLowerCase();
+      let statusRole = $(".STATUS_ROLE_SEARCH")
+        .attr("data-content")
+        .toLowerCase();
+      $("tbody tr")
         .filter(function () {
           if (nameRole == "" && idRole != "") {
             return (
@@ -888,9 +995,7 @@ const SearchInfo = (id) => {
               $(this).find("td:eq(4)").text().toLowerCase() == statusRole
             );
           } else if (nameRole == "" && idRole == "") {
-            return (
-              $(this).find("td:eq(4)").text().toLowerCase() == statusRole
-            );
+            return $(this).find("td:eq(4)").text().toLowerCase() == statusRole;
           }
           return (
             $(this).find("td:eq(1)").text().toLowerCase() == idRole &&
@@ -901,15 +1006,19 @@ const SearchInfo = (id) => {
         .addClass("show");
       $("tbody tr").not(".show").hide();
       break;
-      case 'Permission':
-        let idPermission = $(".ID_PERMISSION_SEARCH").val().toLowerCase();
-        let namePermission = $(".NAME_PERMISSION_SEARCH").val().toLowerCase();
-        $("tbody tr")
+    case "Permission":
+      let idPermission = $(".ID_PERMISSION_SEARCH").val().toLowerCase();
+      let namePermission = $(".NAME_PERMISSION_SEARCH").val().toLowerCase();
+      $("tbody tr")
         .filter(function () {
           if (namePermission == "" && idPermission != "") {
-            return $(this).find("td:eq(1)").text().toLowerCase() == idPermission;
+            return (
+              $(this).find("td:eq(1)").text().toLowerCase() == idPermission
+            );
           } else if (namePermission != "" && idPermission == "") {
-            return $(this).find("td:eq(2)").text().toLowerCase() == namePermission;
+            return (
+              $(this).find("td:eq(2)").text().toLowerCase() == namePermission
+            );
           }
           return (
             $(this).find("td:eq(1)").text().toLowerCase() == idPermission &&
@@ -932,5 +1041,71 @@ $(document).ready(function(){
         $('.cart-overlay').fadeIn();
       }
     });
+  });
+});
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $(input).siblings("#image-preview").attr("src", e.target.result);
+      $(input).siblings("#image-preview").show();
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$(document).on("change", "#fix-form #file-input", function () {
+  readURL(this);
+  // Thay đổi thuộc tính "accept" của thẻ "input"
+  $(this).siblings("label").hide();
+});
+
+$(document).on("change", "#create-form #file-input", function () {
+  readURL(this);
+  // Thay đổi thuộc tính "accept" của thẻ "input"
+  $(this).siblings("label").hide();
+});
+
+$(document).on("change", ".sort-function", function() {
+  let value = $(this).val();
+  let rows = $("tbody tr").get();
+
+  rows.sort(function(a, b) {
+    let nameA = $(a).children(".NAME_OBJECT").eq(0).text().toUpperCase();
+    let nameB = $(b).children(".NAME_OBJECT").eq(0).text().toUpperCase();
+    if (value === "increase") {
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    } else if (value === "decrease") {
+      if (nameA < nameB) return 1;
+      if (nameA > nameB) return -1;
+      return 0;
+    } else {
+      return 0;
+    }
+  });
+  $.each(rows, function(index, row) {
+    $("table tbody").append(row);
+  });
+});
+
+$(document).on("click", ".btnConfirmExport", function() {
+  let id = $(this).attr("data-id");
+  $.ajax({
+    url: "tools/verifyReceipt.php",
+    type: "POST",
+    data: {
+      idReceipt: id
+    },
+    success: function(data) {
+      if (data == "success") {
+        location.reload();
+        loadPageByAjax('Admin_Order');
+      }else {
+        console.log("error: " + data);
+      }
+    }
   });
 });

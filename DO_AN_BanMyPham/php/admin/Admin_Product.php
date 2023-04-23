@@ -18,7 +18,7 @@
                         <?php
                         require_once("connectDB.php");
                         $db = new ConnectDB();
-                        $sql = "SELECT * FROM brands WHERE STATUS_BRAND NOT IN ('đã xóa')";
+                        $sql = "SELECT * FROM brands WHERE STATUS_BRAND NOT IN ('đã xóa') AND STATUS_BRAND NOT IN ('ngừng hoạt động')";
                         $result = $db->connection($sql);
                         while ($row = mysqli_fetch_array($result)) {
                             echo '<option value="' . $row['BRAND_ID'] . '">' . $row['NAME_BRAND'] . '</option>';
@@ -32,7 +32,7 @@
                         <?php
                         require_once("connectDB.php");
                         $db = new ConnectDB();
-                        $sql = "SELECT * FROM category WHERE STATUS_CAT NOT IN ('đã xóa')";
+                        $sql = "SELECT * FROM category WHERE STATUS_CAT NOT IN ('đã xóa') AND STATUS_CAT NOT IN ('ngừng hoạt động')";
                         $result = $db->connection($sql);
                         while ($row = mysqli_fetch_array($result)) {
                             echo '<option value="' . $row['CATEGORY_ID'] . '">' . $row['NAME_CAT'] . '</option>';
@@ -47,11 +47,12 @@
                 <div>
                     <label for="" class="img-product">hình ảnh: </label>
                     <div class="image-upload">
-                        <input id="file-input" class="new-img" type="file" accept="image/png,img/jpg,img/jpeg">
-                        <label for="file-input" class="icon-upload">
+                        <input id="file-input" class="new-img" type="file" accept="image/*">
+                        <label for="" class="icon-upload">
                             <i class="fa-duotone fa-plus fa-2xl"></i>
                             <span>đăng tải</span>
                         </label>
+                        <img id="image-preview" src="#" alt="" style="display: none" />
                     </div>
                 </div>
             </form>
@@ -76,7 +77,7 @@
                         <?php
                         require_once("connectDB.php");
                         $db = new ConnectDB();
-                        $sql = "SELECT * FROM brands WHERE STATUS_BRAND NOT IN ('đã xóa')";
+                        $sql = "SELECT * FROM brands WHERE STATUS_BRAND NOT IN ('đã xóa') AND STATUS_BRAND NOT IN ('ngừng hoạt động')";
                         $result = $db->connection($sql);
                         while ($row = mysqli_fetch_array($result)) {
                             echo '<option value="' . $row['NAME_BRAND'] . '" data-content="' . $row['BRAND_ID'] . '">' . $row['NAME_BRAND'] . '</option>';
@@ -90,7 +91,7 @@
                         <?php
                         require_once("connectDB.php");
                         $db = new ConnectDB();
-                        $sql = "SELECT * FROM category WHERE STATUS_CAT NOT IN ('đã xóa')";
+                        $sql = "SELECT * FROM category WHERE STATUS_CAT NOT IN ('đã xóa') AND STATUS_CAT NOT IN ('ngừng hoạt động')";
                         $result = $db->connection($sql);
                         while ($row = mysqli_fetch_array($result)) {
                             echo '<option value="' . $row['NAME_CAT'] . '"data-content="' . $row['CATEGORY_ID'] . '">' . $row['NAME_CAT'] . '</option>';
@@ -109,11 +110,13 @@
                 <div>
                     <label for="" class="img-product">hình ảnh: </label>
                     <div class="image-upload">
-                        <input id="file-input" class="IMG_OBJECT" type="file" accept="image/png,img/jpg,img/jpeg">
-                        <label for="file-input" class="icon-upload">
+                        <!-- <label for="" class="icon-upload">
                             <i class="fa-duotone fa-plus fa-2xl"></i>
                             <span>đăng tải</span>
-                        </label>
+                        </label> -->
+                        <img id="image-preview" src="#" alt="No Image" />
+                        <input id="file-input" class="IMG_OBJECT" type="file" accept="image/*">
+                        <button></button>
                     </div>
                 </div>
                 <div>
@@ -122,7 +125,7 @@
                 </div>
             </form>
             <div class="tool">
-                <button class="btnConfirm btn" onclick="UpdateInfo('Brand')" data-content="">Cập nhật</button>
+                <button class="btnConfirm btn" onclick="UpdateInfo('Product')" data-content="">Cập nhật</button>
                 <button class="btnCancel btn" onclick="hiddenForm()">Hủy Bỏ</button>
             </div>
         </div>
@@ -146,46 +149,61 @@
         <div class="fix-info">
             <div>
                 <label for="">Mã Sản Phẩm</label>
-                <input class="textfield" type="text">
+                <input class="textfield ID_PRODUCT_SEARCH" type="text">
             </div>
             <div>
                 <label for="">Tên Sản Phẩm</label>
-                <input class="textfield" type="text">
+                <input class="textfield NAME_PRODUCT_SEARCH" type="text">
             </div>
             <div>
                 <label for="">danh mục</label>
-                <select name="status" class="textfield">
-                    <option value="">danh mục a</option>
-                    <option value="">danh mục a</option>
-                    <option value="">danh mục a</option>
-                    <option value="">danh mục a</option>
-                    <option value="">danh mục a</option>
+                <select name="status" class="textfield CATEGORY_PRODUCT_SEARCH">
+                    <option value=""></option>
+                    <?php
+                    require_once("connectDB.php");
+                    $db = new ConnectDB();
+                    $sql = "SELECT * FROM category WHERE STATUS_CAT NOT IN ('đã xóa')";
+                    $result = $db->connection($sql);
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<option value="' . $row['NAME_CAT'] . '">' . $row['NAME_CAT'] . '</option>';
+                    }
+                    ?>
                 </select>
             </div>
             <div>
                 <label for="">thương hiệu</label>
-                <select name="status" class="textfield">
-                    <option value="">thương hiệu a</option>
-                    <option value="">thương hiệu a</option>
-                    <option value="">thương hiệu a</option>
-                    <option value="">thương hiệu a</option>
-                    <option value="">thương hiệu a</option>
+                <select name="status" class="textfield BRAND_PRODUCT_SEARCH">
+                    <option value=""></option>
+                    <?php
+                    require_once("connectDB.php");
+                    $db = new ConnectDB();
+                    $sql = "SELECT * FROM brands WHERE STATUS_BRAND NOT IN ('đã xóa')";
+                    $result = $db->connection($sql);
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<option value="' . $row['NAME_BRAND'] . '">' . $row['NAME_BRAND'] . '</option>';
+                    }
+                    ?>
                 </select>
             </div>
             <div>
                 <label for="">Trạng Thái</label>
-                <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                <input type="checkbox" class="switch STATUS_PRODUCT_SEARCH" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
             </div>
             <div>
                 <label for=""></label>
-                <button class="btn btn--Search">Tìm Kiếm</button>
-                <button class="btn btn--Undo">Hoàn Tác</button>
+                <button class="btn btn--Search" onclick="SearchInfo('Product')">Tìm Kiếm</button>
+                <button class="btn btn--Undo" onclick="loadPageByAjax('Admin_Product')">Hoàn Tác</button>
             </div>
         </div>
     </div>
     <div class="list-container">
         <div class="title-list">
             <h3>danh sách sản phẩm</h3>
+            <select class="sort-function">
+                <option value="">Sắp xếp theo tiêu đề</option>
+                <option value="increase">Sắp xếp tăng dần</option>
+                <option value="decrease">Sắp xếp giảm dần</option>
+            </select>
             <button class="btnCreate enable">
                 <i class="fa-light fa-plus"></i>
                 <span>tạo mới</span>
@@ -219,7 +237,7 @@
                     $result = $db->connection($sql);
                     $i = 1;
                     while ($row = mysqli_fetch_array($result)) {
-                        $action = ($row['STATUS_BRAND'] == 'ngừng hoạt động') ? '' : 'action';
+                        $action = ($row['STATUS_PRO'] == 'ngừng hoạt động') ? '' : 'action';
                         echo '<tr>
                                 <td>' . $i++ . '</td>
                                 <td class="ID_OBJECT">' . $row['PRODUCT_ID'] . '</td>
@@ -228,7 +246,11 @@
                                 <td class="CATEGORY_OBJECT">' . $row['NAME_CAT'] . '</td>
                                 <td class="PRICE_OBJECT">' . $row['PRICE_PRO'] . '</td>
                                 <td class="QUANTITY_OBJECT">' . $row['QUANTITY_PRO'] . '</td>
-                                <td class="IMG_OBJECT">' . $row['IMG_PRO'] . '</td>
+                                <td class="IMG_OBJECT">
+                                    <div>
+                                        <img src="../image/img/' . $row['IMG_PRO'] . '">
+                                    </div>    
+                                </td>
                                 <td class="ORIGINAL_OBJECT">' . $row['ORIGIN_PRO'] . '</td>
                                 <td class="STATUS_OBJECT">' . $row['STATUS_PRO'] . '</td>
                                 <td>
