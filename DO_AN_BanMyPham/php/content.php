@@ -67,6 +67,9 @@ if (isset($_POST["page"])) {
         case "Product":
             include 'public/products/indexListProducts.php';
             break;
+        case "Blogs":
+            include '../frontend/html/blogs.html';
+            break;
         default:
             echo `<h1>Page not found 404</h1>`;
     }
