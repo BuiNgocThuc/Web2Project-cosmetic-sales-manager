@@ -58,8 +58,8 @@
                         <span onclick="loadProductDetails(' . $row['PRODUCT_ID'] . ')">
                             <img class="home-product-item__img" src="../image/img/' . $row['IMG_PRO'] . '">
                         </span>
-                        <a  href="public/product_details.php?pid=' . $row["PRODUCT_ID"] . '">
-                            <h4 class="home-product-item__name"> ' . $row["NAME_PRO"] .'</h4></a>
+                        <span onclick="loadProductDetails(' . $row['PRODUCT_ID'] . ')">
+                            <h4 class="home-product-item__name"> ' . $row["NAME_PRO"] .'</h4></span>
                                 <div class="home-product-item__price">
                                 <span class="home-product-item__price-current">' . number_format($row["PRICE_PRO"]) .'đ</span>
                             </div>
