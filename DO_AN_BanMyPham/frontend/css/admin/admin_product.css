@@ -352,3 +352,14 @@ body {
     border: 2px solid var(--main);
     color: var(--main);
 }
+
+#Admin_Product .list-container .list-code .content-table .IMG_OBJECT div {
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+}
+
+#Admin_Product .list-container .list-code .content-table .IMG_OBJECT div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

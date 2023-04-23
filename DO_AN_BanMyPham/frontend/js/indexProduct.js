@@ -23,7 +23,7 @@ $(document).on("click", ".navbar .product", function () {
         var cid = $(this).attr('cid');
         var page_active = $(".pagination-item__link--active").attr("pageid");
         var valuePrice = $("#sortPrices").val();
-
+        console.log(cid);
         loadCategoryActive(id_category);
         loadProduct(valuePrice, page_active, cid);
     })
