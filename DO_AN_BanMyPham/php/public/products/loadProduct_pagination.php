@@ -1,3 +1,19 @@
+<script>
+    function loadProductDetails(productId) {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var productDetails = document.getElementById("main-listProduct");
+			if (productDetails) {
+				productDetails.innerHTML = this.responseText;
+			}
+		}
+	};
+	xhttp.open("GET", "public/product_details.php?pid=" + productId, true);
+	xhttp.send();
+}
+
+</script>
 <?php 
     include 'connect_Database.php';
     $valuePrice = isset($_GET['valuePrice']) ? $_GET['valuePrice'] : 0;
@@ -39,9 +55,12 @@
         while ($row = mysqli_fetch_assoc($result)) {
             echo    '<div class="grid__column-2-4">
                         <div class="home-product-item" pid="' . $row["PRODUCT_ID"] .'">
-                            <img class="home-product-item__img" src="../image/img/'. $row["IMG_PRO"] .'">
-                            <h4 class="home-product-item__name"> ' . $row["NAME_PRO"] .'</h4>
-                            <div class="home-product-item__price">
+                        <span onclick="loadProductDetails(' . $row['PRODUCT_ID'] . ')">
+                            <img class="home-product-item__img" src="../image/img/' . $row['IMG_PRO'] . '">
+                        </span>
+                        <a  href="public/product_details.php?pid=' . $row["PRODUCT_ID"] . '">
+                            <h4 class="home-product-item__name"> ' . $row["NAME_PRO"] .'</h4></a>
+                                <div class="home-product-item__price">
                                 <span class="home-product-item__price-current">' . number_format($row["PRICE_PRO"]) .'đ</span>
                             </div>
                             <div class="home-product-item__action">
@@ -71,3 +90,5 @@
 
     // Đóng kết nối  
     mysqli_close($conn);
+
+ 

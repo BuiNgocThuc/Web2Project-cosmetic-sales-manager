@@ -1,50 +1,139 @@
-.cart {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  th {
-    text-align: left;
-    padding: 10px;
-    background-color: #f1f1f1;
-  }
-  
-  td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .product-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  img {
-    max-width: 80px;
-  }
-  
-  .price, .quantity, .total {
-    text-align: right;
-  }
-  
-  .total-price {
-    font-weight: bold;
-    font-size: 18px;
-    border-top: 1px solid #ddd;
-    padding-top: 10px;
-    text-align: right;
-  }
-  
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Cart container */
+.cart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1rem;
+}
+
+/* Cart items */
+.cart-items {
+  flex: 3;
+}
+
+.cart-items h1 {
+  margin-bottom: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.quantity-input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0 0.5rem;
+}
+
+.quantity-button {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.quantity-button:hover {
+  background-color: #ddd;
+}
+
+.quantity-button[disabled] {
+  background-color: #ccc;
+  cursor: default;
+}
+
+.remove-button {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.remove-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Cart summary */
+.cart-summary {
+  flex: 1;
+  margin-left: 2rem;
+}
+
+.cart-summary table {
+  width: 100%;
+}
+
+.cart-summary th {
+  background-color: #000;
+  color: #fff;
+}
+
+.cart-summary td:first-child {
+  font-weight: bold;
+}
+
+input[name="discount_code"] {
+  width: 150px;
+}
+
+button[name="apply_discount"] {
+  background-color: #000;
+  color: #fff;
+  margin-left: 0.5rem;
+}
+
+button[name="apply_discount"]:hover {
+  background-color: #4CAF50;
+}
+
+button[name="checkout"] {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 4px;
+}
+
+button[name="checkout"]:hover {
+  background-color: #000;
+}

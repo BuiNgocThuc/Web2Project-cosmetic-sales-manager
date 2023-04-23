@@ -922,3 +922,15 @@ const SearchInfo = (id) => {
       break;
   }
 };
+$(document).ready(function(){
+  $('.cart-icon').click(function(e){
+    e.preventDefault();
+    $.ajax({
+      url: 'public/cart.php',
+      success: function(data){
+        $('.cart-content').html(data);
+        $('.cart-overlay').fadeIn();
+      }
+    });
+  });
+});

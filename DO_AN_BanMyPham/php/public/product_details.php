@@ -72,7 +72,7 @@ $product = $result->fetch_assoc();
             </ul>
         </div>
     </div>
-    <div class="featured-products">
+    <!-- <div class="featured-products">
         <h2 class="title">Sản phẩm nổi bật</h2>
         <div class="slider">
             <div class="box-item">
@@ -180,6 +180,6 @@ $product = $result->fetch_assoc();
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
 </html>
