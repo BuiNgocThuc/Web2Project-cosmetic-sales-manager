@@ -19,7 +19,11 @@ session_start();
     <link rel="stylesheet" href="../frontend/css/introduce.css">
     <link rel="stylesheet" href="../frontend/css/style_ListProducts.css">
     <link rel="stylesheet" href="../frontend/css/base.css">
+    <link rel="stylesheet" href="../frontend/css/cart.css">
+    <link rel="stylesheet" href="../frontend/css/product_details.css">
+    <link rel="stylesheet" href="../frontend/css/blogs.css">
     <link rel="stylesheet" href="../assets/icons/all.css">
+
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <title>MOON COSMETIC</title>
 

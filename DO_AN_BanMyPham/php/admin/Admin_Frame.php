@@ -11,8 +11,23 @@
                 <img src="../image/avatar.png">
             </div>
             <div class="user__info">
-                <h3>Bùi Ngọc Thức</h3>
-                <small>Admin</small>
+                <?php
+                include_once("ConnectDB.php");
+                $db = new ConnectDB();
+                if (isset($_SESSION['USERNAME']) && isset($_SESSION['USERNAME'])) {
+                    $name = $_SESSION['NAME'];
+                    echo "<h3>" . $name . "</h3>";
+                    $userID = $_SESSION['USERNAME'];
+                    $sql = "SELECT NAME_TYPE_USER FROM type_users
+                    join users on type_users.TYPE_USER_ID = users.TYPE_USER_ID
+                    where users.USER_ID = '" . $userID . "'";
+                    $result = $db->connection($sql);
+                    while ($row = mysqli_fetch_array($result)) {
+                        $type = $row['NAME_TYPE_USER'];
+                        echo "<small>" . $type . "</small>";
+                    }
+                }
+                ?>
             </div>
         </div>
         <div class="list-function">
@@ -23,7 +38,7 @@
                     </div>
                 </li>
                 <?php
-                include("ConnectDB.php");
+                include_once("ConnectDB.php");
                 $db = new ConnectDB();
                 if (isset($_SESSION['ROLE_ID'])) {
                     $roleID = $_SESSION['ROLE_ID'];

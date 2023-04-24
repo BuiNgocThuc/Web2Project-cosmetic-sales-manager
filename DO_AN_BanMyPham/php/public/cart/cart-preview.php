@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-include("../connectDB.php");
+include("connectDB.php");
 $db = new ConnectDB();
 $conn = $db->getConnection();
 // Kiểm tra xem người dùng đã đăng nhập chưa
@@ -65,28 +65,7 @@ if (isset($_POST['discount_code'])) {
 
 // Hiển thị thông tin giỏ hàng trên trang web
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Giỏ hàng</title>
-    <link rel='shortcut icon' href='../image/LOGO.jpg' />
-    <link rel='stylesheet' type='text/css' media='screen' href='../../frontend/css/cart.css'>
-    <link rel="stylesheet" href="../../frontend/css/homepage.css">
-    <link rel="stylesheet" href="../../frontend/css/header.css">
-    <link rel="stylesheet" href="../../frontend/css/footer.css">
-    <link rel="stylesheet" href="../../frontend/LoginForm.css">
-    <link rel="stylesheet" href="../../frontend/Account_Info.css">
-    <link rel="stylesheet" href="../../frontend/introduce.css">
-    <link rel="stylesheet" href="../../frontend/css/style_ListProducts.css">
-    <link rel="stylesheet" href="../../frontend/css/base.css">
-    <link rel="stylesheet" href="../../assets/icons/all.css">
-</head>
-<?php
-include("header.php");
-?>
-<body>
-<div class="cart-container">
+<div class="cart-container" id="cart_preview">
     <div class="cart-items">
     <!-- <h1>Giỏ hàng của bạn</h1> -->
     <table>
@@ -112,25 +91,25 @@ include("header.php");
                         $total += $productPrice * $quantityInCart;
                     ?>
             <tr>
-            <td><img  src="../../image/img/<?php echo  $productimg; ?>" alt="<?php echo $productName;  ?>"></td>
+            <td><img  src="../image/img/<?php echo  $productimg; ?>" alt="<?php echo $productName;  ?>"></td>
                         <td><?php echo $productName; ?></td>
                         <td><?php echo $productPrice; ?> đ</td>
                         <td>
-                            <form action="update_cart.php" method="post">
+                            <div>
                                 <input type="hidden" name="productId" value="<?php echo $productId; ?>">
                                 <input type="hidden" name="action" value="update">
-                                <button type="submit" name="update" class="quantity-button minus" disabled>-</button>
+                                <button name="update" class="quantity-button minus" disabled>-</button>
                                 <input type="text" name="quantity" value="<?php echo $quantityInCart; ?>" class="quantity-input">
-                                <button type="submit" name="update" class="quantity-button plus" disabled>+</button>
-                            </form>
+                                <button name="update" class="quantity-button plus" disabled>+</button>
+                            </div>
                         </td>
                         <td><?php echo $productPrice * $quantityInCart; ?> đ</td>
                         <td>
-                            <form action="update_cart.php" method="post">
+                            <div>
                                 <input type="hidden" name="productId" value="<?php echo $productId; ?>">
                                 <input type="hidden" name="action" value="remove">
-                                <button type="submit" name="remove" class="remove-button">Xóa</button>
-                            </form>
+                                <button  name="remove" class="remove-button">Xóa</button>
+                            </div>
                         </td>
             </tr>
             <?php } ?>
@@ -140,7 +119,7 @@ include("header.php");
             </tr>
         </tbody>
     </table>
-        <a href="product_list.php" class="continue-shopping">Tiếp tục xem sản phẩm</a>
+        <span class="continue-shopping">Tiếp tục xem sản phẩm</span>
   </div>
   <div class="cart-summary">
     <table>
@@ -162,7 +141,7 @@ include("header.php");
         <td>Mã giảm giá:</td>
         <td>
           <input type="text" name="discount_code" placeholder="Nhập mã giảm giá">
-          <button type="submit" name="apply_discount">Áp dụng</button>
+          <button name="apply_discount">Áp dụng</button>
         </td>
       </tr>
       <tr>
@@ -171,12 +150,7 @@ include("header.php");
       </tr>
       </tbody>
     </table>
-    <button type="submit" name="checkout">Thanh toán</button>
+    <button name="checkout">Thanh toán</button>
 </div>
 <!-- </form> -->
 </div>            
-</body>
-<?php
-include("footer.php");
-?>
-</html>

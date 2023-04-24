@@ -1,19 +1,9 @@
 /* CSS cho phần header */
-header {
-    background-color: #c0b9b9;
-    color: #fff;
-    padding: 10px;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-  }
   body {
     font-family: "Dosis", sans-serif;
 }
   /* CSS cho phần main */
-  main {
+  #Blogs {
     display: grid;
     /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
     grid-gap: 20px;
@@ -21,51 +11,51 @@ header {
   }
   
   /* CSS cho phần post */
-  .post {
+#Blogs  .post {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
   }
   
-  .post-image {
+#Blogs  .post-image {
     flex: 0 0 auto;
     margin-right: 20px;
   }
   
-  .post-image img {
+#Blogs  .post-image img {
     /* width: 150px;
     height: 150px; */
     object-fit: cover;
   }
   
-  .post-content {
+#Blogs  .post-content {
     flex: 1 1 auto;
   }
   
-  .post-title {
+#Blogs  .post-title {
     font-size: 35px;
     margin-bottom: 10px;
     font-family: "Dosis", sans-serif;
     border-width: 3px;
   }
   
-  .post-meta {
+#Blogs  .post-meta {
     font-size: 29px;
     color: #888;
     margin-bottom: 10px;
   }
   
-  .post-meta span {
+#Blogs  .post-meta span {
     margin-right: 10px;
   }
   
-  .post-summary {
+#Blogs  .post-summary {
     font-size: 21px;
     line-height: 1.5;
     margin-bottom: 10px;
   }
   
-  .post-read-more {
+#Blogs  .post-read-more {
     font-size: 21px;
     color: #333;
     text-decoration: none;

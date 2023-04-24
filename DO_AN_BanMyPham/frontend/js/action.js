@@ -777,19 +777,35 @@ const SearchInfo = (id) => {
     case "Product":
       let idProduct = $(".ID_PRODUCT_SEARCH").val()?.toLowerCase();
       let nameProduct = $(".NAME_PRODUCT_SEARCH").val()?.toLowerCase();
-      let statusProduct = $(".STATUS_PRODUCT_SEARCH").attr("data-content")?.toLowerCase();
+      let statusProduct = $(".STATUS_PRODUCT_SEARCH")
+        .attr("data-content")
+        ?.toLowerCase();
       let brandProduct = $(".BRAND_PRODUCT_SEARCH").val()?.toLowerCase();
       let categoryProduct = $(".CATEGORY_PRODUCT_SEARCH").val()?.toLowerCase();
-      
-      $("tbody tr").filter(function () {
-        let idMatch = !idProduct || $(this).find("td:eq(1)").text().toLowerCase() === idProduct;
-        let nameMatch = !nameProduct || $(this).find("td:eq(2)").text().toLowerCase() === nameProduct;
-        let statusMatch = !statusProduct || $(this).find("td:eq(9)").text().toLowerCase() === statusProduct;
-        let brandMatch = !brandProduct || $(this).find("td:eq(3)").text().toLowerCase() === brandProduct;
-        let categoryMatch = !categoryProduct || $(this).find("td:eq(4)").text().toLowerCase() === categoryProduct;
-        
-        return idMatch && nameMatch && statusMatch && brandMatch && categoryMatch;
-      }).addClass("show");
+
+      $("tbody tr")
+        .filter(function () {
+          let idMatch =
+            !idProduct ||
+            $(this).find("td:eq(1)").text().toLowerCase() === idProduct;
+          let nameMatch =
+            !nameProduct ||
+            $(this).find("td:eq(2)").text().toLowerCase() === nameProduct;
+          let statusMatch =
+            !statusProduct ||
+            $(this).find("td:eq(9)").text().toLowerCase() === statusProduct;
+          let brandMatch =
+            !brandProduct ||
+            $(this).find("td:eq(3)").text().toLowerCase() === brandProduct;
+          let categoryMatch =
+            !categoryProduct ||
+            $(this).find("td:eq(4)").text().toLowerCase() === categoryProduct;
+
+          return (
+            idMatch && nameMatch && statusMatch && brandMatch && categoryMatch
+          );
+        })
+        .addClass("show");
       $("tbody tr")
         .filter(function () {
           return !$(this).hasClass("show");
@@ -1031,16 +1047,18 @@ const SearchInfo = (id) => {
       break;
   }
 };
-$(document).ready(function(){
-  $('.cart-icon').click(function(e){
-    e.preventDefault();
-    $.ajax({
-      url: 'public/cart.php',
-      success: function(data){
-        $('.cart-content').html(data);
-        $('.cart-overlay').fadeIn();
-      }
-    });
+$(document).on("click", ".cart-icon", function (e) {
+  e.preventDefault();
+  $.ajax({
+    url: "content.php",
+    type: "POST",
+    data: {
+      page: cart,
+    },
+    success: function (data) {
+      $(".cart-content").html(data);
+      $(".cart-overlay").fadeIn();
+    },
   });
 });
 
@@ -1067,11 +1085,11 @@ $(document).on("change", "#create-form #file-input", function () {
   $(this).siblings("label").hide();
 });
 
-$(document).on("change", ".sort-function", function() {
+$(document).on("change", ".sort-function", function () {
   let value = $(this).val();
   let rows = $("tbody tr").get();
 
-  rows.sort(function(a, b) {
+  rows.sort(function (a, b) {
     let nameA = $(a).children(".NAME_OBJECT").eq(0).text().toUpperCase();
     let nameB = $(b).children(".NAME_OBJECT").eq(0).text().toUpperCase();
     if (value === "increase") {
@@ -1086,26 +1104,26 @@ $(document).on("change", ".sort-function", function() {
       return 0;
     }
   });
-  $.each(rows, function(index, row) {
+  $.each(rows, function (index, row) {
     $("table tbody").append(row);
   });
 });
 
-$(document).on("click", ".btnConfirmExport", function() {
+$(document).on("click", ".btnConfirmExport", function () {
   let id = $(this).attr("data-id");
   $.ajax({
     url: "tools/verifyReceipt.php",
     type: "POST",
     data: {
-      idReceipt: id
+      idReceipt: id,
     },
-    success: function(data) {
+    success: function (data) {
       if (data == "success") {
         location.reload();
-        loadPageByAjax('Admin_Order');
-      }else {
+        loadPageByAjax("Admin_Order");
+      } else {
         console.log("error: " + data);
       }
-    }
+    },
   });
 });

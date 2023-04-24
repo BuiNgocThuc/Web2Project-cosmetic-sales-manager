@@ -1,4 +1,4 @@
-.product-details {
+#product_details {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -7,41 +7,41 @@
   width: 80%;
 }
 
-.product-images img {
+#product_details .product-images img {
   max-width: 100%;
   height: auto;
   margin-bottom: 30px;
 }
 
-.product-info {
+#product_details .product-info {
   width: 60%;
   margin-left: 50px;
 }
 
-.product-name {
+#product_details .product-name {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-.product-price {
+#product_details .product-price {
   font-size: 28px;
   font-weight: 700;
   color: #c94f5c;
   margin-bottom: 20px;
 }
 
-.product-description {
+#product_details .product-description {
   font-size: 16px;
   margin-bottom: 20px;
 }
 
-.product-features li {
+#product_details .product-features li {
   font-size: 16px;
   margin-bottom: 10px;
 }
 
-.add-to-cart-button {
+#product_details .add-to-cart-button {
   background-color: #c94f5c;
   border: none;
   color: #fff;
@@ -53,19 +53,20 @@
   transition: all 0.2s ease-in-out;
 }
 
-.add-to-cart-button:hover {
+#product_details .add-to-cart-button:hover {
   background-color: #b43e4b;
 }
-.similar-products {
+
+#product_details .similar-products {
   margin-top: 50px;
 }
 
-.similar-products h2 {
+#product_details .similar-products h2 {
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-.similar-products-list {
+#product_details .similar-products-list {
   /* display: flex; */
   /* white-space: nowrap;
   flex-wrap: wrap; */
@@ -74,61 +75,61 @@
   display: flex;
   /* flex-wrap: wrap; */
   justify-content: left;
-} 
+}
 
-.similar-product {
+#product_details .similar-product {
   margin-right: 10px;
   width: 23%;
   margin: 0 10px;
   margin-bottom: 20px;
 }
 
-.similar-product a {
+#product_details .similar-product a {
   text-decoration: none;
   color: #333;
 }
 
-.similar-product img {
+#product_details .similar-product img {
   width: 150px;
   height: 150px;
   margin-bottom: 10px;
 }
 
-.similar-product p {
+#product_details .similar-product p {
   margin: 0;
 }
 
 @media (min-width: 1025px) {
   .h-custom {
-  height: 100vh !important;
+    height: 100vh !important;
   }
-  }
-  
-  .card-registration .select-input.form-control[readonly]:not([disabled]) {
+}
+
+#product_details .card-registration .select-input.form-control[readonly]:not([disabled]) {
   font-size: 1rem;
   line-height: 2.15;
   padding-left: .75em;
   padding-right: .75em;
-  }
-  
-  .card-registration .select-arrow {
+}
+
+#product_details .card-registration .select-arrow {
   top: 13px;
-  }
-  
-  .bg-grey {
+}
+
+#product_details .bg-grey {
   background-color: #eae8e8;
-  }
-  
-  @media (min-width: 992px) {
+}
+
+@media (min-width: 992px) {
   .card-registration-2 .bg-grey {
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
   }
-  }
-  
-  @media (max-width: 991px) {
+}
+
+@media (max-width: 991px) {
   .card-registration-2 .bg-grey {
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
   }
-  }
+}

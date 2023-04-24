@@ -5,6 +5,7 @@
 }
 
 #Account_Info {
+    font-family: "Dosis", sans-serif;
     width: 100vw;
     padding: .8rem 5rem;
     display: flex;

@@ -4,7 +4,6 @@
 // $cssDir = $currentDir . '/frontend/css/';
 if (isset($_GET['pid'])) {
     $id = $_GET['pid'];
-    // echo $id;
 } else {
     // Nếu không có tham số truyền vào, chuyển hướng về trang btbt
     echo 'ko co id chuyen vao';
@@ -18,7 +17,7 @@ include("../connectDB.php");
 $sql = "SELECT p.PRODUCT_ID, p.NAME_PRO, p.PRICE_PRO, p.SLIDESHOW, p.IMG_PRO, c.NAME_CAT, b.NAME_BRAND 
 FROM products p JOIN category c ON p.CATEGORY_ID = c.CATEGORY_ID JOIN brands b ON p.BRAND_ID = b.BRAND_ID AND PRODUCT_ID = '$id'";
 $db = new ConnectDB();
-$result = $db->connection($sql);                    
+$result = $db->connection($sql);
 // $result = $conn->query($sql);
 // Kiểm tra có sản phẩm hay không
 if ($result->num_rows == 0) {
@@ -34,45 +33,28 @@ $product = $result->fetch_assoc();
 // Đóng kết nối cơ sở dữ liệu
 // $conn->close();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title><?php echo $product['NAME_PRO']; ?></title>
-    <link rel='stylesheet' type='text/css' media='screen' href='../frontend/css/product_details.css'>
-    <script src="../frontend/js/admin.js"></script>
-    <link rel="stylesheet" href="../frontend/css/header.css">
-    <script src="../frontend/js/LoadPage.js"></script>
-    <script src="../frontend/js/slideshow.js"></script>
-    <script src="../frontend/js/login.js"></script>
-    <script src="../frontend/js/display.js"></script>
-    <link rel='stylesheet' type='text/css' media='screen' href='../frontend/css/homepage.css'>
-</head>
-<body>
-    <div id= "product_details" class="product-details">
-        <img class="product-images" src="../image/img/<?php echo $product['IMG_PRO']; ?>" alt="<?php echo $product['NAME_PRO']; ?>">
-        <div class="product-info">
-            <h1 class="product-name"><?php echo $product['NAME_PRO']; ?></h1>
-            <p class="product-description">
-                <?php echo $product['SLIDESHOW']; ?>
-            </p>
-            <p class="product-price">Giá: <?php echo number_format($product['PRICE_PRO']); ?> đ</p>
-            <p class="product-brand" style="display: inline-block;" ><?php echo $product['NAME_BRAND']; ?></p> <span>, </span>
-            <p class="product-brand"  style="display: inline-block;"><a href="#"></a><?php echo $product['NAME_CAT']; ?></a></p>
-            <form method="post" action="public/add_to_cart.php">
-                <input type="hidden" name="product_id" value="<?php echo $product['PRODUCT_ID']; ?>">
-                <label for="quantity">Quantity:</label>
-                <input type="number" name="quantity" id="quantity" value="1" min="1">
-                <button type="submit" class="add-to-cart-button">Add to Cart</button>
-            </form>
-            <ul class="product-features">
-                <li>Contains a highly concentrated amount of niacinamide (vitamin B3) for maximum results</li>
-                <li>Antioxidants and skin-replenishing ingredients help visibly improve fine lines, wrinkles, and uneven skin tone</li>
-                <li>Lightweight, serum texture absorbs quickly into skin</li>
-                <li>Fragrance-free, colorant-free, and formulated without drying alcohols</li>
-            </ul>
+<div id="product_details" class="product-details">
+    <img class="product-images" src="../image/img/<?php echo $product['IMG_PRO']; ?>" alt="<?php echo $product['NAME_PRO']; ?>">
+    <div class="product-info">
+        <h1 class="product-name"><?php echo $product['NAME_PRO']; ?></h1>
+        <p class="product-price">Giá: <?php echo number_format($product['PRICE_PRO']); ?> đ</p>
+        <p class="product-brand" style="display: inline-block;"><?php echo $product['NAME_BRAND']; ?></p> <span>, </span>
+        <p class="product-brand" style="display: inline-block;"><a href="#"></a><?php echo $product['NAME_CAT']; ?></a></p>
+        <div>
+            <input type="hidden" id="productID" name="product_id" value="<?php echo $product['PRODUCT_ID']; ?>">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" value="1" min="1">
+            <button class="add-to-cart-button" onclick="addProductToCart()">Add to Cart</button>
         </div>
+        <ul class="product-features">
+            <li>Contains a highly concentrated amount of niacinamide (vitamin B3) for maximum results</li>
+            <li>Antioxidants and skin-replenishing ingredients help visibly improve fine lines, wrinkles, and uneven skin tone</li>
+            <li>Lightweight, serum texture absorbs quickly into skin</li>
+            <li>Fragrance-free, colorant-free, and formulated without drying alcohols</li>
+        </ul>
     </div>
-    <!-- <div class="featured-products">
+</div>
+<!-- <div class="featured-products">
         <h2 class="title">Sản phẩm nổi bật</h2>
         <div class="slider">
             <div class="box-item">
@@ -181,5 +163,3 @@ $product = $result->fetch_assoc();
             </div>
         </div>
     </div> -->
-</body>
-</html>

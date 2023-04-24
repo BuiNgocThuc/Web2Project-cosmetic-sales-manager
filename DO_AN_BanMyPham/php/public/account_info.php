@@ -2,7 +2,7 @@
         <div class="sidebar">
             <div class="user__account">
                 <div class="thumbnail__avatar">
-                    <img src="https://lh3.googleusercontent.com/a/AGNmyxZ0Q7udVKfmG_qOGOeXnQ_nyQdaFEhF_-53cicf=s96-c"
+                    <img src="../image/avatar.png"
                         alt="">
                 </div>
                 <!-- <i class="fa-thin fa-user"></i> -->
@@ -25,7 +25,7 @@
             <div class="information">
                 <div class="avatar__frame">
                     <div class="avatar__img">
-                        <img src="https://lh3.googleusercontent.com/a/AGNmyxZ0Q7udVKfmG_qOGOeXnQ_nyQdaFEhF_-53cicf=s96-c"
+                        <img src="../image/avatar.png"
                             alt="">
                     </div>
                     <button>Chọn ảnh</button>
@@ -53,7 +53,7 @@
                         </div>
                         <!-- <div class="message"></div> -->
                     </div>
-                    <div class="form-group radio-group">
+                    <!-- <div class="form-group radio-group">
                         <label class="form-label">Giới tính:</label>
                         <div class="form-radio">
                             <div class="ccs-radio">
@@ -69,7 +69,7 @@
                         <div class="form-input"><input name="birthday" type="date" class="form-control" min="1000-01-01"
                                 max="3029-12-31" value="">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label class="form-label">Địa chỉ</label>
                         <div class="form-input" ><input name="address" type="text" class="form-control" placeholder="Nhập địa chỉ email" value=""></div>

@@ -34,11 +34,11 @@
             </div>
         </div>
         <div class="icon__commerce">
-            <div id="cart-icon">
+            <div id="cart-icon" onclick="loadPageUser('Cart')">
                 <div class="cart__icon">
                     <i class="fa-duotone fa-cart-shopping"></i>
                 </div>
-                <a href="public/cart-preview.php" class="cart-icon" >Giỏ Hàng</a>
+                <span class="cart-icon">Giỏ Hàng</span>
             </div>
             <div class="user">
                 <!-- <div class="user__icon" onclick="Login('Login')">
