@@ -1,8 +1,9 @@
 <?php
     include 'connect_Database.php';
-
     if(isset($_GET['producted'])) {
-        $sql = "SELECT products.IMG_PRO, products.NAME_PRO, brands.NAME_BRAND, products.PRICE_PRO FROM products INNER JOIN brands ON products.BRAND_ID = brands.BRAND_ID";
+        echo $_GET['producted'];
+        $sql = "SELECT * FROM cart WHERE";
+        echo $sql;
         $result = mysqli_query($conn, $sql);
     
         if(mysqli_num_rows($result) > 0) {

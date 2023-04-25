@@ -199,6 +199,12 @@
     <div class="list-container">
         <div class="title-list">
             <h3>danh sách sản phẩm</h3>
+            <select class="sort-function object-sort">
+                <option value="">cột muốn sắp xếp</option>
+                <option value="NAME_OBJECT">tên sản phẩm</option>
+                <option value="BRAND_OBJECT">thương hiệu</option>
+                <option value="CATEGORY_OBJECT">danh mục</option>
+            </select>
             <select class="sort-function">
                 <option value="">Sắp xếp theo tiêu đề</option>
                 <option value="increase">Sắp xếp tăng dần</option>

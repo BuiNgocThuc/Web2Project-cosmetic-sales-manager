@@ -42,11 +42,11 @@
                 <div class="image-item">
                     <img src="../image/img/' . $row['IMG_PRO'] . '" alt="">
                 </div>
-                <div class="info-item">
+                <div class="info-item" data-content="' . $row['PRODUCT_ID'] . '">
                     <p class="name-item">' . $row['NAME_PRO'] . '</p>
                     <div class="price-item">
-                        <span class="old-price price">' . $row['PRICE_PRO'] . '<sup>₫</sup></span>
-                        <span class="new-price price">' . ($row['PRICE_PRO'] * (1 - 10 / 100)) . '<sup>₫</sup></span>
+                        <span class="old-price price">' . ($row['PRICE_PRO'] * 110 / 100) . '<sup>₫</sup></span>
+                        <span class="new-price price">' . $row['PRICE_PRO'] . '<sup>₫</sup></span>
                     </div>
                     <button class="btnAdd-cart">Thêm vào giỏ hàng</button>
                 </div>
@@ -87,20 +87,20 @@
         <div class="new-arrivals">
             <h2 class="title">Sản phẩm mới</h2>
             <div class="new-product-slider">
-            <?php
-            require_once("connectDB.php");
-            $db = new ConnectDB();
-            $sql = "SELECT * FROM products WHERE NEW_ARRIVALS = 1";
-            $result = $db->connection($sql);
-            while ($row = mysqli_fetch_array($result)) {
-                echo '<div class="item">
+                <?php
+                require_once("connectDB.php");
+                $db = new ConnectDB();
+                $sql = "SELECT * FROM products WHERE NEW_ARRIVALS = 1";
+                $result = $db->connection($sql);
+                while ($row = mysqli_fetch_array($result)) {
+                    echo '<div class="item">
                 <div class="image-item">
                     <img src="../image/img/' . $row['IMG_PRO'] . '" alt="">
                 </div>
                 <button class="quick-view">Xem nhanh</button>
             </div>';
-            }
-            ?>
+                }
+                ?>
             </div>
         </div>
         <div class="introduce-demo">

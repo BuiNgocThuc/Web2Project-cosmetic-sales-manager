@@ -1085,12 +1085,16 @@ $(document).on("change", "#create-form #file-input", function () {
   $(this).siblings("label").hide();
 });
 
+//sort
 $(document).on("change", ".sort-function", function () {
   let value = $(this).val();
+  let objectSort = $(".object-sort").val();
   let rows = $("tbody tr").get();
 
   rows.sort(function (a, b) {
-    let nameA = $(a).children(".NAME_OBJECT").eq(0).text().toUpperCase();
+    let nameA = $(a).children().filter(function() {
+      return $(this).attr("class") == objectSort;
+    }).eq(0).text().toUpperCase();
     let nameB = $(b).children(".NAME_OBJECT").eq(0).text().toUpperCase();
     if (value === "increase") {
       if (nameA < nameB) return -1;

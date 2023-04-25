@@ -73,6 +73,9 @@ if (isset($_POST["page"])) {
         case "Cart":
             include 'public/cart/cart-preview.php';
             break;
+        case "Payment":
+            include 'public/payment/Payments.php';
+            break;
         default:
             echo `<h1>Page not found 404</h1>`;
     }

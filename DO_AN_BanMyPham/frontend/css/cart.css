@@ -20,7 +20,15 @@
   border-radius: 4px;
 }
 
-#cart_preview /* Cart container */
+#cart_preview input[type="number"] {
+  padding: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  outline: none;
+}
+
+#cart_preview
+
+/* Cart container */
 .cart-container {
   display: flex;
   justify-content: space-between;
@@ -28,9 +36,11 @@
   margin: 1rem;
 }
 
-#cart_preview /* Cart items */
+#cart_preview
+
+/* Cart items */
 .cart-items {
-  flex: 3;
+  padding: 0 3rem;
 }
 
 #cart_preview .cart-items h1 {
@@ -40,12 +50,17 @@
 #cart_preview table {
   width: 100%;
   border-collapse: collapse;
+  margin: 1.5rem 0;
 }
 
 #cart_preview th,
 td {
   padding: 0.5rem;
   border: 1px solid #ccc;
+}
+
+#cart_preview tbody td {
+  text-align: center;
 }
 
 #cart_preview th {
@@ -80,18 +95,28 @@ td {
 }
 
 #cart_preview .remove-button {
-  background-color: #f44336;
-  color: #fff;
+  padding: .5rem 1rem;
+  color: white;
+  background: #000;
+  outline: none;
+  display: block;
+  border: none;
+  border-radius: 4px;
+  margin: 0 auto;
 }
 
 #cart_preview .remove-button:hover {
-  background-color: #d32f2f;
+  opacity: 0.8;
 }
 
-#cart_preview /* Cart summary */
+#cart_preview
+
+/* Cart summary */
 .cart-summary {
-  flex: 1;
-  margin-left: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3.2rem;
 }
 
 #cart_preview .cart-summary table {
@@ -107,22 +132,7 @@ td {
   font-weight: bold;
 }
 
-#cart_preview input[name="discount_code"] {
-  width: 150px;
-}
-
-#cart_preview button[name="apply_discount"] {
-  background-color: #000;
-  color: #fff;
-  margin-left: 0.5rem;
-}
-
-#cart_preview button[name="apply_discount"]:hover {
-  background-color: #4CAF50;
-}
-
 #cart_preview button[name="checkout"] {
-  margin-top: 1rem;
   padding: 0.5rem 1rem;
   background-color: #000;
   color: #fff;
@@ -131,5 +141,22 @@ td {
 }
 
 #cart_preview button[name="checkout"]:hover {
-  background-color: #000;
+  opacity: 0.8;
+}
+
+#cart_preview .cart-summary .continue-shopping {
+  font-size: 1.2rem;
+  color: #000;
+  text-decoration: underline;
+  text-align: center;
+  cursor: pointer;
+}
+
+#cart_preview .cart-summary .continue-shopping:hover {
+  opacity: 0.8;
+  color: rgb(15, 121, 170);
+}
+
+#cart_preview .cart-summary .continue-shopping i {
+  margin-right: 0.5rem;
 }

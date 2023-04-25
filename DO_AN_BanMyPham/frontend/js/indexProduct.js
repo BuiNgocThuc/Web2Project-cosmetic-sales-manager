@@ -105,31 +105,34 @@ $(document).on("click", ".navbar .product", function () {
     })
 
     // Payment
-    $.ajax({
-        url: 'public/payment/Pay_fetch_data.php',
-        method: 'GET',
-        data: {
-            producted: 1
-        },
-        success: function (data) {
-            $('#product__pay').html(data);
-        }
-    })
+    // $(document).on("click", "#btnPayment", function () {
+        
+    //     $.ajax({
+    //         url: 'public/payment/Pay_fetch_data.php',
+    //         method: 'GET',
+    //         data: {
+    //             producted: 1
+    //         },
+    //         success: function (data) {
+    //             $('#product__pay').html(data);
+    //         }
+    //     })
+    // 
 
     // Button continue buy
-    $(document).on('click', '#infoClient__btn--buy', function (e) {
-        var btn_continue = $(this).val();
-        $.ajax({
-            url: 'public/products/indexListProducts.php',
-            method: 'GET',
-            data: {
-                btn_continue: btn_continue
-            },
-            success: function (data) {
-                window.location = 'public/products/indexListProducts.php';
-            }
-        })
-    })
+    // $(document).on('click', '#infoClient__btn--buy', function (e) {
+    //     var btn_continue = $(this).val();
+    //     $.ajax({
+    //         url: 'public/products/indexListProducts.php',
+    //         method: 'GET',
+    //         data: {
+    //             btn_continue: btn_continue
+    //         },
+    //         success: function (data) {
+    //             window.location = 'public/products/indexListProducts.php';
+    //         }
+    //     })
+    // })
 
     // Order history
     $(document).on('click', '.btn--pay', function (e) {

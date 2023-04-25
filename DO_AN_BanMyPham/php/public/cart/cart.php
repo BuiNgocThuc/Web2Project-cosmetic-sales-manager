@@ -7,13 +7,14 @@ $db = new ConnectDB();
 // Kiểm tra xem người dùng đã đăng nhập chưaq
 if (!isset($_SESSION['USERNAME'])) {
   // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
-  header('Location: login.php');
+  echo 'error';
   exit();
 } else {
   $user_id = $_SESSION['USERNAME'];
   $product_id = $_POST['productID'];
   $quantity = $_POST['quantityProduct'];
   $sql = "SELECT QUANTITY_IN_CART FROM cart WHERE user_id = '" . $user_id . "' AND PRODUCT_ID = '" . $product_id . "'";
+  echo '$sql: ' . $sql . '<br>';
   $result = $db->connection($sql);
   if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
@@ -23,6 +24,7 @@ if (!isset($_SESSION['USERNAME'])) {
     $sql1 = "UPDATE cart
           SET QUANTITY_IN_CART = '" . $newQuantity . "'
           WHERE user_id = '" . $user_id . "' AND PRODUCT_ID = '" . $product_id . "'";
+    echo '$sql1: ' . $sql1 . '<br>';
     $result1 = $db->connection($sql1);
     if ($result1) {
       echo 'success';
@@ -32,6 +34,7 @@ if (!isset($_SESSION['USERNAME'])) {
   } else {
     $sql2 = "INSERT INTO cart (USER_ID, PRODUCT_ID, QUANTITY_IN_CART)
     VALUES ('" . $user_id . "', '" . $product_id . "', '" . $quantity . "')";
+    echo '$sql2: '. $sql2 . '<br>';
     $result2 = $db->connection($sql2);
     if ($result2) {
       echo 'success';
