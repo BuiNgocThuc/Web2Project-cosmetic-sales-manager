@@ -13,11 +13,15 @@
     if ($total_pages > 1) { 
         if ($page > 1) {
             echo    '<li class="pagination-item pagination-item--prev" pageid="' . ($page - 1) . '">
-                        <div class="pagination-item__link pagination-item__fontsize--text">Prev</div>
+                        <div class="pagination-item__link pagination-item__fontsize--text">
+                            <i class="fas fa-angle-left"></i>
+                        </div>
                     </li>';
         } else {
             echo    '<li class="pagination-item pagination-item--prev pagination-item--disabled">
-                        <div class="pagination-item__link pagination-item__fontsize--text">Prev</div>
+                        <div class="pagination-item__link pagination-item__fontsize--text">
+                            <i class="fas fa-angle-left"></i>
+                        </div>
                     </li>';
         }
 
@@ -34,11 +38,15 @@
 
         if ($page < $total_pages) {
             echo    '<li class="pagination-item pagination-item--next" pageid="' . ($page + 1) . '">
-                        <div class="pagination-item__link pagination-item__fontsize--text">Next</div>
+                        <div class="pagination-item__link pagination-item__fontsize--text">
+                            <i class="fas fa-angle-right"></i>
+                        </div>
                     </li>';
         } else {
             echo    '<li class="pagination-item pagination-item--next pagination-item--disabled">
-                        <div class="pagination-item__link pagination-item__fontsize--text">Next</div>
+                        <div class="pagination-item__link pagination-item__fontsize--text">
+                            <i class="fas fa-angle-right"></i>
+                        </div>
                     </li>';
         }
     }
