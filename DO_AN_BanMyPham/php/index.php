@@ -48,6 +48,7 @@ session_start();
     <script src="../frontend/js/login.js"></script>
     <script src="../frontend/js/display.js"></script>
     <script src="../frontend/js/cart.js"></script>
+    <script src="../frontend/js/blogs.js"></script>
     <script src="../frontend/js/indexProduct.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 

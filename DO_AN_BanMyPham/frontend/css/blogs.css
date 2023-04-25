@@ -2,6 +2,7 @@
   body {
     font-family: "Dosis", sans-serif;
 }
+
   /* CSS cho phần main */
   #Blogs {
     display: grid;
@@ -19,12 +20,13 @@
   
 #Blogs  .post-image {
     flex: 0 0 auto;
+    
     margin-right: 20px;
   }
   
 #Blogs  .post-image img {
-    /* width: 150px;
-    height: 150px; */
+    width: 600px;
+    height: 336px;
     object-fit: cover;
   }
   
