@@ -3,6 +3,7 @@
 
     if(isset($_GET['category'])) {
         $sqlc = "SELECT CATEGORY_ID, NAME_CAT FROM category";
+        mysqli_query($conn, "SET NAMES 'utf8'") ;
         $resultc = mysqli_query($conn,$sqlc);
         $id_category = isset($_GET['id_category']) ? $_GET['id_category'] : 0;               
         if(mysqli_num_rows($resultc) > 0){

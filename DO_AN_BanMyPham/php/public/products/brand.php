@@ -4,6 +4,7 @@
     if(isset($_GET['brand'])) {
         $sqlth = "SELECT BRAND_ID, NAME_BRAND FROM brands";
         $resultth =mysqli_query($conn,$sqlth);
+        mysqli_query($conn, "SET NAMES 'utf8'") ;
         $id_brand = isset($_GET['id_brand']) ? $_GET['id_brand']: 0;
         if(mysqli_num_rows($resultth) > 0){
             $stt = 1;

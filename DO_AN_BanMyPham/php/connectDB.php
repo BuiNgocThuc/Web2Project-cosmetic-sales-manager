@@ -1,6 +1,7 @@
 <?php
 class connectDB
     {
+
         public function connection($sql = '')
         {
             $conn = mysqli_connect("localhost", "root", "", "cosmetics");
@@ -12,6 +13,7 @@ class connectDB
         public function getConnection()
         {
             $conn = mysqli_connect("localhost", "root", "", "cosmetics");
+            mysqli_query($conn, "SET NAMES 'utf8'") ;
             return $conn;
         }
     }
