@@ -1,4 +1,8 @@
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 /* Common */
 a {
@@ -145,8 +149,22 @@ select option {
 .listProducts__total {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin: 15px 0;
+    background-color: #eee0dc;
+}
+
+.listProducts__total {
+    padding: 10px 5px;
+}
+
+.listProducts__total-text,
+.listProducts__total-price {
+    margin: 0 10px;
+}
+
+.listProducts__total-price {
+    font-size: 1.4rem;
 }
 
 .listProducts__discount-code {
@@ -163,4 +181,26 @@ select option {
     width: 20%;
     background-color: #000;
     color: #fff;
+}
+
+/* Modal */
+.modal-header {
+    background-color: #eee0dc;
+}
+
+.payments .modal-footer {
+    border-top: none;
+}
+
+.payments .modal-title {
+    font-size: 1.4rem;
+}
+
+.payments .modal-body {
+    font-size: 1.2rem;
+}
+
+/* Payment */
+.payment_width {
+    width: 100%;
 }
