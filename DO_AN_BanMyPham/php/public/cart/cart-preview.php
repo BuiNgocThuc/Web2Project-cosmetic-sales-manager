@@ -17,7 +17,7 @@ $userId = $_SESSION['USERNAME'];
 $sql = "SELECT p.*, c.QUANTITY_IN_CART
         FROM cart c
         INNER JOIN products p ON c.PRODUCT_ID = p.PRODUCT_ID
-        WHERE c.USER_ID = '$userId'";
+        WHERE c.USER_ID = '$userId' AND c.STATUS_CART = 'chưa đặt hàng'";
 $result = $conn->query($sql);
 // echo $sql;
 // Xử lý các thao tác trong giỏ hàng
@@ -43,26 +43,6 @@ if (isset($_POST['action'])) {
   }
   header('Location: public/cart-preview.php');
   exit();
-}
-// Tính tổng tiền và phí vận chuyển
-$subtotal = 0;
-$shippingFee = 0;
-// Tính phí vận chuyển
-if ($subtotal < 500000) {
-  $shippingFee = 20000;
-}
-// Áp dụng mã giảm giá (nếu có)
-$discountAmount  = 0;
-if (isset($_POST['discount_code'])) {
-  $discountCode = $_POST['discount_code'];
-  $sql = "SELECT * FROM discounts WHERE DISCOUNT_ID  = '$discountCode'";
-  $result = $conn->query($sql);
-  if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $discountPercent = $row['DISCOUNT_PERCENT'];
-    $discountAmount = $subtotal * $discountPercent / 100;
-    // $subtotal -= $discountAmount;
-  }
 }
 
 // Hiển thị thông tin giỏ hàng trên trang web
@@ -100,15 +80,14 @@ if (isset($_POST['discount_code'])) {
               <div>
                 <input type="hidden" name="productId" value="<?php echo $productId; ?>">
                 <input type="hidden" name="action" value="update">
-                <input type="number" name="quantity" value="<?php echo $quantityInCart; ?>" class="quantity-input">
+                <input type="number" name="quantity" value="<?php echo $quantityInCart; ?>" class="quantity-input" min="1" data-content="<?php echo $productId; ?>">
               </div>
             </td>
             <td><?php echo $productPrice * $quantityInCart; ?> đ</td>
             <td>
               <div>
                 <input type="hidden" name="productId" value="<?php echo $productId; ?>">
-                <input type="hidden" name="action" value="remove">
-                <button name="remove" class="remove-button">Xóa</button>
+                <button name="remove" class="remove-button" data-content="<?php echo $productId; ?>">Xóa</button>
               </div>
             </td>
           </tr>

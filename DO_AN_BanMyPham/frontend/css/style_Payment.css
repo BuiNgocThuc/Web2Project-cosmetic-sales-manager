@@ -46,8 +46,10 @@ ul li {
 
 .infoClient__btn {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    margin-top: 10px;
     align-items: center;
+    width: 100%;
 }
 
 .infoClient__btnBuy {
@@ -78,7 +80,7 @@ ul li {
 }
 
 .btn--pay {
-    width: 30%;
+    width: 100%;
     color: #fff;
     background-color: #000;
 }
@@ -99,10 +101,12 @@ select option {
 .listProducts {
     flex: 1.2;
     background-color: #d9d9d9;
-    margin: 0 20px;
+    margin: 1.8rem 2rem;
+    padding: 1.2rem;
 }
 
 .container__products {
+    
     margin: 10px 20px;
 }
 

@@ -226,6 +226,53 @@ switch ($_POST['action']) {
                     echo 'error';
                 }
                 break;
+            case 'Export_Receipt':
+                $idCustomer = $_SESSION['USERNAME']; // id khách hàng
+                $sqlCount = "SELECT COUNT(*) FROM export";
+                $num = $db->connection($sqlCount);
+                while ($row = mysqli_fetch_array($num)) {
+                    $id = 'EX' . ($row['COUNT(*)'] + 1); // id hóa đơn xuất
+                }
+                $discountID = $_POST['discountID']; // id khuyến mãi
+                $totalPrice = $_POST['totalPrice']; // tổng tiền
+                $sql = "INSERT INTO export (`EXPORT_ID`, `CUSTOMER_ID`, `DISCOUNT_ID`, `TOTAL`, `STATUS_EX`)
+                        VALUES ('" . $id . "', '" . $idCustomer . "', '" . $discountID . "', '" . $totalPrice . "', 'đang chờ');";
+                $result = $db->connection($sql);
+                echo $id;
+                break;
+            case 'Export_Detail':
+                $idCustomer = $_SESSION['USERNAME']; // id khách hàng
+                $idExport = $_POST['orderID']; // id hóa đơn xuất
+                $idProduct = $_POST['productID']; // id sản phẩm
+                $quantity = $_POST['productQuantity']; // số lượng
+                $price = $_POST['productPrice']; // đơn giá xuất
+                $sql = "INSERT INTO export_detail (`EXPORT_ID`, `PRODUCT_ID`, `QUANTITY_EX`, `UNIT_PRICE_EX`)
+                        VALUES ('" . $idExport . "', '" . $idProduct . "', '" . $quantity . "', '" . $price . "');";
+                $result = $db->connection($sql);
+                if ($result) {
+                    $sql1 = "SELECT * FROM products WHERE PRODUCT_ID = '" . $idProduct . "'";
+                    $result1 = $db->connection($sql1);
+                    while ($row = mysqli_fetch_array($result1)) {
+                        $quantityOld = $row['QUANTITY_PRO'];
+                    }
+                    $quantityNew = $quantityOld - $quantity;
+                    $sql2 = "UPDATE products
+                            SET QUANTITY_PRO = '" . $quantityNew . "' 
+                            WHERE PRODUCT_ID = '" . $idProduct . "';";
+                    $result2 = $db->connection($sql2);
+                    if ($result2) {
+                        echo 'success';
+                        $sql3 = "UPDATE cart
+                                SET STATUS_CART = 'đã thanh toán'
+                                WHERE USER_ID = '" . $idCustomer . "';";
+                        $result3 = $db->connection($sql3);
+                    } else {
+                        echo 'error';
+                    }
+                } else {
+                    echo 'error';
+                }
+                break;
         }
         break;
     case 'update':
