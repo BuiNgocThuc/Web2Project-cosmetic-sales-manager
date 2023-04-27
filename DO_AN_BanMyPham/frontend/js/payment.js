@@ -13,7 +13,7 @@ const discount = () => {
         let price = totalPrice * (1 - discountPercent / 100);
         $(".listProducts__total-price").html(price.toLocaleString("en-US"));
       } else {
-        console.log(data);
+        $(".listProducts__total-price").html(totalPrice.toLocaleString("en-US"));
       }
     },
   });
@@ -70,10 +70,10 @@ const Payment = () => {
       });
     },
   });
-//   if (success) {
-//     alert("Đặt hàng thành công!!");
-//     loadPageByAjax("Admin_Coupon");
-//   } else {
-//     console.log("Đặt hàng thất bại!!");
-//   }
+  if (success) {
+    alert("Đặt hàng thành công!!");
+    loadPageByAjax("Admin_Coupon");
+  } else {
+    console.log("Đặt hàng thất bại!!");
+  }
 };

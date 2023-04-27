@@ -25,6 +25,9 @@ const loadPageUser = (pageTarget) => {
     success: function (data) {
       $(".content").empty();
       $(".content").html(data);
+      if (pageTarget == "Product") {
+        sortProduct(1, 0);
+      }
       abc();
     },
   });
@@ -73,9 +76,12 @@ $(document).on("click", ".btnFix.enable", function (e) {
         return $(this).hasClass(className);
       });
     updateOb.val($(tempVar).html());
-    if($(tempVar).hasClass("IMG_OBJECT")){
+    if ($(tempVar).hasClass("IMG_OBJECT")) {
       console.log($(tempVar).find("img").attr("src"));
-      $("#fix-form #image-preview").attr("src", $(tempVar).find("img").attr("src"));
+      $("#fix-form #image-preview").attr(
+        "src",
+        $(tempVar).find("img").attr("src")
+      );
     }
     tempVar = $(tempVar).next();
   }
@@ -243,11 +249,11 @@ $(document).on("click", ".btnCancel", function (e) {
 });
 
 $(document).on("click", "#notify", function (e) {
-  if(e.target.id !== "notify") return;
-  if($(this).find(".notification").hasClass("show")){
+  if (e.target.id !== "notify") return;
+  if ($(this).find(".notification").hasClass("show")) {
     $(this).find(".notification").removeClass("show");
     return;
-  }else {
+  } else {
     $(this).find(".notification").addClass("show");
   }
 });

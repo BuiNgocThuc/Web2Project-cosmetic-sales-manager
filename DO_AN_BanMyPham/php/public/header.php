@@ -17,7 +17,7 @@
         </div>
         <div class="center__header">
             <div class="search__bar">
-                <input type="text" placeholder="tìm sản phẩm bạn mong muốn.... ">
+                <input class="Search_Navbar" type="text" placeholder="tìm sản phẩm bạn mong muốn.... " value="">
                 <button class="search__icon">
                     <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
                 </button>
