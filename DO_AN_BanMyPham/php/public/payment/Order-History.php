@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../assets/icon/themify-icons/themify-icons.css">
 
 </head>
-<body>
+<body style="background-color: #f5f5f5;">
     <div class="order-history">
         <ul class="order-history__container">
             <li class="order-history__container__item">
@@ -42,8 +42,8 @@
                 </div>
 
                 <div class="order-history__product">
-                    <ul class="order-history__product__listPro" id="">
-                        <li class="order-history__product__items">
+                    <div class="order-history__product__listPro" id="">
+                        <div class="order-history__product__items">
                             <img src="../assets/img/imgproduct_10.jpg" alt=""
                                 class="order-history__product__items__img">
                             <div class="order-history__product__items__content">
@@ -58,8 +58,8 @@
                                 <span class="order-history__product__item__old--price">200.000d</span>
                                 <span class="order-history__product__item__current--price">140.000d</span>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="order-history__container__item__total">
                     <div class="order-history__container__item__total--container">
