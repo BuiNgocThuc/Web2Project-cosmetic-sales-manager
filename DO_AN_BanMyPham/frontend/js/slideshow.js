@@ -2,9 +2,9 @@
 
 //slider featured product 
 $(document).ready(function () {
-    abc();
+    slideshow();
 });
-function abc() {
+function slideshow() {
     $('.slider').slick({
         infinite: true,
         speed: 500,

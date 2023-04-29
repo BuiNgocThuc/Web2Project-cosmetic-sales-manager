@@ -19,6 +19,9 @@ if (isset($_POST["page"])) {
         case "Admin_Order":
             include 'admin/Admin_Order.php';
             break;
+        case "Order_Products":
+            include 'admin/Admin_Order_Product.php';
+            break;
         case "Admin_Coupon":
             include 'admin/Admin_Coupon.php';
             break;
@@ -75,6 +78,25 @@ if (isset($_POST["page"])) {
             break;
         case "Payment":
             include 'public/payment/Payments.php';
+            break;
+        case 'Header':
+            include 'public/header.php';
+            break;
+        case 'Admin_Notify':
+            include 'admin/Admin_Notify_Orders.php';
+            break;
+        case 'Admin_Account':
+            include 'admin/Admin_AccountInfo.php';
+            break;
+        case 'Admin_Password':
+            include 'admin/Admin_Password.php';
+            break;
+        case 'Statistic':
+            include 'tools/Statistic.php';
+            break;
+        case 'Admin_Sidebar':
+            session_start();
+            include 'admin/Admin_User_Info.php';
             break;
         default:
             echo `<h1>Page not found 404</h1>`;

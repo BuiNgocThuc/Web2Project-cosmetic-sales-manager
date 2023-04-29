@@ -12,10 +12,14 @@ const loadPageByAjax = (pageTarget) => {
     success: function (data) {
       $("#content").html(data);
       $(".current-page").html($(data).attr("data-content"));
+      if(pageTarget == "Admin_Statistic"){
+        statistic();
+      }
     },
   });
 };
 
+//load page user
 const loadPageUser = (pageTarget) => {
   $.ajax({
     url: "../php/content.php",
@@ -28,7 +32,48 @@ const loadPageUser = (pageTarget) => {
       if (pageTarget == "Product") {
         sortProduct(1, 0);
       }
-      abc();
+      slideshow();
+    },
+  });
+};
+
+const loadPageNotify = (pageTarget) => {
+  $.ajax({
+    url: "../php/content.php",
+    type: "POST",
+    data: { page: pageTarget },
+    dataType: "html",
+    success: function (data) {
+      $("#notify").empty();
+      $("#notify").html(data);
+      $(".notification").addClass("show");
+    },
+  });
+};
+
+const loadHeader = (pageTarget) => {
+  $.ajax({
+    url: "../php/content.php",
+    type: "POST",
+    data: { page: pageTarget },
+    dataType: "html",
+    success: function (data) {
+      $(".header").empty();
+      $(".header").html(data);
+    },
+  });
+};
+
+const loadSideMenu = (pageTarget) => {
+  $.ajax({
+    url: "../php/content.php",
+    type: "POST",
+    data: { page: pageTarget },
+    dataType: "html",
+    success: function (data) {
+      console.log(data);
+      $(".user").empty();
+      $(".user").html(data);
     },
   });
 };
@@ -196,8 +241,24 @@ $(document).on("click", ".btnFixCoupon", function (e) {
     type: "POST",
     data: { idImport: id },
     success: function (data) {
-      console.log(data);
+      // console.log(data);
       loadPageByAjax("Coupon_Products");
+    },
+  });
+});
+
+//query id export receipt
+$(document).on("click", ".btnViewOrderDetails", function (e) {
+  var tr = $(this).closest("tr");
+  var idObject = $(tr).find(".ID_OBJECT");
+  let id = $(idObject).html();
+  $.ajax({
+    url: "../php/tools/receiveData.php",
+    type: "POST",
+    data: { idExport: id },
+    success: function (data) {
+      console.log(data);
+      loadPageByAjax("Order_Products");
     },
   });
 });
@@ -248,6 +309,7 @@ $(document).on("click", ".btnCancel", function (e) {
   hiddenForm();
 });
 
+// thông báo đơn hàng mới đặt của khách hàng cho nhân viên
 $(document).on("click", "#notify", function (e) {
   if (e.target.id !== "notify") return;
   if ($(this).find(".notification").hasClass("show")) {
@@ -256,4 +318,24 @@ $(document).on("click", "#notify", function (e) {
   } else {
     $(this).find(".notification").addClass("show");
   }
+});
+
+// xóa và hiện thông báo
+
+// show information customer
+$(document).on("click", ".cusInfo", function (e) {
+  $(this).siblings().removeClass("clicked");
+  $(this).addClass("clicked");
+  $(".main__content h3").html("thông tin tài khoản");
+  $(".main__content .information").show();
+  $(".main__content .changePassword").hide();
+});
+
+// show change password
+$(document).on("click", ".changePass", function (e) {
+  $(this).siblings().removeClass("clicked");
+  $(this).addClass("clicked");
+  $(".main__content h3").html("thay đổi mật khẩu");
+  $(".main__content .information").hide();
+  $(".main__content .changePassword").show();
 });

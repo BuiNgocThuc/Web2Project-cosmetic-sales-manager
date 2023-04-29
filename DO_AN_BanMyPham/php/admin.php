@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../frontend/css/admin/admin_coupon.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_order.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_user.css">
-    <link rel="stylesheet" href="../frontend/css/admin/admin_typeuser.css">
+    <link rel="stylesheet" href="../frontend/css/admin/admin_typeUser.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_discount.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_product.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_provider.css">
@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../frontend/css/admin/create_new_role.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_coupon_detail.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_statistic.css">
+    <link rel="stylesheet" href="../frontend/css/admin/admin_account.css">
     <link rel="stylesheet" href="../assets/icons/all.css">
     <title>Admin</title>
 </head>
@@ -39,4 +40,5 @@
 <script src="../frontend/js/login.js"></script>
 <script src="../frontend/js/display.js"></script>
 <script src="../frontend/js/action.js"></script>
+<script src="../frontend/js/sortProduct.js"></script>
 </html>

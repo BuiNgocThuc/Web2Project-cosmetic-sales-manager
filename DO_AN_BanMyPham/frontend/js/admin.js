@@ -76,13 +76,13 @@ function changeIconArrowSidebar(x) {
 
 function changeIconArrow(x) {
     if (x.style.transform == "") {
-        x.style.transform = "rotate(180deg)"
-        x.style.transition = "0.25s linear"
+        x.style.transform = "rotate(1800deg)"
+        x.style.transition = "1s linear"
     }
     else {
         const re = /([0-9]*deg)/g;
         let currentDeg = x.style.transform.match(re)[0];
-        x.style.transform = "rotate(calc(" + currentDeg + " + 180deg))"
+        x.style.transform = "rotate(calc(" + currentDeg + " + 1800deg))"
     }
     // x.classList.toggle("fa-angle-up");
     // x.classList.toggle("fa-angle-down");
@@ -134,3 +134,43 @@ $(document).on('click', '.menu-icon', function (evt) {
     $('.main-content').toggleClass('expand');
 });
 
+//show settings menu 
+$(document).on('click', '#settingTool', function (evt) {
+    $('.setting').toggleClass('clicked');
+});
+
+
+//change password
+$(document).on('click', '.btnUpdatePassword', function() {
+    let oldPassword = $('.oldPassword').val();
+    let newPassword = $('.newPassword').val();
+    let confirmPassword = $('.confirmPassword').val();
+    if (oldPassword == '' || newPassword == '' || confirmPassword == '') {
+        alert('Vui lòng nhập đầy đủ thông tin');
+        return;
+    }
+    if (newPassword != confirmPassword) {
+        alert('Mật khẩu mới không trùng khớp');
+        return;
+    }
+    $.ajax({
+        url: "tools/action.php",
+        method: "POST",
+        data: {
+            oldPassword: oldPassword,
+            password: newPassword,
+            action: "update",
+            id: "customer-password",
+        },
+        success: function(data) {
+            if(data == 'success') {
+                alert('Đổi mật khẩu thành công');
+            } else {
+                alert(data);
+            }
+            $('.oldPassword').val('');
+            $('.newPassword').val('');
+            $('.confirmPassword').val('');
+        }
+    });
+})

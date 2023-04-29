@@ -69,7 +69,7 @@
             </div>
             <div>
                 <label for="">Trạng Thái</label>
-                <input type="checkbox" class="switch STATUS_CATEGORY_SEARCH" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                <input type="checkbox" class="switch STATUS_CATEGORY_SEARCH" data-content="đang hoạt động" onclick="changeDataContent(this)" checked>
             </div>
             <div>
                 <label for=""></label>

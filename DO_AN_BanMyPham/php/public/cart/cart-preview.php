@@ -17,7 +17,7 @@ $userId = $_SESSION['USERNAME'];
 $sql = "SELECT p.*, c.QUANTITY_IN_CART
         FROM cart c
         INNER JOIN products p ON c.PRODUCT_ID = p.PRODUCT_ID
-        WHERE c.USER_ID = '$userId' AND c.STATUS_CART = 'chưa đặt hàng'";
+        WHERE c.USER_ID = '$userId'";
 $result = $conn->query($sql);
 // echo $sql;
 // Xử lý các thao tác trong giỏ hàng

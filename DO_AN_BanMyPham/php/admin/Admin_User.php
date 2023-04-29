@@ -123,7 +123,7 @@
             </div>
             <div>
                 <label for="">Trạng Thái</label>
-                <input type="checkbox" class="switch STATUS_USER_SEARCH" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                <input type="checkbox" class="switch STATUS_USER_SEARCH" data-content="đang hoạt động" checked onclick="changeDataContent(this)">
             </div>
             <div>
                 <label for=""></label>

@@ -112,7 +112,7 @@
             </div>
             <div class="new-status-role">
                 <label for="" class="status-role">Trạng Thái: </label>
-                <input type="checkbox" class="switch STATUS_ROLE" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                <input type="checkbox" class="switch STATUS_ROLE" data-content="đang hoạt động" checked onclick="changeDataContent(this)">
             </div>
             <table class="list-permission">
                 <thead>

@@ -134,7 +134,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
+                <?php
                     include("ConnectDB.php");
                     $db = new ConnectDB();
                     $sql = "SELECT * FROM export
@@ -143,13 +143,14 @@
                     JOIN users AS customer ON customer.USER_ID = export.CUSTOMER_ID";
                     $result = $db->connection($sql);
                     $i = 0;
+        
                     while ($row = mysqli_fetch_array($result)) {
                         echo '
                         <tr>
                         <td>' . $i++ . '</td>
-                        <td>' . $row['EXPORT_ID'] . '</td>
+                        <td class="ID_OBJECT">' . $row['EXPORT_ID'] . '</td>
                         <td>' . $row['CUSTOMER_ID'] . '</td>
-                        <td>' . $row[23] . '</td>
+                        <td>' . $row[22] . '</td>
                         <td>' . $row['EMPLOYEE_ID'] . '</td>
                         <td>' . $row[16] . '</td>
                         <td>' . $row['DATE_CREATE'] . '</td>
@@ -158,7 +159,7 @@
                         <td>' . $row['NAME_DISCOUNT'] . '</td>
                         <td>' . $row['STATUS_EX'] . '</td>
                         <td>
-                            <button class="btnView enable">xem</button>
+                            <button class="btnView enable btnViewOrderDetails">xem</button>
                         </td>
                         </tr>';
                     }

@@ -12,6 +12,11 @@ if (isset($_POST['idImport'])) {
     $_SESSION['IMPORT_ID'] = $_POST['idImport'];
 } 
 
+if (isset($_POST['idExport'])) {
+    echo $_POST['idExport'];
+    $_SESSION['EXPORT_ID'] = $_POST['idExport'];
+} 
+
 if(isset($_POST['idRole'])){
     $idRole = $_POST['idRole'];
     $sql = "SELECT PERMISSION_ID, ACTION FROM role_permissions WHERE ROLE_ID = '" . $idRole . "'";

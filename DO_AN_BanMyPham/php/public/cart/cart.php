@@ -31,8 +31,8 @@ switch ($_POST['action']) {
           echo 'error';
         }
       } else {
-        $sql2 = "INSERT INTO cart (USER_ID, PRODUCT_ID, QUANTITY_IN_CART, STATUS_CART)
-        VALUES ('" . $user_id . "', '" . $product_id . "', '" . $quantity . "', 'chưa đặt hàng')";
+        $sql2 = "INSERT INTO cart (USER_ID, PRODUCT_ID, QUANTITY_IN_CART)
+        VALUES ('" . $user_id . "', '" . $product_id . "', '" . $quantity . "')";
         $result2 = $db->connection($sql2);
         if ($result2) {
           echo 'success';

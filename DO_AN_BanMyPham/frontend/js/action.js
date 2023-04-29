@@ -790,7 +790,7 @@ const SearchInfo = (id) => {
             $(this).find("td:eq(1)").text().toLowerCase() === idProduct;
           let nameMatch =
             !nameProduct ||
-            $(this).find("td:eq(2)").text().toLowerCase() === nameProduct;
+            removeDiacritics($(this).find("td:eq(2)").text()).toLowerCase().includes(removeDiacritics(nameProduct).toLowerCase());
           let statusMatch =
             !statusProduct ||
             $(this).find("td:eq(9)").text().toLowerCase() === statusProduct;
@@ -813,8 +813,8 @@ const SearchInfo = (id) => {
         .hide();
       break;
     case "Brand":
-      let idBrand = $(".ID_BRAND_SEARCH").val().toLowerCase();
-      let nameBrand = $(".NAME_BRAND_SEARCH").val().toLowerCase();
+      let idBrand = $(".ID_BRAND_SEARCH").val()?.toLowerCase();
+      let nameBrand = $(".NAME_BRAND_SEARCH").val()?.toLowerCase();
       let statusBrand = $(".STATUS_BRAND_SEARCH")
         .attr("data-content")
         .toLowerCase();
@@ -1085,34 +1085,8 @@ $(document).on("change", "#create-form #file-input", function () {
   $(this).siblings("label").hide();
 });
 
-//sort
-$(document).on("change", ".sort-function", function () {
-  let value = $(this).val();
-  let objectSort = $(".object-sort").val();
-  let rows = $("tbody tr").get();
 
-  rows.sort(function (a, b) {
-    let nameA = $(a).children().filter(function() {
-      return $(this).attr("class") == objectSort;
-    }).eq(0).text().toUpperCase();
-    let nameB = $(b).children(".NAME_OBJECT").eq(0).text().toUpperCase();
-    if (value === "increase") {
-      if (nameA < nameB) return -1;
-      if (nameA > nameB) return 1;
-      return 0;
-    } else if (value === "decrease") {
-      if (nameA < nameB) return 1;
-      if (nameA > nameB) return -1;
-      return 0;
-    } else {
-      return 0;
-    }
-  });
-  $.each(rows, function (index, row) {
-    $("table tbody").append(row);
-  });
-});
-
+//confirm the orders
 $(document).on("click", ".btnConfirmExport", function () {
   let id = $(this).attr("data-id");
   $.ajax({
@@ -1123,11 +1097,74 @@ $(document).on("click", ".btnConfirmExport", function () {
     },
     success: function (data) {
       if (data == "success") {
-        location.reload();
-        loadPageByAjax("Admin_Order");
+        loadPageNotify("Admin_Notify");
       } else {
         console.log("error: " + data);
       }
     },
   });
 });
+
+//update info customer
+$(document).on("click", ".btnUpdateCustomer", function () {
+  let nameCus = $(".name__customer").val();
+  let phoneCus = $(".phone__customer").val();
+  let addressCus = $(".address__customer").val();
+  let emailCus = $(".email__customer").val();
+  console.log(nameCus, phoneCus, addressCus, emailCus);
+  $.ajax({
+    url: "tools/action.php",
+    type: "POST",
+    data: {
+      action: "update",
+      id: "Customer",
+      nameCus: nameCus,
+      phoneCus: phoneCus,
+      addressCus: addressCus,
+      emailCus: emailCus,
+    },
+    success: function (data) {
+      if (data == "success") {
+        alert("Cập nhật thông tin thành công");
+        loadPageUser("Account_Info");
+        loadHeader('Header');
+      } else {
+        console.log("error: " + data);
+      }
+    }
+  });
+});
+
+//update info employee
+$(document).on("click", ".btnUpdateEmployee", function () {
+  let nameEmp = $(".name__employee").val();
+  let phoneEmp = $(".phone__employee").val();
+  let addressEmp = $(".address__employee").val();
+  let emailEmp = $(".email__employee").val();
+  $.ajax({
+    url: "tools/action.php",
+    type: "POST",
+    data: {
+      action: "update",
+      id: "Employee",
+      nameEmp: nameEmp,
+      phoneEmp: phoneEmp,
+      addressEmp: addressEmp,
+      emailEmp: emailEmp,
+    },
+    success: function (data) {
+      if (data == "success") {
+        alert("Cập nhật thông tin thành công");
+        loadPageByAjax("Admin_Account");
+        loadSideMenu("Admin_Sidebar");
+      } else {
+        console.log("error: " + data);
+      }
+    }
+  });
+});
+
+// bỏ qua dấu tiếng việt
+const removeDiacritics = function (str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+};

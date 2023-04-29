@@ -371,7 +371,7 @@ body::-webkit-scrollbar-thumb{
     background: var(--main);
 }
 
-.main-content header .tool-icon i:hover .setting {
+.main-content header .tool-icon i .setting.clicked {
     opacity: 1;
     visibility: visible;
     transform: translate(0, 50%);
@@ -394,7 +394,7 @@ body::-webkit-scrollbar-thumb{
 .main-content header .tool-icon i .notification.show {
     visibility: visible;
     opacity: 1;
-    transform: translate(0, 19%);
+    transform: translate(0, 50%);
 }
 
 .main-content header .tool-icon i .notification li {
@@ -410,7 +410,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 .main-content header .tool-icon i .notification li:hover {
-    background: #eeeeee;
+    background: #6b6a6a;
 }
 
 .main-content header .tool-icon i .notification li button {

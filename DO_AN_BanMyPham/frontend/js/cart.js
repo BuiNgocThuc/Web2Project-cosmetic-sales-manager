@@ -12,7 +12,7 @@ const addProductToCart = () => {
     },
     success: function (data) {
       if (data != "success") {
-        alert("Bạn cần đăng nhập để thêm giỏ hàng");
+        alert("Bạn cần đăng nhập để thêm giỏ hàng" + data);
         Login();
       } else {
         alert("Thêm vào giỏ hàng thành công");

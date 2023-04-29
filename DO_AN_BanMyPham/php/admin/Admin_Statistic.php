@@ -7,23 +7,24 @@
         <div class="fix-info">
             <div>
                 <label for="">Ngày bắt đầu</label>
-                <input class="textfield" type="date">
+                <input class="textfield START_DATE" type="date">
             </div>
             <div>
                 <label for="">Ngày kết thúc</label>
-                <input class="textfield START_DATE" type="date">
-                <?php
+                <input class="textfield END_DATE" type="date">
+                <!-- <?php
                 echo '<script>
                         $(document).ready(function() {
                             var currentDate = new Date().toISOString().slice(0,10); // lấy ngày hiện tại theo định dạng yyyy-mm-dd
-                            $(".form-container .START_DATE").val(currentDate);
+                            $(".form-container .END_DATE").val(currentDate);
                         });
                     </script>';
-                ?>
+                ?> -->
             </div>
             <div>
                 <label for="">danh mục</label>
-                <select name="" class="textfield">
+                <select name="" class="textfield CATEGORY_OBJECT">
+                    <option value="">Tất cả sản phẩm</option>
                     <?php
                     require("ConnectDB.php");
                     $db = new ConnectDB();
@@ -36,12 +37,8 @@
                 </select>
             </div>
             <div>
-                <label for="">sản phẩm bán chạy</label>
-                <input class="textfield" type="number">
-            </div>
-            <div>
                 <label for=""></label>
-                <button class="btn btn--Search">Tìm Kiếm</button>
+                <button class="btn btn--Search" onclick="statistic()">Tìm Kiếm</button>
                 <button class="btn btn--Undo">Hoàn Tác</button>
             </div>
         </div>
@@ -49,6 +46,15 @@
     <div class="list-container">
         <div class="title-list">
             <h3>danh sách thống kê sản phẩm</h3>
+            <div class="sort_by_top">
+                <label for="">sản phẩm bán chạy</label>
+                <?php
+                $sql = "SELECT COUNT(*) AS 'COUNT' FROM products WHERE STATUS_PRO NOT IN ('đã xóa')";
+                $result = $db->connection($sql);
+                $row = mysqli_fetch_array($result);
+                echo '<input class="textfield" id="top__products" type="number" value="0" min="0" max="' . $row['COUNT'] . '">';
+                ?>
+            </div>
         </div>
         <div class="list-code">
             <table class="content-table">
@@ -64,29 +70,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    $sql = "SELECT * FROM products JOIN category on category.CATEGORY_ID = products.CATEGORY_ID;";
-                    $result = $db->connection($sql);
-                    $i = 1;
-                    while ($row = mysqli_fetch_array($result)) {
-                        $quantitySold = 0;
-                        echo '<tr>
-                                    <td>' . $i++ . '</td>
-                                    <td class="ID_OBJECT">' . $row['PRODUCT_ID'] . '</td>
-                                    <td>' . $row['NAME_PRO'] . '</td>
-                                    <td>' . $row['PRICE_PRO'] . '</td>
-                                    <td>' . $row['NAME_CAT'] . '</td>';
-                        $sql1 = "SELECT QUANTITY_EX FROM export_detail WHERE PRODUCT_ID = '" . $row['PRODUCT_ID'] . "';";
-                        $result1 = $db->connection($sql1);
-                        while ($row1 = mysqli_fetch_array($result1)) {
-                            $quantitySold += $row1['QUANTITY_EX'];
-                        }
-                        $total = $quantitySold * $row['PRICE_PRO'];
-                        echo '     <td>' . $quantitySold . '</td>
-                                    <td>' . $total . '</td>
-                                </tr>';
-                    }
-                    ?>
                 </tbody>
             </table>
         </div>

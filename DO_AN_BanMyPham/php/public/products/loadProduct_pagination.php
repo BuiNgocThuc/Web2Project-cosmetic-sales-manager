@@ -27,8 +27,9 @@ if (isset($_POST['sortBrandArray'])) {
 } else {
     $sort_brand = array();
 }
-$orderBy = $_POST['orderSort']; //sắp xếp)
+$orderBy = $_POST['orderSort']; //sắp xếp
 $char = $_POST['character']; //tìm kiếm
+echo $char;
 $currentPage = $_POST['currentPage']; //trang hiện tại
 $sql = getQuery();
 $result = $db->connection($sql);
@@ -78,15 +79,15 @@ $pagination = new Pagination($product, 8, $currentPage);
 </div>
 
 <div class="pagination__frame">
-    <i class="fa-regular fa-chevron-left" onclick="sortProduct(<?php echo $pagination->prevDot(); ?>), <?= $orderBy ?>"></i>
+    <i class="fa-regular fa-chevron-left" onclick="sortProduct(<?php echo $pagination->prevDot(); ?>, <?php echo $orderBy ?>)"></i>
     <ul class="pagination">
         <?php for ($i = 1; $i <= $pagination->quantityPage; $i++) : ?>
-            <li class="pagination-item" onclick="sortProduct(<?= $i ?>)">
+            <li class="pagination-item" onclick="sortProduct(<?= $i ?>, <?= $orderBy ?>)">
                 <div class="pagination-item__number <?php echo ($i == $currentPage ? "clicked" : ""); ?>"><?= $i ?></div>
             </li>
         <?php endfor; ?>
     </ul>
-    <i class="fa-regular fa-chevron-right" onclick="sortProduct(<?php echo $pagination->nextDot(); ?>), <?= $orderBy ?>"></i>
+    <i class="fa-regular fa-chevron-right" onclick="sortProduct(<?php echo $pagination->nextDot(); ?>, <?php echo $orderBy ?>)"></i>
 </div>
 
 <?php

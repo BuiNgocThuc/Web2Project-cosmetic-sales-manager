@@ -2,13 +2,6 @@
     <div class="overlay">
 
     </div>
-    <?php
-    if(isset($_POST['idBrand'])){
-        echo $_POST['idBrand'];
-    }else {
-        echo 'null';
-    }
-    ?>
     <div class="new-form">
         <!-- -----Create Form ------ -->
         <div id="create-form" style="display: none;">
@@ -83,7 +76,7 @@
 
     <!-- -----Content ------ -->
     <div class="form-container">
-        <div class="title-form">
+        <div class="title-form" >
             <h3 for="">tùy chọn tìm kiếm</h3>
             <span><i onclick="changeIconArrow(this), hideForm()" class="fa-regular fa-angle-up"></i></span>
         </div>
@@ -98,7 +91,7 @@
             </div>
             <div>
                 <label for="">Trạng Thái</label>
-                <input type="checkbox" class="switch STATUS_BRAND_SEARCH" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                <input type="checkbox" class="switch STATUS_BRAND_SEARCH" data-content="đang hoạt động" onclick="changeDataContent(this)" checked>
             </div>
             <div>
                 <label for=""></label>

@@ -26,7 +26,7 @@
                 </div>
                 <div>
                     <label for="">Trạng Thái: </label>
-                    <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                    <input type="checkbox" class="switch" data-content="ngừng hoạt động"  onclick="changeDataContent(this)">
                 </div>
             </form>
             <div class="tool">
@@ -93,7 +93,7 @@
             </div>
             <div>
                 <label for="">Trạng Thái</label>
-                <input type="checkbox" class="switch STATUS_PROVIDER_SEARCH" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                <input type="checkbox" class="switch STATUS_PROVIDER_SEARCH" data-content="đang hoạt động" checked onclick="changeDataContent(this)">
             </div>
             <div>
                 <label for=""></label>

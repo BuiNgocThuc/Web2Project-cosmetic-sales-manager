@@ -128,9 +128,9 @@ switch ($_POST['action']) {
                 $sql = "INSERT INTO role_permissions (`ROLE_ID`, `PERMISSION_ID`, `ACTION`)
                 VALUES ('" . $idRole . "', '" . $idPer . "', '" . $action . "');";
                 $result = $db->connection($sql);
-                if($result){
+                if ($result) {
                     echo 'success';
-                }else{
+                } else {
                     echo 'error';
                 }
                 break;
@@ -248,6 +248,7 @@ switch ($_POST['action']) {
                 $price = $_POST['productPrice']; // đơn giá xuất
                 $sql = "INSERT INTO export_detail (`EXPORT_ID`, `PRODUCT_ID`, `QUANTITY_EX`, `UNIT_PRICE_EX`)
                         VALUES ('" . $idExport . "', '" . $idProduct . "', '" . $quantity . "', '" . $price . "');";
+                echo $sql;
                 $result = $db->connection($sql);
                 if ($result) {
                     $sql1 = "SELECT * FROM products WHERE PRODUCT_ID = '" . $idProduct . "'";
@@ -262,9 +263,7 @@ switch ($_POST['action']) {
                     $result2 = $db->connection($sql2);
                     if ($result2) {
                         echo 'success';
-                        $sql3 = "UPDATE cart
-                                SET STATUS_CART = 'đã thanh toán'
-                                WHERE USER_ID = '" . $idCustomer . "';";
+                        $sql3 = "DELETE FROM cart WHERE USER_ID = '" . $idCustomer . "' AND PRODUCT_ID = '" . $idProduct . "';";
                         $result3 = $db->connection($sql3);
                     } else {
                         echo 'error';
@@ -277,6 +276,66 @@ switch ($_POST['action']) {
         break;
     case 'update':
         switch ($_POST['id']) {
+            case 'customer-password':
+                $username = $_SESSION['USERNAME'];
+                $password = $_POST['password'];
+                $oldPass = $_POST['oldPassword'];
+                $sql1 = "SELECT * FROM accounts WHERE USERNAME = '" . $username . "' AND PASSWORD = '" . $oldPass . "'";
+                $res = $db->connection($sql1);
+                if (!mysqli_num_rows($res)) {
+                    echo 'Sai mật khẩu!!';
+                } else {
+                    $sql = "UPDATE accounts
+                        SET PASSWORD = '" . $password . "'
+                        WHERE USERNAME = '" . $username . "';";
+                    $result = $db->connection($sql);
+                    if ($result) {
+                        echo 'success';
+                    } else {
+                        echo 'error';
+                    }
+                }
+                break;
+            case 'Customer':
+                $nameCus =  $_POST['nameCus'];
+                $phoneCus = $_POST['phoneCus'];
+                $addressCus = $_POST['addressCus'];
+                $emailCus = $_POST['emailCus'];
+                $idCus = $_SESSION['USERNAME'];
+                $sql = "UPDATE users
+                        SET NAME = '" . $nameCus . "',
+                            PHONE = '" . $phoneCus . "',
+                            ADDRESS = '" . $addressCus . "',
+                            EMAIL = '" . $emailCus . "'
+                        WHERE USER_ID = '" . $idCus . "';";
+                $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                    $_SESSION['NAME'] = $nameCus;
+                } else {
+                    echo 'error';
+                }
+                break;
+            case 'Employee':
+                $nameEmp =  $_POST['nameEmp'];
+                $phoneEmp = $_POST['phoneEmp'];
+                $addressEmp = $_POST['addressEmp'];
+                $emailEmp = $_POST['emailEmp'];
+                $idEmp = $_SESSION['USERNAME'];
+                $sql = "UPDATE users
+                        SET NAME = '" . $nameEmp . "',
+                            PHONE = '" . $phoneEmp . "',
+                            ADDRESS = '" . $addressEmp . "',
+                            EMAIL = '" . $emailEmp . "'
+                        WHERE USER_ID = '" . $idEmp . "';";
+                $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                    $_SESSION['NAME'] = $nameEmp;
+                } else {
+                    echo 'error';
+                }
+                break;
             case 'Product':
                 $status = $_POST['status'];
                 $name = $_POST['name'];
@@ -508,7 +567,7 @@ switch ($_POST['action']) {
         break;
     case 'delete':
         switch ($_POST['id']) {
-            case 'Product': 
+            case 'Product':
                 $idObject = $_POST['ob'];
                 $sql = "UPDATE products SET STATUS_PRO = 'đã xóa' WHERE PRODUCT_ID = '" . $idObject . "'";
                 $result = $db->connection($sql);

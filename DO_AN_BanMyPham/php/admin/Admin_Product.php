@@ -205,7 +205,7 @@
                 <option value="BRAND_OBJECT">thương hiệu</option>
                 <option value="CATEGORY_OBJECT">danh mục</option>
             </select>
-            <select class="sort-function">
+            <select class="sort-function order-sort">
                 <option value="">Sắp xếp theo tiêu đề</option>
                 <option value="increase">Sắp xếp tăng dần</option>
                 <option value="decrease">Sắp xếp giảm dần</option>

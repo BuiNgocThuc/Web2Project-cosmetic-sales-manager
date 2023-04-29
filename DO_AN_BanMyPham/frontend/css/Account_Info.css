@@ -73,30 +73,36 @@
     cursor: pointer;
 }
 
-#Account_Info .sidebar .function__list ul li:first-child {
-    font-weight: 900;
+#Account_Info .sidebar .function__list ul li.clicked {
+    font-weight: 750;
+}
+
+#Account_Info .sidebar .function__list ul li:hover:not(.clicked) {
+    opacity: 0.5;
 }
 
 #Account_Info .main__content {
     height: 100%;
     flex: 3;
-    
 }
 
 #Account_Info .main__content h3 {
-    margin: 10px 0;
-    font-size: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 1rem 0;
+    text-transform: capitalize;
+    font-style: italic;
 }
 
-#Account_Info .main__content .information {
-    height: 600px;
+#Account_Info  .information {
+    height: 30rem;
     display: flex;
     justify-content: left;
     background: white;
     font-size: 18px;
 }
 
-#Account_Info .main__content .information .avatar__frame {
+#Account_Info  .avatar__frame {
     /* border: 2px solid chartreuse; */
     flex-basis: 20%;
     display: flex;
@@ -106,7 +112,7 @@
     margin-left: 50px;
 }
 
-#Account_Info .main__content .information .avatar__frame .avatar__img {
+#Account_Info  .avatar__img {
     width: 180px;
     height: 180px;
     border-radius: 50%;
@@ -114,12 +120,12 @@
     margin: auto;
 }
 
-#Account_Info .main__content .information .avatar__frame .avatar__img img {
+#Account_Info  .avatar__img img {
     width: 100%;
     height: 100%;
 }
 
-#Account_Info .main__content .information .avatar__frame button {
+#Account_Info  .avatar__frame button {
     width: 80px;
     height: 40px;
     background: brown;
@@ -129,7 +135,7 @@
     cursor: pointer;
 }
 
-#Account_Info .main__content .information .fix__info {
+#Account_Info .fix__info {
     width: 100%;
     max-width: 520px;
     display: flex;
@@ -140,7 +146,7 @@
     margin: 30px 0 10px 80px;
 }
 
-#Account_Info .main__content .information .fix__info .form-group {
+#Account_Info .form-group {
     height: 50px;
     display: flex;
     flex-direction: column;
@@ -148,52 +154,74 @@
     line-height: 19px;
 }
 
-#Account_Info .main__content .information .fix__info .form-group .form-label {
+#Account_Info  .form-label {
     font-size: 1.2rem;
 }
 
-#Account_Info .main__content .information .fix__info .form-group .form-input {
+#Account_Info   .form-input {
     flex: 1;
 }
 
-#Account_Info .main__content .information .fix__info .form-group .form-input input {
+#Account_Info  .form-input input {
     width: 100%;
     height: 30px;
     padding: 0 15px;
     margin: 10px 0;
 }
 
-#Account_Info .main__content .information .fix__info .radio-group {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    /* padding-top: 25px; */
-    height: auto;
-    /* border: 1px solid green; */
-}
 
-#Account_Info .main__content .information .fix__info .radio-group .form-radio {
-    flex: 1;
-    display: flex;
-    justify-content: space-evenly;
-    
-}
 
-#Account_Info .main__content .information .fix__info .radio-group .form-radio .ccs-radio {
-    /* display: flex; */
-    /* align-items: center; */
-    /* margin-left: 10px; */
-}
 
-#Account_Info .main__content .information .fix__info .radio-group .form-radio .ccs-radio label {
-    margin-left: 10px;
-}
-
-#Account_Info .main__content .information .fix__info .btnUpdate {
+#Account_Info  .btnUpdateCustomer {
     height: 30px;
     border-radius: 10px;
     margin-top: 20px;
     background: brown;
     color: white;
     cursor: pointer;
+}
+
+#Account_Info  .btnUpdateCustomer:hover {
+    opacity: 0.8;
+}
+
+#Account_Info .changePassword {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: white;
+    padding-top: 5rem;
+    height: 30rem;
+}
+
+#Account_Info .changePassword .input_form {
+    margin: 1rem;
+    width: 25rem;
+    outline: none;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+}
+
+#Account_Info .changePassword .input_form:focus {
+    border: 1px solid brown;
+}
+
+#Account_Info .changePassword .btnUpdatePassword {
+    margin: 1rem;
+    width: 25rem;
+    outline: none;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    background: brown;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    transition: all .3s ease-in-out;
+}
+
+.btnUpdatePassword:hover {
+    opacity: 0.8;
 }

@@ -7,28 +7,9 @@
     </div>
     <div class="sidemenu">
         <div class="user">
-            <div class="user__avatar">
-                <img src="../image/avatar.png">
-            </div>
-            <div class="user__info">
-                <?php
-                include_once("ConnectDB.php");
-                $db = new ConnectDB();
-                if (isset($_SESSION['USERNAME']) && isset($_SESSION['USERNAME'])) {
-                    $name = $_SESSION['NAME'];
-                    echo "<h3>" . $name . "</h3>";
-                    $userID = $_SESSION['USERNAME'];
-                    $sql = "SELECT NAME_TYPE_USER FROM type_users
-                    join users on type_users.TYPE_USER_ID = users.TYPE_USER_ID
-                    where users.USER_ID = '" . $userID . "'";
-                    $result = $db->connection($sql);
-                    while ($row = mysqli_fetch_array($result)) {
-                        $type = $row['NAME_TYPE_USER'];
-                        echo "<small>" . $type . "</small>";
-                    }
-                }
-                ?>
-            </div>
+            <?php
+                include 'admin/Admin_User_Info.php'
+            ?>
         </div>
         <div class="list-function">
             <ul>
@@ -331,35 +312,14 @@
             <!-- <i class="fa-thin fa-sun-bright"></i> -->
             <i onclick="changeIconMode(this)" id="changeMode" class="fa-thin fa-sun-bright"></i>
             <i class="fa-thin fa-bell" id="notify">
-                <span class="count-notify">
-                    <?php
-                    require_once 'connectDB.php';
-                    $db = new ConnectDB();
-                    $sql = "SELECT * FROM export WHERE STATUS_EX = 'đang chờ'";
-                    $result = $db->connection($sql);
-                    $count = mysqli_num_rows($result);
-                    echo $count;
-                    ?>
-                </span>
-                <ul class="notification">
-                    <?php
-                    require_once 'connectDB.php';
-                    $db = new ConnectDB();
-                    $sql = "SELECT EXPORT_ID FROM export WHERE STATUS_EX = 'đang chờ'";
-                    $result = $db->connection($sql);
-                    while ($row = mysqli_fetch_array($result)) {
-                        echo '<li>
-                                    <span>Đơn hàng ' . $row['EXPORT_ID'] . ' đang chờ xác nhận</span>
-                                    <button class="btnConfirmExport" data-id="' . $row['EXPORT_ID'] . '">Xác nhận</button>
-                                </li>';
-                    }
-                    ?>
-                </ul>
+                <?php
+                include 'admin/Admin_Notify_Orders.php';
+                ?>
             </i>
-            <i class="fa-thin fa-gear">
+            <i class="fa-thin fa-gear" id="settingTool">
                 <ul class="setting">
-                    <li>thông tin tài khoản</li>
-                    <li>đổi mật khẩu</li>
+                    <li class="update__Info" onclick="loadPageByAjax('Admin_Account')">thông tin tài khoản</li>
+                    <li class="update__Password" onclick="loadPageByAjax('Admin_Password')">đổi mật khẩu</li>
                     <li onclick="logout()">đăng xuất</li>
                 </ul>
             </i>

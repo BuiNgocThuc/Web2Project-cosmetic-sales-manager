@@ -109,7 +109,7 @@
             </div>
             <div>
                 <label for="">Trạng Thái</label>
-                <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                <input type="checkbox" class="switch" data-content="đang hoạt động" checked onclick="changeDataContent(this)">
             </div>
             <div>
                 <label for=""></label>

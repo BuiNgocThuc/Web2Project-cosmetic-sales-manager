@@ -13,7 +13,9 @@ const discount = () => {
         let price = totalPrice * (1 - discountPercent / 100);
         $(".listProducts__total-price").html(price.toLocaleString("en-US"));
       } else {
-        $(".listProducts__total-price").html(totalPrice.toLocaleString("en-US"));
+        $(".listProducts__total-price").html(
+          totalPrice.toLocaleString("en-US")
+        );
       }
     },
   });
@@ -35,7 +37,7 @@ const Payment = () => {
       action: "create",
     },
     success: function (data) {
-        console.log(data);
+      // console.log(data);
       const exArray = $("#product__pay li");
       $.each(exArray, function (index, value) {
         let productID = $(value)
@@ -71,8 +73,8 @@ const Payment = () => {
     },
   });
   if (success) {
+    loadPageUser("Payment");
     alert("Đặt hàng thành công!!");
-    loadPageByAjax("Admin_Coupon");
   } else {
     console.log("Đặt hàng thất bại!!");
   }
