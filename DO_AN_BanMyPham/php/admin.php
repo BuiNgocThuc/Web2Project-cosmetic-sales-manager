@@ -25,7 +25,9 @@
     <link rel="stylesheet" href="../frontend/css/admin/admin_coupon_detail.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_statistic.css">
     <link rel="stylesheet" href="../frontend/css/admin/admin_account.css">
+    <link rel="stylesheet" href="../frontend/css/dashboard.css">
     <link rel="stylesheet" href="../assets/icons/all.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <title>Admin</title>
 </head>
 
@@ -40,5 +42,7 @@
 <script src="../frontend/js/login.js"></script>
 <script src="../frontend/js/display.js"></script>
 <script src="../frontend/js/action.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+<script src="../frontend/js/dashboard.js"></script>
 <script src="../frontend/js/sortProduct.js"></script>
 </html>

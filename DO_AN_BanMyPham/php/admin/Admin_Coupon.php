@@ -7,19 +7,19 @@
         <div class="fix-info">
             <div>
                 <label for="">Mã phiếu nhập</label>
-                <input class="textfield" type="text">
+                <input class="textfield ID_IMPORT_RECEIPT_SEARCH" type="text">
             </div>
             <div>
                 <label for="">tên nhà cung cấp</label>
-                <input class="textfield" type="text">
+                <input class="textfield NAME_PROVIDER_IMPORT_SEARCH" type="text">
             </div>
             <div>
                 <label for="">Ngày nhập hàng</label>
-                <input class="textfield" type="date">
+                <input class="textfield IMPORT_DATE_SEARCH" type="date">
             </div>
             <div>
                 <label for=""></label>
-                <button class="btn btn--Search">Tìm Kiếm</button>
+                <button class="btn btn--Search" onclick="SearchInfo('Import_Receipt')">Tìm Kiếm</button>
                 <button class="btn btn--Undo">Hoàn Tác</button>
             </div>
         </div>
@@ -68,13 +68,13 @@
                             </tr>';
                     }
                     echo '<script>
-                    if($(".sidebar .import_receipt_per").hasClass("Create")) {
+                    if($(".sidebar .import_receipt_per").hasClass("create")) {
                         $(".btnCreate").addClass("enable");
                     }
-                    if($(".sidebar .import_receipt_per").hasClass("Update")) {
+                    if($(".sidebar .import_receipt_per").hasClass("update")) {
                         $(".btnFixCoupon").addClass("enable");
                     }
-                    if($(".sidebar .import_receipt_per").hasClass("Control")) {
+                    if($(".sidebar .import_receipt_per").hasClass("control")) {
                         $(".btnFixCoupon").addClass("enable");
                         $(".btnCreate").addClass("enable");
                     }

@@ -1,7 +1,6 @@
 const addProductToCart = () => {
   let quantityProduct = $("#quantity").val();
-  let productID = $("#productID").val();
-  console.log(quantityProduct, productID);
+  let productID = $("#productID").attr("data-id");
   $.ajax({
     url: "public/cart/cart.php",
     type: "POST",

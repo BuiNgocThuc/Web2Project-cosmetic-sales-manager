@@ -50,15 +50,19 @@ switch ($_POST['action']) {
         $email = $_POST['email'];
         $username = $_POST['user'];
         $password = $_POST['pass'];
-        $sql1 = "INSERT INTO users (`USER_ID`, `TYPE_USER_ID`, `NAME`, `PHONE`, `ADDRESS`, `EMAIL`, `STATUS`)
-        VALUES ('" . $username . "', 'KH','" . $name . "', 'null', 'null','" . $email . "', 'đang hoạt động')";
-        $sql2 = "INSERT INTO accounts (`USERNAME`, `PASSWORD`, `ROLE_ID`, `DATE_CREATE`, `STATUS`)
-        VALUES ('" . $username . "','" . $password . "', 0,' " . (new Datetime())->format('Y-m-d') . "', 'đang hoạt động' )";
+        $sql1 = "INSERT INTO users (`USER_ID`, `TYPE_USER_ID`, `NAME`, `EMAIL`)
+        VALUES ('" . $username . "', 'KH','" . $name . "','" . $email . "')";
         $result1 = $db->connection($sql1);
-        $result2 = $db->connection($sql2);
-        if ($result1 && $result2) {
-            echo "Success";
-        } else {
+        if($result1){
+            $sql2 = "INSERT INTO accounts (`USERNAME`, `PASSWORD`, `ROLE_ID`, `DATE_CREATE`, `STATUS`)
+            VALUES ('" . $username . "','" . $password . "', 0,' " . (new Datetime())->format('Y-m-d') . "', 'đang hoạt động' )";
+            $result2 = $db->connection($sql2);
+            if ($result1 && $result2) {
+                echo "Success";
+            } else {
+                echo "Error: <br>" . $sql1 . "<br>" . $sql2;
+            }
+        }else {
             echo "Error: <br>" . $sql1 . "<br>" . $sql2;
         }
         break;

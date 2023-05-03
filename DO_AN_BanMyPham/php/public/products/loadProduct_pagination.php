@@ -1,18 +1,3 @@
-<script>
-    function loadProductDetails(productId) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var productDetails = document.getElementById("main-listProduct");
-                if (productDetails) {
-                    productDetails.innerHTML = this.responseText;
-                }
-            }
-        };
-        xhttp.open("GET", "public/product_details.php?pid=" + productId, true);
-        xhttp.send();
-    }
-</script>
 <?php
 require '../../connectDB.php';
 $db = new connectDB();
@@ -29,7 +14,6 @@ if (isset($_POST['sortBrandArray'])) {
 }
 $orderBy = $_POST['orderSort']; //sắp xếp
 $char = $_POST['character']; //tìm kiếm
-echo $char;
 $currentPage = $_POST['currentPage']; //trang hiện tại
 $sql = getQuery();
 $result = $db->connection($sql);

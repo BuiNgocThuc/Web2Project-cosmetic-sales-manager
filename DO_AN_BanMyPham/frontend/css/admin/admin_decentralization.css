@@ -324,7 +324,7 @@ body {
     margin-left: .8rem;
 }
 
-#Admin_Decentralization .list-container .list-code .content-table .btnFix,
+#Admin_Decentralization .list-container .list-code .content-table .btnUpdateRole,
 .btnDel,
 .btnCreate {
     opacity: 0.5;

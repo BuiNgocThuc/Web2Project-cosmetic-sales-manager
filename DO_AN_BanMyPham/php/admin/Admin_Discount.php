@@ -28,10 +28,10 @@
                     <label for="" class="date-end-discount">ngày kết thúc: </label>
                     <input class="textfield new-date-end" type="date">
                 </div>
-                <div>
+                <!-- <div>
                     <label for="">Trạng Thái: </label>
                     <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
-                </div>
+                </div> -->
             </form>
             <div class="tool">
                 <button class="btnConfirm btn" onclick="AddInfo('Discount')">Thêm</button>
@@ -64,10 +64,10 @@
                     <label for="" class="date-end-discount">ngày kết thúc: </label>
                     <input class="textfield END_DATE" type="date">
                 </div>
-                <div>
+                <!-- <div>
                     <label for="">Trạng Thái: </label>
                     <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
-                </div>
+                </div> -->
             </form>
             <div class="tool">
                 <button class="btnConfirm btn"  onclick="UpdateInfo('Discount')">Cập nhật</button>
@@ -92,28 +92,28 @@
         </div>
         <div class="fix-info">
             <div>
-                <label for="">Mã</label>
-                <input class="textfield" type="text">
+                <label for="">Mã Giảm Giá</label>
+                <input class="textfield ID_DISCOUNT_SEARCH" type="text">
             </div>
             <div>
                 <label for="">Mô Tả</label>
-                <input class="textfield" type="text">
+                <input class="textfield NAME_DISCOUNT_SEARCH" type="text">
             </div>
             <div>
                 <label for="">Ngày bắt đầu</label>
-                <input class="textfield" type="date">
+                <input class="textfield START_DATE_DISCOUNT_SEARCH" type="date">
             </div>
             <div>
                 <label for="">Ngày kết thúc</label>
-                <input class="textfield" type="date">
+                <input class="textfield END_DATE_DISCOUNT_SEARCH" type="date">
             </div>
             <div>
                 <label for="">Trạng Thái</label>
-                <input type="checkbox" class="switch" data-content="đang hoạt động" checked onclick="changeDataContent(this)">
+                <input type="checkbox" class="switch STATUS_DISCOUNT_SEARCH" data-content="đang hoạt động" checked onclick="changeDataContent(this)">
             </div>
             <div>
                 <label for=""></label>
-                <button class="btn btn--Search">Tìm Kiếm</button>
+                <button class="btn btn--Search" onclick="SearchInfo('Discount')">Tìm Kiếm</button>
                 <button class="btn btn--Undo">Hoàn Tác</button>
             </div>
         </div>
@@ -166,16 +166,16 @@
                                 </tr>';
                     }
                     echo '<script>
-                    if($(".sidebar .discount_per").hasClass("Create")) {
+                    if($(".sidebar .discount_per").hasClass("create")) {
                         $(".btnCreate").addClass("enable");
                     }
-                    if($(".sidebar .discount_per").hasClass("Delete")) {
+                    if($(".sidebar .discount_per").hasClass("delete")) {
                         $(".btnDel").addClass("enable");
                     }
-                    if($(".sidebar .discount_per").hasClass("Update")) {
+                    if($(".sidebar .discount_per").hasClass("update")) {
                         $(".btnFix").addClass("enable");
                     }
-                    if($(".sidebar .discount_per").hasClass("Control")) {
+                    if($(".sidebar .discount_per").hasClass("control")) {
                         $(".btnFix").addClass("enable");
                         $(".btnDel").addClass("enable");
                         $(".btnCreate").addClass("enable");

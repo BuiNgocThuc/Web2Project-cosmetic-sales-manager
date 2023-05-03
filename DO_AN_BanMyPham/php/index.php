@@ -30,7 +30,21 @@ session_start();
 </head>
 
 <body>
-    
+    <?php
+    require_once 'connectDB.php';
+    $db = new connectDB();
+    if (isset($_SESSION['USERNAME'])) {
+        $sql = "SELECT ROLE_ID FROM accounts WHERE USERNAME = '" . $_SESSION['USERNAME'] . "'";
+        $result = $db->connection($sql);
+        while($row = mysqli_fetch_array($result)) {
+            if($row['ROLE_ID'] != 0) {
+                echo "<script>window.location.href = 'admin.php';</script>";
+            }else {
+                break;
+            }
+        }
+    }
+    ?>
     <div class="header">
         <?php include 'public/header.php' ?>
     </div>

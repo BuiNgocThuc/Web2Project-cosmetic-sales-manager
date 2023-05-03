@@ -21,7 +21,12 @@ const discount = () => {
   });
 };
 
-const Payment = () => {
+const Payment = async () => {
+  let name = $("#nameInput").val();
+  let phoneNumber = $("#phoneInput").val();
+  let address = $("#addressInput").val();
+  let email = $("#emailInput").val();
+  if (!checkValidInput(name, phoneNumber, address, email)) return;
   let discountID = $(".listProducts__total-discount").attr("data-id");
   let totalPrice = parseInt(
     $(".listProducts__total-price").text().replace(/,/g, "")
@@ -70,12 +75,41 @@ const Payment = () => {
           },
         });
       });
+      UserAccountTool('Order_History');
     },
   });
   if (success) {
-    loadPageUser("Payment");
     alert("Đặt hàng thành công!!");
   } else {
     console.log("Đặt hàng thất bại!!");
   }
 };
+
+const checkValidInput = (name, phoneNumber, address, email) => {
+  if(name == ""){
+    alert("Chưa nhập tên!");
+    return false;
+  }
+  else if(email == ""){
+    alert("Chưa nhập email!");
+    return false;
+  }
+  else if (!regexGmail(email)){
+    alert("Email không hợp lệ!");
+    return false;
+  }
+  else if(phoneNumber == ""){
+    alert("Chưa nhập số điện thoại!");
+    return false;
+  }
+  else if (!regexPhone(phoneNumber)){
+    alert("Số điện thoại không hợp lệ!");
+    return false;
+  }
+  else if(address == ""){
+    alert("Chưa nhập địa chỉ!");
+    return false;
+  }
+  return true;
+}
+

@@ -2,10 +2,10 @@
 session_start();
 require '../connectDB.php';
 $db = new ConnectDB();
-if(isset($_POST['dataBrand'])){
-    echo 'successfully';
-    $_SESSION['data'] = $_POST['dataBrand']; // lưu mảng vào Session
-}
+// if(isset($_POST['dataBrand'])){
+//     echo 'successfully';
+//     $_SESSION['data'] = $_POST['dataBrand']; // lưu mảng vào Session
+// }
 
 if (isset($_POST['idImport'])) {
     echo $_POST['idImport'];

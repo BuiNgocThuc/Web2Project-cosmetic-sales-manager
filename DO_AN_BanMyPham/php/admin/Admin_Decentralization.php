@@ -286,16 +286,16 @@
                                 </tr>';
                         }
                         echo '<script>
-                    if($(".sidebar .decentralization_per").hasClass("Create")) {
+                    if($(".sidebar .decentralization_per").hasClass("create")) {
                         $(".btnCreate").addClass("enable");
                     }
-                    if($(".sidebar .decentralization_per").hasClass("Delete")) {
+                    if($(".sidebar .decentralization_per").hasClass("delete")) {
                         $(".btnDel").addClass("enable");
                     }
-                    if($(".sidebar .decentralization_per").hasClass("Update")) {
+                    if($(".sidebar .decentralization_per").hasClass("update")) {
                         $(".btnUpdateRole").addClass("enable");
                     }
-                    if($(".sidebar .decentralization_per").hasClass("Control")) {
+                    if($(".sidebar .decentralization_per").hasClass("control")) {
                         $(".btnUpdateRole").addClass("enable");
                         $(".btnDel").addClass("enable");
                         $(".btnCreate").addClass("enable");

@@ -135,7 +135,7 @@
     <div class="list-container">
         <div class="title-list">
             <h3>danh sách người dùng</h3>
-            <button class="btnCreate enable">
+            <button class="btnCreate">
                 <i class="fa-light fa-plus"></i>
                 <span>tạo mới</span>
             </button>
@@ -184,16 +184,16 @@
                     </tr>';
                     }
                     echo '<script>
-                    if($(".sidebar .user_per").hasClass("Create")) {
+                    if($(".sidebar .user_per").hasClass("create")) {
                         $(".btnCreate").addClass("enable");
                     }
-                    if($(".sidebar .user_per").hasClass("Delete")) {
+                    if($(".sidebar .user_per").hasClass("delete")) {
                         $(".btnDel").addClass("enable");
                     }
-                    if($(".sidebar .user_per").hasClass("Update")) {
+                    if($(".sidebar .user_per").hasClass("update")) {
                         $(".btnFixUser").addClass("enable");
                     }
-                    if($(".sidebar .user_per").hasClass("Control")) {
+                    if($(".sidebar .user_per").hasClass("control")) {
                         $(".btnFixUser").addClass("enable");
                         $(".btnDel").addClass("enable");
                         $(".btnCreate").addClass("enable");

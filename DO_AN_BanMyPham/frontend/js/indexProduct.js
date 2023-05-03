@@ -193,6 +193,20 @@ $(document).on("input", ".tooltips input", function (e) {
   $(".tooltiptext").html(temp);
 });
 
+function loadProductDetails(productId) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          var productDetails = document.querySelector(".content");
+          if (productDetails) {
+              productDetails.innerHTML = this.responseText;
+          }
+      }
+  };
+  xhttp.open("GET", "public/product_details.php?pid=" + productId, true);
+  xhttp.send();
+}
+
 // $(document).on("click", ".pagination-item", function (e) {
 //   $(".pagination-item__number").filter(function() {
 //     return $(this).hasClass("clicked");

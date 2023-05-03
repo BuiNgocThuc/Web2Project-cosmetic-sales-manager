@@ -81,9 +81,14 @@
                 <span onclick="loadPageUser('Blogs')">BLOGS</span>
             </div>
         </div>
-        <div class="order_lookup">
-            <span>TRA CỨU ĐƠN HÀNG</span>
-        </div>
+        <?php
+        if (isset($_SESSION['USERNAME'])) {
+            echo ' <div class="order_lookup" onclick="UserAccountTool(\'Order_History\')">
+                    <span>TRA CỨU ĐƠN HÀNG</span>
+                </div>';
+        }
+        ?>
+
     </div>
 </section>
 

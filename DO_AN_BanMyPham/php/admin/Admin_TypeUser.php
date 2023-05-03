@@ -122,16 +122,16 @@
                                 </tr>';
                     }
                     echo '<script>
-                    if($(".sidebar .type_user_per").hasClass("Create")) {
+                    if($(".sidebar .type_user_per").hasClass("create")) {
                         $(".btnCreate").addClass("enable");
                     }
-                    if($(".sidebar .type_user_per").hasClass("Delete")) {
+                    if($(".sidebar .type_user_per").hasClass("delete")) {
                         $(".btnDel").addClass("enable");
                     }
-                    if($(".sidebar .type_user_per").hasClass("Update")) {
+                    if($(".sidebar .type_user_per").hasClass("update")) {
                         $(".btnFix").addClass("enable");
                     }
-                    if($(".sidebar .type_user_per").hasClass("Control")) {
+                    if($(".sidebar .type_user_per").hasClass("control")) {
                         $(".btnFix").addClass("enable");
                         $(".btnDel").addClass("enable");
                         $(".btnCreate").addClass("enable");

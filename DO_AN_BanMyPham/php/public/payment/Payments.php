@@ -29,7 +29,6 @@ session_start();
 
             <div>
                 <select name="" id="infoClient__select-pay">
-                    <option value="a">Chọn hình thức thanh toán</option>
                     <option value="b">Thanh toán khi nhận hàng</option>
                     <option value="c">Thanh toán qua thẻ ngân hàng</option>
                 </select>

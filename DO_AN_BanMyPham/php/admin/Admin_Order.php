@@ -81,19 +81,24 @@
         <div class="fix-info">
             <div>
                 <label for="">Mã đơn hàng</label>
-                <input class="textfield" type="text">
+                <input class="textfield ID_EXPORT_RECEIPT_SEARCH" type="text">
             </div>
             <div>
-                <label for="">người dùng</label>
-                <input class="textfield" type="text">
+                <label for="">tên khách hàng</label>
+                <input class="textfield NAME_CUSTOMER_EXPORT_SEARCH" type="text">
             </div>
             <div>
-                <label for="">Ngày đặt hàng</label>
-                <input class="textfield" type="date">
+                <label for="">Từ Ngày</label>
+                <input class="textfield EXPORT_START_DATE_SEARCH" type="date">
+            </div>
+            <div>
+                <label for="">Đến Ngày</label>
+                <input class="textfield EXPORT_END_DATE_SEARCH" type="date">
             </div>
             <div>
                 <label for="">Trạng Thái</label>
-                <select name="status" class="textfield">
+                <select name="status" class="textfield STATUS_EXPORT_SEARCH">
+                    <option value="">Tất Cả</option>
                     <option value="đang chờ">đang chờ</option>
                     <option value="đã hủy">đã hủy</option>
                     <option value="đang giao">đang giao</option>
@@ -102,18 +107,14 @@
             </div>
             <div>
                 <label for=""></label>
-                <button class="btn btn--Search">Tìm Kiếm</button>
-                <button class="btn btn--Undo">Hoàn Tác</button>
+                <button class="btn btn--Search" onclick="SearchInfo('Export_Receipt')">Tìm Kiếm</button>
+                <button class="btn btn--Undo" onclick="loadPageByAjax('Admin_Order')">Hoàn Tác</button>
             </div>
         </div>
     </div>
     <div class="list-container">
         <div class="title-list">
             <h3>lịch sử đơn hàng</h3>
-            <!-- <button class="btnCreate">
-                <i class="fa-light fa-plus"></i>
-                <span>tạo mới</span>
-            </button> -->
         </div>
         <div class="list-code">
             <table class="content-table">

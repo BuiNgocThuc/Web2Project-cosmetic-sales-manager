@@ -12,10 +12,10 @@
                     <label for="" class="name-brand">tên danh mục: </label>
                     <input class="textfield new-name" type="text">
                 </div>
-                <div>
+                <!-- <div>
                     <label for="">Trạng Thái: </label>
                     <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
-                </div>
+                </div> -->
             </form>
             <div class="tool">
                 <button class="btnConfirm btn"  onclick="AddInfo('Category')">Thêm</button>
@@ -118,16 +118,16 @@
                                 </tr>';
                     }
                     echo '<script>
-                    if($(".sidebar .category_per").hasClass("Create")) {
+                    if($(".sidebar .category_per").hasClass("create")) {
                         $(".btnCreate").addClass("enable");
                     }
-                    if($(".sidebar .category_per").hasClass("Delete")) {
+                    if($(".sidebar .category_per").hasClass("delete")) {
                         $(".btnDel").addClass("enable");
                     }
-                    if($(".sidebar .category_per").hasClass("Update")) {
+                    if($(".sidebar .category_per").hasClass("update")) {
                         $(".btnFix").addClass("enable");
                     }
-                    if($(".sidebar .category_per").hasClass("Control")) {
+                    if($(".sidebar .category_per").hasClass("control")) {
                         $(".btnFix").addClass("enable");
                         $(".btnDel").addClass("enable");
                         $(".btnCreate").addClass("enable");

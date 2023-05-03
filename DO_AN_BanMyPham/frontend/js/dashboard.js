@@ -1,53 +1,106 @@
+// ---------- CHARTS ----------
 
-var options = {
-    series: [{
-        name: 'Net Profit',
-        data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-    }, {
-        name: 'Revenue',
-        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-    }, {
-        name: 'Free Cash Flow',
-        data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
-    }],
-    chart: {
-        type: 'bar',
-        height: 350
+// BAR CHART
+var barChartOptions = {
+  series: [
+    {
+      data: [10, 8, 6, 4, 2],
     },
-    plotOptions: {
-        bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded'
-        },
+  ],
+  chart: {
+    type: "bar",
+    height: 350,
+    toolbar: {
+      show: false,
     },
-    dataLabels: {
-        enabled: false
+  },
+  colors: ["#246dec", "#cc3c43", "#367952", "#f5b74f", "#4f35a1"],
+  plotOptions: {
+    bar: {
+      distributed: true,
+      borderRadius: 4,
+      horizontal: false,
+      columnWidth: "40%",
     },
-    stroke: {
-        show: true,
-        width: 2,
-        colors: ['transparent']
-    },
-    xaxis: {
-        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-    },
-    yaxis: {
-        title: {
-            text: '$ (thousands)'
-        }
-    },
-    fill: {
-        opacity: 1
-    },
-    tooltip: {
-        y: {
-            formatter: function (val) {
-                return "$ " + val + " thousands"
-            }
-        }
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  legend: {
+    show: false,
+  },
+  xaxis: {
+    categories: ["Laptop", "Phone", "Monitor", "Headphones", "Camera"],
+    labels: {
+      style: {
+        colors: "#fff"
+      }
     }
+  },
+  yaxis: {
+    title: {
+      text: "Count",
+    },
+  },
 };
 
-var chart = new ApexCharts(document.querySelector("#chart"), options);
-chart.render();
+var barChart = new ApexCharts(
+  document.querySelector("#bar-chart"),
+  barChartOptions
+);
+barChart.render();
+
+// AREA CHART
+var areaChartOptions = {
+  series: [
+    {
+      name: "Purchase Orders",
+      data: [31, 40, 28, 51, 42, 109, 100],
+    },
+    {
+      name: "Sales Orders",
+      data: [11, 32, 45, 32, 34, 52, 41],
+    },
+  ],
+  chart: {
+    height: 350,
+    type: "area",
+    toolbar: {
+      show: false,
+    },
+  },
+  colors: ["#4f35a1", "#246dec"],
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    curve: "smooth",
+  },
+  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+  markers: {
+    size: 0,
+  },
+  yaxis: [
+    {
+      title: {
+        text: "Purchase Orders",
+      },
+    },
+    {
+      opposite: true,
+      title: {
+        text: "Sales Orders",
+      },
+    },
+  ],
+  tooltip: {
+    shared: true,
+    intersect: false,
+  },
+};
+
+var areaChart = new ApexCharts(
+  document.querySelector("#area-chart"),
+  areaChartOptions
+);
+areaChart.render();

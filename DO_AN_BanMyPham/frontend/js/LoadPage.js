@@ -181,13 +181,13 @@ $(document).on("click", ".btnUpdateRole.enable", function (e) {
                   .attr("data-content", "đang hoạt động");
                 $(value).find(".delete-action").attr("checked", "checked");
                 break;
-              case "view":
+              case "access":
                 $(value)
                   .find(".access-action")
                   .attr("data-content", "đang hoạt động");
                 $(value).find(".access-action").attr("checked", "checked");
                 break;
-              case "Control":
+              case "control":
                 $(value)
                   .find(".control-action")
                   .attr("data-content", "đang hoạt động");
@@ -329,6 +329,7 @@ $(document).on("click", ".cusInfo", function (e) {
   $(".main__content h3").html("thông tin tài khoản");
   $(".main__content .information").show();
   $(".main__content .changePassword").hide();
+  $(".main__content #Order__History").hide();
 });
 
 // show change password
@@ -338,4 +339,38 @@ $(document).on("click", ".changePass", function (e) {
   $(".main__content h3").html("thay đổi mật khẩu");
   $(".main__content .information").hide();
   $(".main__content .changePassword").show();
+  $(".main__content #Order__History").hide();
 });
+
+// show orders history
+$(document).on("click", ".orderHistory", function (e) {
+  $(this).siblings().removeClass("clicked");
+  $(this).addClass("clicked");
+  $(".main__content h3").html("lịch sử đơn hàng");
+  $(".main__content .information").hide();
+  $(".main__content .changePassword").hide();
+  $(".main__content #Order__History").show();
+});
+
+// load page account info - change password - order history
+const UserAccountTool = (targetPage) => {
+  $.ajax({
+    url: "../php/content.php",
+    type: "POST",
+    data: { page: "Account_Info" },
+    dataType: "html",
+    success: function (data) {
+      $(".content").empty();
+      $(".content").html(data);
+      switch (targetPage) {
+        case "Order_History":
+          $("#Account_Info .orderHistory").siblings().removeClass("clicked");
+          $("#Account_Info .orderHistory").addClass("clicked");
+          $("#Account_Info .main__content h3").html("lịch sử đơn hàng");
+          $("#Account_Info .main__content .information").hide();
+          $("#Account_Info .main__content .changePassword").hide();
+          $("#Account_Info .main__content #Order__History").show();
+      }
+    },
+  });
+}

@@ -78,7 +78,7 @@
                         <small>Seconds</small>
                     </div>
                 </div>
-                <button class="more-info">Xem thêm</button>
+                <button class="more-info" onclick="loadPageUser('Blogs')">Xem thêm</button>
             </div>
             <div class="banner-sale-off">
 
@@ -97,7 +97,7 @@
                 <div class="image-item">
                     <img src="../image/img/' . $row['IMG_PRO'] . '" alt="">
                 </div>
-                <button class="quick-view">Xem nhanh</button>
+                <button class="quick-view" onclick="loadProductDetails('.$row['PRODUCT_ID'].')">Xem nhanh</button>
             </div>';
                 }
                 ?>
@@ -113,7 +113,7 @@
                     <p>nơi cung cấp đa dạng các mặt hàng từ mỹ phẩm Makeup, mỹ phẩm chăm sóc da, thực phẩm chức năng đến
                         thời trang trẻ em tiêu chuẩn Hàn Quốc. </p>
                 </div>
-                <button class="more-info">Xem thêm</button>
+                <button class="more-info" onclick="loadPageUser('Introduce')">Xem thêm</button>
             </div>
         </div>
         <div class="parallax">

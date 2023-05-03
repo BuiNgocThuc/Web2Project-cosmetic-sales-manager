@@ -174,3 +174,21 @@ $(document).on('click', '.btnUpdatePassword', function() {
         }
     });
 })
+
+
+const regexPhone = (phone) => {
+    let regex = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
+    if (regex.test(phone)) {
+        return true;
+    }
+    return false;
+
+}
+
+const regexGmail = (gmail) => {
+    let regex = /[a-zA-Z0-9]+@gmail.com/g;
+    if (regex.test(gmail)) {
+        return true;
+    } 
+    return false;
+}

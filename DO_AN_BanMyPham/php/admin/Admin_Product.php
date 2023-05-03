@@ -187,7 +187,7 @@
             </div>
             <div>
                 <label for="">Trạng Thái</label>
-                <input type="checkbox" class="switch STATUS_PRODUCT_SEARCH" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
+                <input type="checkbox" class="switch STATUS_PRODUCT_SEARCH" data-content="đang hoạt động" checked onclick="changeDataContent(this)">
             </div>
             <div>
                 <label for=""></label>
@@ -210,7 +210,7 @@
                 <option value="increase">Sắp xếp tăng dần</option>
                 <option value="decrease">Sắp xếp giảm dần</option>
             </select>
-            <button class="btnCreate enable">
+            <button class="btnCreate">
                 <i class="fa-light fa-plus"></i>
                 <span>tạo mới</span>
             </button>
@@ -266,16 +266,16 @@
                             </tr>';
                     }
                     echo '<script>
-                        if($(".sidebar .product_per").hasClass("Create")) {
+                        if($(".sidebar .product_per").hasClass("create")) {
                             $(".btnCreate").addClass("enable");
                         }
-                        if($(".sidebar .product_per").hasClass("Update")) {
+                        if($(".sidebar .product_per").hasClass("update")) {
                             $(".btnFix").addClass("enable");
                         }
-                        if($(".sidebar .product_per").hasClass("Delete")) {
+                        if($(".sidebar .product_per").hasClass("delete")) {
                             $(".btnDel").addClass("enable");
                         }
-                        if($(".sidebar .product_per").hasClass("Control")) {
+                        if($(".sidebar .product_per").hasClass("control")) {
                             $(".btnFix").addClass("enable");
                             $(".btnCreate").addClass("enable");
                             $(".btnDel").addClass("enable");

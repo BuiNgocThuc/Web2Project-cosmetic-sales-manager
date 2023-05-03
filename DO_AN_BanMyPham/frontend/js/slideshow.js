@@ -40,6 +40,18 @@ function slideshow() {
         prevArrow: "<button type='button' class='slick-prev pull-left'><i class='fa-light fa-angles-left fa-fade fa-2xl'></i></button>",
         nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa-light fa-angles-right fa-fade fa-2xl'></i></button>",
     });
+
+    $('.relate-products').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        infinite: true,
+        speed: 500,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        prevArrow: "<button type='button' class='slick-prev pull-left'><i class='fa-light fa-angles-left fa-fade fa-2xl'></i></button>",
+        nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa-light fa-angles-right fa-fade fa-2xl'></i></button>",
+    });
 }
 
 

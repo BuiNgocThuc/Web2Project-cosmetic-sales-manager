@@ -12,7 +12,7 @@
                     <label for="" class="name-brand">tên thương hiệu: </label>
                     <input class="textfield new-name" type="text">
                 </div>
-                <div>
+                <!-- <div>
                     <label for="" class="img-brand">hình ảnh: </label>
                     <div class="image-upload">
                         <input id="file-input" class="new-img" type="file" accept="image/png,img/jpg,img/jpeg">
@@ -21,11 +21,11 @@
                             <span>đăng tải</span>
                         </label>
                     </div>
-                </div>
-                <div>
+                </div> -->
+                <!-- <div>
                     <label for="">Trạng Thái: </label>
                     <input type="checkbox" class="switch" data-content="ngừng hoạt động" onclick="changeDataContent(this)">
-                </div>
+                </div> -->
             </form>
             <div class="tool">
                 <button class="btnConfirm btn" onclick="AddInfo('Brand')">Thêm</button>
@@ -115,7 +115,6 @@
                         <th>STT</th>
                         <th>mã nhãn hàng</th>
                         <th>tên nhãn hàng</th>
-                        <th>hình ảnh</th>
                         <th>trạng thái</th>
                         <th>hoạt động</th>
                     </tr>
@@ -124,38 +123,38 @@
                     <?php
                     include("ConnectDB.php");
                     $db = new ConnectDB();
-                    $nameBrand = "";
-                    $statusBrand = "";
-                    $idBrand = "";
-                    if(isset($_SESSION['data'])) {
-                        echo 'exist';
-                        $nameBrand = $_SESSION['data']['nameBrand'];
-                        $statusBrand = $_SESSION['data']['statusBrand'];
-                        $idBrand = $_SESSION['data']['idBrand'];
-                    }
+                    // $nameBrand = "";
+                    // $statusBrand = "";
+                    // $idBrand = "";
+                    // if(isset($_SESSION['data'])) {
+                    //     echo 'exist';
+                    //     $nameBrand = $_SESSION['data']['nameBrand'];
+                    //     $statusBrand = $_SESSION['data']['statusBrand'];
+                    //     $idBrand = $_SESSION['data']['idBrand'];
+                    // }
                     $sql = "SELECT *  FROM brands WHERE STATUS_BRAND NOT IN ('đã xóa')";
-                    $check = false;
-                    if($nameBrand != "" || $statusBrand != "" || $idBrand != "") {
-                        $sql .= "AND ";
-                        if($nameBrand != "") {
-                            $sql .= "NAME_BRAND LIKE '%$nameBrand%' ";
-                            $check = true;
-                        }
-                        if($idBrand != "") {
-                            if($check) {
-                                $sql .= "AND ";
-                            }
-                            $sql .= "BRAND_ID LIKE '%$idBrand%' ";
-                            $check = true;
-                        }
-                        if($statusBrand != "") {
-                            if($check) {
-                                $sql .= "AND ";
-                            }
-                            $sql .= "STATUS_BRAND LIKE '%$statusBrand%' ";
-                            $check = true;
-                        }
-                    }
+                    // $check = false;
+                    // if($nameBrand != "" || $statusBrand != "" || $idBrand != "") {
+                    //     $sql .= "AND ";
+                    //     if($nameBrand != "") {
+                    //         $sql .= "NAME_BRAND LIKE '%$nameBrand%' ";
+                    //         $check = true;
+                    //     }
+                    //     if($idBrand != "") {
+                    //         if($check) {
+                    //             $sql .= "AND ";
+                    //         }
+                    //         $sql .= "BRAND_ID LIKE '%$idBrand%' ";
+                    //         $check = true;
+                    //     }
+                    //     if($statusBrand != "") {
+                    //         if($check) {
+                    //             $sql .= "AND ";
+                    //         }
+                    //         $sql .= "STATUS_BRAND LIKE '%$statusBrand%' ";
+                    //         $check = true;
+                    //     }
+                    // }
                     $result = $db->connection($sql);
                     $i = 1;
                     while ($row = mysqli_fetch_array($result)) {
@@ -165,7 +164,6 @@
                                     <td class="STT">' . $i++ . '</td>
                                     <td class="ID_OBJECT">' . $row['BRAND_ID'] . '</td>
                                     <td class="NAME_OBJECT">' . $row['NAME_BRAND'] . '</td>
-                                    <td class="IMG_OBJECT">' . $row['IMG_BRAND'] . '</td>
                                     <td class="STATUS_OBJECT">' . $row['STATUS_BRAND'] . '</td>
                                     <td>
                                         <button class="btnFix ' . $action . '">chỉnh sửa</button>
@@ -176,16 +174,16 @@
 
 
                     echo '<script>
-                        if($(".sidebar .brand_per").hasClass("Create")) {
+                        if($(".sidebar .brand_per").hasClass("create")) {
                             $(".btnCreate").addClass("enable");
                         }
-                        if($(".sidebar .brand_per").hasClass("Delete")) {
+                        if($(".sidebar .brand_per").hasClass("delete")) {
                             $(".btnDel").addClass("enable");
                         }
-                        if($(".sidebar .brand_per").hasClass("Update")) {
+                        if($(".sidebar .brand_per").hasClass("update")) {
                             $(".btnFix").addClass("enable");
                         }
-                        if($(".sidebar .brand_per").hasClass("Control")) {
+                        if($(".sidebar .brand_per").hasClass("control")) {
                             $(".btnFix").addClass("enable");
                             $(".btnDel").addClass("enable");
                             $(".btnCreate").addClass("enable");

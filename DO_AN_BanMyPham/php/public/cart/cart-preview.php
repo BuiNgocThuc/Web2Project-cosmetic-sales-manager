@@ -21,29 +21,29 @@ $sql = "SELECT p.*, c.QUANTITY_IN_CART
 $result = $conn->query($sql);
 // echo $sql;
 // Xử lý các thao tác trong giỏ hàng
-if (isset($_POST['action'])) {
-  switch ($_POST['action']) {
-    case 'update':
-      foreach ($_POST['quantity'] as $key => $value) {
-        $cartId = $_POST['cart_id'][$key];
-        $quantity = intval($value);
-        if ($quantity == 0) {
-          $sql = "DELETE FROM cart WHERE id = $cartId";
-        } else {
-          $sql = "UPDATE cart SET QUANTITY_IN_CART = $quantity WHERE id = $cartId";
-        }
-        $conn->query($sql);
-      }
-      break;
-    case 'delete':
-      $cartId = $_POST['cart_id'];
-      $sql = "DELETE FROM cart WHERE id = $cartId";
-      $conn->query($sql);
-      break;
-  }
-  header('Location: public/cart-preview.php');
-  exit();
-}
+// if (isset($_POST['action'])) {
+//   switch ($_POST['action']) {
+//     case 'update':
+//       foreach ($_POST['quantity'] as $key => $value) {
+//         $cartId = $_POST['cart_id'][$key];
+//         $quantity = intval($value);
+//         if ($quantity == 0) {
+//           $sql = "DELETE FROM cart WHERE id = $cartId";
+//         } else {
+//           $sql = "UPDATE cart SET QUANTITY_IN_CART = $quantity WHERE id = $cartId";
+//         }
+//         $conn->query($sql);
+//       }
+//       break;
+//     case 'delete':
+//       $cartId = $_POST['cart_id'];
+//       $sql = "DELETE FROM cart WHERE id = $cartId";
+//       $conn->query($sql);
+//       break;
+//   }
+//   header('Location: public/cart-preview.php');
+//   exit();
+// }
 
 // Hiển thị thông tin giỏ hàng trên trang web
 ?>
@@ -103,7 +103,7 @@ if (isset($_POST['action'])) {
     </table>
   </div>
   <div class="cart-summary">
-    <span class="continue-shopping"> <i class="fa-light fa-arrow-left"></i> Tiếp tục xem sản phẩm</span>
+    <span class="continue-shopping" onclick="loadPageUser('Product')"> <i class="fa-light fa-arrow-left"></i> Tiếp tục xem sản phẩm</span>
     <button name="checkout" id="btnPayment" onclick="loadPageUser('Payment')">Thanh toán</button>
   </div>
   <!-- </form> -->

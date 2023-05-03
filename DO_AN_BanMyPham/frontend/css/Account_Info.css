@@ -225,3 +225,165 @@
 .btnUpdatePassword:hover {
     opacity: 0.8;
 }
+
+#Account_Info #Order__History {
+    font-size: 1.4rem;
+    height: 30rem;
+    overflow-y: auto;
+    background-color: white;
+    padding: 1rem;
+}
+
+#Account_Info #Order__History .order-history__container {
+    border-radius: 1rem;
+    /* background-color: #FBF7F5; */
+    background: #F1F1F6;
+    border: 1px solid #0F0002;
+    margin: 1.6rem 1rem;
+}
+
+#Account_Info #Order__History .order-history__container__item {
+    margin-bottom: 1rem;
+}
+
+#Account_Info #Order__History .order-history__product {
+    margin: 10px 0;
+}
+
+#Account_Info #Order__History .order-history__product__listPro {
+    padding: 0;
+    margin: 0;
+}
+
+#Account_Info #Order__History .order-history__product__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+}
+
+#Account_Info #Order__History .order-history__product__items__img {
+    width: 10%;
+    border: 1px solid #ccc;
+}
+
+#Account_Info #Order__History .order-history__product__items__content {
+    flex: 1;
+    margin: 0 20px;
+}
+
+#Account_Info #Order__History .order-history__product__item--cat,
+#Account_Info #Order__History .order-history__product__item--name,
+#Account_Info #Order__History .order-history__product__item--quantity {
+    display: block;
+}
+
+#Account_Info #Order__History .order-history__product__item--cat {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#Account_Info #Order__History .order-history__product__item--name {
+    font-weight: 500;
+    color: #4a4645;
+    margin: 5px 0;
+}
+
+#Account_Info #Order__History .order-history__product__item--quantity {
+    font-weight: 600;
+}
+
+#Account_Info #Order__History .order-history__product__item__old--price {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+#Account_Info #Order__History .order-history__product__item__current--price {
+    font-weight: 500;
+}
+
+#Account_Info #Order__History .order-history__container__item__total {
+    border-color: #ccc;
+    border-width: 1px;
+    border-top: 2px solid #8685858a;
+}
+
+#Account_Info #Order__History .order-history__container__item__total--container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 20px;
+}
+
+#Account_Info #Order__History .order-history__total__item__assessment-notice {
+    color: #0000008a;
+}
+
+#Account_Info #Order__History .order-history__total__item__assessment-notice__date {
+    text-decoration: underline;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+#Account_Info #Order__History .order-history__total__item__price-btn {
+    display: flex;
+    flex-direction: column;
+}
+
+#Account_Info #Order__History .order-history__total__intoMoney {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#Account_Info #Order__History .order-history__total__intoMoney__price {
+    font-weight: bold;
+    margin-left: 5px;
+    font-size: 2rem;
+    color: #000;
+}
+
+#Account_Info #Order__History .order-history__total__buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+#Account_Info #Order__History .order-history__total__buttons__continue,
+#Account_Info #Order__History .order-history__total__buttons__cancel {
+    font-size: 1rem;
+    border: none;
+    padding: 1rem 2.2rem;
+    cursor: pointer;
+    border-radius: .8rem;
+    color: white;
+}
+
+#Account_Info #Order__History .order-history__total__buttons__continue {
+    background-color: brown;
+}
+
+#Account_Info #Order__History .order-history__total__buttons__continue:hover {
+    opacity: 0.8;
+}
+
+#Account_Info #Order__History .order-history__total__buttons__cancel {
+    background-color: brown;
+}
+
+#Account_Info #Order__History .order-history__total__buttons__cancel.disabled {
+    background-color: #ccc;
+    cursor: default;
+}
+
+#Account_Info #Order__History .order-history__total__buttons__cancel.disabled:hover {
+    opacity: 1;
+}
+
+#Account_Info #Order__History .order-history__total__buttons__cancel:hover {
+    opacity: .8;
+}

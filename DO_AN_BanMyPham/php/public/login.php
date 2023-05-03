@@ -20,11 +20,11 @@
             ĐĂNG NHẬP
         </h1>
         <div class="form_input" >
-            <input class="txt TK" type="text" placeholder="Tài Khoản" name="txtUsername"><br>
-            <input class="txt MK" type="password" placeholder="Mật Khẩu" name="txtPassword"><br>
+            <input class="txt TK" id="username-field" type="text" placeholder="Tài Khoản" name="txtUsername"><br>
+            <input class="txt MK" id="password-field" type="password" placeholder="Mật Khẩu" name="txtPassword"><br>
             <div class="note_login">
                 <span><input type="checkbox">Nhớ mật khẩu</span>
-                <a href="">Quên mật khẩu</a> <br>
+                <span>Quên mật khẩu</span> <br>
             </div>
             <button value="Đăng Nhập" class="btnLogin"  onclick="loginAccount()">Đăng Nhập</button>
         </div>

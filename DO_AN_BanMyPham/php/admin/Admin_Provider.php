@@ -24,10 +24,10 @@
                     <label for="" class="email-provider">email: </label>
                     <input class="textfield new-email" type="text">
                 </div>
-                <div>
+                <!-- <div>
                     <label for="">Trạng Thái: </label>
                     <input type="checkbox" class="switch" data-content="ngừng hoạt động"  onclick="changeDataContent(this)">
-                </div>
+                </div> -->
             </form>
             <div class="tool">
                 <button class="btnConfirm btn" onclick="AddInfo('Provider')">Thêm</button>
@@ -148,16 +148,16 @@
                                 </tr>';
                     }
                     echo '<script>
-                    if($(".sidebar .provider_per").hasClass("Create")) {
+                    if($(".sidebar .provider_per").hasClass("create")) {
                         $(".btnCreate").addClass("enable");
                     }
-                    if($(".sidebar .provider_per").hasClass("Delete")) {
+                    if($(".sidebar .provider_per").hasClass("delete")) {
                         $(".btnDel").addClass("enable");
                     }
-                    if($(".sidebar .provider_per").hasClass("Update")) {
+                    if($(".sidebar .provider_per").hasClass("update")) {
                         $(".btnFix").addClass("enable");
                     }
-                    if($(".sidebar .provider_per").hasClass("Control")) {
+                    if($(".sidebar .provider_per").hasClass("control")) {
                         $(".btnFix").addClass("enable");
                         $(".btnDel").addClass("enable");
                         $(".btnCreate").addClass("enable");

@@ -77,13 +77,20 @@ switch ($_POST['action']) {
             case 'Type_User':
                 $name = $_POST['nameTypeUser'];
                 $id = $_POST['idTypeUser'];
-                $sql = "INSERT INTO type_users (`TYPE_USER_ID`, `NAME_TYPE_USER`, `STATUS_TYPE_USER`)
-                VALUES ('" . $id . "', '" . $name . "', 'đang hoạt động');";
-                $result = $db->connection($sql);
-                if ($result) {
-                    echo 'success';
+                $sql0 = "SELECT COUNT(*) FROM type_users WHERE TYPE_USER_ID = '" . $id . "'";
+                $num = $db->connection($sql0);
+                $row = $num->fetch_assoc();
+                if ($row['COUNT(*)'] > 0) {
+                    echo 'đã tồn tại mã loại người dùng';
                 } else {
-                    echo 'error';
+                    $sql = "INSERT INTO type_users (`TYPE_USER_ID`, `NAME_TYPE_USER`, `STATUS_TYPE_USER`)
+                VALUES ('" . $id . "', '" . $name . "', 'đang hoạt động');";
+                    $result = $db->connection($sql);
+                    if ($result) {
+                        echo 'success';
+                    } else {
+                        echo 'error';
+                    }
                 }
                 break;
             case 'Discount':
@@ -123,7 +130,7 @@ switch ($_POST['action']) {
             case 'Role_Permission':
                 $idPer = $_POST['idPer']; // id của permission
                 $idRole = $_POST['idRole']; // id của role
-                $action = $_POST['action']; // action của permission
+                $action = $_POST['actionPer']; // action của permission
                 echo $idPer . ' ' . $idRole . ' ' . $action;
                 $sql = "INSERT INTO role_permissions (`ROLE_ID`, `PERMISSION_ID`, `ACTION`)
                 VALUES ('" . $idRole . "', '" . $idPer . "', '" . $action . "');";
@@ -143,21 +150,28 @@ switch ($_POST['action']) {
                 $email = $_POST['email'];
                 $roleID = $_POST['roleID'];
                 $date = date('Y-m-d');
-                $sql = "INSERT INTO users (`USER_ID`, `TYPE_USER_ID` , `NAME`, `PHONE`, `ADDRESS`, `EMAIL`, `STATUS`) 
-                        VALUES ('" . $userID . "', '" . $type . "', '" . $name . "','" . $phone . "', '" . $address . "', '" . $email . "', 'đang hoạt động')";
-                $result = $db->connection($sql);
-                if ($result) {
-                    // echo 'success';
-                    $sql2 = "INSERT INTO accounts (`USERNAME`, `PASSWORD`, `ROLE_ID`, `DATE_CREATE`,  `STATUS`)
-                            VALUES ('" . $userID . "', '" . $phone . "', '" . $roleID . "','" . $date . "', 'đang hoạt động')";
-                    $result2 = $db->connection($sql2);
-                    if ($result2) {
-                        echo 'success';
-                    } else {
-                        echo 'error';
-                    }
+                $sql0 = "SELECT COUNT(*) FROM users WHERE USER_ID = '" . $userID . "'";
+                $num = $db->connection($sql0);
+                $row = $num->fetch_assoc();
+                if ($row['COUNT(*)'] > 0) {
+                    echo 'đã tồn tại mã nhân viên';
                 } else {
-                    echo $sql;
+                    $sql = "INSERT INTO users (`USER_ID`, `TYPE_USER_ID` , `NAME`, `PHONE`, `ADDRESS`, `EMAIL`) 
+                    VALUES ('" . $userID . "', '" . $type . "', '" . $name . "','" . $phone . "', '" . $address . "', '" . $email . "')";
+                    $result = $db->connection($sql);
+                    if ($result) {
+                        // echo 'success';
+                        $sql2 = "INSERT INTO accounts (`USERNAME`, `PASSWORD`, `ROLE_ID`, `DATE_CREATE`,  `STATUS`)
+                        VALUES ('" . $userID . "', '" . $phone . "', '" . $roleID . "','" . $date . "', 'đang hoạt động')";
+                        $result2 = $db->connection($sql2);
+                        if ($result2) {
+                            echo 'success';
+                        } else {
+                            echo 'error';
+                        }
+                    } else {
+                        echo $sql;
+                    }
                 }
                 break;
                 // case 'Permission':
@@ -235,8 +249,8 @@ switch ($_POST['action']) {
                 }
                 $discountID = $_POST['discountID']; // id khuyến mãi
                 $totalPrice = $_POST['totalPrice']; // tổng tiền
-                $sql = "INSERT INTO export (`EXPORT_ID`, `CUSTOMER_ID`, `DISCOUNT_ID`, `TOTAL`, `STATUS_EX`)
-                        VALUES ('" . $id . "', '" . $idCustomer . "', '" . $discountID . "', '" . $totalPrice . "', 'đang chờ');";
+                $sql = "INSERT INTO export (`EXPORT_ID`, `CUSTOMER_ID`, `DISCOUNT_ID`, `TOTAL`, `STATUS_EX`, `EMPLOYEE_ID`)
+                        VALUES ('" . $id . "', '" . $idCustomer . "', '" . $discountID . "', '" . $totalPrice . "', 'đang chờ', 'NV0');";
                 $result = $db->connection($sql);
                 echo $id;
                 break;
@@ -248,7 +262,6 @@ switch ($_POST['action']) {
                 $price = $_POST['productPrice']; // đơn giá xuất
                 $sql = "INSERT INTO export_detail (`EXPORT_ID`, `PRODUCT_ID`, `QUANTITY_EX`, `UNIT_PRICE_EX`)
                         VALUES ('" . $idExport . "', '" . $idProduct . "', '" . $quantity . "', '" . $price . "');";
-                echo $sql;
                 $result = $db->connection($sql);
                 if ($result) {
                     $sql1 = "SELECT * FROM products WHERE PRODUCT_ID = '" . $idProduct . "'";
@@ -556,11 +569,35 @@ switch ($_POST['action']) {
                 $sql = "INSERT INTO role_permissions (ROLE_ID, PERMISSION_ID, ACTION) 
                         VALUES ('" . $idRole . "', '" . $idPermission . "', '" . $action . "');";
                 $result = $db->connection($sql);
-                echo $sql;
                 if ($result) {
                     echo 'success';
                 } else {
                     echo 'error';
+                }
+                break;
+            case 'Export_Cancel':
+                $idExport = $_POST['idExport'];
+                $sql = "UPDATE export
+                        SET STATUS_EX = 'đã hủy'
+                        WHERE EXPORT_ID = '" . $idExport . "';";
+                $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                } else {
+                    echo 'fail';
+                }
+                break;
+            case 'Product_Cancel':
+                $idProduct = $_POST['idProduct'];
+                $quantity  = $_POST['quantity'];
+                $sql = "UPDATE products
+                        SET QUANTITY_PRO = QUANTITY_PRO + $quantity
+                        WHERE PRODUCT_ID = '" . $idProduct . "';";
+                $result = $db->connection($sql);
+                if ($result) {
+                    echo 'success';
+                } else {
+                    echo 'fail';
                 }
                 break;
         }

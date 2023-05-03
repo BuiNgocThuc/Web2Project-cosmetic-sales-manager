@@ -90,12 +90,14 @@ const regisAccount = async () => {
         success: function (res) {
             if (res == "Success") {
                 alert("Tạo tài khoản thành công!");
-                login();
-                document.querySelector("#username-field").value = username;
-                document.querySelector("#password-field").value = password;
-            } else alert("Tạo tài khoản thất bại!");
+                Login();
+            } else {
+                console.log(res);
+                alert("Tạo tài khoản thất bại!");
+            }
         },
     });
+
 }
 
 const checkInputLogin = async () => {
